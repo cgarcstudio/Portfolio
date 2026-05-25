@@ -5,52 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGARC STUDIO | GAME ART</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* فیکس نهایی ابعاد گرید و کارت‌ها برای جلوگیری از خط شدن */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 25px !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 40px !important;
+            box-sizing: border-box;
+        }
+
+        /* تضمین فیزیکی ساختار مربع کامل بدون وابستگی به پدینگ‌های خطاساز */
+        .card {
+            display: flex !important;
+            flex-direction: column;
+            width: 100% !important;
+            aspect-ratio: 1 / 1 !important; /* قفل کردن نسبت ابعاد روی مربع کامل (۱:۱) */
+            position: relative !important;
+            background: #0b0e14;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .card-image-wrapper {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            padding-top: 0 !important; /* حذف پدینگ قدیمی که باعث خط شدن کارت می‌شد */
+        }
+
+        .card-image {
+            width: 100% !important;
+            height: 100% !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+    </style>
 </head>
 <body>
 
     <div class="page-bg-wallpaper"></div>
 
-    <div class="main-wrapper" id="main-content-wrapper">
+    <div id="main-content-wrapper" class="main-wrapper">
+        
         <header class="inner-header">
             <a href="index.html" class="header-branding">
-                <img src="public/logo.png" alt="CGARC STUDIO" class="header-logo">
-                <span class="header-title">CGARC STUDIO <span class="slash">/</span> <span class="category-name">GAME ART</span></span>
+                <img src="public/logo.png" alt="CGArc Logo" class="header-logo">
+                <div class="header-title">
+                    CGARC STUDIO <span class="slash">/</span> <span class="category-name">GAME ART</span>
+                </div>
             </a>
 
-            <div class="nav-toggle-container" id="menu-trigger">
+            <div id="menu-trigger" class="nav-toggle-container">
                 <div class="nav-toggle">
                     <span class="line-long"></span>
                     <span class="line-medium"></span>
                     <span class="line-short"></span>
                 </div>
+                
                 <div class="fullscreen-menu">
-                    <nav class="menu-links">
-                        <a href="index.html" class="active-link">HOME</a>
-                        <a href="about.html">ABOUT US</a>
-                        <a href="contact.html">CONTACT US</a>
-                    </nav>
+                    <div class="menu-links">
+                        <a href="index.html">HOME</a>
+                        <a href="game.html" class="active-link">GAME ART</a>
+                        <a href="archviz.html">ARCHVIZ</a>
+                    </div>
                     <div class="menu-socials">
-                        <a href="#">ARTSTATION</a>
-                        <a href="#">LINKEDIN</a>
+                        <a href="#" target="_blank">ARTSTATION</a>
+                        <a href="#" target="_blank">INSTAGRAM</a>
+                        <a href="#" target="_blank">YOUTUBE</a>
                     </div>
                 </div>
             </div>
         </header>
 
-        <main class="grid-container" id="projects-grid"></main>
+        <main id="projects-grid" class="grid-container">
+            </main>
+
+        <button id="scrollTopBtn" title="Go to top">➜</button>
 
         <footer class="page-footer">
             <p>&copy; 2026 CGArc Studio. All Rights Reserved.</p>
         </footer>
     </div>
 
-    <button id="scrollTopBtn" title="Go to top">&#10148;</button>
-
-    <script src="products-db.js"></script>
-
+    <script src="data/portfolio.json" type="text/javascript"></script>
+    
     <script>
-        // تابع قالب کامپوننت (موتور ساخت کارت‌ها)
-        function createCardComponent(project) {
+        // دیتابیس هاردکد شده زاپاس برای اطمینان از خوانده شدن اطلاعات روی گیت‌هاب
+        const backupProjects = [
+            { title: "LEICA Q3", type: "FULL TUTORIAL", url: "#", cover: "public/image/game/covers/leica_q3_cover.webp" },
+            { title: "COMBAT DRONE", type: "FULL TUTORIAL", url: "#", cover: "public/image/game/covers/combat_drone_cover.webp" },
+            { title: "AXES VOL.02", type: "GAME READY", url: "#", cover: "public/image/game/covers/axes_cover_vol02.webp" },
+            { title: "AXES VOL.01", type: "GAME READY", url: "#", cover: "public/image/game/covers/axes_cover_vol01.webp" },
+            { title: "DAGGERS VOL.02", type: "GAME READY", url: "#", cover: "public/image/game/covers/dagger_cover_vol02.webp" },
+            { title: "DAGGERS VOL.01", type: "GAME READY", url: "#", cover: "public/image/game/covers/dagger_cover_vol01.webp" }
+        ];
+
+        // تابع ساخت کامپوننت کارت‌ها با نسبت ۱:۱ مربعی
+        function createCard(project) {
             return `
                 <a href="${project.url}" class="card game-art-card">
                     <div class="card-image-wrapper">
@@ -66,36 +126,40 @@
             `;
         }
 
-        // رندر خودکار محصولات از فایل خارجی دیتابیس
-        function renderProjects() {
-            const gridContainer = document.getElementById('projects-grid');
-            if (gridContainer && typeof projectsData !== 'undefined') {
-                gridContainer.innerHTML = projectsData.map(project => createCardComponent(project)).join('');
+        // رندر کردن گرید صفحه
+        function initGrid() {
+            const grid = document.getElementById('projects-grid');
+            if (grid) {
+                // استفاده از دیتابیس فیکس شده بالا
+                grid.innerHTML = backupProjects.map(p => createCard(p)).join('');
             }
         }
 
-        window.addEventListener('DOMContentLoaded', renderProjects);
+        // اجرای توابع پس از لود کامل صفحه
+        window.addEventListener('DOMContentLoaded', () => {
+            initGrid();
 
-        // منطق بلور افکت منو
-        const menuTrigger = document.getElementById('menu-trigger');
-        const mainWrapper = document.getElementById('main-content-wrapper');
-        if(menuTrigger && mainWrapper) {
-            menuTrigger.addEventListener('mouseenter', () => mainWrapper.classList.add('menu-active'));
-            menuTrigger.addEventListener('mouseleave', () => mainWrapper.classList.remove('menu-active'));
-        }
-
-        // منطق دکمه اسکرول به بالا
-        const scrollTopBtn = document.getElementById("scrollTopBtn");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollTopBtn.classList.add("visible");
-            } else {
-                scrollTopBtn.classList.remove("visible");
+            // افکت بلور منو
+            const trigger = document.getElementById('menu-trigger');
+            const wrapper = document.getElementById('main-content-wrapper');
+            if (trigger && wrapper) {
+                trigger.addEventListener('mouseenter', () => wrapper.classList.add('menu-active'));
+                trigger.addEventListener('mouseleave', () => wrapper.classList.remove('menu-active'));
             }
-        };
-        scrollTopBtn.onclick = function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+
+            // دکمه اسکرول به بالا
+            const scrollBtn = document.getElementById("scrollTopBtn");
+            window.onscroll = function() {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    scrollBtn.classList.add("visible");
+                } else {
+                    scrollBtn.classList.remove("visible");
+                }
+            };
+            scrollBtn.onclick = function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+        });
     </script>
 </body>
 </html>
