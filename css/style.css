@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. GLOBAL VISUAL IDENTITY & TYPOGRAPHY (مشترک برای تمام صفحات)
+   1. GLOBAL VISUAL IDENTITY & TYPOGRAPHY
    ========================================================================= */
 @font-face {
     font-family: 'CGArcFont';
@@ -34,7 +34,6 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-/* افکت بلور منوی ناوبری صفحات داخلی */
 .main-wrapper {
     transition: filter 0.4s ease, opacity 0.4s ease;
     width: 100%;
@@ -50,7 +49,6 @@ body::-webkit-scrollbar {
     pointer-events: none;
 }
 
-/* بک‌گراند صفحات داخلی */
 .page-bg-wallpaper {
     position: fixed;
     top: 0;
@@ -65,7 +63,7 @@ body::-webkit-scrollbar {
 }
 
 /* ==========================================================================
-   2. SPLIT LAYOUT & BRANDING (مخصوص صفحه اول / هاب دو تکه INDEX.HTML)
+   2. SPLIT LAYOUT & BRANDING (INDEX.HTML)
    ========================================================================== */
 .center-brand-container {
     position: absolute;
@@ -80,7 +78,6 @@ body::-webkit-scrollbar {
     text-align: center;
 }
 
-/* اصلاح اندازه لوگوی صفحه اول که دیگر غول‌آسا نشود */
 .brand-logo {
     width: 76px;
     height: 76px;
@@ -152,7 +149,7 @@ body::-webkit-scrollbar {
 .arch-viz:hover .arch-text { color: var(--accent-arch); }
 
 /* ==========================================================================
-   3. NAVIGATION HEADER & HAMBURGER SYSTEM (منوی صفحات داخلی)
+   3. NAVIGATION HEADER & HAMBURGER SYSTEM
    ========================================================================== */
 .inner-header {
     display: flex;
@@ -227,56 +224,52 @@ body::-webkit-scrollbar {
 .nav-toggle-container:hover .nav-toggle .line-short { width: 100%; transform: translateY(-8px) rotate(-45deg); }
 
 /* ==========================================================================
-   4. PROJECT GRID & PERFECT SQUARE CARDS SYSTEM (سیستم گرید صفحات محصولات)
+   4. 4-COLUMN PERFECT SQUARE GRID SYSTEM (اصلاح شده برای ۴ ستون مربعی)
    ========================================================================== */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px; 
-    max-width: 1400px;
+    /* تغییر به ۴ ستون هم‌اندازه */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px; /* فاصله بهینه‌تر برای چیدمان ۴ ستونه */
+    max-width: 1600px; /* بازتر کردن عرض کلی صفحه برای مچ نشدن عکس‌ها */
     margin: 0 auto;
-    padding: 40px 40px 120px 40px;
+    padding: 20px 40px 120px 40px;
 }
 
-@media (max-width: 1024px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 650px) { .grid-container { grid-template-columns: 1fr; } }
-
+/* افکت سینمایی تاریک شدن بقیه کارت‌ها هنگام هاور روی یک کارت */
 .grid-container:has(.card:hover) .card:not(:hover) {
-    filter: grayscale(30%) brightness(70%);
-    opacity: 0.8;
+    filter: brightness(60%);
+    opacity: 0.7;
 }
 
 .card {
     display: block;
     background: #0b0e14;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
     text-decoration: none;
     border: 1px solid rgba(255, 255, 255, 0.04);
     position: relative;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-    
-    /* ابعاد امن ثابت برای جلوگیری از مچاله شدن کارت‌ها روی گیت‌هاب */
     width: 100%;
-    min-height: 380px; 
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .card:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .game-art-card:hover {
-    box-shadow: 0 15px 35px rgba(229, 154, 25, 0.25);
-    border-color: rgba(229, 154, 25, 0.4);
+    box-shadow: 0 15px 35px rgba(229, 154, 25, 0.2);
+    border-color: rgba(229, 154, 25, 0.3);
 }
 
+/* تضمین نسبت ابعاد ۱:۱ (مربع کامل) */
 .card-image-wrapper {
     width: 100%;
-    padding-top: 100%;
+    padding-top: 100%; /* ساختار مربع بی‌نقص */
     position: relative;
     overflow: hidden;
-    border-radius: 16px;
 }
 
 .card-image {
@@ -292,35 +285,35 @@ body::-webkit-scrollbar {
 }
 
 .card:hover .card-image {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
+/* پاپ‌آپ متنی شیک روی رندرها هنگام هاور */
 .card-info {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 20px;
-    background: linear-gradient(to top, rgba(11, 14, 20, 0.95) 0%, rgba(11, 14, 20, 0.8) 70%, rgba(11, 14, 20, 0) 100%);
+    padding: 15px;
+    background: linear-gradient(to top, rgba(5, 7, 12, 0.95) 0%, rgba(5, 7, 12, 0.7) 70%, rgba(5, 7, 12, 0) 100%);
     opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 5;
     text-align: left;
 }
 
 .card-info h3 {
-    font-size: 1.15rem;
+    font-size: 1rem;
     letter-spacing: 1px;
     color: var(--accent-game);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .card-details p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     letter-spacing: 1px;
-    font-weight: 500;
 }
 
 .card:hover .card-info {
@@ -390,7 +383,6 @@ body::-webkit-scrollbar {
     right: 30px;
     z-index: 99;
     border: 1px solid rgba(255,255,255,0.1);
-    outline: none;
     background-color: rgba(11, 14, 20, 0.85);
     backdrop-filter: blur(5px);
     color: var(--accent-game);
@@ -415,3 +407,18 @@ body::-webkit-scrollbar {
 }
 
 .page-footer p { font-size: 0.8rem; color: #5c6470; letter-spacing: 1px; }
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN (ریسپانسیو هوشمند برای موبایل و تبلت)
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .grid-container { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+}
+
+@media (max-width: 850px) {
+    .grid-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+    .grid-container { grid-template-columns: 1fr; padding: 20px; }
+}
