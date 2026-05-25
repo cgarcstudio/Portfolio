@@ -224,52 +224,59 @@ body::-webkit-scrollbar {
 .nav-toggle-container:hover .nav-toggle .line-short { width: 100%; transform: translateY(-8px) rotate(-45deg); }
 
 /* ==========================================================================
-   4. 4-COLUMN PERFECT SQUARE GRID SYSTEM (اصلاح شده برای ۴ ستون مربعی)
+   4. FIXED 4-COLUMN GRID WITH COMPACT CARDS & DROPDOWN CAPTIONS
    ========================================================================== */
 .grid-container {
     display: grid;
-    /* تغییر به ۴ ستون هم‌اندازه */
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px; /* فاصله بهینه‌تر برای چیدمان ۴ ستونه */
-    max-width: 1600px; /* بازتر کردن عرض کلی صفحه برای مچ نشدن عکس‌ها */
+    gap: 30px; 
+    max-width: 1350px; /* کوچک‌تر کردن عرض کل گرید برای ایجاد سایز کارت ۱۰٪ کوچک‌تر */
     margin: 0 auto;
-    padding: 20px 40px 120px 40px;
+    padding: 40px 40px 120px 40px;
+    align-items: start;
 }
 
-/* افکت سینمایی تاریک شدن بقیه کارت‌ها هنگام هاور روی یک کارت */
+/* افکت مات شدن و تاریک شدن بقیه کارت‌ها وقتی روی یکی هاور می‌شود */
 .grid-container:has(.card:hover) .card:not(:hover) {
-    filter: brightness(60%);
-    opacity: 0.7;
+    filter: brightness(45%) grayscale(40%);
+    opacity: 0.5;
 }
 
+/* ساختار کارت */
 .card {
-    display: block;
-    background: #0b0e14;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
     border-radius: 12px;
-    overflow: hidden;
     cursor: pointer;
     text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.04);
     position: relative;
     width: 100%;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    /* تغییر ترنزیشن برای باز شدن نرم کپشن به پایین و درخشش پشت کارت */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.4s ease, opacity 0.4s ease;
 }
 
+/* افکت زوم و درخشش زرد (Glow) دور کارت هنگام هاور */
 .card:hover {
-    transform: scale(1.02);
+    transform: scale(1.06); /* بزرگ شدن محسوس کارت هنگام هاور */
 }
 
-.game-art-card:hover {
-    box-shadow: 0 15px 35px rgba(229, 154, 25, 0.2);
-    border-color: rgba(229, 154, 25, 0.3);
+.game-art-card:hover .card-image-wrapper {
+    /* ایجاد هاله درخشش زرد رنگ دور بخش رندر */
+    box-shadow: 0 0 30px rgba(229, 154, 25, 0.55);
+    border-color: rgba(229, 154, 25, 0.5);
 }
 
-/* تضمین نسبت ابعاد ۱:۱ (مربع کامل) */
+/* باکس رندر مربعی */
 .card-image-wrapper {
     width: 100%;
-    padding-top: 100%; /* ساختار مربع بی‌نقص */
+    padding-top: 100%; /* ساختار مربع بی‌نقص ۱:۱ */
     position: relative;
     overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background: #0b0e14;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .card-image {
@@ -284,41 +291,52 @@ body::-webkit-scrollbar {
     transition: transform 0.5s ease;
 }
 
+/* زوم جزیی خودِ رندر داخل قاب */
 .card:hover .card-image {
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 
-/* پاپ‌آپ متنی شیک روی رندرها هنگام هاور */
+/* کپشنِ زیر رندر با افکت باز شدن کشویی به پایین */
 .card-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    padding: 15px;
-    background: linear-gradient(to top, rgba(5, 7, 12, 0.95) 0%, rgba(5, 7, 12, 0.7) 70%, rgba(5, 7, 12, 0) 100%);
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 5;
+    padding: 0px 8px;
+    background: transparent;
     text-align: left;
+    
+    /* منطق باز شدن زیر رندر: */
+    max-height: 0; /* در حالت عادی ارتفاع صفر و پنهان است */
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-5px);
+    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                opacity 0.3s ease, 
+                transform 0.4s ease, 
+                padding 0.3s ease;
+}
+
+/* فعال شدن کپشن دقیقا زیر کارت هنگام هاور */
+.card:hover .card-info {
+    max-height: 70px; /* باز شدن فضا برای متن */
+    opacity: 1;
+    transform: translateY(0);
+    padding: 12px 8px 5px 8px; /* ایجاد فاصله نرم بعد از باز شدن */
 }
 
 .card-info h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    font-weight: bold;
     letter-spacing: 1px;
-    color: var(--accent-game);
-    margin-bottom: 2px;
+    color: var(--accent-game); /* رنگ زرد اصلی استودیو */
+    margin-bottom: 3px;
+    text-transform: uppercase;
 }
 
 .card-details p {
     font-size: 0.75rem;
     color: var(--text-muted);
     letter-spacing: 1px;
-}
-
-.card:hover .card-info {
-    opacity: 1;
-    transform: translateY(0);
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 /* ==========================================================================
@@ -409,7 +427,7 @@ body::-webkit-scrollbar {
 .page-footer p { font-size: 0.8rem; color: #5c6470; letter-spacing: 1px; }
 
 /* ==========================================================================
-   6. RESPONSIVE DESIGN (ریسپانسیو هوشمند برای موبایل و تبلت)
+   6. RESPONSIVE DESIGN
    ========================================================================== */
 @media (max-width: 1200px) {
     .grid-container { grid-template-columns: repeat(3, 1fr); gap: 20px; }
