@@ -1,0 +1,26 @@
+{
+  "profile": {
+    "name": "Saeed Abbasi",
+    "role": "3D Artist & UI Designer",
+    "location": "Turin, Italy",
+    "about": "Passionate about 3D modeling, architectural history, and crafting engaging user interfaces."
+  },
+  "projects": [
+    {
+      "id": "1",
+      "title": "Social Modernist Interior",
+      "category": "archviz",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      "description": "Exploration of microcement textures and minimalist design.",
+      "link": "arch.html"
+    },
+    {
+      "id": "2",
+      "title": "Vintage Camera Prop",
+      "category": "gameart",
+      "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
+      "description": "High-poly modeling and texturing for game engines.",
+      "link": "game.html"
+    }
+  ]
+}
