@@ -96,52 +96,81 @@ body::-webkit-scrollbar { display: none; }
 .nav-toggle-container:hover .nav-toggle .line-short { width: 100%; transform: translateY(-8px) rotate(-45deg); }
 
 /* ==========================================================================
-   4. DYNAMIC GRID & CARDS (EFFECTS APPLIED)
+   4. DYNAMIC GRID & CARDS (FIXED & FULLY FUNCTIONAL)
    ========================================================================== */
 .products-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; 
-    max-width: 1260px; margin: 0 auto; padding: 40px 40px 120px 40px; align-items: start;
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; 
+    max-width: 1260px; 
+    margin: 0 auto; 
+    padding: 40px 40px 120px 40px; 
 }
 
-/* افکت مات شدن بقیه */
-.products-grid:has(.card-link:hover) .card-link:not(:hover) {
-    filter: brightness(45%) grayscale(45%); opacity: 0.55;
+/* افکت مات شدن بقیه کارت‌ها هنگام هاور روی یک کارت خاص */
+.products-grid:hover .card-link:not(:hover) {
+    filter: grayscale(80%) brightness(40%);
+    opacity: 0.4;
+    transition: filter 0.4s ease, opacity 0.4s ease;
 }
 
 .card-link {
-    text-decoration: none; display: block; color: inherit;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.4s ease, opacity 0.4s ease;
+    text-decoration: none; 
+    display: block; 
+    color: inherit;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-link:hover {
+    transform: scale(1.05);
+    z-index: 5;
 }
 
 .card {
-    display: flex; flex-direction: column; background: transparent;
-    border-radius: 12px; position: relative; width: 100%;
+    display: flex; 
+    flex-direction: column; 
+    background: transparent;
+    border-radius: 12px; 
+    position: relative; 
+    width: 100%;
     transition: box-shadow 0.4s ease;
 }
 
-/* افکت زوم و درخشش */
-.card-link:hover { transform: scale(1.06); z-index: 5; }
-.card-link:hover .card { box-shadow: 0 0 35px rgba(229, 154, 25, 0.6); }
-.card-link:hover .card-img-holder { border-color: rgba(229, 154, 25, 0.4); }
+/* افکت درخشش نئونی و بوردر */
+.card-link:hover .card {
+    box-shadow: 0 0 40px rgba(229, 154, 25, 0.5);
+    border: 1px solid rgba(229, 154, 25, 0.3);
+}
 
 .card-img-holder {
-    width: 100%; aspect-ratio: 1 / 1; position: relative; overflow: hidden;
-    border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.04); background: #0b0e14;
-    transition: border-color 0.4s ease;
+    width: 100%; 
+    aspect-ratio: 1 / 1; 
+    position: relative; 
+    overflow: hidden;
+    border-radius: 12px; 
+    border: 1px solid rgba(255, 255, 255, 0.04); 
+    background: #0b0e14;
 }
-.card-img-holder img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-.card-link:hover .card-img-holder img { transform: scale(1.03); }
+.card-img-holder img { width: 100%; height: 100%; object-fit: cover; }
 
-/* کپشن کشویی */
+/* کپشن کشویی - هماهنگ با تولیداتِ JS */
 .card-info {
-    width: 100%; padding: 0 8px; background: transparent; max-height: 0; opacity: 0;
-    overflow: hidden; transform: translateY(-5px);
-    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease, transform 0.4s ease, padding 0.3s ease;
+    width: 100%; 
+    padding: 0 15px; 
+    background: transparent; 
+    max-height: 0; 
+    opacity: 0;
+    overflow: hidden; 
+    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.2s ease, padding 0.3s ease;
 }
+
 .card-link:hover .card-info {
-    max-height: 75px; opacity: 1; transform: translateY(0); padding: 12px 8px 5px 8px;
+    max-height: 80px; 
+    opacity: 1; 
+    padding: 15px;
 }
-.card-title { font-size: 0.95rem; font-weight: bold; color: var(--accent-game); margin-bottom: 3px; text-transform: uppercase; display: block; }
+
+.card-title { font-size: 0.95rem; font-weight: bold; color: var(--accent-game); text-transform: uppercase; display: block; }
 .card-category { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 500; display: block; }
 
 /* ==========================================================================
