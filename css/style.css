@@ -8,13 +8,9 @@
 
 :root {
     --bg-dark: #05070c;
-    --bg-light: #f4f7f6;
     --accent-game: #e59a19;
     --accent-arch: #00b4d8;
     --card-dark: #0b0e14;
-    --card-light: #ffffff;
-    --text-light-main: #11161d;
-    --text-light-muted: #5c6470;
 }
 
 * {
@@ -28,44 +24,107 @@ body {
     background-color: var(--bg-dark);
     color: #ffffff;
     overflow-x: hidden;
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+    position: relative;
+    min-height: 100vh;
 }
 
 body::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome/Safari */
+    display: none;
 }
 
+/* Base Wrapper Blur effect when menu triggers */
 .main-wrapper {
-    transition: filter 0.4s ease;
+    transition: filter 0.4s ease, opacity 0.4s ease;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-wrapper.menu-blurred {
+    filter: blur(12px);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Fullscreen Background Wallpaper for Inner Pages */
+.page-bg-wallpaper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../public/image/hub/game_bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
 /* ==========================================================================
-   2. HAMBURGER NAVIGATION (FOR INNER PAGES ONLY)
+   2. NAVIGATION HEADER (LOGO / SLIT TITLE & HAMBURGER)
    ========================================================================== */
+.inner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    width: 100%;
+    z-index: 50;
+}
+
+.header-branding {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.header-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    margin-right: 12px;
+}
+
+.header-title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.header-title .slash {
+    color: #5c6470;
+    margin: 0 8px;
+}
+
+.header-title .category-name {
+    color: var(--accent-game); /* Custom Orange Accent */
+    letter-spacing: 2px;
+}
+
+/* Hamburger Trigger */
 .nav-toggle {
-    position: fixed;
-    top: 25px;
-    right: 25px;
-    width: 35px;
-    height: 25px;
+    width: 30px;
+    height: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    z-index: 100;
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 .nav-toggle:hover {
-    transform: rotate(90deg);
+    transform: scale(1.1);
 }
 
 .nav-toggle span {
     display: block;
-    height: 3px;
+    height: 2px;
     width: 100%;
     background: #ffffff;
-    border-radius: 3px;
     transition: all 0.3s ease;
 }
 
@@ -92,7 +151,6 @@ body::-webkit-scrollbar {
     margin-bottom: 12px;
 }
 
-/* Brand name made fine, smaller, and highly premium */
 .brand-name {
     font-size: 0.95rem;
     font-weight: bold;
@@ -118,7 +176,6 @@ body::-webkit-scrollbar {
     transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Fixed pathing from public/ folder structure */
 .split-section::before {
     content: '';
     position: absolute;
@@ -130,15 +187,9 @@ body::-webkit-scrollbar {
     z-index: 1;
 }
 
-.game-art::before {
-    background-image: url('../public/image/hub/game_hub.webp');
-}
+.game-art::before { background-image: url('../public/image/hub/game_hub.webp'); }
+.arch-viz::before { background-image: url('../public/image/hub/arch_hub.webp'); }
 
-.arch-viz::before {
-    background-image: url('../public/image/hub/arch_hub.webp');
-}
-
-/* Vertical Text: 10% Larger (2.4rem), Brighter premium slate-white (#f1f5f9) */
 .vertical-text {
     position: absolute;
     z-index: 10;
@@ -151,131 +202,79 @@ body::-webkit-scrollbar {
     transition: color 0.4s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.game-text {
-    right: 10px; /* Perfectly aligned near the central division axis */
-    transform: rotate(180deg);
-}
+.game-text { right: 10px; transform: rotate(180deg); }
+.arch-text { left: 10px; }
 
-.arch-text {
-    left: 10px;  /* Perfectly aligned near the central division axis */
-}
+.split-section:hover { flex: 1.4; }
+.split-section:hover::before { filter: grayscale(0%) brightness(100%); transform: scale(1.03); }
 
-/* --- Interaction / Hover Logic --- */
+.split-container:has(.arch-viz:hover) .game-art::before { filter: grayscale(100%) brightness(15%); }
+.split-container:has(.game-art:hover) .arch-viz::before { filter: grayscale(100%) brightness(15%); }
 
-.split-section:hover {
-    flex: 1.4;
-}
-
-.split-section:hover::before {
-    filter: grayscale(0%) brightness(100%);
-    transform: scale(1.03);
-}
-
-.split-container:has(.arch-viz:hover) .game-art::before {
-    filter: grayscale(100%) brightness(15%);
-}
-
-.split-container:has(.game-art:hover) .arch-viz::before {
-    filter: grayscale(100%) brightness(15%);
-}
-
-.game-art:hover .game-text {
-    color: var(--accent-game);
-}
-
-.arch-viz:hover .arch-text {
-    color: var(--accent-arch);
-}
+.game-art:hover .game-text { color: var(--accent-game); }
+.arch-viz:hover .arch-text { color: var(--accent-arch); }
 
 /* ==========================================================================
-   4. PORTFOLIO PAGES LAYOUTS (GAME & ARCH INNER PAGES)
-   ========================================================================== */
-.page-header {
-    height: 40vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.page-header::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(5, 7, 12, 0.6);
-}
-
-.page-title {
-    position: relative;
-    z-index: 2;
-    font-size: 3rem;
-    text-transform: uppercase;
-}
-
-/* ==========================================================================
-   5. PROJECT GRID & SMART FOCUS CARDS SYSTEM
+   4. PROJECT GRID & SMART FOCUS CARDS SYSTEM (INNER PAGES)
    ========================================================================== */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 30px;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 40px 40px 80px 40px;
 }
 
-@media (max-width: 1024px) { 
-    .grid-container { grid-template-columns: repeat(2, 1fr); } 
-}
-@media (max-width: 600px) { 
-    .grid-container { grid-template-columns: 1fr; } 
-}
+@media (max-width: 1200px) { .grid-container { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid-container { grid-template-columns: 1fr; } }
 
+/* Dim & Desaturate Non-Hovered Cards */
 .grid-container:has(.card:hover) .card:not(:hover) {
-    filter: grayscale(45%) brightness(80%);
-    opacity: 0.65;
+    filter: grayscale(80%) brightness(40%);
+    opacity: 0.5;
 }
 
 .card {
-    background: var(--card-dark);
-    border-radius: 8px;
+    background: rgba(11, 14, 20, 0.85);
+    border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
     text-decoration: none;
     color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
 }
 
 .card:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
+/* Orange Neon Glow Custom Match */
 .game-art-card:hover {
-    box-shadow: 0 0 30px rgba(229,154,25,0.6), 
-                0 0 55px rgba(229,154,25,0.35), 
-                0 0 80px rgba(229,154,25,0.15);
-}
-
-.arch-viz-card:hover {
-    box-shadow: 0 0 20px rgba(0,180,216,0.25), 
-                0 0 40px rgba(0,180,216,0.15), 
-                0 0 60px rgba(0,180,216,0.08);
+    box-shadow: 0 0 30px rgba(229, 154, 25, 0.45), 
+                0 0 60px rgba(229, 154, 25, 0.2);
+    border-color: rgba(229, 154, 25, 0.4);
 }
 
 .card-image {
-    height: 240px;
+    height: 280px;
     background-size: cover;
     background-position: center;
-    border-radius: 8px 8px 0 0;
     transition: transform 0.4s ease;
 }
 
 .card-info {
     padding: 20px;
-    border-radius: 0 0 8px 8px;
-    background: var(--card-dark);
+    background: #0b0e14;
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
 }
 
 .card-details {
@@ -285,8 +284,103 @@ body::-webkit-scrollbar {
     transition: max-height 0.4s ease, opacity 0.4s ease;
 }
 
+.card-details p {
+    font-size: 0.8rem;
+    color: var(--accent-game);
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
 .card:hover .card-details {
-    max-height: 80px;
+    max-height: 40px;
     opacity: 1;
-    margin-top: 10px;
+    margin-top: 8px;
+}
+
+/* ==========================================================================
+   5. PREMIUM OVERLAY MENU & FOOTER
+   ========================================================================== */
+.fullscreen-menu {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(5, 7, 12, 0.6);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 10%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.fullscreen-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.close-icon {
+    position: absolute;
+    top: 30px; right: 40px;
+    font-size: 3rem;
+    color: var(--accent-game);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-icon:hover { transform: rotate(90deg); }
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.menu-links a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.menu-links a:hover, .menu-links a.active-link {
+    color: var(--accent-game);
+}
+
+.menu-socials {
+    display: flex;
+    gap: 30px;
+}
+
+.menu-socials a {
+    font-size: 0.85rem;
+    color: #5c6470;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu-socials a:hover { color: #ffffff; }
+
+/* Footer Copyright */
+.page-footer {
+    text-align: center;
+    padding: 30px 20px;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(5, 7, 12, 0.8);
+}
+
+.page-footer p {
+    font-size: 0.8rem;
+    color: #5c6470;
+    letter-spacing: 1px;
 }
