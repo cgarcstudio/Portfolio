@@ -85,7 +85,7 @@ body::-webkit-scrollbar {
     text-align: center;
 }
 
-/* Logo increased by ~70% (from 45px to 76px) */
+/* Logo size remains bold and large */
 .brand-logo {
     width: 76px;
     height: 76px;
@@ -93,11 +93,11 @@ body::-webkit-scrollbar {
     margin-bottom: 12px;
 }
 
-/* Brand name text increased by ~70% (from 0.85rem to 1.45rem) */
+/* Brand name made smaller and elegant for a premium look */
 .brand-name {
-    font-size: 1.45rem;
+    font-size: 1.05rem;
     font-weight: bold;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
     color: #ffffff;
 }
 
@@ -139,26 +139,26 @@ body::-webkit-scrollbar {
     background-image: url('../public/image/hub/arch_hub.webp');
 }
 
-/* Vertical Text Rules - Brought closer to center (20px) and made brighter (#a0a5b0) */
+/* Vertical Text: 10% Larger (2.4rem), Brighter text (#d1d5db) */
 .vertical-text {
     position: absolute;
     z-index: 10;
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: bold;
     letter-spacing: 4px;
     writing-mode: vertical-rl;
     text-transform: uppercase;
-    color: #a0a5b0; /* Made significantly brighter than previous dark gray */
+    color: #d1d5db; /* Noticeably brighter and cleaner */
     transition: color 0.4s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .game-text {
-    right: 20px; /* Brought closer to the center split line */
+    right: 10px; /* Distance halved to line up tightly with the center axis */
     transform: rotate(180deg);
 }
 
 .arch-text {
-    left: 20px; /* Brought closer to the center split line */
+    left: 10px; /* Distance halved to line up tightly with the center axis */
 }
 
 /* --- Interaction / Hover Logic --- */
