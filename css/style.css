@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'CGArcFont';
+    src: local('Arial'); /* Placeholder for your custom font */
+}
+
+:root {
+    --bg-dark: #05070c;
+    --bg-light: #f4f7f6;
+    --accent-game: #e59a19;
+    --accent-arch: #00bcd4;
+    --card-dark: #0b0e14;
+    --text-dark: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'CGArcFont', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    scrollbar-width: none; /* Hide scrollbar */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Split Screen Layout */
+.split-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    transition: filter 0.3s ease;
+}
+
+.split-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    transition: flex 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    filter: grayscale(100%);
+}
+
+.split-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    transition: transform 0.5s ease;
+}
+
+.game-art::before { background-color: #1a1a1a; } /* Add image URL here later */
+.arch-viz::before { background-color: #e0e0e0; } /* Add image URL here later */
+
+.split-section:hover {
+    flex: 1.4;
+    filter: grayscale(0%);
+}
+
+.split-section:hover::before {
+    transform: scale(1.05);
+}
+
+/* Center Logo Animation */
+.center-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.5rem;
+    z-index: 10;
+    transition: left 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: none;
+}
+
+.split-container:has(.game-art:hover) .center-logo { left: 72%; }
+.split-container:has(.arch-viz:hover) .center-logo { left: 28%; }
+
+/* Smart Focus Cards (For project pages) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.grid-container:has(.card:hover) .card:not(:hover) {
+    filter: grayscale(45%) brightness(80%);
+    opacity: 0.65;
+}
+
+.card {
+    background: var(--card-dark);
+    border-radius: 8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.08);
+    z-index: 2;
+}
+
+.card.game-art-card:hover {
+    box-shadow: 0 0 30px rgba(229,154,25,0.6), 0 0 55px rgba(229,154,25,0.35), 0 0 80px rgba(229,154,25,0.15);
+}
+
+.card.arch-viz-card:hover {
+    box-shadow: 0 0 20px rgba(0,180,216,0.25), 0 0 40px rgba(0,180,216,0.15), 0 0 60px rgba(0,180,216,0.08);
+}
