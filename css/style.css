@@ -231,56 +231,53 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
 .arch-viz:hover .arch-text { color: var(--accent-arch); }
 
 /* ==========================================================================
-   4. PROJECT GRID & PERFECT SQUARE CARDS SYSTEM
+   4. PROJECT GRID & PERFECT SQUARE CARDS SYSTEM (FIXED & OPTIMIZED)
    ========================================================================== */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr); /* خروجی ایده آل دسکتاپ بر اساس عکس اول */
+    gap: 40px; 
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 40px 80px 40px;
+    padding: 40px 40px 120px 40px;
 }
 
-@media (max-width: 1200px) { .grid-container { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 900px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .grid-container { grid-template-columns: 1fr; } }
+@media (max-width: 1024px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 650px) { .grid-container { grid-template-columns: 1fr; } }
 
-/* Modified Dim Logic: Less aggressive dark overlay to protect artwork detail */
+/* تعدیل افکت تاریکی برای کارتهای غیرفعال - بدون کوچکترین پرش بصری */
 .grid-container:has(.card:hover) .card:not(:hover) {
-    filter: grayscale(40%) brightness(65%);
-    opacity: 0.75;
+    filter: grayscale(30%) brightness(70%);
+    opacity: 0.8;
 }
 
 .card {
-    background: rgba(11, 14, 20, 0.9);
-    border-radius: 12px;
+    background: transparent;
+    border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
     text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
-    display: flex;
-    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.04);
     position: relative;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .card:hover {
-    transform: scale(1.04);
+    transform: scale(1.03); /* زوم ظریف کل کارت بدون جابجا کردن بقیه المان‌ها */
 }
 
 .game-art-card:hover {
-    box-shadow: 0 0 30px rgba(229, 154, 25, 0.45);
-    border-color: rgba(229, 154, 25, 0.5);
+    box-shadow: 0 15px 35px rgba(229, 154, 25, 0.25);
+    border-color: rgba(229, 154, 25, 0.4);
 }
 
-/* 1:1 Aspect Ratio Box Constraints for Pure Squares */
+/* ساختار کاملا مربعی ۱:۱ */
 .card-image-wrapper {
     width: 100%;
-    padding-top: 100%; /* Forces exact 1:1 aspect ratio matching your files */
+    padding-top: 100%; 
     position: relative;
     overflow: hidden;
+    border-radius: 16px;
 }
 
 .card-image {
@@ -291,39 +288,46 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
     height: 100%;
     background-size: cover;
     background-position: center;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 
-/* Dynamic Hidden Info Box (Appears ONLY on hover) */
+.card:hover .card-image {
+    transform: scale(1.05); /* زوم ملایم روی بافت خود عکس */
+}
+
+/* رفع لرزش گرید با اورلی مطلق (کپشن روی عکس فید می‌شود) */
 .card-info {
-    padding: 0;
-    max-height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(11, 14, 20, 0.95) 0%, rgba(11, 14, 20, 0.8) 70%, rgba(11, 14, 20, 0) 100%);
     opacity: 0;
-    overflow: hidden;
-    background: #0b0e14;
-    transition: max-height 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.35s ease, opacity 0.3s ease;
+    transform: translateY(15px);
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 5;
     text-align: left;
 }
 
 .card-info h3 {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     letter-spacing: 1px;
-    color: var(--accent-game); /* Custom Orange Title on focus */
+    color: var(--accent-game); /* رنگ عنوان زرد مارکت‌پلیسی */
     margin-bottom: 4px;
 }
 
 .card-details p {
     font-size: 0.8rem;
-    color: var(--text-muted); /* Premium Light-Grey Type description */
+    color: var(--text-muted); /* رنگ خاکستری روشن برای نوع اثر */
     letter-spacing: 1px;
     font-weight: 500;
 }
 
-/* Hover triggers caption slide-out */
+/* هاور کاملا مستقل - فقط کپشن همین کارت بالا می‌آید */
 .card:hover .card-info {
-    padding: 18px 20px;
-    max-height: 90px;
     opacity: 1;
+    transform: translateY(0);
 }
 
 /* ==========================================================================
