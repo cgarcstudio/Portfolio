@@ -1,4 +1,43 @@
-<main class="grid-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGARC STUDIO | GAME ART</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="page-bg-wallpaper"></div>
+
+    <div class="main-wrapper">
+        <header class="inner-header">
+            <a href="index.html" class="header-branding">
+                <img src="public/logo.png" alt="CGARC STUDIO" class="header-logo">
+                <span class="header-title">CGARC STUDIO <span class="slash">/</span> <span class="category-name">GAME ART</span></span>
+            </a>
+
+            <div class="nav-toggle-container">
+                <div class="nav-toggle">
+                    <span class="line-long"></span>
+                    <span class="line-medium"></span>
+                    <span class="line-short"></span>
+                </div>
+                <div class="fullscreen-menu">
+                    <nav class="menu-links">
+                        <a href="index.html" class="active-link">HOME</a>
+                        <a href="about.html">ABOUT US</a>
+                        <a href="contact.html">CONTACT US</a>
+                    </nav>
+                    <div class="menu-socials">
+                        <a href="#">ARTSTATION</a>
+                        <a href="#">LINKEDIN</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="grid-container">
             <a href="game_pages/leica_q3.html" class="card game-art-card">
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background-image: url('public/image/game/covers/leica_q3_cover.webp');"></div>
@@ -71,3 +110,32 @@
                 </div>
             </a>
         </main>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 CGArc Studio. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <button id="scrollTopBtn" title="Go to top">&#10148;</button>
+
+    <script>
+        // Scroll to Top behavior
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.classList.add("visible");
+            } else {
+                scrollTopBtn.classList.remove("visible");
+            }
+        };
+
+        scrollTopBtn.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+    </script>
+</body>
+</html>
