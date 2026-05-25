@@ -1,6 +1,6 @@
 /* ==========================================================================
    1. GLOBAL VISUAL IDENTITY & TYPOGRAPHY
-   ========================================================================= */
+   ========================================================================== */
 @font-face {
     font-family: 'CGArcFont';
     src: url('../public/font.ttf') format('truetype');
@@ -14,11 +14,7 @@
     --text-muted: #d1d5db;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'CGArcFont', sans-serif;
@@ -30,9 +26,7 @@ body {
     min-height: 100vh;
 }
 
-body::-webkit-scrollbar {
-    display: none;
-}
+body::-webkit-scrollbar { display: none; }
 
 .main-wrapper {
     transition: filter 0.4s ease, opacity 0.4s ease;
@@ -43,408 +37,148 @@ body::-webkit-scrollbar {
     justify-content: space-between;
 }
 
-.main-wrapper.menu-active {
-    filter: blur(12px);
-    opacity: 0.4;
-    pointer-events: none;
-}
+.main-wrapper.menu-active { filter: blur(12px); opacity: 0.4; pointer-events: none; }
 
 .page-bg-wallpaper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background-image: url('../public/image/hub/game_bg.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
+    background-size: cover; background-position: center; z-index: -1;
 }
 
 /* ==========================================================================
-   2. SPLIT LAYOUT & BRANDING (INDEX.HTML)
+   2. SPLIT LAYOUT & BRANDING
    ========================================================================== */
 .center-brand-container {
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    pointer-events: none;
-    text-align: center;
+    position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+    z-index: 20; display: flex; flex-direction: column; align-items: center;
+    pointer-events: none; text-align: center;
 }
 
-.brand-logo {
-    width: 76px;
-    height: 76px;
-    object-fit: contain;
-    margin-bottom: 12px;
-}
+.brand-logo { width: 76px; height: 76px; object-fit: contain; margin-bottom: 12px; }
+.brand-name { font-size: 0.95rem; font-weight: bold; letter-spacing: 6px; color: #ffffff; }
 
-.brand-name {
-    font-size: 0.95rem;
-    font-weight: bold;
-    letter-spacing: 6px;
-    color: #ffffff;
-}
-
-.split-container {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-    background-color: #000000;
-}
-
-.split-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.split-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(100%) brightness(50%);
-    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.6s ease;
-    z-index: 1;
-}
+.split-container { display: flex; height: 100vh; width: 100vw; position: relative; background-color: #000000; }
+.split-section { flex: 1; display: flex; align-items: center; text-decoration: none; position: relative; overflow: hidden; transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.split-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; filter: grayscale(100%) brightness(50%); transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.6s ease; z-index: 1; }
 
 .game-art::before { background-image: url('../public/image/hub/game_hub.webp'); }
 .arch-viz::before { background-image: url('../public/image/hub/arch_hub.webp'); }
 
-.vertical-text {
-    position: absolute;
-    z-index: 10;
-    font-size: 2.4rem;
-    font-weight: bold;
-    letter-spacing: 4px;
-    writing-mode: vertical-rl;
-    text-transform: uppercase;
-    color: #d9d9d9;
-    transition: color 0.4s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
+.vertical-text { position: absolute; z-index: 10; font-size: 2.4rem; font-weight: bold; letter-spacing: 4px; writing-mode: vertical-rl; text-transform: uppercase; color: #d9d9d9; transition: color 0.4s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
 .game-text { right: 10px; transform: rotate(180deg); }
 .arch-text { left: 10px; }
 
 .split-section:hover { flex: 1.4; }
 .split-section:hover::before { filter: grayscale(0%) brightness(100%); transform: scale(1.03); }
-
 .split-container:has(.arch-viz:hover) .game-art::before { filter: grayscale(100%) brightness(15%); }
 .split-container:has(.game-art:hover) .arch-viz::before { filter: grayscale(100%) brightness(15%); }
-
 .game-art:hover .game-text { color: var(--accent-game); }
 .arch-viz:hover .arch-text { color: var(--accent-arch); }
 
 /* ==========================================================================
-   3. NAVIGATION HEADER & HAMBURGER SYSTEM
+   3. NAVIGATION HEADER
    ========================================================================== */
-.inner-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 40px;
-    width: 100%;
-    z-index: 50;
-    position: relative;
-}
+.inner-header { display: flex; justify-content: space-between; align-items: center; padding: 30px 40px; width: 100%; z-index: 50; position: relative; }
+.header-branding { display: flex; align-items: center; text-decoration: none; color: #ffffff; }
+.header-logo { width: 32px; height: 32px; object-fit: contain; margin-right: 12px; }
+.header-title { font-size: 0.95rem; font-weight: bold; letter-spacing: 3px; }
+.header-title .slash { color: #5c6470; margin: 0 8px; }
+.header-title .category-name { color: var(--accent-game); letter-spacing: 2px; }
 
-.header-branding {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #ffffff;
-}
-
-.header-logo {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    margin-right: 12px;
-}
-
-.header-title {
-    font-size: 0.95rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-
-.header-title .slash {
-    color: #5c6470;
-    margin: 0 8px;
-}
-
-.header-title .category-name {
-    color: var(--accent-game);
-    letter-spacing: 2px;
-}
-
-.nav-toggle-container {
-    position: relative;
-    display: inline-block;
-    padding: 10px;
-    z-index: 60;
-}
-
-.nav-toggle {
-    width: 32px;
-    height: 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    cursor: pointer;
-}
-
-.nav-toggle span {
-    display: block;
-    height: 2px;
-    background: #ffffff;
-    transition: all 0.3s ease;
-}
-
+.nav-toggle-container { position: relative; display: inline-block; padding: 10px; z-index: 60; }
+.nav-toggle { width: 32px; height: 18px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; cursor: pointer; }
+.nav-toggle span { display: block; height: 2px; background: #ffffff; transition: all 0.3s ease; }
 .nav-toggle .line-long { width: 100%; }
 .nav-toggle .line-medium { width: 75%; }
 .nav-toggle .line-short { width: 45%; }
-
 .nav-toggle-container:hover .nav-toggle .line-long { transform: translateY(8px) rotate(45deg); }
 .nav-toggle-container:hover .nav-toggle .line-medium { opacity: 0; }
 .nav-toggle-container:hover .nav-toggle .line-short { width: 100%; transform: translateY(-8px) rotate(-45deg); }
 
 /* ==========================================================================
-   4. FIXED 4-COLUMN GRID WITH COMPACT CARDS & DROPDOWN CAPTIONS (DYNAMIC)
+   4. DYNAMIC GRID & CARDS (EFFECTS APPLIED)
    ========================================================================== */
 .products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px; 
-    max-width: 1260px; /* ایجاد سایز کارت ۱۰٪ کوچک‌تر و فشرده‌تر */
-    margin: 0 auto;
-    padding: 40px 40px 120px 40px;
-    align-items: start;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; 
+    max-width: 1260px; margin: 0 auto; padding: 40px 40px 120px 40px; align-items: start;
 }
 
-/* افکت مات شدن و تاریک شدن بقیه کارت‌ها وقتی روی یکی هاور می‌شود */
+/* افکت مات شدن بقیه */
 .products-grid:has(.card-link:hover) .card-link:not(:hover) {
-    filter: brightness(45%) grayscale(45%);
-    opacity: 0.55;
+    filter: brightness(45%) grayscale(45%); opacity: 0.55;
 }
 
-/* ساختار پیوند کارت داینامیک */
 .card-link {
-    text-decoration: none;
-    display: block;
-    color: inherit;
+    text-decoration: none; display: block; color: inherit;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.4s ease, opacity 0.4s ease;
 }
 
-/* ساختار کامپوننت کارت */
 .card {
-    display: flex;
-    flex-direction: column;
-    background: transparent;
-    border-radius: 12px;
-    position: relative;
-    width: 100%;
+    display: flex; flex-direction: column; background: transparent;
+    border-radius: 12px; position: relative; width: 100%;
     transition: box-shadow 0.4s ease;
 }
 
-/* افکت زوم و درخشش زرد (Glow) دور کارت هنگام هاور */
-.card-link:hover {
-    transform: scale(1.06); /* بزرگ شدن محسوس کارت هنگام هاور */
-    z-index: 5;
-}
+/* افکت زوم و درخشش */
+.card-link:hover { transform: scale(1.06); z-index: 5; }
+.card-link:hover .card { box-shadow: 0 0 35px rgba(229, 154, 25, 0.6); }
+.card-link:hover .card-img-holder { border-color: rgba(229, 154, 25, 0.4); }
 
-.card-link:hover .card {
-    /* ایجاد هاله درخشش زرد رنگ دور بخش رندر */
-    box-shadow: 0 0 35px rgba(229, 154, 25, 0.6);
-}
-
-.card-link:hover .card-img-holder {
-    border-color: rgba(229, 154, 25, 0.4);
-}
-
-/* باکس رندر مربعی داینامیک */
 .card-img-holder {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* ساختار مربع بی‌نقص ۱:۱ داینامیک */
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    background: #0b0e14;
+    width: 100%; aspect-ratio: 1 / 1; position: relative; overflow: hidden;
+    border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.04); background: #0b0e14;
     transition: border-color 0.4s ease;
 }
+.card-img-holder img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.card-link:hover .card-img-holder img { transform: scale(1.03); }
 
-.card-img-holder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-/* زوم جزیی خودِ رندر داخل قاب */
-.card-link:hover .card-img-holder img {
-    transform: scale(1.03);
-}
-
-/* کپشنِ زیر رندر با افکت باز شدن کشویی به پایین */
+/* کپشن کشویی */
 .card-info {
-    width: 100%;
-    padding: 0px 8px;
-    background: transparent;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    
-    /* منطق باز شدن زیر رندر: */
-    max-height: 0; /* در حالت عادی ارتفاع صفر و پنهان است */
-    opacity: 0;
-    overflow: hidden;
-    transform: translateY(-5px);
-    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                opacity 0.3s ease, 
-                transform 0.4s ease, 
-                padding 0.3s ease;
+    width: 100%; padding: 0 8px; background: transparent; max-height: 0; opacity: 0;
+    overflow: hidden; transform: translateY(-5px);
+    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease, transform 0.4s ease, padding 0.3s ease;
 }
-
-/* فعال شدن کپشن دقیقا زیر کارت هنگام هاور */
 .card-link:hover .card-info {
-    max-height: 75px; /* باز شدن فضا برای متن */
-    opacity: 1;
-    transform: translateY(0);
-    padding: 12px 8px 5px 8px; /* ایجاد فاصله نرم بعد از باز شدن */
+    max-height: 75px; opacity: 1; transform: translateY(0); padding: 12px 8px 5px 8px;
 }
-
-.card-title {
-    font-size: 0.95rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: var(--accent-game); /* رنگ زرد اصلی استودیو */
-    margin-bottom: 3px;
-    text-transform: uppercase;
-    display: block;
-}
-
-.card-category {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 500;
-    display: block;
-}
+.card-title { font-size: 0.95rem; font-weight: bold; color: var(--accent-game); margin-bottom: 3px; text-transform: uppercase; display: block; }
+.card-category { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 500; display: block; }
 
 /* ==========================================================================
-   5. OVERLAY MENU & BACK TO TOP BUTTON
+   5. OVERLAY MENU & FOOTER
    ========================================================================== */
 .fullscreen-menu {
-    position: fixed;
-    top: 0; right: -10px; width: 320px; height: 100vh;
-    background: rgba(5, 7, 12, 0.75);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    padding-right: 40px;
-    opacity: 0;
-    pointer-events: none;
+    position: fixed; top: 0; right: -10px; width: 320px; height: 100vh;
+    background: rgba(5, 7, 12, 0.75); backdrop-filter: blur(30px);
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-end;
+    padding-right: 40px; opacity: 0; pointer-events: none;
     border-left: 1px solid rgba(255, 255, 255, 0.03);
     transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
     transform: translateX(100%);
 }
-
-.nav-toggle-container:hover .fullscreen-menu {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-}
-
-.menu-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 25px;
-    margin-bottom: 60px;
-}
-
-.menu-links a {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #ffffff;
-    text-decoration: none;
-    letter-spacing: 2px;
-    transition: color 0.3s ease;
-}
-
+.nav-toggle-container:hover .fullscreen-menu { opacity: 1; pointer-events: auto; transform: translateX(0); }
+.menu-links { display: flex; flex-direction: column; align-items: flex-end; gap: 25px; margin-bottom: 60px; }
+.menu-links a { font-size: 1.6rem; font-weight: bold; color: #ffffff; text-decoration: none; letter-spacing: 2px; transition: color 0.3s ease; }
 .menu-links a:hover, .menu-links a.active-link { color: var(--accent-game); }
 .menu-socials { display: flex; gap: 20px; }
-.menu-socials a {
-    font-size: 0.8rem;
-    color: #5c6470;
-    text-decoration: none;
-    letter-spacing: 2px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
+.menu-socials a { font-size: 0.8rem; color: #5c6470; text-decoration: none; letter-spacing: 2px; font-weight: bold; transition: color 0.3s ease; }
 .menu-socials a:hover { color: #ffffff; }
 
 #scrollTopBtn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 99;
-    border: 1px solid rgba(255,255,255,0.1);
-    background-color: rgba(11, 14, 20, 0.85);
-    backdrop-filter: blur(5px);
-    color: var(--accent-game);
-    cursor: pointer;
-    padding: 12px 16px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    transform: rotate(-90deg) scale(0);
-    opacity: 0;
+    position: fixed; bottom: 30px; right: 30px; z-index: 99;
+    border: 1px solid rgba(255,255,255,0.1); background-color: rgba(11, 14, 20, 0.85);
+    backdrop-filter: blur(5px); color: var(--accent-game); cursor: pointer;
+    padding: 12px 16px; border-radius: 50%; font-size: 1.2rem;
+    transform: rotate(-90deg) scale(0); opacity: 0;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease, background-color 0.3s;
 }
-
 #scrollTopBtn.visible { transform: rotate(-90deg) scale(1); opacity: 1; }
 #scrollTopBtn:hover { background-color: var(--accent-game); color: #000000; }
 
-.page-footer {
-    text-align: center;
-    padding: 30px 20px;
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(5, 7, 12, 0.8);
-}
-
+.page-footer { text-align: center; padding: 30px 20px; width: 100%; border-top: 1px solid rgba(255, 255, 255, 0.05); background: rgba(5, 7, 12, 0.8); }
 .page-footer p { font-size: 0.8rem; color: #5c6470; letter-spacing: 1px; }
 
-/* ==========================================================================
-   6. RESPONSIVE DESIGN
-   ========================================================================== */
-@media (max-width: 1200px) {
-    .products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-}
-
-@media (max-width: 850px) {
-    .products-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 520px) {
-    .products-grid { grid-template-columns: 1fr; padding: 20px; }
-}
+/* RESPONSIVE */
+@media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+@media (max-width: 850px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .products-grid { grid-template-columns: 1fr; padding: 20px; } }
