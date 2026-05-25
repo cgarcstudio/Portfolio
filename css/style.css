@@ -1,86 +1,66 @@
 /* ==========================================================================
-   1. GLOBAL VISUAL IDENTITY & TYPOGRAPHY
-   ========================================================================= */
-@font-face {
-    font-family: 'CGArcFont';
-    src: url('../public/font.ttf') format('truetype');
-}
-
-:root {
-    --bg-dark: #05070c;
-    --accent-game: #e59a19;
-    --accent-arch: #00b4d8;
-    --card-dark: #0b0e14;
-    --text-muted: #d1d5db;
-}
-
+   RESET & BASE STYLES
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-    font-family: 'CGArcFont', sans-serif;
-    background-color: var(--bg-dark);
+    background-color: #05070a;
     color: #ffffff;
     overflow-x: hidden;
-    scrollbar-width: none;
-    position: relative;
     min-height: 100vh;
 }
 
-body::-webkit-scrollbar {
-    display: none;
-}
-
-/* Base Wrapper and Blur logic on hover menu */
-.main-wrapper {
-    transition: filter 0.4s ease, opacity 0.4s ease;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* When the navigation container is hovered, blur the rest of the page */
-body:has(.nav-toggle-container:hover) .main-wrapper {
-    filter: blur(12px);
-    opacity: 0.4;
-    pointer-events: none;
-}
-
-/* Fullscreen Background Wallpaper for Inner Pages */
+/* BACKGROUND WALLPAPER */
 .page-bg-wallpaper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('../public/image/hub/game_bg.webp');
+    background-image: linear-gradient(135px, rgba(11, 14, 20, 0.8) 0%, rgba(5, 7, 10, 0.95) 100%);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     z-index: -1;
 }
 
+/* MAIN WRAPPER WITH BLUR EFFECT */
+.main-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: filter 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.main-wrapper.menu-active {
+    filter: blur(15px);
+    pointer-events: none;
+}
+
 /* ==========================================================================
-   2. NAVIGATION HEADER & HOVER HAMBURGER SYSTEM
+   HEADER & NAVIGATION
    ========================================================================== */
 .inner-header {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 40px;
-    width: 100%;
-    z-index: 50;
     position: relative;
+    z-index: 10;
 }
 
 .header-branding {
     display: flex;
     align-items: center;
+    gap: 15px;
     text-decoration: none;
     color: #ffffff;
 }
@@ -89,348 +69,247 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
     width: 32px;
     height: 32px;
     object-fit: contain;
-    margin-right: 12px;
 }
 
 .header-title {
-    font-size: 0.95rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-
-.header-title .slash {
-    color: #5c6470;
-    margin: 0 8px;
-}
-
-.header-title .category-name {
-    color: var(--accent-game);
+    font-size: 18px;
+    font-weight: 800;
     letter-spacing: 2px;
 }
 
-/* Hover Menu Architecture Container */
-.nav-toggle-container {
-    position: relative;
-    display: inline-block;
-    padding: 10px;
-    z-index: 60;
+.header-title .slash {
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0 5px;
 }
 
-/* Multi-length Hamburger Icon Lines */
+.header-title .category-name {
+    color: #ff9f1c;
+}
+
+/* TRIGGER & FULLSCREEN MENU */
+.nav-toggle-container {
+    position: relative;
+    cursor: pointer;
+}
+
 .nav-toggle {
-    width: 32px;
-    height: 18px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 6px;
     align-items: flex-end;
-    cursor: pointer;
+    padding: 10px;
 }
 
 .nav-toggle span {
     display: block;
     height: 2px;
-    background: #ffffff;
-    transition: all 0.3s ease;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
 }
 
-.nav-toggle .line-long { width: 100%; }
-.nav-toggle .line-medium { width: 75%; }
-.nav-toggle .line-short { width: 45%; }
+.line-long { width: 28px; }
+.line-medium { width: 20px; }
+.line-short { width: 12px; }
 
-/* Hamburger active transformation on parent container hover */
-.nav-toggle-container:hover .nav-toggle .line-long { transform: translateY(8px) rotate(45deg); }
-.nav-toggle-container:hover .nav-toggle .line-medium { opacity: 0; }
-.nav-toggle-container:hover .nav-toggle .line-short { width: 100%; transform: translateY(-8px) rotate(-45deg); }
+.nav-toggle-container:hover .line-medium { width: 28px; }
+.nav-toggle-container:hover .line-short { width: 28px; }
 
-/* ==========================================================================
-   3. SPLIT LAYOUT & BRANDING (LANDING PAGE / HUB)
-   ========================================================================== */
-.center-brand-container {
+.fullscreen-menu {
     position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20;
+    top: 100%;
+    right: 0;
+    background: rgba(11, 14, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    gap: 30px;
+    min-width: 250px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.nav-toggle-container:hover .fullscreen-menu {
+    display: flex;
+}
+
+.menu-links {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    pointer-events: none;
-    text-align: center;
+    gap: 15px;
 }
 
-.brand-logo {
-    width: 76px;
-    height: 76px;
-    object-fit: contain;
-    margin-bottom: 12px;
+.menu-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s;
 }
 
-.brand-name {
-    font-size: 0.95rem;
-    font-weight: bold;
-    letter-spacing: 6px;
+.menu-links a:hover, .menu-links a.active-link {
+    color: #ff9f1c;
+}
+
+.menu-socials {
+    display: flex;
+    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.menu-socials a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.menu-socials a:hover {
     color: #ffffff;
 }
 
-.split-container {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-    background-color: #000000;
-}
-
-.split-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.split-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(100%) brightness(50%);
-    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.6s ease;
-    z-index: 1;
-}
-
-.game-art::before { background-image: url('../public/image/hub/game_hub.webp'); }
-.arch-viz::before { background-image: url('../public/image/hub/arch_hub.webp'); }
-
-.vertical-text {
-    position: absolute;
-    z-index: 10;
-    font-size: 2.4rem;
-    font-weight: bold;
-    letter-spacing: 4px;
-    writing-mode: vertical-rl;
-    text-transform: uppercase;
-    color: #d9d9d9;
-    transition: color 0.4s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.game-text { right: 10px; transform: rotate(180deg); }
-.arch-text { left: 10px; }
-
-.split-section:hover { flex: 1.4; }
-.split-section:hover::before { filter: grayscale(0%) brightness(100%); transform: scale(1.03); }
-
-.split-container:has(.arch-viz:hover) .game-art::before { filter: grayscale(100%) brightness(15%); }
-.split-container:has(.game-art:hover) .arch-viz::before { filter: grayscale(100%) brightness(15%); }
-
-.game-art:hover .game-text { color: var(--accent-game); }
-.arch-viz:hover .arch-text { color: var(--accent-arch); }
-
 /* ==========================================================================
-   4. PROJECT GRID & PERFECT SQUARE CARDS SYSTEM (FIXED & OPTIMIZED)
+   PROJECTS GRID & CARDS (FIXED DIMENSIONS)
    ========================================================================== */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px; 
+    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 40px 120px 40px;
+    padding: 20px 20px 80px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    flex-grow: 1;
 }
 
-@media (max-width: 1024px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 650px) { .grid-container { grid-template-columns: 1fr; } }
-
-.grid-container:has(.card:hover) .card:not(:hover) {
-    filter: grayscale(30%) brightness(70%);
-    opacity: 0.8;
-}
-
+/* تضمین ابعاد کارت برای جلوگیری از نقطه شدن روی گیت‌هاب */
 .card {
     display: block;
-    background: transparent;
+    width: 100%;
+    min-height: 400px; /* این خط جلوی مچاله شدن کارت را می‌گیرد */
+    background: #0b0e14;
     border-radius: 16px;
     overflow: hidden;
-    cursor: pointer;
     text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.04);
     position: relative;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
 }
 
 .card:hover {
-    transform: scale(1.03);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
-.game-art-card:hover {
-    box-shadow: 0 15px 35px rgba(229, 154, 25, 0.25);
-    border-color: rgba(229, 154, 25, 0.4);
-}
-
-/* Fixed Percentage Token Code (Pure English Format) */
 .card-image-wrapper {
     width: 100%;
-    padding-top: 100%; /* ساختار بی نقص مربع یک به یک */
+    height: 100%;
     position: relative;
-    overflow: hidden;
-    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
+/* اختصاص فضای دقیق به عکس با نسبت ابعاد ایده آل */
 .card-image {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    height: 320px; /* اندازه ثابت استاندارد برای نمایش کاورها */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .card:hover .card-image {
     transform: scale(1.05);
 }
 
+/* بخش اطلاعات متنی پایین کارت */
 .card-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     padding: 20px;
-    background: linear-gradient(to top, rgba(11, 14, 20, 0.95) 0%, rgba(11, 14, 20, 0.8) 70%, rgba(11, 14, 20, 0) 100%);
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-    z-index: 5;
-    text-align: left;
+    background: #0b0e14;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    z-index: 2;
 }
 
 .card-info h3 {
-    font-size: 1.15rem;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
     letter-spacing: 1px;
-    color: var(--accent-game);
-    margin-bottom: 4px;
 }
 
 .card-details p {
-    font-size: 0.8rem;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+    font-weight: 600;
     letter-spacing: 1px;
-    font-weight: 500;
-}
-
-.card:hover .card-info {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* ==========================================================================
-   5. HOVER TRIGGER OVERLAY MENU & BACK TO TOP BUTTON
+   FOOTER & BUTTONS
    ========================================================================== */
-.fullscreen-menu {
-    position: fixed;
-    top: 0; right: -10px; width: 320px; height: 100vh;
-    background: rgba(5, 7, 12, 0.75);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    padding-right: 40px;
-    opacity: 0;
-    pointer-events: none;
-    border-left: 1px solid rgba(255, 255, 255, 0.03);
-    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-    transform: translateX(100%);
+.page-footer {
+    width: 100%;
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
 }
-
-.nav-toggle-container:hover .fullscreen-menu {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-}
-
-.menu-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 25px;
-    margin-bottom: 60px;
-}
-
-.menu-links a {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #ffffff;
-    text-decoration: none;
-    letter-spacing: 2px;
-    transition: color 0.3s ease;
-}
-
-.menu-links a:hover, .menu-links a.active-link {
-    color: var(--accent-game);
-}
-
-.menu-socials {
-    display: flex;
-    gap: 20px;
-}
-
-.menu-socials a {
-    font-size: 0.8rem;
-    color: #5c6470;
-    text-decoration: none;
-    letter-spacing: 2px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.menu-socials a:hover { color: #ffffff; }
 
 #scrollTopBtn {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 99;
-    border: 1px solid rgba(255,255,255,0.1);
-    outline: none;
-    background-color: rgba(11, 14, 20, 0.85);
-    backdrop-filter: blur(5px);
-    color: var(--accent-game);
-    cursor: pointer;
-    padding: 12px 16px;
+    width: 45px;
+    height: 45px;
+    background: #ff9f1c;
+    color: #05070a;
+    border: none;
     border-radius: 50%;
-    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transform: rotate(-90deg) scale(0);
-    opacity: 0;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease, background-color 0.3s;
+    transition: transform 0.3s ease, background-color 0.3s;
+    z-index: 99;
+    font-size: 16px;
 }
 
 #scrollTopBtn.visible {
     transform: rotate(-90deg) scale(1);
-    opacity: 1;
 }
 
 #scrollTopBtn:hover {
-    background-color: var(--accent-game);
-    color: #000000;
+    background: #ffffff;
 }
 
-.page-footer {
-    text-align: center;
-    padding: 30px 20px;
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(5, 7, 12, 0.8);
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE DESIGN)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.page-footer p {
-    font-size: 0.8rem;
-    color: #5c6470;
-    letter-spacing: 1px;
+@media (max-width: 680px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .inner-header {
+        padding: 25px 20px;
+    }
+    .header-title {
+        font-size: 15px;
+    }
 }
