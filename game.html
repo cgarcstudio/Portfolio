@@ -3,25 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Art Portfolio</title>
+    <title>CGARC STUDIO | GAME ART</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="game-page">
+<body>
 
-    <div class="nav-toggle" id="navToggle">
-        <span></span><span></span><span></span>
-    </div>
+    <div class="page-bg-wallpaper"></div>
 
-    <div class="main-wrapper" id="mainWrapper">
-        <header class="page-header" style="background-image: url('public/image/hub/game_bg.webp');">
-            <h1 class="page-title" style="color: var(--accent-game);">Game Art Hub</h1>
+    <div class="main-wrapper">
+        <header class="inner-header">
+            <a href="index.html" class="header-branding">
+                <img src="public/logo.png" alt="CGARC STUDIO" class="header-logo">
+                <span class="header-title">CGARC STUDIO <span class="slash">/</span> <span class="category-name">GAME ART</span></span>
+            </a>
+
+            <div class="nav-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </header>
 
-        <main class="grid-container" id="projectGrid">
-            </main>
+        <main class="grid-container">
+            <a href="game_pages/leica_q3.html" class="card game-art-card">
+                <div class="card-image" style="background-image: url('public/image/game/covers/leica_q3_cover.webp');"></div>
+                <div class="card-info">
+                    <h3>LEICA Q3</h3>
+                    <div class="card-details">
+                        <p>FULL TUTORIAL</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="game_pages/combat_drone.html" class="card game-art-card">
+                <div class="card-image" style="background-image: url('public/image/game/covers/combat_drone_cover.webp');"></div>
+                <div class="card-info">
+                    <h3>COMBAT DRONE</h3>
+                    <div class="card-details">
+                        <p>FULL TUTORIAL</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="game_pages/axes_v2.html" class="card game-art-card">
+                <div class="card-image" style="background-image: url('public/image/game/covers/axes_cover_vol02.webp');"></div>
+                <div class="card-info">
+                    <h3>AXES VOL.02</h3>
+                    <div class="card-details">
+                        <p>GAME READY BASE MESH</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="game_pages/axes_v1.html" class="card game-art-card">
+                <div class="card-image" style="background-image: url('public/image/game/covers/axes_cover_vol01.webp');"></div>
+                <div class="card-info">
+                    <h3>AXES VOL.01</h3>
+                    <div class="card-details">
+                        <p>GAME READY BASE MESH</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="game_pages/daggers_v2.html" class="card game-art-card">
+                <div class="card-image" style="background-image: url('public/image/game/covers/dagger_cover_vol02.webp');"></div>
+                <div class="card-info">
+                    <h3>DAGGERS VOL.02</h3>
+                    <div class="card-details">
+                        <p>GAME READY</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="game_pages/daggers_v1.html" class="card game-art-card">
+                <div class="card-image" style="background-image: url('public/image/game/covers/dagger_cover_vol01.webp');"></div>
+                <div class="card-info">
+                    <h3>DAGGERS VOL.01</h3>
+                    <div class="card-details">
+                        <p>GAME READY</p>
+                    </div>
+                </div>
+            </a>
+        </main>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 CGArc Studio. All Rights Reserved.</p>
+        </footer>
     </div>
 
-    <script src="js/components.js"></script>
-    <script src="js/app.js"></script>
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="close-icon" onclick="toggleMenu()">&times;</div>
+        <nav class="menu-links">
+            <a href="index.html" class="active-link">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="contact.html">CONTACT US</a>
+        </nav>
+        <div class="menu-socials">
+            <a href="#">ARTSTATION</a>
+            <a href="#">LINKEDIN</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('fullscreenMenu');
+            const wrapper = document.querySelector('.main-wrapper');
+            menu.classList.toggle('active');
+            wrapper.classList.toggle('menu-blurred');
+        }
+    </script>
 </body>
 </html>
