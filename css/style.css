@@ -1,4 +1,6 @@
-/* 1. Global Visual Identity & Typography */
+/* ==========================================================================
+   1. GLOBAL VISUAL IDENTITY & TYPOGRAPHY
+   ========================================================================== */
 @font-face {
     font-family: 'CGArcFont';
     src: url('../public/font.ttf') format('truetype');
@@ -33,11 +35,13 @@ body::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome/Safari */
 }
 
-/* 2. Hamburger Navigation & Blur Wrapper */
 .main-wrapper {
     transition: filter 0.4s ease;
 }
 
+/* ==========================================================================
+   2. HAMBURGER NAVIGATION (FOR INNER PAGES ONLY)
+   ========================================================================== */
 .nav-toggle {
     position: fixed;
     top: 25px;
@@ -65,44 +69,64 @@ body::-webkit-scrollbar {
     transition: all 0.3s ease;
 }
 
-/* Light Theme overrides for inner pages if needed */
-.light-theme .nav-toggle span {
-    background: var(--text-light-main);
+/* ==========================================================================
+   3. SPLIT LAYOUT & BRANDING (LANDING PAGE / HUB)
+   ========================================================================== */
+.center-brand-container {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    text-align: center;
 }
 
-/* 3. Split Layout (Landing Page) */
+.brand-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.brand-name {
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+
 .split-container {
     display: flex;
     height: 100vh;
     width: 100vw;
     position: relative;
-    overflow: hidden;
+    background-color: #000000;
 }
 
 .split-section {
     flex: 1;
     display: flex;
-    justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: white;
-    font-size: 2.5rem;
-    font-weight: bold;
-    letter-spacing: 2px;
     position: relative;
-    transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
+    transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Base background images with Grayscale & Medium brightness */
 .split-section::before {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
-    filter: grayscale(100%);
+    filter: grayscale(100%) brightness(50%);
     transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.6s ease;
-    z-index: -1;
+    z-index: 1;
 }
 
 .game-art::before {
@@ -113,38 +137,62 @@ body::-webkit-scrollbar {
     background-image: url('../public/image/hub/arch_hub.webp');
 }
 
-/* Hover States for Split Screen */
+/* Vertical Text Rules alignment close to center division */
+.vertical-text {
+    position: absolute;
+    z-index: 10;
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    color: #5c6470; /* Default muted gray when out of focus */
+    transition: color 0.4s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.game-text {
+    right: 40px;
+    transform: rotate(180deg);
+}
+
+.arch-text {
+    left: 40px;
+}
+
+/* --- Interaction / Hover Logic --- */
+
+/* Expand Hovered Side */
 .split-section:hover {
     flex: 1.4;
 }
 
+/* Bring Hovered Side to Full Color & Full Light */
 .split-section:hover::before {
-    filter: grayscale(0%);
-    transform: scale(1.04);
+    filter: grayscale(0%) brightness(100%);
+    transform: scale(1.03);
 }
 
-/* Center Fixed Floating Logo */
-.center-logo-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    transition: left 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-    pointer-events: none;
+/* Intense Dimming on the Opposing (Non-Hovered) Side */
+.split-container:has(.arch-viz:hover) .game-art::before {
+    filter: grayscale(100%) brightness(15%);
 }
 
-.center-logo-container img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
+.split-container:has(.game-art:hover) .arch-viz::before {
+    filter: grayscale(100%) brightness(15%);
 }
 
-/* Intelligent Logo Shifting based on focus */
-.split-container:has(.game-art:hover) .center-logo-container { left: 72%; }
-.split-container:has(.arch-viz:hover) .center-logo-container { left: 28%; }
+/* Active Color Updates for Typography on Hover */
+.game-art:hover .game-text {
+    color: var(--accent-game);
+}
 
-/* 4. Portfolio Pages Layouts (Game & Arch) */
+.arch-viz:hover .arch-text {
+    color: var(--accent-arch);
+}
+
+/* ==========================================================================
+   4. PORTFOLIO PAGES LAYOUTS (GAME & ARCH INNER PAGES)
+   ========================================================================== */
 .page-header {
     height: 40vh;
     background-size: cover;
@@ -158,7 +206,7 @@ body::-webkit-scrollbar {
 .page-header::after {
     content: '';
     position: absolute;
-    top:0; left:0; width:100%; height:100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(5, 7, 12, 0.6);
 }
 
@@ -169,7 +217,9 @@ body::-webkit-scrollbar {
     text-transform: uppercase;
 }
 
-/* 5. Project Grid & Smart Focus Cards */
+/* ==========================================================================
+   5. PROJECT GRID & SMART FOCUS CARDS SYSTEM
+   ========================================================================== */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -179,62 +229,13 @@ body::-webkit-scrollbar {
     padding: 60px 20px;
 }
 
-@media (max-width: 1024px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .grid-container { grid-template-columns: 1fr; } }
+@media (max-width: 1024px) { 
+    .grid-container { grid-template-columns: repeat(2, 1fr); } 
+}
+@media (max-width: 600px) { 
+    .grid-container { grid-template-columns: 1fr; } 
+}
 
-/* Dim others when one is focused */
+/* Dim others when one card is focused */
 .grid-container:has(.card:hover) .card:not(:hover) {
-    filter: grayscale(45%) brightness(80%);
-    opacity: 0.65;
-}
-
-.card {
-    background: var(--card-dark);
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    text-decoration: none;
-    color: #ffffff;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
-}
-
-.card:hover {
-    transform: scale(1.08);
-}
-
-/* Category Specific Neon Glows */
-.game-art-card:hover {
-    box-shadow: 0 0 30px rgba(229,154,25,0.6), 0 0 55px rgba(229,154,25,0.35), 0 0 80px rgba(229,154,25,0.15);
-}
-
-.arch-viz-card:hover {
-    box-shadow: 0 0 20px rgba(0,180,216,0.25), 0 0 40px rgba(0,180,216,0.15), 0 0 60px rgba(0,180,216,0.08);
-}
-
-.card-image {
-    height: 240px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px 8px 0 0;
-    transition: transform 0.4s ease;
-}
-
-/* Smooth Card Info Slide-up */
-.card-info {
-    padding: 20px;
-    border-radius: 0 0 8px 8px;
-    background: var(--card-dark);
-}
-
-.card-details {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-}
-
-.card:hover .card-details {
-    max-height: 80px;
-    opacity: 1;
-    margin-top: 10px;
-}
+    filter: grayscale(45%)
