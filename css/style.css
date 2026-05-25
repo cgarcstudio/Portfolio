@@ -205,7 +205,6 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
 .game-art::before { background-image: url('../public/image/hub/game_hub.webp'); }
 .arch-viz::before { background-image: url('../public/image/hub/arch_hub.webp'); }
 
-/* Set default Hub colors to your exact #d9d9d9 token code */
 .vertical-text {
     position: absolute;
     z-index: 10;
@@ -235,7 +234,7 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
    ========================================================================== */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* خروجی ایده آل دسکتاپ بر اساس عکس اول */
+    grid-template-columns: repeat(3, 1fr); /* ۳ ستون بر اساس تصویر ایده آل شما */
     gap: 40px; 
     max-width: 1400px;
     margin: 0 auto;
@@ -245,13 +244,14 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
 @media (max-width: 1024px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 650px) { .grid-container { grid-template-columns: 1fr; } }
 
-/* تعدیل افکت تاریکی برای کارتهای غیرفعال - بدون کوچکترین پرش بصری */
+/* افکت تاریکی نرم روی بقیه کارت‌ها */
 .grid-container:has(.card:hover) .card:not(:hover) {
     filter: grayscale(30%) brightness(70%);
     opacity: 0.8;
 }
 
 .card {
+    display: block; /* اطمینان از بلاک بودن تگ a برای گرفتن ابعاد گرید */
     background: transparent;
     border-radius: 16px;
     overflow: hidden;
@@ -263,7 +263,7 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
 }
 
 .card:hover {
-    transform: scale(1.03); /* زوم ظریف کل کارت بدون جابجا کردن بقیه المان‌ها */
+    transform: scale(1.03); /* زوم ظریف روی کل کارت بدون تغییر چیدمان گرید */
 }
 
 .game-art-card:hover {
@@ -271,7 +271,7 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
     border-color: rgba(229, 154, 25, 0.4);
 }
 
-/* ساختار کاملا مربعی ۱:۱ */
+/* ساختار کاملا مربعی ۱:۱ بر اساس عرض گرید */
 .card-image-wrapper {
     width: 100%;
     padding-top: 100%; 
@@ -288,14 +288,15 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
     height: 100%;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     transition: transform 0.5s ease;
 }
 
 .card:hover .card-image {
-    transform: scale(1.05); /* زوم ملایم روی بافت خود عکس */
+    transform: scale(1.05); /* زوم ملایم روی خود تصویر */
 }
 
-/* رفع لرزش گرید با اورلی مطلق (کپشن روی عکس فید می‌شود) */
+/* کپشن به صورت لایه مطلق روی عکس - بدون کوچکترین لرزش صفحه */
 .card-info {
     position: absolute;
     bottom: 0;
@@ -313,18 +314,18 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
 .card-info h3 {
     font-size: 1.15rem;
     letter-spacing: 1px;
-    color: var(--accent-game); /* رنگ عنوان زرد مارکت‌پلیسی */
+    color: var(--accent-game);
     margin-bottom: 4px;
 }
 
 .card-details p {
     font-size: 0.8rem;
-    color: var(--text-muted); /* رنگ خاکستری روشن برای نوع اثر */
+    color: var(--text-muted);
     letter-spacing: 1px;
     font-weight: 500;
 }
 
-/* هاور کاملا مستقل - فقط کپشن همین کارت بالا می‌آید */
+/* نمایش کپشن منحصرا برای کارتی که هاور شده است */
 .card:hover .card-info {
     opacity: 1;
     transform: translateY(0);
@@ -351,7 +352,6 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
     transform: translateX(100%);
 }
 
-/* Display Menu perfectly when parent container is hovered */
 .nav-toggle-container:hover .fullscreen-menu {
     opacity: 1;
     pointer-events: auto;
@@ -395,7 +395,6 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
 
 .menu-socials a:hover { color: #ffffff; }
 
-/* Scroll to Top Arrow Button styles */
 #scrollTopBtn {
     position: fixed;
     bottom: 30px;
@@ -425,7 +424,6 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
     color: #000000;
 }
 
-/* Footer Copyright rules */
 .page-footer {
     text-align: center;
     padding: 30px 20px;
