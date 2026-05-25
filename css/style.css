@@ -85,7 +85,6 @@ body::-webkit-scrollbar {
     text-align: center;
 }
 
-/* Logo size remains bold and large */
 .brand-logo {
     width: 76px;
     height: 76px;
@@ -93,11 +92,11 @@ body::-webkit-scrollbar {
     margin-bottom: 12px;
 }
 
-/* Brand name made smaller and elegant for a premium look */
+/* Brand name made fine, smaller, and highly premium */
 .brand-name {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: bold;
-    letter-spacing: 5px;
+    letter-spacing: 6px;
     color: #ffffff;
 }
 
@@ -119,7 +118,7 @@ body::-webkit-scrollbar {
     transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Base background images with Grayscale & Medium brightness */
+/* Fixed pathing from public/ folder structure */
 .split-section::before {
     content: '';
     position: absolute;
@@ -139,7 +138,7 @@ body::-webkit-scrollbar {
     background-image: url('../public/image/hub/arch_hub.webp');
 }
 
-/* Vertical Text: 10% Larger (2.4rem), Brighter text (#d1d5db) */
+/* Vertical Text: 10% Larger (2.4rem), Brighter premium slate-white (#f1f5f9) */
 .vertical-text {
     position: absolute;
     z-index: 10;
@@ -148,33 +147,30 @@ body::-webkit-scrollbar {
     letter-spacing: 4px;
     writing-mode: vertical-rl;
     text-transform: uppercase;
-    color: #d1d5db; /* Noticeably brighter and cleaner */
+    color: #f1f5f9;
     transition: color 0.4s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .game-text {
-    right: 10px; /* Distance halved to line up tightly with the center axis */
+    right: 10px; /* Perfectly aligned near the central division axis */
     transform: rotate(180deg);
 }
 
 .arch-text {
-    left: 10px; /* Distance halved to line up tightly with the center axis */
+    left: 10px;  /* Perfectly aligned near the central division axis */
 }
 
 /* --- Interaction / Hover Logic --- */
 
-/* Expand Hovered Side */
 .split-section:hover {
     flex: 1.4;
 }
 
-/* Bring Hovered Side to Full Color & Full Light */
 .split-section:hover::before {
     filter: grayscale(0%) brightness(100%);
     transform: scale(1.03);
 }
 
-/* Intense Dimming on the Opposing (Non-Hovered) Side */
 .split-container:has(.arch-viz:hover) .game-art::before {
     filter: grayscale(100%) brightness(15%);
 }
@@ -183,7 +179,6 @@ body::-webkit-scrollbar {
     filter: grayscale(100%) brightness(15%);
 }
 
-/* Active Color Updates for Typography on Hover */
 .game-art:hover .game-text {
     color: var(--accent-game);
 }
@@ -238,7 +233,6 @@ body::-webkit-scrollbar {
     .grid-container { grid-template-columns: 1fr; } 
 }
 
-/* Dim others when one card is focused */
 .grid-container:has(.card:hover) .card:not(:hover) {
     filter: grayscale(45%) brightness(80%);
     opacity: 0.65;
@@ -258,7 +252,6 @@ body::-webkit-scrollbar {
     transform: scale(1.08);
 }
 
-/* Category Specific Neon Glows */
 .game-art-card:hover {
     box-shadow: 0 0 30px rgba(229,154,25,0.6), 
                 0 0 55px rgba(229,154,25,0.35), 
@@ -279,7 +272,6 @@ body::-webkit-scrollbar {
     transition: transform 0.4s ease;
 }
 
-/* Smooth Card Info Slide-up */
 .card-info {
     padding: 20px;
     border-radius: 0 0 8px 8px;
