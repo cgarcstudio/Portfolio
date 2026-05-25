@@ -1,6 +1,6 @@
 /* ==========================================================================
    1. GLOBAL VISUAL IDENTITY & TYPOGRAPHY
-   ========================================================================== */
+   ========================================================================= */
 @font-face {
     font-family: 'CGArcFont';
     src: url('../public/font.ttf') format('truetype');
@@ -234,7 +234,7 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
    ========================================================================== */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* ۳ ستون بر اساس تصویر ایده آل شما */
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px; 
     max-width: 1400px;
     margin: 0 auto;
@@ -244,14 +244,13 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
 @media (max-width: 1024px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 650px) { .grid-container { grid-template-columns: 1fr; } }
 
-/* افکت تاریکی نرم روی بقیه کارت‌ها */
 .grid-container:has(.card:hover) .card:not(:hover) {
     filter: grayscale(30%) brightness(70%);
     opacity: 0.8;
 }
 
 .card {
-    display: block; /* اطمینان از بلاک بودن تگ a برای گرفتن ابعاد گرید */
+    display: block;
     background: transparent;
     border-radius: 16px;
     overflow: hidden;
@@ -263,7 +262,7 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
 }
 
 .card:hover {
-    transform: scale(1.03); /* زوم ظریف روی کل کارت بدون تغییر چیدمان گرید */
+    transform: scale(1.03);
 }
 
 .game-art-card:hover {
@@ -271,10 +270,10 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
     border-color: rgba(229, 154, 25, 0.4);
 }
 
-/* ساختار کاملا مربعی ۱:۱ بر اساس عرض گرید */
+/* Fixed Percentage Token Code (Pure English Format) */
 .card-image-wrapper {
     width: 100%;
-    padding-top: 100%; 
+    padding-top: 100%; /* ساختار بی نقص مربع یک به یک */
     position: relative;
     overflow: hidden;
     border-radius: 16px;
@@ -293,10 +292,9 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
 }
 
 .card:hover .card-image {
-    transform: scale(1.05); /* زوم ملایم روی خود تصویر */
+    transform: scale(1.05);
 }
 
-/* کپشن به صورت لایه مطلق روی عکس - بدون کوچکترین لرزش صفحه */
 .card-info {
     position: absolute;
     bottom: 0;
@@ -325,7 +323,6 @@ body:has(.nav-toggle-container:hover) .main-wrapper {
     font-weight: 500;
 }
 
-/* نمایش کپشن منحصرا برای کارتی که هاور شده است */
 .card:hover .card-info {
     opacity: 1;
     transform: translateY(0);
