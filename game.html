@@ -48,7 +48,8 @@
             justify-content: space-between;
         }
 
-        body:has(.nav-toggle-container:hover) .main-wrapper {
+        /* رفع مشکل عدم نمایش کارت‌ها با جایگزینی استایل استاندارد به جای کلاس پیچیده has */
+        .main-wrapper.menu-active {
             filter: blur(12px);
             opacity: 0.4;
             pointer-events: none;
@@ -60,7 +61,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-image: url('public/image/hub/game_bg.webp');
+            background-image: url('public/image/hub/game_bg.webp'); /* آدرس‌دهی مستقیم و بدون برگشت به عقب */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -139,7 +140,7 @@
         .nav-toggle-container:hover .nav-toggle .line-medium { opacity: 0; }
         .nav-toggle-container:hover .nav-toggle .line-short { width: 100%; transform: translateY(-8px) rotate(-45deg); }
 
-        /* سیستم گرید داینامیک ۳ ستونه عریض */
+        /* سیستم گرید کاملاً پویا */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -159,7 +160,7 @@
 
         .card {
             display: block;
-            background: #0b0e14;
+            background: #0b0e14; /* رنگ زاپاس تا کارت‌ها هرگز غیب نشوند */
             border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
@@ -180,7 +181,7 @@
 
         .card-image-wrapper {
             width: 100%;
-            padding-top: 100%; /* ساختار بی‌پایان مربع ۱:۱ */
+            padding-top: 100%; /* پدینگ کاملاً استاندارد انگلیسی برای ساخت کارت مربعی */
             position: relative;
             overflow: hidden;
             border-radius: 16px;
@@ -325,14 +326,14 @@
 
     <div class="page-bg-wallpaper"></div>
 
-    <div class="main-wrapper">
+    <div class="main-wrapper" id="main-content-wrapper">
         <header class="inner-header">
             <a href="index.html" class="header-branding">
                 <img src="public/logo.png" alt="CGARC STUDIO" class="header-logo">
                 <span class="header-title">CGARC STUDIO <span class="slash">/</span> <span class="category-name">GAME ART</span></span>
             </a>
 
-            <div class="nav-toggle-container">
+            <div class="nav-toggle-container" id="menu-trigger">
                 <div class="nav-toggle">
                     <span class="line-long"></span>
                     <span class="line-medium"></span>
@@ -362,7 +363,7 @@
     <button id="scrollTopBtn" title="Go to top">&#10148;</button>
 
     <script>
-        // دیتابیس مرکزی پروژه (تنها جایی که برای اضافه/کم کردن کارت‌ها ویرایش می‌کنی)
+        // دیتابیس مرکزی و تفکیک‌شده (تنها جایی که برای تغییر دیتا باز می‌کنی)
         const projectsData = [
             {
                 "title": "LEICA Q3",
@@ -402,7 +403,7 @@
             }
         ];
 
-        // قالب سازنده کامپوننت کارت (Component Core Function)
+        // تابع قالب کامپوننت (Component Structure)
         function createCardComponent(project) {
             return `
                 <a href="${project.url}" class="card game-art-card">
@@ -419,17 +420,25 @@
             `;
         }
 
-        // تابع رندر داینامیک دیتابیس درون گرید خالی وبسایت
+        // تابع رندر کردن داده‌ها درون گرید خالی
         function renderProjects() {
             const gridContainer = document.getElementById('projects-grid');
             if (gridContainer) {
-                // تبدیل داده‌ها به کامپوننت و تزریق یکپارچه
                 gridContainer.innerHTML = projectsData.map(project => createCardComponent(project)).join('');
             }
         }
 
-        // اجرای موتور تولید کامپوننت به محض لود شدن ساختار اولیه مرورگر
-        window.addEventListener('load', renderProjects);
+        // اجرای خودکار موتور لودر
+        window.addEventListener('DOMContentLoaded', renderProjects);
+
+        // حل مشکل بلور شدن منو بدون نیاز به استایل سنگین CSS با عملکرد مستقل
+        const menuTrigger = document.getElementById('menu-trigger');
+        const mainWrapper = document.getElementById('main-content-wrapper');
+        
+        if(menuTrigger && mainWrapper) {
+            menuTrigger.addEventListener('mouseenter', () => mainWrapper.classList.add('menu-active'));
+            menuTrigger.addEventListener('mouseleave', () => mainWrapper.classList.remove('menu-active'));
+        }
 
         // منطق دکمه اسکرول به بالا
         const scrollTopBtn = document.getElementById("scrollTopBtn");
