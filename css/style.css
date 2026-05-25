@@ -1,15 +1,18 @@
+/* 1. Global Visual Identity & Typography */
 @font-face {
     font-family: 'CGArcFont';
-    src: local('Arial'); /* Placeholder for your custom font */
+    src: url('../public/font.ttf') format('truetype');
 }
 
 :root {
     --bg-dark: #05070c;
     --bg-light: #f4f7f6;
     --accent-game: #e59a19;
-    --accent-arch: #00bcd4;
+    --accent-arch: #00b4d8;
     --card-dark: #0b0e14;
-    --text-dark: #ffffff;
+    --card-light: #ffffff;
+    --text-light-main: #11161d;
+    --text-light-muted: #5c6470;
 }
 
 * {
@@ -21,21 +24,59 @@
 body {
     font-family: 'CGArcFont', sans-serif;
     background-color: var(--bg-dark);
-    color: var(--text-dark);
+    color: #ffffff;
     overflow-x: hidden;
-    scrollbar-width: none; /* Hide scrollbar */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 
 body::-webkit-scrollbar {
-    display: none;
+    display: none; /* Hide scrollbar for Chrome/Safari */
 }
 
-/* Split Screen Layout */
+/* 2. Hamburger Navigation & Blur Wrapper */
+.main-wrapper {
+    transition: filter 0.4s ease;
+}
+
+.nav-toggle {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 35px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.4s ease;
+}
+
+.nav-toggle:hover {
+    transform: rotate(90deg);
+}
+
+.nav-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Light Theme overrides for inner pages if needed */
+.light-theme .nav-toggle span {
+    background: var(--text-light-main);
+}
+
+/* 3. Split Layout (Landing Page) */
 .split-container {
     display: flex;
     height: 100vh;
     width: 100vw;
-    transition: filter 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .split-section {
@@ -45,69 +86,103 @@ body::-webkit-scrollbar {
     align-items: center;
     text-decoration: none;
     color: white;
-    font-size: 2rem;
-    transition: flex 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.5s ease;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
     position: relative;
+    transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
-    filter: grayscale(100%);
 }
 
 .split-section::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0; left: 0; width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
+    filter: grayscale(100%);
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.6s ease;
     z-index: -1;
-    transition: transform 0.5s ease;
 }
 
-.game-art::before { background-color: #1a1a1a; } /* Add image URL here later */
-.arch-viz::before { background-color: #e0e0e0; } /* Add image URL here later */
+.game-art::before {
+    background-image: url('../public/image/hub/game_hub.webp');
+}
 
+.arch-viz::before {
+    background-image: url('../public/image/hub/arch_hub.webp');
+}
+
+/* Hover States for Split Screen */
 .split-section:hover {
     flex: 1.4;
-    filter: grayscale(0%);
 }
 
 .split-section:hover::before {
-    transform: scale(1.05);
+    filter: grayscale(0%);
+    transform: scale(1.04);
 }
 
-/* Center Logo Animation */
-.center-logo {
+/* Center Fixed Floating Logo */
+.center-logo-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
-    background: #fff;
-    color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 1.5rem;
     z-index: 10;
-    transition: left 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: left 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     pointer-events: none;
 }
 
-.split-container:has(.game-art:hover) .center-logo { left: 72%; }
-.split-container:has(.arch-viz:hover) .center-logo { left: 28%; }
-
-/* Smart Focus Cards (For project pages) */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
+.center-logo-container img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
 }
 
+/* Intelligent Logo Shifting based on focus */
+.split-container:has(.game-art:hover) .center-logo-container { left: 72%; }
+.split-container:has(.arch-viz:hover) .center-logo-container { left: 28%; }
+
+/* 4. Portfolio Pages Layouts (Game & Arch) */
+.page-header {
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.page-header::after {
+    content: '';
+    position: absolute;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(5, 7, 12, 0.6);
+}
+
+.page-title {
+    position: relative;
+    z-index: 2;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+/* 5. Project Grid & Smart Focus Cards */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+@media (max-width: 1024px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid-container { grid-template-columns: 1fr; } }
+
+/* Dim others when one is focused */
 .grid-container:has(.card:hover) .card:not(:hover) {
     filter: grayscale(45%) brightness(80%);
     opacity: 0.65;
@@ -116,19 +191,50 @@ body::-webkit-scrollbar {
 .card {
     background: var(--card-dark);
     border-radius: 8px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
     overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    color: #ffffff;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
 }
 
 .card:hover {
     transform: scale(1.08);
-    z-index: 2;
 }
 
-.card.game-art-card:hover {
+/* Category Specific Neon Glows */
+.game-art-card:hover {
     box-shadow: 0 0 30px rgba(229,154,25,0.6), 0 0 55px rgba(229,154,25,0.35), 0 0 80px rgba(229,154,25,0.15);
 }
 
-.card.arch-viz-card:hover {
+.arch-viz-card:hover {
     box-shadow: 0 0 20px rgba(0,180,216,0.25), 0 0 40px rgba(0,180,216,0.15), 0 0 60px rgba(0,180,216,0.08);
+}
+
+.card-image {
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.4s ease;
+}
+
+/* Smooth Card Info Slide-up */
+.card-info {
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+    background: var(--card-dark);
+}
+
+.card-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.card:hover .card-details {
+    max-height: 80px;
+    opacity: 1;
+    margin-top: 10px;
 }
