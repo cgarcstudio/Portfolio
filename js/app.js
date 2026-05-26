@@ -1,22 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================================================
-    // 1. SCROLL TO TOP LOGIC
+    // 1. SCROLL TO TOP LOGIC (رویداد امن‌تر و بدون تداخل با استفاده از addEventListener)
     // ==========================================================================
     const scrollBtn = document.getElementById("scrollTopBtn");
     if (scrollBtn) {
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        window.addEventListener('scroll', () => {
+            // محاسبه دقیق میزان اسکرول در تمامی مرورگرها
+            if (window.scrollY > 300 || document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
                 scrollBtn.classList.add("show");
-                scrollBtn.classList.add("visible"); // سازگاری با هر دو کلاس صفحات
+                scrollBtn.classList.add("visible"); // سازگاری کامل با کلاس استایل شما
             } else {
                 scrollBtn.classList.remove("show");
                 scrollBtn.classList.remove("visible");
             }
-        };
-        scrollBtn.onclick = function() {
+        });
+
+        scrollBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+        });
     }
 
     // ==========================================================================
@@ -55,13 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.title = `${project.title} - CGArc Studio`;
                     document.getElementById('dynamicTitle').textContent = details.page_title;
                     document.getElementById('dynamicSubtitle').textContent = details.page_subtitle;
+                    
                     // مدیریت لینک و متن داینامیک دکمه خرید
                     const buyBtn = document.getElementById('dynamicBuyLink');
-                    buyBtn.href = details.buy_link;
-                    buyBtn.innerHTML = `
-                        <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.86 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1 1 2 2.1 2h13.9v-2H7.42c-.13 0-.25-.11-.25-.25z"/></svg>
-                        ${details.button_text ? details.button_text : "PURCHASE ASSET"}
-                    `;
+                    if (buyBtn) {
+                        buyBtn.href = details.buy_link;
+                        buyBtn.innerHTML = `
+                            <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.86 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1 1 2 2.1 2h13.9v-2H7.42c-.13 0-.25-.11-.25-.25z"/></svg>
+                            ${details.button_text ? details.button_text : "PURCHASE ASSET"}
+                        `;
+                    }
                     
                     // مدیریت دکمه بازگشت هوشمند بر اساس دسته بندی
                     const backBtn = document.getElementById('dynamicBackBtn');
@@ -72,59 +77,67 @@ document.addEventListener('DOMContentLoaded', () => {
                     // لود ویدیو (اگر وجود داشت، وگرنه باکس ویدیو پنهان می‌شود)
                     const videoFrame = document.getElementById('dynamicVideo');
                     if (details.video_link) {
-                        videoFrame.src = details.video_link;
+                        if (videoFrame) videoFrame.src = details.video_link;
                     } else {
-                        document.getElementById('videoWrapper').style.display = 'none';
+                        const videoWrapper = document.getElementById('videoWrapper');
+                        if (videoWrapper) videoWrapper.style.display = 'none';
                     }
 
                     // پر کردن لیست ویژگی‌ها (Features)
                     const featuresList = document.getElementById('dynamicFeatures');
                     if (details.features && details.features.length > 0) {
-                        featuresList.innerHTML = details.features.map(f => `<li>${f}</li>`).join('');
+                        if (featuresList) featuresList.innerHTML = details.features.map(f => `<li>${f}</li>`).join('');
                     } else {
-                        document.getElementById('featuresBlock').style.display = 'none';
+                        const featuresBlock = document.getElementById('featuresBlock');
+                        if (featuresBlock) featuresBlock.style.display = 'none';
                     }
 
                     // پر کردن لیست مشخصات فنی (Specifications)
                     const specsList = document.getElementById('dynamicSpecs');
                     if (details.specifications && details.specifications.length > 0) {
-                        specsList.innerHTML = details.specifications.map(s => `<li>${s}</li>`).join('');
+                        if (specsList) specsList.innerHTML = details.specifications.map(s => `<li>${s}</li>`).join('');
                     } else {
-                        document.getElementById('specsBlock').style.display = 'none';
+                        const specsBlock = document.getElementById('specsBlock');
+                        if (specsBlock) specsBlock.style.display = 'none';
                     }
 
                     // پر کردن باکس توضیحات کلی (Overview)
                     const overviewBox = document.getElementById('dynamicOverview');
-                    let overviewHTML = '';
-                    details.overview.forEach(sec => {
-                        if (sec.type === 'paragraph') {
-                            overviewHTML += `<p>${sec.content}</p>`;
-                        } else if (sec.type === 'warning') {
-                            overviewHTML += `<p class="warning-text">${sec.content}</p>`;
-                        } else if (sec.type === 'heading') {
-                            overviewHTML += `<h5>${sec.content}</h5>`;
-                        }
-                    });
-                    overviewBox.innerHTML = overviewHTML;
+                    if (overviewBox) {
+                        let overviewHTML = '';
+                        details.overview.forEach(sec => {
+                            if (sec.type === 'paragraph') {
+                                overviewHTML += `<p>${sec.content}</p>`;
+                            } else if (sec.type === 'warning') {
+                                overviewHTML += `<p class="warning-text">${sec.content}</p>`;
+                            } else if (sec.type === 'heading') {
+                                overviewHTML += `<h5>${sec.content}</h5>`;
+                            }
+                        });
+                        overviewBox.innerHTML = overviewHTML;
+                    }
 
-                    // ساخت داینامیک گلهای رندرها و ریزعکس‌ها
+                    // ساخت داینامیک گالری رندرها و ریزعکس‌ها
                     const thumbContainer = document.getElementById('thumbContainer');
                     const currentRender = document.getElementById('currentRender');
                     
                     if (details.gallery && details.gallery.length > 0) {
-                        currentRender.src = details.gallery[0];
-                        thumbContainer.innerHTML = details.gallery.map((imgUrl, idx) => `
-                            <div class="thumb-item ${idx === 0 ? 'active' : ''}">
-                                <img src="${imgUrl}" alt="Render ${idx + 1}">
-                            </div>
-                        `).join('');
+                        if (currentRender) currentRender.src = details.gallery[0];
+                        if (thumbContainer) {
+                            thumbContainer.innerHTML = details.gallery.map((imgUrl, idx) => `
+                                <div class="thumb-item ${idx === 0 ? 'active' : ''}">
+                                    <img src="${imgUrl}" alt="Render ${idx + 1}">
+                                </div>
+                            `).join('');
+                        }
                         
                         // فعال سازی موتور اسلایدر و لایت باکس پس از رندر تصاویر
                         initProductSlider(details.gallery);
                     }
 
                 } else {
-                    document.getElementById('dynamicTitle').textContent = "Project Not Found";
+                    const dynamicTitle = document.getElementById('dynamicTitle');
+                    if (dynamicTitle) dynamicTitle.textContent = "Project Not Found";
                 }
             }
 
@@ -173,8 +186,11 @@ function initProductSlider(galleryArray) {
     const lightboxClose = document.getElementById('lightboxClose');
     let currentIndex = 0;
 
+    if (!currentRender || thumbItems.length === 0) return;
+
     function updateSlider(index) {
-        document.querySelector('.thumb-item.active').classList.remove('active');
+        const activeThumb = document.querySelector('.thumb-item.active');
+        if (activeThumb) activeThumb.classList.remove('active');
         thumbItems[index].classList.add('active');
         currentRender.src = galleryArray[index];
         currentIndex = index;
@@ -184,33 +200,41 @@ function initProductSlider(galleryArray) {
         thumb.addEventListener('click', () => updateSlider(index));
     });
 
-    nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        let nextIndex = (currentIndex + 1) >= galleryArray.length ? 0 : currentIndex + 1;
-        updateSlider(nextIndex);
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            let nextIndex = (currentIndex + 1) >= galleryArray.length ? 0 : currentIndex + 1;
+            updateSlider(nextIndex);
+        });
+    }
 
-    prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        let prevIndex = (currentIndex - 1) < 0 ? galleryArray.length - 1 : currentIndex - 1;
-        updateSlider(prevIndex);
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            let prevIndex = (currentIndex - 1) < 0 ? galleryArray.length - 1 : currentIndex - 1;
+            updateSlider(prevIndex);
+        });
+    }
 
     currentRender.addEventListener('click', () => {
-        lightboxImg.src = currentRender.src;
-        lightbox.classList.add('active');
+        if (lightboxImg) {
+            lightboxImg.src = currentRender.src;
+            if (lightbox) lightbox.classList.add('active');
+        }
     });
 
     if (lightboxClose) {
         lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
     }
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) lightbox.classList.remove('active');
-    });
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.classList.remove('active');
+        });
+    }
 
     // جلوگیری از راست کلیک برای امنیت تصاویر
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('contextmenu', e => e.preventDefault());
     });
-    lightbox.addEventListener('contextmenu', e => e.preventDefault());
+    if (lightbox) lightbox.addEventListener('contextmenu', e => e.preventDefault());
 }
