@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. GLOBAL VISUAL IDENTITY
+   ========================================================================== */
 @font-face {
     font-family: 'CGArcFont';
     src: url('../public/font.ttf') format('truetype');
@@ -23,15 +26,46 @@ html, body {
 }
 body::-webkit-scrollbar { display: none; }
 
+/* ==========================================================================
+   2. INDEX PAGE (SPLIT LAYOUT)
+   ========================================================================== */
+.center-brand-container {
+    position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+    z-index: 20; display: flex; flex-direction: column; align-items: center;
+    pointer-events: none; text-align: center;
+}
+
+.brand-logo { width: 76px; height: 76px; object-fit: contain; margin-bottom: 12px; }
+.brand-name { font-size: 0.95rem; font-weight: bold; letter-spacing: 6px; color: #ffffff; }
+
+/* استفاده از overflow: hidden برای جلوگیری از اسکرول خوردن در صفحه اول */
+.split-container { display: flex; height: 100vh; width: 100vw; position: relative; background-color: #000000; overflow: hidden; }
+.split-section { flex: 1; display: flex; align-items: center; text-decoration: none; position: relative; overflow: hidden; transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.split-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; filter: grayscale(100%) brightness(50%); transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.6s ease; z-index: 1; }
+
+.game-art::before { background-image: url('../public/image/hub/game_hub.webp'); }
+.arch-viz::before { background-image: url('../public/image/hub/arch_hub.webp'); }
+
+.vertical-text { position: absolute; z-index: 10; font-size: 2.4rem; font-weight: bold; letter-spacing: 4px; writing-mode: vertical-rl; text-transform: uppercase; color: #d9d9d9; transition: color 0.4s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.game-text { right: 10px; transform: rotate(180deg); }
+.arch-text { left: 10px; }
+
+.split-section:hover { flex: 1.4; }
+.split-section:hover::before { filter: grayscale(0%) brightness(100%); transform: scale(1.03); }
+.split-container:has(.arch-viz:hover) .game-art::before { filter: grayscale(100%) brightness(15%); }
+.split-container:has(.game-art:hover) .arch-viz::before { filter: grayscale(100%) brightness(15%); }
+.game-art:hover .game-text { color: var(--accent-game); }
+.arch-viz:hover .arch-text { color: var(--accent-arch); }
+
+/* ==========================================================================
+   3. GAME / ARCH PAGES (SHARED ELEMENTS)
+   ========================================================================== */
 .hero-bg {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: var(--bg-dark) url('../public/image/hub/game_bg.webp') center/cover no-repeat;
     z-index: -1;
 }
 
-/* ==========================================================================
-   LOGO & BRANDING
-   ========================================================================== */
 .logo-container {
     position: fixed; top: 35px; left: 40px; z-index: 10;
     display: flex; align-items: center; gap: 12px;
@@ -40,9 +74,9 @@ body::-webkit-scrollbar { display: none; }
 .logo-img { width: 40px; height: 40px; object-fit: contain; }
 .logo-text { font-size: 1.1rem; letter-spacing: 1px; font-weight: bold; }
 
-/* ==========================================================================
-   HAMBURGER MENU (Original Style: Long, Short, Long)
-   ========================================================================== */
+/* -----------------------------------
+   HAMBURGER MENU & BLUR EFFECT
+   ----------------------------------- */
 .nav-container {
     position: fixed; top: 40px; right: 40px; z-index: 20;
     display: flex; flex-direction: column; align-items: flex-end; width: max-content;
@@ -59,7 +93,6 @@ body::-webkit-scrollbar { display: none; }
     background-color: #ffffff; border-radius: 2px;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
-/* خط وسط کوتاه تر و چسبیده به راست */
 .hamburger-btn span:nth-child(2) { width: 75%; align-self: flex-end; }
 
 .menu-links {
@@ -84,15 +117,15 @@ body::-webkit-scrollbar { display: none; }
 .social-box a { font-size: 0.9rem !important; color: rgba(255,255,255,0.4) !important; text-decoration: none; }
 .social-box a:hover { color: #ffffff !important; }
 
-/* تار شدن هوشمند پس‌زمینه در زمان باز شدن منو */
+/* تار شدن هوشمند گرید */
 body:has(.nav-container:hover) .portfolio-wrapper {
     filter: blur(12px) grayscale(40%) brightness(30%);
     transform: scale(0.98);
 }
 
-/* ==========================================================================
-   DYNAMIC GRID & CARDS (Original Animation & Sizes)
-   ========================================================================== */
+/* -----------------------------------
+   DYNAMIC GRID & CARDS
+   ----------------------------------- */
 .portfolio-wrapper {
     position: relative; width: 100%; min-height: 100vh; z-index: 1;
     padding: 140px 4% 40px 4%; display: flex; flex-direction: column; justify-content: space-between;
@@ -111,14 +144,13 @@ body:has(.nav-container:hover) .portfolio-wrapper {
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, opacity 0.4s ease;
 }
 
-/* این کد تضمین میکنه فقط وقتی موس روی *یک کارت* باشه، بقیه تاریک بشن (نه وقتی تو فضای خالی گرید هست) */
 .products-grid:has(.card-link:hover) .card-link:not(:hover) {
     filter: grayscale(35%) brightness(80%);
     opacity: 0.7;
 }
 
 .products-grid .card-link:hover {
-    transform: scale(1.08); /* بزرگنمایی اصلی */
+    transform: scale(1.08);
     filter: grayscale(0%) brightness(100%);
     opacity: 1; z-index: 5;
 }
@@ -128,7 +160,6 @@ body:has(.nav-container:hover) .portfolio-wrapper {
     overflow: hidden; display: flex; flex-direction: column; width: 100%;
 }
 
-/* سه لایه سایه نئونی دقیقاً مشابه سایت قدیمی */
 .products-grid .card-link:hover .card {
     box-shadow: 0 0 30px rgba(229, 154, 25, 0.6), 
                 0 0 55px rgba(229, 154, 25, 0.35), 
@@ -152,9 +183,9 @@ body:has(.nav-container:hover) .portfolio-wrapper {
 .card-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; color: var(--accent-game); }
 .card-category { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
 
-/* ==========================================================================
+/* -----------------------------------
    SCROLL TO TOP BUTTON
-   ========================================================================== */
+   ----------------------------------- */
 .back-to-top {
     position: fixed; bottom: 35px; right: 40px; width: 45px; height: 45px;
     background-color: #0b0e14; border: 1px solid var(--accent-game); border-radius: 6px;
@@ -172,9 +203,9 @@ body:has(.nav-container:hover) .portfolio-wrapper {
 .back-to-top:hover::after { border-left-color: #111111; border-top-color: #111111; }
 .back-to-top.show { opacity: 1; visibility: visible; }
 
-/* ==========================================================================
+/* -----------------------------------
    MINIMAL FOOTER
-   ========================================================================== */
+   ----------------------------------- */
 footer {
     width: 100%; text-align: center; padding-top: 60px; padding-bottom: 10px;
     background: transparent; border: none;
