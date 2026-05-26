@@ -1,6 +1,3 @@
-/* ==========================================================================
-   1. GLOBAL VISUAL IDENTITY & TYPOGRAPHY
-   ========================================================================== */
 @font-face {
     font-family: 'CGArcFont';
     src: url('../public/font.ttf') format('truetype');
@@ -11,221 +8,175 @@
     --accent-game: #e59a19;
     --accent-arch: #00b4d8;
     --card-dark: #0b0e14;
-    --text-muted: #d1d5db;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
+html, body {
+    width: 100%;
+    height: 100%;
     font-family: 'CGArcFont', sans-serif;
     background-color: var(--bg-dark);
     color: #ffffff;
     overflow-x: hidden;
     scrollbar-width: none;
-    position: relative;
-    min-height: 100vh;
 }
-
 body::-webkit-scrollbar { display: none; }
 
-/* --- Menu Blur Fix (Matching the old design) --- */
-.main-wrapper {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* ترنزیشن را از اینجا برداشتیم تا تداخل نکند */
+.hero-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-dark) url('../public/image/hub/game_bg.webp') center/cover no-repeat;
+    z-index: -1;
 }
 
-#projects-grid, .page-footer {
-    transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+/* ==========================================================================
+   LOGO & BRANDING
+   ========================================================================== */
+.logo-container {
+    position: fixed; top: 35px; left: 40px; z-index: 10;
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: #ffffff;
+}
+.logo-img { width: 40px; height: 40px; object-fit: contain; }
+.logo-text { font-size: 1.1rem; letter-spacing: 1px; font-weight: bold; }
+
+/* ==========================================================================
+   HAMBURGER MENU (Original Style: Long, Short, Long)
+   ========================================================================== */
+.nav-container {
+    position: fixed; top: 40px; right: 40px; z-index: 20;
+    display: flex; flex-direction: column; align-items: flex-end; width: max-content;
 }
 
-/* وقتی منو فعال است، فقط کارت‌ها و فوتر تار، سیاه‌سفید و کمی کوچک می‌شوند */
-.main-wrapper.menu-active #projects-grid,
-.main-wrapper.menu-active .page-footer {
+.hamburger-btn {
+    width: 45px; height: 30px; display: flex; flex-direction: column;
+    justify-content: space-between; cursor: pointer; padding: 2px;
+    transition: transform 0.4s ease;
+}
+
+.hamburger-btn span {
+    display: block; width: 100%; height: 3px;
+    background-color: #ffffff; border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+/* خط وسط کوتاه تر و چسبیده به راست */
+.hamburger-btn span:nth-child(2) { width: 75%; align-self: flex-end; }
+
+.menu-links {
+    margin-top: 25px; display: flex; flex-direction: column; align-items: flex-end;
+    gap: 18px; list-style: none; opacity: 0; visibility: hidden;
+    transform: translateY(-15px); transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.4s;
+}
+
+.menu-links li a {
+    text-decoration: none; color: rgba(255, 255, 255, 0.75);
+    font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease;
+}
+
+.nav-container:hover .menu-links { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-container:hover .hamburger-btn { transform: rotate(90deg); }
+.nav-container:hover .hamburger-btn span:nth-child(1) { transform: translateY(11px) rotate(45deg); background-color: var(--accent-game); }
+.nav-container:hover .hamburger-btn span:nth-child(2) { opacity: 0; transform: translateX(10px); }
+.nav-container:hover .hamburger-btn span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); background-color: var(--accent-game); }
+.menu-links li a:hover { color: var(--accent-game); font-weight: 900; }
+
+.social-box { display: flex; gap: 15px; margin-top: 5px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
+.social-box a { font-size: 0.9rem !important; color: rgba(255,255,255,0.4) !important; text-decoration: none; }
+.social-box a:hover { color: #ffffff !important; }
+
+/* تار شدن هوشمند پس‌زمینه در زمان باز شدن منو */
+body:has(.nav-container:hover) .portfolio-wrapper {
     filter: blur(12px) grayscale(40%) brightness(30%);
     transform: scale(0.98);
-    opacity: 0.4;
-    pointer-events: none;
-}
-.page-bg-wallpaper {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: url('../public/image/hub/game_bg.webp');
-    background-size: cover; background-position: center; z-index: -1;
 }
 
 /* ==========================================================================
-   2. SPLIT LAYOUT & BRANDING
+   DYNAMIC GRID & CARDS (Original Animation & Sizes)
    ========================================================================== */
-.center-brand-container {
-    position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
-    z-index: 20; display: flex; flex-direction: column; align-items: center;
-    pointer-events: none; text-align: center;
+.portfolio-wrapper {
+    position: relative; width: 100%; min-height: 100vh; z-index: 1;
+    padding: 140px 4% 40px 4%; display: flex; flex-direction: column; justify-content: space-between;
+    transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.brand-logo { width: 76px; height: 76px; object-fit: contain; margin-bottom: 12px; }
-.brand-name { font-size: 0.95rem; font-weight: bold; letter-spacing: 6px; color: #ffffff; }
+.products-container { width: 100%; flex-grow: 1; }
 
-.split-container { display: flex; height: 100vh; width: 100vw; position: relative; background-color: #000000; }
-.split-section { flex: 1; display: flex; align-items: center; text-decoration: none; position: relative; overflow: hidden; transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
-.split-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; filter: grayscale(100%) brightness(50%); transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.6s ease; z-index: 1; }
-
-.game-art::before { background-image: url('../public/image/hub/game_hub.webp'); }
-.arch-viz::before { background-image: url('../public/image/hub/arch_hub.webp'); }
-
-.vertical-text { position: absolute; z-index: 10; font-size: 2.4rem; font-weight: bold; letter-spacing: 4px; writing-mode: vertical-rl; text-transform: uppercase; color: #d9d9d9; transition: color 0.4s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
-.game-text { right: 10px; transform: rotate(180deg); }
-.arch-text { left: 10px; }
-
-.split-section:hover { flex: 1.4; }
-.split-section:hover::before { filter: grayscale(0%) brightness(100%); transform: scale(1.03); }
-.split-container:has(.arch-viz:hover) .game-art::before { filter: grayscale(100%) brightness(15%); }
-.split-container:has(.game-art:hover) .arch-viz::before { filter: grayscale(100%) brightness(15%); }
-.game-art:hover .game-text { color: var(--accent-game); }
-.arch-viz:hover .arch-text { color: var(--accent-arch); }
-
-/* ==========================================================================
-   3. NAVIGATION HEADER
-   ========================================================================== */
-.inner-header { display: flex; justify-content: space-between; align-items: center; padding: 30px 40px; width: 100%; z-index: 50; position: relative; }
-.header-branding { display: flex; align-items: center; text-decoration: none; color: #ffffff; }
-.header-logo { width: 32px; height: 32px; object-fit: contain; margin-right: 12px; }
-.header-title { font-size: 0.95rem; font-weight: bold; letter-spacing: 3px; }
-.header-title .slash { color: #5c6470; margin: 0 8px; }
-.header-title .category-name { color: var(--accent-game); letter-spacing: 2px; }
-
-.nav-toggle-container { position: relative; display: inline-block; padding: 10px; z-index: 60; }
-.nav-toggle { width: 32px; height: 18px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; cursor: pointer; }
-.nav-toggle span { display: block; height: 2px; background: #ffffff; transition: all 0.3s ease; }
-.nav-toggle .line-long { width: 100%; }
-.nav-toggle .line-medium { width: 75%; }
-.nav-toggle .line-short { width: 45%; }
-.nav-toggle-container:hover .nav-toggle .line-long { transform: translateY(8px) rotate(45deg); }
-.nav-toggle-container:hover .nav-toggle .line-medium { opacity: 0; }
-.nav-toggle-container:hover .nav-toggle .line-short { width: 100%; transform: translateY(-8px) rotate(-45deg); }
-
-/* ==========================================================================
-   4. DYNAMIC GRID & CARDS (FIXED & FULLY FUNCTIONAL)
-   ========================================================================== */
 .products-grid {
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 30px; 
-    max-width: 1400px; /* سایز شبکه را از 1260 به 1400 افزایش دادیم تا کارت‌ها بزرگتر شوند */
-    margin: 0 auto; 
-    padding: 140px 4% 40px 4%; /* پدینگ دقیق فایل هاردکد قدیمی */
-}
-
-/* افکت مات شدن بقیه کارت‌ها هنگام هاور روی یک کارت خاص */
-.products-grid:hover .card-link:not(:hover) {
-    filter: grayscale(80%) brightness(40%);
-    opacity: 0.4;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;
+    width: 100%; max-width: 1400px; margin: 0 auto;
 }
 
 .card-link {
-    text-decoration: none; 
-    display: block; 
-    color: inherit;
-    /* انیمیشن فوق‌العاده نرم و حرفه‌ای استخراج شده از سایت قدیمی */
+    text-decoration: none; display: block; color: inherit;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, opacity 0.4s ease;
 }
 
-.card-link:hover {
-    transform: scale(1.08); /* بزرگنمایی بیشتر هنگام هاور (قبلا 1.05 بود) */
-    z-index: 5;
+/* این کد تضمین میکنه فقط وقتی موس روی *یک کارت* باشه، بقیه تاریک بشن (نه وقتی تو فضای خالی گرید هست) */
+.products-grid:has(.card-link:hover) .card-link:not(:hover) {
+    filter: grayscale(35%) brightness(80%);
+    opacity: 0.7;
+}
+
+.products-grid .card-link:hover {
+    transform: scale(1.08); /* بزرگنمایی اصلی */
+    filter: grayscale(0%) brightness(100%);
+    opacity: 1; z-index: 5;
 }
 
 .card {
-    display: flex; 
-    flex-direction: column; 
-    background: transparent;
-    border-radius: 8px; /* در فایل قدیمی گردی لبه‌ها 8 بود */
-    position: relative; 
-    width: 100%;
-    transition: box-shadow 0.4s ease, border 0.4s ease;
+    position: relative; background-color: transparent; border-radius: 8px;
+    overflow: hidden; display: flex; flex-direction: column; width: 100%;
 }
 
-/* افکت نئونی قدرتمندتر (دقیقا کدهای فایل قدیمی) */
-.card-link:hover .card {
+/* سه لایه سایه نئونی دقیقاً مشابه سایت قدیمی */
+.products-grid .card-link:hover .card {
     box-shadow: 0 0 30px rgba(229, 154, 25, 0.6), 
                 0 0 55px rgba(229, 154, 25, 0.35), 
                 0 0 80px rgba(229, 154, 25, 0.15);
-    border: 1px solid transparent; /* حذف بوردر خشک قبلی */
 }
 
-.card-img-holder {
-    width: 100%; 
-    aspect-ratio: 1 / 1; 
-    position: relative; 
-    overflow: hidden;
-    border-radius: 8px 8px 0 0; 
-    background: #0b0e14;
-}
+.card-img-holder { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px 8px 0 0; }
+.card-img-holder img { width: 100%; height: 100%; object-fit: cover; }
 
-.card-img-holder img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-}
-
-/* کپشن کشویی زیر کارت */
 .card-info {
-    width: 100%; 
-    padding: 0 15px; 
-    background: var(--card-dark); 
-    max-height: 0; 
-    opacity: 0;
-    overflow: hidden; 
-    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease, padding 0.3s ease;
+    max-height: 0; opacity: 0; background-color: var(--card-dark);
+    padding: 0 15px; display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1), padding 0.3s ease, opacity 0.2s ease;
     border-radius: 0 0 8px 8px;
 }
 
-.card-link:hover .card-info {
-    max-height: 80px; 
-    opacity: 1; 
-    padding: 15px;
+.products-grid .card-link:hover .card-info {
+    max-height: 80px; opacity: 1; padding: 15px;
 }
 
-.card-title { font-size: 1.1rem; font-weight: 900; color: var(--accent-game); text-transform: uppercase; display: block; letter-spacing: 1px;}
-.card-category { font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; font-weight: 500; display: block; letter-spacing: 1px;}
+.card-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; color: var(--accent-game); }
+.card-category { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
 
 /* ==========================================================================
-   5. OVERLAY MENU & FOOTER
+   SCROLL TO TOP BUTTON
    ========================================================================== */
-.fullscreen-menu {
-    position: fixed; top: 0; right: -10px; width: 320px; height: 100vh;
-    background: rgba(5, 7, 12, 0.75); backdrop-filter: blur(30px);
-    display: flex; flex-direction: column; justify-content: center; align-items: flex-end;
-    padding-right: 40px; opacity: 0; pointer-events: none;
-    border-left: 1px solid rgba(255, 255, 255, 0.03);
-    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-    transform: translateX(100%);
+.back-to-top {
+    position: fixed; bottom: 35px; right: 40px; width: 45px; height: 45px;
+    background-color: #0b0e14; border: 1px solid var(--accent-game); border-radius: 6px;
+    cursor: pointer; z-index: 99; display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.nav-toggle-container:hover .fullscreen-menu { opacity: 1; pointer-events: auto; transform: translateX(0); }
-.menu-links { display: flex; flex-direction: column; align-items: flex-end; gap: 25px; margin-bottom: 60px; }
-.menu-links a { font-size: 1.6rem; font-weight: bold; color: #ffffff; text-decoration: none; letter-spacing: 2px; transition: color 0.3s ease; }
-.menu-links a:hover, .menu-links a.active-link { color: var(--accent-game); }
-.menu-socials { display: flex; gap: 20px; }
-.menu-socials a { font-size: 0.8rem; color: #5c6470; text-decoration: none; letter-spacing: 2px; font-weight: bold; transition: color 0.3s ease; }
-.menu-socials a:hover { color: #ffffff; }
-
-#scrollTopBtn {
-    position: fixed; bottom: 30px; right: 30px; z-index: 99;
-    border: 1px solid rgba(255,255,255,0.1); background-color: rgba(11, 14, 20, 0.85);
-    backdrop-filter: blur(5px); color: var(--accent-game); cursor: pointer;
-    padding: 12px 16px; border-radius: 50%; font-size: 1.2rem;
-    transform: rotate(-90deg) scale(0); opacity: 0;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease, background-color 0.3s;
+.back-to-top:hover {
+    background-color: var(--accent-game); transform: translateY(-4px); box-shadow: 0 0 15px rgba(229, 154, 25, 0.4);
 }
-#scrollTopBtn.visible { transform: rotate(-90deg) scale(1); opacity: 1; }
-#scrollTopBtn:hover { background-color: var(--accent-game); color: #000000; }
+.back-to-top::after {
+    content: ''; width: 10px; height: 10px;
+    border-left: 2.5px solid var(--accent-game); border-top: 2.5px solid var(--accent-game);
+    transform: rotate(45deg); margin-top: 4px; transition: border-color 0.3s ease;
+}
+.back-to-top:hover::after { border-left-color: #111111; border-top-color: #111111; }
+.back-to-top.show { opacity: 1; visibility: visible; }
 
-.page-footer { text-align: center; padding: 30px 20px; width: 100%; border-top: 1px solid rgba(255, 255, 255, 0.05); background: rgba(5, 7, 12, 0.8); }
-.page-footer p { font-size: 0.8rem; color: #5c6470; letter-spacing: 1px; }
-
-/* RESPONSIVE */
-@media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
-@media (max-width: 850px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .products-grid { grid-template-columns: 1fr; padding: 20px; } }
+/* ==========================================================================
+   MINIMAL FOOTER
+   ========================================================================== */
+footer {
+    width: 100%; text-align: center; padding-top: 60px; padding-bottom: 10px;
+    background: transparent; border: none;
+}
+.footer-text { font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); letter-spacing: 1px; }
