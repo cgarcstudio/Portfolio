@@ -364,7 +364,7 @@ body:has(.nav-container:hover) .global-footer {
 .page-bg-wallpaper {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background-color: var(--bg-dark);
-    background-image: url('../public/image/hub/game_bg.webp');
+    background-image: url('/public/image/hub/game_bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -375,7 +375,7 @@ body:has(.nav-container:hover) .global-footer {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background-color: var(--bg-dark);
     /* ترکیب ضدخطای گرادیانت و تصویر */
-    background-image: linear-gradient(180deg, rgba(5,7,12,0.5) 0%, rgba(5,7,12,0.98) 100%), url('../public/image/hub/game_bg.webp');
+    background-image: linear-gradient(180deg, rgba(5,7,12,0.5) 0%, rgba(5,7,12,0.98) 100%), url('/public/image/hub/game_bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
