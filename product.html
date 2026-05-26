@@ -14,6 +14,23 @@
 
     <a href="game.html" class="back-btn" id="dynamicBackBtn">← BACK</a>
 
+    <nav class="nav-container">
+        <div class="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" id="aboutMenuBtn">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+            <div class="social-box">
+                <a href="#" target="_blank">ARTSTATION</a>
+                <a href="#" target="_blank">LINKEDIN</a>
+            </div>
+        </ul>
+    </nav>
+
     <div class="container product-container">
         
         <div class="gallery-column">
@@ -73,6 +90,14 @@
     <footer class="global-footer">
         <p>&copy; 2026 CGArc Studio. All Rights Reserved.</p>
     </footer>
+
+    <div class="modal-overlay" id="aboutModal">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeModal">✕</button>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-text-content" id="modalContent"></div>
+        </div>
+    </div>
 
     <div class="lightbox-overlay" id="lightbox">
         <div class="lightbox-content">
