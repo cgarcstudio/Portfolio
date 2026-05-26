@@ -5,52 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGARC STUDIO | GAME ART</title>
     <link rel="stylesheet" href="css/style.css">
-    
-    <style>
-        /* فیکس نهایی ابعاد گرید و کارت‌ها برای جلوگیری از خط شدن */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr) !important;
-            gap: 25px !important;
-            max-width: 100% !important;
-            width: 100% !important;
-            padding: 40px !important;
-            box-sizing: border-box;
-        }
-
-        /* تضمین فیزیکی ساختار مربع کامل بدون وابستگی به پدینگ‌های خطاساز */
-        .card {
-            display: flex !important;
-            flex-direction: column;
-            width: 100% !important;
-            aspect-ratio: 1 / 1 !important; /* قفل کردن نسبت ابعاد روی مربع کامل (۱:۱) */
-            position: relative !important;
-            background: #0b0e14;
-            border-radius: 12px;
-            overflow: hidden;
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        .card-image-wrapper {
-            position: absolute !important;
-            top: 0;
-            left: 0;
-            width: 100% !important;
-            height: 100% !important;
-            padding-top: 0 !important; /* حذف پدینگ قدیمی که باعث خط شدن کارت می‌شد */
-        }
-
-        .card-image {
-            width: 100% !important;
-            height: 100% !important;
-            background-size: cover !important;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-        }
-    </style>
 </head>
-<body>
+<body class="game-page">
 
     <div class="page-bg-wallpaper"></div>
 
@@ -86,8 +42,7 @@
             </div>
         </header>
 
-        <main id="projects-grid" class="grid-container">
-            </main>
+        <main id="projects-grid" class="products-grid"></main>
 
         <button id="scrollTopBtn" title="Go to top">➜</button>
 
@@ -96,70 +51,7 @@
         </footer>
     </div>
 
-    <script src="data/portfolio.json" type="text/javascript"></script>
-    
-    <script>
-        // دیتابیس هاردکد شده زاپاس برای اطمینان از خوانده شدن اطلاعات روی گیت‌هاب
-        const backupProjects = [
-            { title: "LEICA Q3", type: "FULL TUTORIAL", url: "#", cover: "public/image/game/covers/leica_q3_cover.webp" },
-            { title: "COMBAT DRONE", type: "FULL TUTORIAL", url: "#", cover: "public/image/game/covers/combat_drone_cover.webp" },
-            { title: "AXES VOL.02", type: "GAME READY", url: "#", cover: "public/image/game/covers/axes_cover_vol02.webp" },
-            { title: "AXES VOL.01", type: "GAME READY", url: "#", cover: "public/image/game/covers/axes_cover_vol01.webp" },
-            { title: "DAGGERS VOL.02", type: "GAME READY", url: "#", cover: "public/image/game/covers/dagger_cover_vol02.webp" },
-            { title: "DAGGERS VOL.01", type: "GAME READY", url: "#", cover: "public/image/game/covers/dagger_cover_vol01.webp" }
-        ];
-
-        // تابع ساخت کامپوننت کارت‌ها با نسبت ۱:۱ مربعی
-        function createCard(project) {
-            return `
-                <a href="${project.url}" class="card game-art-card">
-                    <div class="card-image-wrapper">
-                        <div class="card-image" style="background-image: url('${project.cover}');"></div>
-                        <div class="card-info">
-                            <h3>${project.title}</h3>
-                            <div class="card-details">
-                                <p>${project.type}</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            `;
-        }
-
-        // رندر کردن گرید صفحه
-        function initGrid() {
-            const grid = document.getElementById('projects-grid');
-            if (grid) {
-                // استفاده از دیتابیس فیکس شده بالا
-                grid.innerHTML = backupProjects.map(p => createCard(p)).join('');
-            }
-        }
-
-        // اجرای توابع پس از لود کامل صفحه
-        window.addEventListener('DOMContentLoaded', () => {
-            initGrid();
-
-            // افکت بلور منو
-            const trigger = document.getElementById('menu-trigger');
-            const wrapper = document.getElementById('main-content-wrapper');
-            if (trigger && wrapper) {
-                trigger.addEventListener('mouseenter', () => wrapper.classList.add('menu-active'));
-                trigger.addEventListener('mouseleave', () => wrapper.classList.remove('menu-active'));
-            }
-
-            // دکمه اسکرول به بالا
-            const scrollBtn = document.getElementById("scrollTopBtn");
-            window.onscroll = function() {
-                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                    scrollBtn.classList.add("visible");
-                } else {
-                    scrollBtn.classList.remove("visible");
-                }
-            };
-            scrollBtn.onclick = function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            };
-        });
-    </script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
