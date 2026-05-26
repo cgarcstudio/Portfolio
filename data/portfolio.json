@@ -1,25 +1,65 @@
 {
   "profile": {
-    "name": "Saeed Abbasi",
-    "role": "3D Artist & UI Designer",
-    "about": "Passionate about 3D modeling, architectural history, and crafting engaging user interfaces."
+    "name": "CGArc Studio",
+    "role": "3D Art & ArchViz",
+    "about": "High-end 3D assets and advanced educational content."
   },
   "projects": [
     {
       "id": "1",
-      "title": "Leica Q3 Camera",
+      "title": "LEICA Q3",
       "category": "gameart",
+      "type": "FULL TUTORIAL",
       "image": "public/image/game/covers/leica_q3_cover.webp",
-      "description": "High-poly 3D asset with detailed sub-d modeling and texturing.",
-      "link": "game.html"
+      "url": "game_pages/leica_q3.html"
     },
     {
       "id": "2",
-      "title": "Modernist Kitchen Design",
+      "title": "COMBAT DRONE",
+      "category": "gameart",
+      "type": "FULL TUTORIAL",
+      "image": "public/image/game/covers/combat_drone_cover.webp",
+      "url": "game_pages/combat_drone.html"
+    },
+    {
+      "id": "3",
+      "title": "AXES VOL.02",
+      "category": "gameart",
+      "type": "GAME READY",
+      "image": "public/image/game/covers/axes_cover_vol02.webp",
+      "url": "game_pages/axes_v2.html"
+    },
+    {
+      "id": "4",
+      "title": "AXES VOL.01",
+      "category": "gameart",
+      "type": "GAME READY",
+      "image": "public/image/game/covers/axes_cover_vol01.webp",
+      "url": "game_pages/axes_v1.html"
+    },
+    {
+      "id": "5",
+      "title": "DAGGERS VOL.02",
+      "category": "gameart",
+      "type": "GAME READY",
+      "image": "public/image/game/covers/dagger_cover_vol02.webp",
+      "url": "game_pages/daggers_v2.html"
+    },
+    {
+      "id": "6",
+      "title": "DAGGERS VOL.01",
+      "category": "gameart",
+      "type": "GAME READY",
+      "image": "public/image/game/covers/dagger_cover_vol01.webp",
+      "url": "game_pages/daggers_v1.html"
+    },
+    {
+      "id": "7",
+      "title": "Modernist Kitchen",
       "category": "archviz",
+      "type": "INTERIOR SCENE",
       "image": "public/image/arch/covers/kitchen_cover.webp",
-      "description": "Exploration of microcement tiles and clean architectural lighting.",
-      "link": "arch.html"
+      "url": "arch.html"
     }
   ]
 }
