@@ -3,51 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGARC STUDIO | GAME ART</title>
+    <title>CGArc Studio - Game Art</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="game-page">
 
-    <div class="page-bg-wallpaper"></div>
+    <div class="hero-bg"></div>
 
-    <div id="main-content-wrapper" class="main-wrapper">
-        
-        <header class="inner-header">
-            <a href="index.html" class="header-branding">
-                <img src="public/logo.png" alt="CGArc Logo" class="header-logo">
-                <div class="header-title">
-                    CGARC STUDIO <span class="slash">/</span> <span class="category-name">GAME ART</span>
-                </div>
-            </a>
+    <a href="index.html" class="logo-container">
+        <img src="public/logo.png" alt="CGArc Studio" class="logo-img">
+        <span class="logo-text">CGARC STUDIO</span>
+    </a>
 
-            <div id="menu-trigger" class="nav-toggle-container">
-                <div class="nav-toggle">
-                    <span class="line-long"></span>
-                    <span class="line-medium"></span>
-                    <span class="line-short"></span>
-                </div>
-                
-                <div class="fullscreen-menu">
-                    <div class="menu-links">
-                        <a href="index.html">HOME</a>
-                        <a href="game.html" class="active-link">GAME ART</a>
-                        <a href="archviz.html">ARCHVIZ</a>
-                    </div>
-                    <div class="menu-socials">
-                        <a href="#" target="_blank">ARTSTATION</a>
-                        <a href="#" target="_blank">INSTAGRAM</a>
-                        <a href="#" target="_blank">YOUTUBE</a>
-                    </div>
-                </div>
+    <nav class="nav-container">
+        <div class="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+            <div class="social-box">
+                <a href="#" target="_blank">ARTSTATION</a>
+                <a href="#" target="_blank">LINKEDIN</a>
             </div>
-        </header>
+        </ul>
+    </nav>
 
-        <main id="projects-grid" class="products-grid"></main>
+    <button class="back-to-top" id="scrollTopBtn" title="Go to top"></button>
 
-        <button id="scrollTopBtn" title="Go to top">➜</button>
+    <div class="portfolio-wrapper">
+        <div class="products-container">
+            <div class="products-grid" id="projects-grid"></div>
+        </div>
 
-        <footer class="page-footer">
-            <p>&copy; 2026 CGArc Studio. All Rights Reserved.</p>
+        <footer>
+            <p class="footer-text">&copy; 2026 CGArc Studio. All Rights Reserved.</p>
         </footer>
     </div>
 
