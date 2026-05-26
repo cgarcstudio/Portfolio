@@ -359,19 +359,26 @@ body:has(.nav-container:hover) .global-footer {
 
 
 /* ==========================================================================
-   9. FIXED GLOBAL BACKGROUNDS
+   9. FIXED GLOBAL BACKGROUNDS (Foolproof Method)
    ========================================================================== */
 .page-bg-wallpaper {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: var(--bg-dark) url('../public/image/hub/game_bg.webp') center/cover no-repeat;
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: var(--bg-dark);
+    background-image: url('../public/image/hub/game_bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: -1;
 }
 
 .page-bg-product {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(180deg, rgba(5,7,12,0.4) 0%, rgba(5,7,12,0.95) 100%), 
-                url('../public/image/hub/game_bg.webp') center/cover no-repeat;
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background-color: var(--bg-dark);
+    /* ترکیب ضدخطای گرادیانت و تصویر */
+    background-image: linear-gradient(180deg, rgba(5,7,12,0.5) 0%, rgba(5,7,12,0.98) 100%), url('../public/image/hub/game_bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: -1;
 }
 
