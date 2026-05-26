@@ -257,7 +257,51 @@
       "category": "gameart",
       "type": "GAME READY",
       "image": "public/image/game/covers/axes_cover_vol01.webp",
-      "url": "product.html?id=4"
+      "url": "product.html?id=4",
+      "details": {
+        "page_title": "VIKING WARRIOR AXES VOL.01",
+        "page_subtitle": "20 VIKING WARRIOR AXES - BASEMESH",
+        "buy_link": "https://artstn.co/m/PXxP9",
+        "video_link": "https://www.youtube.com/embed/rPoZFIuYtRg",
+        "button_text": "ADD TO CART",
+        "gallery": [
+          "public/image/game/products/axes_vol01/axes_vol01_01.webp",
+          "public/image/game/products/axes_vol01/axes_vol01_02.webp",
+          "public/image/game/products/axes_vol01/axes_vol01_03.webp",
+          "public/image/game/products/axes_vol01/axes_vol01_04.webp",
+          "public/image/game/products/axes_vol01/axes_vol01_05.webp"
+        ],
+        "features": [
+          "✅ 20 unique AXE designs",
+          "✅ Basemesh Modeling - Ready to sculpt",
+          "✅ Perfect for games, characters, or concept art",
+          "✅ FBX & OBJ formats — ready to drop into your scene"
+        ],
+        "specifications": [
+          "🎮 Game Ready Base Mesh",
+          "✅ Preview images included",
+          "✅ Poly count range less than 10k",
+          "🎮 Optimized for Games – Featuring clean topology, low-poly designs that are ready for real-time action."
+        ],
+        "overview": [
+          {
+            "type": "paragraph",
+            "content": "This production is a very different and attractive collection for you to use them in your games with ease and without worrying about low detail and heavy volume.Introducing another carefully designed set."
+          },
+          {
+            "type": "heading",
+            "content": "Who is it for??"
+          },
+          {
+            "type": "paragraph",
+            "content": "3D artists, game developers, and enthusiasts looking for unparalleled detail and versatility in character design.This pack includes 20 unique Viking warrior AXE models, specifically designed to enhance your project with a strong and authentic look without the need to start from scratch.The models are available in FBX and OBJ formats, making them easy to use in most 3D software. To simplify your selection process, each model is accompanied by a preview render."
+          },
+          {
+            "type": "paragraph",
+            "content": "Whether you’re building a gritty first-person shooter or crafting immersive environmental storytelling, this set brings a true apocalyptic atmosphere to life.If you enjoy the pack, please rate and review it! Your support helps fund future releases that are even more exciting!"
+          }
+        ]
+      }
     },
     {
       "id": "5",
@@ -265,7 +309,42 @@
       "category": "gameart",
       "type": "GAME READY",
       "image": "public/image/game/covers/dagger_cover_vol02.webp",
-      "url": "product.html?id=5"
+      "url": "product.html?id=5",
+      "details": {
+        "page_title": "DAGGERS VOL.02",
+        "page_subtitle": "20 GAME READY DAGGER ASSETS",
+        "buy_link": "https://artstn.co/m/BgeGx",
+        "video_link": "https://www.youtube.com/embed/aBZExDtM7tQ",
+        "button_text": "ADD TO CART",
+        "gallery": [
+          "public/image/game/products/dagger_vol02/dagger_vol02_01.webp",
+          "public/image/game/products/dagger_vol02/dagger_vol02_02.webp",
+          "public/image/game/products/dagger_vol02/dagger_vol02_03.webp",
+          "public/image/game/products/dagger_vol02/dagger_vol02_04.webp",
+          "public/image/game/products/dagger_vol02/dagger_vol02_05.webp"
+        ],
+        "features": [
+          "✅ 20 unique dagger designs",
+          "🎮 Optimized Low-Poly Designs",
+          "✅ Perfect for games, characters, or concept art"
+        ],
+        "specifications": [
+          "📊 Poly count range < 10k",
+          "🖼 2K PBR Textures Included",
+          "✂️ Clean UV Unwrapped topology",
+          "🧩 FBX & OBJ formats — ready to drop"
+        ],
+        "overview": [
+          {
+            "type": "paragraph",
+            "content": "After your wonderful reception of the previous product, we're back with another awesome product!! This collection is the brother of the previous collection, Dagger Assets - Vol 01.Introducing another carefully designed set crafted for 3D artists, game developers, and enthusiasts looking for unparalleled detail and versatility in character design.This pack includes 20 unique assassin dagger models, specifically designed to enhance your project with a strong and authentic look without the need to start from scratch.The models are available in FBX and OBJ formats, making them easy to use in most 3D software. To simplify your selection process, each model is accompanied by a preview render."
+          },
+          {
+            "type": "paragraph",
+            "content": "Whether you’re building a gritty first-person shooter or crafting immersive environmental storytelling, this set brings a true apocalyptic atmosphere to life.If you enjoy the pack, please rate and review it! Your support helps fund future releases that are even more exciting!"
+          }
+        ]
+      }
     },
     {
       "id": "6",
@@ -273,7 +352,42 @@
       "category": "gameart",
       "type": "GAME READY",
       "image": "public/image/game/covers/dagger_cover_vol01.webp",
-      "url": "product.html?id=6"
+      "url": "product.html?id=6",
+      "details": {
+        "page_title": "DAGGERS VOL.01",
+        "page_subtitle": "20 GAME READY DAGGER ASSETS",
+        "buy_link": "https://artstn.co/m/MXel6",
+        "video_link": "https://www.youtube.com/embed/3Lp2wxkSTcs",
+        "button_text": "ADD TO CART",
+        "gallery": [
+          "public/image/game/products/dagger_vol01/dagger_vol01_01.webp",
+          "public/image/game/products/dagger_vol01/dagger_vol01_02.webp",
+          "public/image/game/products/dagger_vol01/dagger_vol01_03.webp",
+          "public/image/game/products/dagger_vol01/dagger_vol01_04.webp",
+          "public/image/game/products/dagger_vol01/dagger_vol01_05.webp"
+        ],
+        "features": [
+          "✅ 20 unique dagger designs",
+          "🎮 Optimized Low-Poly Designs",
+          "✅ Perfect for games, characters, or concept art"
+        ],
+        "specifications": [
+          "📊 Poly count range < 10k",
+          "🖼 2K PBR Textures Included",
+          "✂️ Clean UV Unwrapped topology",
+          "🧩 FBX & OBJ formats — ready to drop"
+        ],
+        "overview": [
+          {
+            "type": "paragraph",
+            "content": "Introducing a meticulously crafted collection designed for 3D artists, game developers, and enthusiasts who seek unmatched detail and versatility in character designs.Are you working on a character or game and need a dagger? Skip the heavy modeling work!This pack includes 20 unique assassin dagger models, specifically designed to enhance your project with a strong and authentic look without the need to start from scratch.The models are available in FBX and OBJ formats, making them easy to use in most 3D software. To simplify your selection process, each model is accompanied by a preview render."
+          },
+          {
+            "type": "paragraph",
+            "content": "Whether you’re building a gritty first-person shooter or crafting immersive environmental storytelling, this set brings a true apocalyptic atmosphere to life.If you enjoy the pack, please rate and review it! Your support helps fund future releases that are even more exciting!"
+          }
+        ]
+      }
     },
     {
       "id": "7",
