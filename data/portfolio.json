@@ -1,11 +1,44 @@
 {
   "profile": {
-    "about_title": "About CGArc Studio",
+    "about_title": "ABOUT CGARC STUDIO",
     "about_subtitle": "Creating in Infinite Dimensions",
-    "about_paragraphs": [
-      "Welcome to CGArc Studio, where digital art, architectural engineering, and the boundless imagination of the gaming industry converge.",
-      "We are a specialized studio dedicated to the development and production of high-end 3D assets and advanced educational content.",
-      "Quality, optimization, and global industry standards are our non-negotiable principles. We bring your ideas to life with maximum performance and realism."
+    "about_sections": [
+      {
+        "type": "paragraph",
+        "content": "Welcome to CGArc Studio, where digital art, architectural engineering, and the boundless imagination of the gaming industry converge. We are a specialized studio dedicated to the development and production of high-end 3D assets and advanced educational content, driven by a mission to elevate the standards of architectural visualization and game development worldwide."
+      },
+      {
+        "type": "paragraph",
+        "content": "Our core expertise is built upon two powerful, complementary pillars:"
+      },
+      {
+        "type": "heading",
+        "content": "🎮 GAME ART & INDUSTRY-STANDARD MODELING"
+      },
+      {
+        "type": "paragraph",
+        "content": "We deeply understand the technical and creative challenges faced by developers and game studios. By strictly adhering to the most rigorous production pipeline standards, we craft high-quality, fully optimized, Game-Ready 3D assets. Our commitment in this division is to maintain the perfect equilibrium between stunning visual fidelity and flawless technical performance (Optimization). Furthermore, we contribute to the growth of the global 3D community by sharing our specialized technical workflow through comprehensive, production-based educational courses."
+      },
+      {
+        "type": "heading",
+        "content": "📐 ARCHITECTURAL VISUALIZATION & ASSETS (ARCHVIZ)"
+      },
+      {
+        "type": "paragraph",
+        "content": "In the realm of architecture, our focus is on breathing life and identity into spaces. We develop a rich, premium library of photorealistic 3D assets and packages tailored for designers and architects. Our assets are engineered to streamline the workflow of interior and exterior staging, texturing, and rendering, pushing the final output to the pinnacle of realism and efficiency. Precision in structural integrity and absolute fidelity to real-world material textures are our signature hallmarks."
+      },
+      {
+        "type": "heading",
+        "content": "🛡️ WHY CGARC STUDIO?"
+      },
+      {
+        "type": "paragraph",
+        "content": "At CGArc, quality, optimization, and global industry standards are our non-negotiable principles. Whether you are an indie game studio seeking optimized assets for your next title, an architectural firm in need of premium details for high-end rendering, or a digital artist searching for deep, practical masterclasses—we are here to make your journey from concept to execution faster, more beautiful, and highly efficient."
+      },
+      {
+        "type": "quote",
+        "content": "✨ Your ideas deserve to be seen in their best dimensions. We give them depth."
+      }
     ]
   },
   "projects": [
