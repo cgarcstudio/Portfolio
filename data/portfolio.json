@@ -206,6 +206,52 @@
       "type": "GAME READY",
       "image": "public/image/game/covers/axes_cover_vol02.webp",
       "url": "product.html?id=3"
+      "details": {
+        "page_title": "VIKING WARRIOR AXES VOL.02",
+        "page_subtitle": "20 VIKING WARRIOR AXES - BASEMESH",
+        "buy_link": "https://artstn.co/m/Kmve7",
+        "video_link": "https://www.youtube.com/embed/rPoZFIuYtRg",
+        "button_text": "ADD TO CART",
+        "gallery": [
+          "public/image/game/products/axes_vol02/axes_vol02_01.webp",
+          "public/image/game/products/axes_vol02/axes_vol02_02.webp",
+          "public/image/game/products/axes_vol02/axes_vol02_03.webp",
+          "public/image/game/products/axes_vol02/axes_vol02_04.webp",
+          "public/image/game/products/axes_vol02/axes_vol02_05.webp",
+        ],
+        "features": [
+          "✅ 20 unique AXE designs",
+          "✅ Basemesh Modeling - Ready to sculpt",
+          "✅ Perfect for games, characters, or concept art",
+          "▫️ Skill Level: Intermediate (Prerequisite: Basic software knowledge)",
+          "🎮 Software/Add-ons: Blender 4.2 (Hardops / BoxCutter / Zen UV) | Substance Painter 9.1"
+        ],
+        "specifications": [
+          "🎮 Game Ready Mesh",
+          "🗺️ Unwrapped in UDIMs workflow",
+          "🖼️ 4K Textures in PNG (8 bit)",
+          "📊 Vertices: 123,410 | Edges: 241,812",
+          "📊 Faces: 118,915 | Triangles: 243,733"
+        ],
+        "overview": [
+          {
+            "type": "paragraph",
+            "content": "This production is a very different and attractive collection for you to use them in your games with ease and without worrying about low detail and heavy volume.Introducing another carefully designed set."
+          },
+          {
+            "type": "heading",
+            "content": "Who is it for??"
+          },
+          {
+            "type": "paragraph",
+            "content": "3D artists, game developers, and enthusiasts looking for unparalleled detail and versatility in character design.This pack includes 20 unique Viking warrior AXE models, specifically designed to enhance your project with a strong and authentic look without the need to start from scratch.The models are available in FBX and OBJ formats, making them easy to use in most 3D software. To simplify your selection process, each model is accompanied by a preview render."
+          },
+          {
+            "type": "paragraph",
+            "content": "Whether you’re building a gritty first-person shooter or crafting immersive environmental storytelling, this set brings a true apocalyptic atmosphere to life.If you enjoy the pack, please rate and review it! Your support helps fund future releases that are even more exciting!"
+          }
+        ]
+      }
     },
     {
       "id": "4",
