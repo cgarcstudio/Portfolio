@@ -111,9 +111,17 @@ body::-webkit-scrollbar { display: none; }
 .social-box a { font-size: 0.9rem !important; color: rgba(255,255,255,0.4) !important; text-decoration: none; }
 .social-box a:hover { color: #ffffff !important; }
 
-body:has(.nav-container:hover) .portfolio-wrapper {
+/* تار شدن هوشمند محتوا هنگام هاور منو در تمام صفحات */
+body:has(.nav-container:hover) .portfolio-wrapper,
+body:has(.nav-container:hover) .product-container,
+body:has(.nav-container:hover) .global-footer {
     filter: blur(12px) grayscale(40%) brightness(30%);
     transform: scale(0.98);
+    transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.product-container {
+    transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* ==========================================================================
