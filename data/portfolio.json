@@ -48,7 +48,79 @@
       "category": "gameart",
       "type": "FULL TUTORIAL",
       "image": "public/image/game/covers/leica_q3_cover.webp",
-      "url": "game_pages/leica_q3.html"
+      "url": "product.html?id=1",
+      "details": {
+        "page_title": "The Leica Q3 Masterclass",
+        "page_subtitle": "A Complete Hard-Surface Journey - Blender Tutorial",
+        "buy_link": "https://artstn.co/m/PBJw9",
+        "video_link": "https://www.youtube.com/embed/zmHKd-TDqmw",
+        "gallery": [
+          "public/image/game/products/leicaq3/leica_q3_01.webp",
+          "public/image/game/products/leicaq3/leica_q3_02.webp",
+          "public/image/game/products/leicaq3/leica_q3_03.webp",
+          "public/image/game/products/leicaq3/leica_q3_04.webp",
+          "public/image/game/products/leicaq3/leica_q3_05.webp",
+          "public/image/game/products/leicaq3/leica_q3_06.webp",
+          "public/image/game/products/leicaq3/leica_q3_07.webp",
+          "public/image/game/products/leicaq3/leica_q3_08.webp"
+        ],
+        "features": [
+          "⏱️ Total Duration: 13 Hours, 48 Minutes",
+          "▫️ Format: Real-time screen recording with shortcut display",
+          "▫️ Audio: Unnarrated (No Voice-over)",
+          "▫️ Skill Level: Upper-Intermediate (Prerequisite: Basic software knowledge)",
+          "🎮 Software/Add-ons: Blender 4.2 (Loop Tools, Bool Tools, Zen UV) | Substance Painter 9.1 | Marmoset Toolbag 4"
+        ],
+        "specifications": [
+          "▫️ Topology: Clean, Quad-Based Mesh",
+          "🖼️ Textures: 4K Resolution, PNG (8-bit)",
+          "🗺️ UVs: Fully Unwrapped workflow",
+          "📊 Vertices: 360,741 | Edges: 716,828",
+          "📊 Faces: 356,116 | Triangles: 711,976"
+        ],
+        "overview": [
+          {
+            "type": "paragraph",
+            "content": "Are you ready to master one of the most iconic pieces of industrial design? This 13.5-hour, real-time tutorial takes you through every step of creating a professional-grade Leica Q3. Whether you want to sharpen your Boolean workflow or master 4K texturing, this course delivers the blueprint for high-end asset creation."
+          },
+          {
+            "type": "warning",
+            "content": "⚠️ IMPORTANT NOTE: This is a strictly visual, real-time tutorial. There is no voice-over or subtitle narration. The video consists of screen recordings in real-time (no fast-forwarding) with an on-screen display of all keyboard shortcuts used."
+          },
+          {
+            "type": "heading",
+            "content": "🚀 Why Choose This Tutorial?"
+          },
+          {
+            "type": "paragraph",
+            "content": "1️⃣ <strong>Complete Transparency (100% Real-Time):</strong> Recorded entirely in real-time. You will see every single click, every operation, and every topology fix.<br>2️⃣ <strong>Master Complex Industrial Geometry:</strong> The Leica Q3 blends curves with sharp mechanical precision. Learn how to tackle challenges applicable to any high-end 3D asset.<br>3️⃣ <strong>Seamless Industry Pipeline:</strong> Move fluidly between professional software: Blender (Modeling/UV) ➔ Substance Painter (Texturing) ➔ Marmoset Toolbag 4 (Rendering).<br>4️⃣ <strong>Production-Ready Technical Standards:</strong> Focus on clean, Quad-based topology and optimized UV sets to maximize texel density—meeting rigorous CG industry standards.<br>5️⃣ <strong>Portfolio-Grade Results:</strong> Walk away with a photorealistic, portfolio-ready asset that demonstrates advanced high-fidelity hard-surface mastery."
+          },
+          {
+            "type": "heading",
+            "content": "📂 What You Will Learn:"
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>1. Modeling (Blender 4.2) | 35 Parts | ~10 Hours</strong><br>We begin with a simple circle and progressively build the complex curves and mechanical details. Master advanced hard-surface modeling, perfect quad topology, and complex Boolean intersections."
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>2. UV Unwrapping (Blender + Zen UV) | 5 Parts | ~1.5 Hours</strong><br>Advanced unwrapping techniques for a dense mesh using the Zen UV add-on. Covers Material Linking techniques to maximize texel density and prevent resolution drops."
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>3. Texturing (Substance Painter 9.1) | 3 Parts | ~50 Minutes</strong><br>Bring the camera to life. Utilize custom alphas (included) to recreate intricate dials, micro-details, and the distinct iconic camera grip pattern."
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>4. Lighting & Rendering (Marmoset Toolbag 4) | 2 Parts | ~40 Minutes</strong><br>Export 4K textures and build studio lighting in Marmoset to emphasize the fine hard-surface details for premium portfolio renders."
+          },
+          {
+            "type": "paragraph",
+            "content": "Elevate your hard-surface workflow today. We look forward to seeing how you apply these professional mindsets to your own digital design portfolio!"
+          }
+        ]
+      }
     },
     {
       "id": "2",
@@ -56,7 +128,7 @@
       "category": "gameart",
       "type": "FULL TUTORIAL",
       "image": "public/image/game/covers/combat_drone_cover.webp",
-      "url": "game_pages/combat_drone.html"
+      "url": "product.html?id=2"
     },
     {
       "id": "3",
@@ -64,7 +136,7 @@
       "category": "gameart",
       "type": "GAME READY",
       "image": "public/image/game/covers/axes_cover_vol02.webp",
-      "url": "game_pages/axes_v2.html"
+      "url": "product.html?id=3"
     },
     {
       "id": "4",
@@ -72,7 +144,7 @@
       "category": "gameart",
       "type": "GAME READY",
       "image": "public/image/game/covers/axes_cover_vol01.webp",
-      "url": "game_pages/axes_v1.html"
+      "url": "product.html?id=4"
     },
     {
       "id": "5",
@@ -80,7 +152,7 @@
       "category": "gameart",
       "type": "GAME READY",
       "image": "public/image/game/covers/dagger_cover_vol02.webp",
-      "url": "game_pages/daggers_v2.html"
+      "url": "product.html?id=5"
     },
     {
       "id": "6",
@@ -88,7 +160,7 @@
       "category": "gameart",
       "type": "GAME READY",
       "image": "public/image/game/covers/dagger_cover_vol01.webp",
-      "url": "game_pages/daggers_v1.html"
+      "url": "product.html?id=6"
     },
     {
       "id": "7",
@@ -96,7 +168,7 @@
       "category": "archviz",
       "type": "INTERIOR SCENE",
       "image": "public/image/arch/covers/kitchen_cover.webp",
-      "url": "arch.html"
+      "url": "product.html?id=7"
     }
   ]
 }
