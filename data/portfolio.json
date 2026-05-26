@@ -130,6 +130,74 @@
       "type": "FULL TUTORIAL",
       "image": "public/image/game/covers/combat_drone_cover.webp",
       "url": "product.html?id=2"
+      "details": {
+        "page_title": "FA-56S Combat Drone",
+        "page_subtitle": "Titanfall Combat Drone Tutorial",
+        "buy_link": "https://artstn.co/m/8GJxw",
+        "video_link": "https://youtu.be/rPoZFIuYtRg",
+        "button_text": "BUY TUTORIAL",
+        "gallery": [
+          "public/image/game/products/combatdrone/combat_drone_01.webp",
+          "public/image/game/products/combatdrone/combat_drone_02.webp",
+          "public/image/game/products/combatdrone/combat_drone_03.webp",
+          "public/image/game/products/combatdrone/combat_drone_04.webp",
+          "public/image/game/products/combatdrone/combat_drone_05.webp",
+          "public/image/game/products/combatdrone/combat_drone_06.webp",
+          "public/image/game/products/combatdrone/combat_drone_07.webp"
+        ],
+        "features": [
+          "⏱️ Total Timing: 9 hrs 40 min",
+          "▫️ Format: Real-time screen recording with shortcut display",
+          "▫️ Audio: Unnarrated (No Voice-over)",
+          "▫️ Skill Level: Intermediate (Prerequisite: Basic software knowledge)",
+          "🎮 Software/Add-ons: Blender 4.2 (Hardops / BoxCutter / Zen UV) | Substance Painter 9.1"
+        ],
+        "specifications": [
+          "🎮 Game Ready Mesh",
+          "🗺️ Unwrapped in UDIMs workflow",
+          "🖼️ 4K Textures in PNG (8 bit)",
+          "📊 Vertices: 123,410 | Edges: 241,812",
+          "📊 Faces: 118,915 | Triangles: 243,733"
+        ],
+        "overview": [
+          {
+            "type": "paragraph",
+            "content": "In this Tutorial, we will model, unwrap, texture, and render the Titanfall FA-56S Combat Drone, from zero to complete level. To follow this tutorial correctly, You should have basic knowledge of this software."
+          },
+          {
+            "type": "warning",
+            "content": "⚠️ IMPORTANT NOTE: This is a strictly visual, real-time tutorial. There is no voice-over or subtitle narration. The video consists of screen recordings in real-time (no fast-forwarding) with an on-screen display of all keyboard shortcuts used."
+          },
+          {
+            "type": "heading",
+            "content": "Modeling"
+          },
+          {
+            "type": "paragraph",
+            "content": "+5 hours of modeling process in Blender. Starting with box modeling techniques to reach the final shape. Key techniques focus on object-mode functions and creating overall shape and form."
+          },
+          {
+            "type": "heading",
+            "content": "Unwrapping"
+          },
+          {
+            "type": "paragraph",
+            "content": "+2 hours of unwrapping using the ZenUV addon. To guarantee high-quality resolution during texturing, this section utilizes UDIMs and overlap techniques effectively."
+          },
+          {
+            "type": "heading",
+            "content": "Texturing and Rendering"
+          },
+          {
+            "type": "paragraph",
+            "content": "+2.5 hours of texturing in Substance Painter with UDIMs / UV Tile option, followed by final lighting and rendering inside Blender to finalize the project."
+          },
+          {
+            "type": "paragraph",
+            "content": "Elevate your hard-surface workflow today. We look forward to seeing how you apply these professional mindsets to your own digital design portfolio!"
+          }
+        ]
+      }
     },
     {
       "id": "3",
