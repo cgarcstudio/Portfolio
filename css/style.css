@@ -217,11 +217,10 @@ footer {
    ========================================================================== */
 .hero-bg {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: url('../public/image/hub/game_bg.webp');
+    background-image: url('../public/image/hub/game_bg.webp'); /* آدرس دقیق و نسبی */
     background-color: var(--bg-dark);
     background-size: cover; background-position: center; z-index: -1;
 }
-
 .logo-text .slash { color: #5c6470; margin: 0 8px; }
 .logo-text .category-name { color: var(--accent-game); letter-spacing: 2px; }
 
