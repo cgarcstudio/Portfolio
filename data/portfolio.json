@@ -1,8 +1,12 @@
 {
   "profile": {
-    "name": "CGArc Studio",
-    "role": "3D Art & ArchViz",
-    "about": "High-end 3D assets and advanced educational content."
+    "about_title": "About CGArc Studio",
+    "about_subtitle": "Creating in Infinite Dimensions",
+    "about_paragraphs": [
+      "Welcome to CGArc Studio, where digital art, architectural engineering, and the boundless imagination of the gaming industry converge.",
+      "We are a specialized studio dedicated to the development and production of high-end 3D assets and advanced educational content.",
+      "Quality, optimization, and global industry standards are our non-negotiable principles. We bring your ideas to life with maximum performance and realism."
+    ]
   },
   "projects": [
     {
