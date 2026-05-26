@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             
-            // پر کردن کارت‌های محصولات
+            // پر کردن کارت‌ها
             if (projectGrid) {
                 const filteredProjects = data.projects.filter(p => p.category === targetCategory);
                 if (filteredProjects.length === 0) {
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // پر کردن داینامیک محتوای About Us از JSON
+            // خواندن هوشمند و داینامیک متن درباره ما از JSON
             const modalTitle = document.getElementById('modalTitle');
             const modalContent = document.getElementById('modalContent');
             
@@ -42,9 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalTitle.textContent = data.profile.about_title;
                 
                 let contentHTML = `<p class="modal-subtitle">${data.profile.about_subtitle}</p>`;
-                data.profile.about_paragraphs.forEach(paragraph => {
-                    contentHTML += `<p>${paragraph}</p>`;
-                });
+                
+                // پردازش بخش‌های مختلف (پاراگراف، تیتر، نقل‌قول)
+                if(data.profile.about_sections) {
+                    data.profile.about_sections.forEach(section => {
+                        if(section.type === "paragraph") {
+                            contentHTML += `<p>${section.content}</p>`;
+                        } else if(section.type === "heading") {
+                            contentHTML += `<h4>${section.content}</h4>`;
+                        } else if(section.type === "quote") {
+                            contentHTML += `<p class="modal-quote">${section.content}</p>`;
+                        }
+                    });
+                }
                 
                 modalContent.innerHTML = contentHTML;
             }
