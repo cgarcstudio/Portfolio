@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGArc Studio - Product Details</title>
+    
+    <link rel="icon" type="image/png" href="public/logo.png">
+    
+    <style>
+        @font-face {
+            font-family: 'CGArcFont';
+            src: url('public/font.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --bg-dark: #05070c;
+            --accent-tutorial: #e89f1b; 
+            --accent-tutorial-hover: #ffbe3b; 
+            --font-display: 'CGArcFont', sans-serif;
+            --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --card-bg: #0b0e14;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: var(--font-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .page-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(5,7,12,0.4) 0%, rgba(5,7,12,0.95) 100%), 
+                        url('public/image/hub/game_bg.webp') center/cover no-repeat;
+            z-index: -1;
+        }
+
+        .back-btn {
+            position: absolute; top: 25px; left: 20px; color: rgba(255, 255, 255, 0.6);
+            text-decoration: none; font-family: var(--font-display); font-size: 0.9rem;
+            letter-spacing: 1px; transition: color 0.3s ease; z-index: 10;
+        }
+        .back-btn:hover { color: var(--accent-tutorial); }
+
+        .container {
+            max-width: 1600px; width: 100%; margin: 0 auto;
+            padding: 85px 20px 40px 20px; display: grid;
+            grid-template-columns: 1.15fr 0.85fr; gap: 40px; flex: 1;
+        }
+
+        .gallery-column { display: flex; flex-direction: column; gap: 15px; }
+
+        .main-display {
+            width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden;
+            background-color: #010204; border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        .main-display img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+
+        .nav-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(11, 14, 20, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            border-radius: 6px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 5;
+        }
+
+        .main-display:hover .nav-arrow { opacity: 0.8; visibility: visible; }
+        .nav-arrow:hover { opacity: 1 !important; background: rgba(11, 14, 20, 0.9); color: var(--accent-tutorial); border-color: var(--accent-tutorial); }
+        .nav-arrow.prev-arrow { left: 15px; }
+        .nav-arrow.next-arrow { right: 15px; }
+        .nav-arrow svg { width: 24px; height: 24px; fill: currentColor; }
+
+        .thumbnails-container { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; width: 100%; margin-bottom: 15px; }
+        .thumb-item { aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden; cursor: pointer; background-color: #0b0e14; border: 2px solid transparent; transition: all 0.2s ease; opacity: 0.5; }
+        .thumb-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+        .thumb-item:hover { opacity: 0.9; }
+        .thumb-item.active { border-color: var(--accent-tutorial); opacity: 1; box-shadow: 0 0 10px rgba(232, 159, 27, 0.3); }
+
+        .overview-panel { background: rgba(11, 14, 20, 0.35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 6px; padding: 25px; }
+        .overview-title { font-family: var(--font-display); color: var(--accent-tutorial); font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+        .info-column { display: flex; flex-direction: column; gap: 20px; }
+
+        .buy-button-artstation {
+            display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%;
+            background-color: var(--accent-tutorial); color: #05070c; text-decoration: none;
+            padding: 16px; border-radius: 8px; font-family: var(--font-body); font-size: 1.2rem;
+            font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .buy-button-artstation:hover { background-color: var(--accent-tutorial-hover); box-shadow: 0 8px 25px rgba(255, 190, 59, 0.45), 0 4px 10px rgba(0, 0, 0, 0.6); }
+        .buy-button-artstation:active { transform: scale(0.99); }
+        .buy-button-artstation svg { width: 24px; height: 24px; fill: #05070c; }
+
+        .details-panel { background: rgba(11, 14, 20, 0.45); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 6px; padding: 30px 25px; display: flex; flex-direction: column; }
+        .panel-header { border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 20px; margin-bottom: 25px; }
+        .product-title { font-family: var(--font-display); color: var(--accent-tutorial); font-size: 1.8rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; line-height: 1.3; }
+        .product-subtitle { font-family: var(--font-body); font-size: 0.95rem; color: rgba(255, 255, 255, 0.5); letter-spacing: 0.5px; font-weight: 500; line-height: 1.4; }
+
+        .video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden; margin-bottom: 25px; background-color: #000000; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        .bottom-metadata-rows { display: flex; flex-direction: column; gap: 25px; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 25px; }
+        .metadata-row-block { background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 6px; }
+        .metadata-column-title { font-family: var(--font-display); color: var(--accent-tutorial); font-size: 1.1rem; margin-bottom: 15px; letter-spacing: 0.5px; text-transform: uppercase; border-bottom: 1px solid rgba(232, 159, 27, 0.2); padding-bottom: 6px; display: inline-block; }
+        
+        .product-description { font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6; color: rgba(255, 255, 255, 0.8); display: flex; flex-direction: column; gap: 12px; }
+        .product-description h5 { font-family: var(--font-display); color: #ffffff; font-size: 1.1rem; margin-top: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .product-description .warning-text { color: var(--accent-tutorial); font-weight: 500; }
+
+        .features-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .features-list li { font-size: 1.02rem; line-height: 1.5; white-space: normal; color: rgba(255, 255, 255, 0.92); padding-left: 5px; }
+
+        .site-footer { width: 100%; background: rgba(4, 5, 9, 0.8); border-top: 1px solid rgba(255, 255, 255, 0.03); padding: 25px 20px; text-align: center; margin-top: 40px; }
+        .footer-content { max-width: 1600px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+        .footer-copyright { font-family: var(--font-body); font-size: 0.9rem; color: rgba(255, 255, 255, 0.5); letter-spacing: 0.5px; }
+        .footer-disclaimer { font-family: var(--font-body); font-size: 0.75rem; color: rgba(255, 255, 255, 0.3); text-transform: uppercase; letter-spacing: 1px; }
+
+        .scroll-top-btn { position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px; background-color: rgba(11, 14, 20, 0.8); border: 1px solid rgba(232, 159, 27, 0.4); border-radius: 6px; color: var(--accent-tutorial); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 90; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
+        .scroll-top-btn.show { opacity: 1; visibility: visible; }
+        .scroll-top-btn:hover { background-color: var(--accent-tutorial); color: #05070c; border-color: var(--accent-tutorial); transform: translateY(-3px); }
+        .scroll-top-btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+        .lightbox-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(3, 4, 7, 0.95); z-index: 100; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .lightbox-overlay.active { opacity: 1; pointer-events: auto; }
+        .lightbox-content { position: relative; max-width: 90%; max-height: 90vh; }
+        .lightbox-img { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); -webkit-user-select: none; user-select: none; pointer-events: none; }
+        .lightbox-close { position: absolute; top: -45px; right: -10px; background: none; border: none; color: #ffffff; font-size: 2rem; cursor: pointer; font-family: var(--font-body); transition: color 0.2s ease; }
+        .lightbox-close:hover { color: var(--accent-tutorial); }
+
+        @media (max-width: 1200px) { .thumbnails-container { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 1024px) { .container { grid-template-columns: 1fr; padding-top: 100px; gap: 30px; padding-left: 15px; padding-right: 15px; } .back-btn { top: 20px; left: 15px; } .site-footer { padding: 20px 15px; } .scroll-top-btn { bottom: 20px; right: 20px; width: 40px; height: 40px; } .nav-arrow { opacity: 0.7; visibility: visible; width: 40px; height: 40px; } }
+        @media (max-width: 600px) { .thumbnails-container { grid-template-columns: repeat(4, 1fr); } }
+    </style>
+</head>
+<body class="dynamic-product-page">
+
+    <div class="page-bg"></div>
+
+    <a href="game.html" class="back-btn" id="dynamicBackBtn">← BACK</a>
+
+    <div class="container">
+        
+        <div class="gallery-column">
+            <div class="main-display" id="mainDisplay">
+                <button class="nav-arrow prev-arrow" id="prevBtn">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <img src="" id="currentRender" alt="Product Render">
+                <button class="nav-arrow next-arrow" id="nextBtn">
+                    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+            </div>
+            
+            <div class="thumbnails-container" id="thumbContainer"></div>
+
+            <div class="overview-panel">
+                <h3 class="overview-title">Overview</h3>
+                <div class="product-description" id="dynamicOverview"></div>
+            </div>
+        </div>
+
+        <div class="info-column">
+            <a href="#" target="_blank" class="buy-button-artstation" id="dynamicBuyLink">
+                <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.86 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1 1 2 2.1 2h13.9v-2H7.42c-.13 0-.25-.11-.25-.25z"/></svg>
+                Purchase Asset / Course
+            </a>
+
+            <div class="details-panel">
+                <div class="panel-header">
+                    <h1 class="product-title" id="dynamicTitle">Loading...</h1>
+                    <div class="product-subtitle" id="dynamicSubtitle"></div>
+                </div>
+
+                <div class="video-container" id="videoWrapper">
+                    <iframe src="" allowfullscreen id="dynamicVideo"></iframe>
+                </div>
+
+                <div class="bottom-metadata-rows">
+                    <div class="metadata-row-block" id="featuresBlock">
+                        <h4 class="metadata-column-title">Features</h4>
+                        <ul class="features-list" id="dynamicFeatures"></ul>
+                    </div>
+
+                    <div class="metadata-row-block" id="specsBlock">
+                        <h4 class="metadata-column-title">Specifications</h4>
+                        <ul class="features-list" id="dynamicSpecs"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-top-btn" id="scrollTopBtn">
+        <svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+    </button>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-copyright">&copy; 2026 CGArc Studio. All Rights Reserved.</p>
+            <p class="footer-disclaimer">All digital products, 3D models, and textures are intellectual properties of CGArc Studio.</p>
+        </div>
+    </footer>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">X</button>
+            <img src="" alt="Enlarged" class="lightbox-img" id="lightboxImg">
+        </div>
+    </div>
+
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
