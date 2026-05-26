@@ -28,17 +28,28 @@ body {
 
 body::-webkit-scrollbar { display: none; }
 
+/* --- Menu Blur Fix (Matching the old design) --- */
 .main-wrapper {
-    transition: filter 0.4s ease, opacity 0.4s ease;
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* ترنزیشن را از اینجا برداشتیم تا تداخل نکند */
 }
 
-.main-wrapper.menu-active { filter: blur(12px); opacity: 0.4; pointer-events: none; }
+#projects-grid, .page-footer {
+    transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
 
+/* وقتی منو فعال است، فقط کارت‌ها و فوتر تار، سیاه‌سفید و کمی کوچک می‌شوند */
+.main-wrapper.menu-active #projects-grid,
+.main-wrapper.menu-active .page-footer {
+    filter: blur(12px) grayscale(40%) brightness(30%);
+    transform: scale(0.98);
+    opacity: 0.4;
+    pointer-events: none;
+}
 .page-bg-wallpaper {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background-image: url('../public/image/hub/game_bg.webp');
@@ -102,27 +113,27 @@ body::-webkit-scrollbar { display: none; }
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
     gap: 30px; 
-    max-width: 1260px; 
+    max-width: 1400px; /* سایز شبکه را از 1260 به 1400 افزایش دادیم تا کارت‌ها بزرگتر شوند */
     margin: 0 auto; 
-    padding: 40px 40px 120px 40px; 
+    padding: 140px 4% 40px 4%; /* پدینگ دقیق فایل هاردکد قدیمی */
 }
 
 /* افکت مات شدن بقیه کارت‌ها هنگام هاور روی یک کارت خاص */
 .products-grid:hover .card-link:not(:hover) {
     filter: grayscale(80%) brightness(40%);
     opacity: 0.4;
-    transition: filter 0.4s ease, opacity 0.4s ease;
 }
 
 .card-link {
     text-decoration: none; 
     display: block; 
     color: inherit;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* انیمیشن فوق‌العاده نرم و حرفه‌ای استخراج شده از سایت قدیمی */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, opacity 0.4s ease;
 }
 
 .card-link:hover {
-    transform: scale(1.05);
+    transform: scale(1.08); /* بزرگنمایی بیشتر هنگام هاور (قبلا 1.05 بود) */
     z-index: 5;
 }
 
@@ -130,16 +141,18 @@ body::-webkit-scrollbar { display: none; }
     display: flex; 
     flex-direction: column; 
     background: transparent;
-    border-radius: 12px; 
+    border-radius: 8px; /* در فایل قدیمی گردی لبه‌ها 8 بود */
     position: relative; 
     width: 100%;
-    transition: box-shadow 0.4s ease;
+    transition: box-shadow 0.4s ease, border 0.4s ease;
 }
 
-/* افکت درخشش نئونی و بوردر */
+/* افکت نئونی قدرتمندتر (دقیقا کدهای فایل قدیمی) */
 .card-link:hover .card {
-    box-shadow: 0 0 40px rgba(229, 154, 25, 0.5);
-    border: 1px solid rgba(229, 154, 25, 0.3);
+    box-shadow: 0 0 30px rgba(229, 154, 25, 0.6), 
+                0 0 55px rgba(229, 154, 25, 0.35), 
+                0 0 80px rgba(229, 154, 25, 0.15);
+    border: 1px solid transparent; /* حذف بوردر خشک قبلی */
 }
 
 .card-img-holder {
@@ -147,21 +160,26 @@ body::-webkit-scrollbar { display: none; }
     aspect-ratio: 1 / 1; 
     position: relative; 
     overflow: hidden;
-    border-radius: 12px; 
-    border: 1px solid rgba(255, 255, 255, 0.04); 
+    border-radius: 8px 8px 0 0; 
     background: #0b0e14;
 }
-.card-img-holder img { width: 100%; height: 100%; object-fit: cover; }
 
-/* کپشن کشویی - هماهنگ با تولیداتِ JS */
+.card-img-holder img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+/* کپشن کشویی زیر کارت */
 .card-info {
     width: 100%; 
     padding: 0 15px; 
-    background: transparent; 
+    background: var(--card-dark); 
     max-height: 0; 
     opacity: 0;
     overflow: hidden; 
-    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.2s ease, padding 0.3s ease;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease, padding 0.3s ease;
+    border-radius: 0 0 8px 8px;
 }
 
 .card-link:hover .card-info {
@@ -170,8 +188,8 @@ body::-webkit-scrollbar { display: none; }
     padding: 15px;
 }
 
-.card-title { font-size: 0.95rem; font-weight: bold; color: var(--accent-game); text-transform: uppercase; display: block; }
-.card-category { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 500; display: block; }
+.card-title { font-size: 1.1rem; font-weight: 900; color: var(--accent-game); text-transform: uppercase; display: block; letter-spacing: 1px;}
+.card-category { font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; font-weight: 500; display: block; letter-spacing: 1px;}
 
 /* ==========================================================================
    5. OVERLAY MENU & FOOTER
