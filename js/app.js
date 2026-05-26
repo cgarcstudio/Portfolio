@@ -1,13 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Scroll to top button logic
+    // ==========================================================================
+    // 1. SCROLL TO TOP LOGIC
+    // ==========================================================================
     const scrollBtn = document.getElementById("scrollTopBtn");
     if (scrollBtn) {
         window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 scrollBtn.classList.add("show");
+                scrollBtn.classList.add("visible"); // سازگاری با هر دو کلاس صفحات
             } else {
                 scrollBtn.classList.remove("show");
+                scrollBtn.classList.remove("visible");
             }
         };
         scrollBtn.onclick = function() {
@@ -15,18 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // 2. Fetch Portfolio Data
+    // ==========================================================================
+    // 2. FETCH DATA & ROUTING
+    // ==========================================================================
     const projectGrid = document.getElementById('projects-grid');
-    const isGamePage = document.body.classList.contains('game-page');
-    const targetCategory = isGamePage ? 'gameart' : 'archviz';
+    const isProductPage = document.body.classList.contains('dynamic-product-page');
 
     fetch('data/portfolio.json')
         .then(response => response.json())
         .then(data => {
             
-            // پر کردن کارت‌ها
+            // الف: اگر در صفحه گرید (Game/Arch) بودیم، کارت‌ها را رندر کن
             if (projectGrid) {
+                const isGamePage = document.body.classList.contains('game-page');
+                const targetCategory = isGamePage ? 'gameart' : 'archviz';
                 const filteredProjects = data.projects.filter(p => p.category === targetCategory);
+                
                 if (filteredProjects.length === 0) {
                     projectGrid.innerHTML = `<p style="color: #5c6470;">No projects added yet.</p>`;
                 } else {
@@ -34,52 +42,169 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // خواندن هوشمند و داینامیک متن درباره ما از JSON
-            const modalTitle = document.getElementById('modalTitle');
-            const modalContent = document.getElementById('modalContent');
-            
-            if (modalTitle && modalContent && data.profile) {
-                modalTitle.textContent = data.profile.about_title;
-                
-                let contentHTML = `<p class="modal-subtitle">${data.profile.about_subtitle}</p>`;
-                
-                // پردازش بخش‌های مختلف (پاراگراف، تیتر، نقل‌قول)
-                if(data.profile.about_sections) {
-                    data.profile.about_sections.forEach(section => {
-                        if(section.type === "paragraph") {
-                            contentHTML += `<p>${section.content}</p>`;
-                        } else if(section.type === "heading") {
-                            contentHTML += `<h4>${section.content}</h4>`;
-                        } else if(section.type === "quote") {
-                            contentHTML += `<p class="modal-quote">${section.content}</p>`;
+            // ب: اگر در صفحه قالب محصول (product.html) بودیم، اطلاعات تفصیلی را لود کن
+            if (isProductPage) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const projectId = urlParams.get('id');
+                const project = data.projects.find(p => p.id === projectId);
+
+                if (project && project.details) {
+                    const details = project.details;
+
+                    // پر کردن متون اصلی صفحه
+                    document.title = `${project.title} - CGArc Studio`;
+                    document.getElementById('dynamicTitle').textContent = details.page_title;
+                    document.getElementById('dynamicSubtitle').textContent = details.page_subtitle;
+                    document.getElementById('dynamicBuyLink').href = details.buy_link;
+                    
+                    // مدیریت دکمه بازگشت هوشمند بر اساس دسته بندی
+                    const backBtn = document.getElementById('dynamicBackBtn');
+                    if (backBtn && project.category === 'archviz') {
+                        backBtn.href = 'arch.html';
+                    }
+
+                    // لود ویدیو (اگر وجود داشت، وگرنه باکس ویدیو پنهان می‌شود)
+                    const videoFrame = document.getElementById('dynamicVideo');
+                    if (details.video_link) {
+                        videoFrame.src = details.video_link;
+                    } else {
+                        document.getElementById('videoWrapper').style.display = 'none';
+                    }
+
+                    // پر کردن لیست ویژگی‌ها (Features)
+                    const featuresList = document.getElementById('dynamicFeatures');
+                    if (details.features && details.features.length > 0) {
+                        featuresList.innerHTML = details.features.map(f => `<li>${f}</li>`).join('');
+                    } else {
+                        document.getElementById('featuresBlock').style.display = 'none';
+                    }
+
+                    // پر کردن لیست مشخصات فنی (Specifications)
+                    const specsList = document.getElementById('dynamicSpecs');
+                    if (details.specifications && details.specifications.length > 0) {
+                        specsList.innerHTML = details.specifications.map(s => `<li>${s}</li>`).join('');
+                    } else {
+                        document.getElementById('specsBlock').style.display = 'none';
+                    }
+
+                    // پر کردن باکس توضیحات کلی (Overview)
+                    const overviewBox = document.getElementById('dynamicOverview');
+                    let overviewHTML = '';
+                    details.overview.forEach(sec => {
+                        if (sec.type === 'paragraph') {
+                            overviewHTML += `<p>${sec.content}</p>`;
+                        } else if (sec.type === 'warning') {
+                            overviewHTML += `<p class="warning-text">${sec.content}</p>`;
+                        } else if (sec.type === 'heading') {
+                            overviewHTML += `<h5>${sec.content}</h5>`;
                         }
                     });
+                    overviewBox.innerHTML = overviewHTML;
+
+                    // ساخت داینامیک گلهای رندرها و ریزعکس‌ها
+                    const thumbContainer = document.getElementById('thumbContainer');
+                    const currentRender = document.getElementById('currentRender');
+                    
+                    if (details.gallery && details.gallery.length > 0) {
+                        currentRender.src = details.gallery[0];
+                        thumbContainer.innerHTML = details.gallery.map((imgUrl, idx) => `
+                            <div class="thumb-item ${idx === 0 ? 'active' : ''}">
+                                <img src="${imgUrl}" alt="Render ${idx + 1}">
+                            </div>
+                        `).join('');
+                        
+                        // فعال سازی موتور اسلایدر و لایت باکس پس از رندر تصاویر
+                        initProductSlider(details.gallery);
+                    }
+
+                } else {
+                    document.getElementById('dynamicTitle').textContent = "Project Not Found";
                 }
-                
+            }
+
+            // ج: پر کردن مودال درباره ما (About Us) در صفحات گرید
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            if (modalTitle && modalContent && data.profile) {
+                modalTitle.textContent = data.profile.about_title;
+                let contentHTML = `<p class="modal-subtitle">${data.profile.about_subtitle}</p>`;
+                if (data.profile.about_sections) {
+                    data.profile.about_sections.forEach(sec => {
+                        if (sec.type === "paragraph") contentHTML += `<p>${sec.content}</p>`;
+                        else if (sec.type === "heading") contentHTML += `<h4>${sec.content}</h4>`;
+                        else if (sec.type === "quote") contentHTML += `<p class="modal-quote">${sec.content}</p>`;
+                    });
+                }
                 modalContent.innerHTML = contentHTML;
             }
         })
         .catch(error => console.error('Error fetching data:', error));
 
-    // 3. About Us Modal Interaction
+    // ==========================================================================
+    // 3. ABOUT US MODAL INTERACTION
+    // ==========================================================================
     const aboutMenuBtn = document.getElementById("aboutMenuBtn");
     const aboutModal = document.getElementById("aboutModal");
     const closeModal = document.getElementById("closeModal");
 
-    if(aboutMenuBtn && aboutModal && closeModal) {
-        aboutMenuBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            aboutModal.classList.add("active");
-        });
-
-        closeModal.addEventListener("click", () => {
-            aboutModal.classList.remove('active');
-        });
-
-        aboutModal.addEventListener("click", (e) => {
-            if (e.target === aboutModal) {
-                aboutModal.classList.remove('active');
-            }
-        });
+    if (aboutMenuBtn && aboutModal && closeModal) {
+        aboutMenuBtn.addEventListener("click", (e) => { e.preventDefault(); aboutModal.classList.add("active"); });
+        closeModal.addEventListener("click", () => { aboutModal.classList.remove('active'); });
+        aboutModal.addEventListener("click", (e) => { if (e.target === aboutModal) aboutModal.classList.remove('active'); });
     }
 });
+
+// ==========================================================================
+// 4. LIGHTBOX & SLIDER ENGINE FOR PRODUCT PAGE
+// ==========================================================================
+function initProductSlider(galleryArray) {
+    const thumbItems = document.querySelectorAll('.thumb-item');
+    const currentRender = document.getElementById('currentRender');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    let currentIndex = 0;
+
+    function updateSlider(index) {
+        document.querySelector('.thumb-item.active').classList.remove('active');
+        thumbItems[index].classList.add('active');
+        currentRender.src = galleryArray[index];
+        currentIndex = index;
+    }
+
+    thumbItems.forEach((thumb, index) => {
+        thumb.addEventListener('click', () => updateSlider(index));
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        let nextIndex = (currentIndex + 1) >= galleryArray.length ? 0 : currentIndex + 1;
+        updateSlider(nextIndex);
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        let prevIndex = (currentIndex - 1) < 0 ? galleryArray.length - 1 : currentIndex - 1;
+        updateSlider(prevIndex);
+    });
+
+    currentRender.addEventListener('click', () => {
+        lightboxImg.src = currentRender.src;
+        lightbox.classList.add('active');
+    });
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+    }
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('active');
+    });
+
+    // جلوگیری از راست کلیک برای امنیت تصاویر
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('contextmenu', e => e.preventDefault());
+    });
+    lightbox.addEventListener('contextmenu', e => e.preventDefault());
+}
