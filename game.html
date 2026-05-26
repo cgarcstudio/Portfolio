@@ -12,7 +12,7 @@
 
     <a href="index.html" class="logo-container">
         <img src="public/logo.png" alt="CGArc Studio" class="logo-img">
-        <span class="logo-text">CGARC STUDIO</span>
+        <div class="logo-text">CGARC STUDIO <span class="slash">/</span> <span class="category-name">GAME ART</span></div>
     </a>
 
     <nav class="nav-container">
@@ -23,7 +23,7 @@
         </div>
         <ul class="menu-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">About us</a></li>
+            <li><a href="#" id="aboutMenuBtn">About us</a></li>
             <li><a href="#">Contact us</a></li>
             <div class="social-box">
                 <a href="#" target="_blank">ARTSTATION</a>
@@ -42,6 +42,14 @@
         <footer>
             <p class="footer-text">&copy; 2026 CGArc Studio. All Rights Reserved.</p>
         </footer>
+    </div>
+
+    <div class="modal-overlay" id="aboutModal">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeModal">✕</button>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-text-content" id="modalContent"></div>
+        </div>
     </div>
 
     <script src="js/components.js"></script>
