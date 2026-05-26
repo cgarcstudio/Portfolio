@@ -271,3 +271,15 @@ footer {
 .modal-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.01); }
 .modal-container::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 4px; }
 .modal-container::-webkit-scrollbar-thumb:hover { background: var(--accent-game); }
+
+/* ==========================================================================
+   ABOUT US MODAL TEXT STYLES (Headings & Quote)
+   ========================================================================== */
+.modal-text-content h4 {
+    font-family: var(--font-main); color: #ffffff; font-size: 1.15rem;
+    letter-spacing: 1px; margin-top: 15px; margin-bottom: -5px; text-transform: uppercase;
+}
+.modal-quote {
+    border-top: 1px solid rgba(255,255,255,0.05); padding-top: 18px;
+    font-weight: 500; text-align: center; color: var(--accent-game); margin-top: 15px;
+}
