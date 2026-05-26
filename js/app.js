@@ -1,21 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mainWrapper = document.getElementById('main-content-wrapper') || document.getElementById('mainWrapper');
-    const navToggle = document.getElementById('menu-trigger') || document.getElementById('navToggle');
-
-    // 1. Hamburger Menu Blur Interaction
-    if (navToggle && mainWrapper) {
-        navToggle.addEventListener('mouseenter', () => mainWrapper.classList.add('menu-active'));
-        navToggle.addEventListener('mouseleave', () => mainWrapper.classList.remove('menu-active'));
-    }
-
-    // 2. Scroll to top button logic
+    
+    // 1. Scroll to top button logic
     const scrollBtn = document.getElementById("scrollTopBtn");
     if (scrollBtn) {
         window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollBtn.classList.add("visible");
+                scrollBtn.classList.add("show");
             } else {
-                scrollBtn.classList.remove("visible");
+                scrollBtn.classList.remove("show");
             }
         };
         scrollBtn.onclick = function() {
@@ -23,11 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // 3. Fetch Portfolio Data and Render dynamic content
-    const projectGrid = document.getElementById('projects-grid') || document.getElementById('projectGrid');
+    // 2. Fetch Portfolio Data and Render dynamic content
+    const projectGrid = document.getElementById('projects-grid');
     
     if (projectGrid) {
-        // تشخیص می‌دهیم که الان توی کدوم صفحه هستیم
         const isGamePage = document.body.classList.contains('game-page');
         const targetCategory = isGamePage ? 'gameart' : 'archviz';
 
@@ -41,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                // تزریق کارت‌ها به داخل صفحه
                 projectGrid.innerHTML = filteredProjects.map(project => createCard(project)).join('');
             })
             .catch(error => {
