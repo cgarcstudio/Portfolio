@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGArc Studio - Category</title>
+    
+    <link rel="icon" type="image/png" href="public/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5267DVT363"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5267DVT363');
+    </script>
+</head>
+<body class="arch-page category-page"> <div class="page-bg-wallpaper-arch"></div>
+
+    <a href="arch.html" class="back-btn" style="color: #11161d; font-weight: bold;">← BACK TO ARCHVIZ</a>
+
+    <nav class="nav-container">
+        <div class="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" id="aboutMenuBtn">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+            <div class="social-box">
+                <a href="#" target="_blank">ARTSTATION</a>
+                <a href="#" target="_blank">LINKEDIN</a>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="portfolio-wrapper">
+        <div class="products-container">
+            <h2 id="categoryTitle" style="color: var(--accent-arch); font-family: var(--font-main); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; font-size: 2.2rem; text-align: center;">
+                Loading...
+            </h2>
+            
+            <div class="products-grid" id="category-projects-grid"></div>
+        </div>
+
+        <footer class="global-footer">
+            <p>&copy; 2026 CGArc Studio. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="quick-view-container">
+            <button class="modal-close-btn" id="closeQuickView">✕</button>
+            
+            <div class="quick-view-content">
+                <div class="qv-gallery-col">
+                    <div class="qv-main-img">
+                        <img src="" id="qvMainImage" alt="Product Render">
+                    </div>
+                    <div class="qv-thumbnails" id="qvThumbContainer"></div>
+                </div>
+                
+                <div class="qv-info-col">
+                    <div class="qv-header">
+                        <h2 class="qv-title" id="qvTitle">Product Title</h2>
+                        <p class="qv-subtitle" id="qvSubtitle">Subtitle</p>
+                    </div>
+                    
+                    <a href="#" target="_blank" class="buy-button-artstation qv-buy-btn" id="qvBuyBtn">
+                        <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.86 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1 1 2 2.1 2h13.9v-2H7.42c-.13 0-.25-.11-.25-.25z"/></svg>
+                        PURCHASE ASSET
+                    </a>
+                    
+                    <div class="qv-description" id="qvDescription"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="aboutModal">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeModal">✕</button>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-text-content" id="modalContent"></div>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="scrollTopBtn" title="Go to top"></button>
+
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
