@@ -165,8 +165,11 @@ body.arch-page .global-footer p { color: #5c6470; }
 .portfolio-wrapper {
     position: relative; width: 100%; min-height: 100vh; z-index: 1;
     padding: 140px 4% 40px 4%; display: flex; flex-direction: column; justify-content: space-between;
+    transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
 .products-container { width: 100%; flex-grow: 1; }
+
 .products-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;
     width: 100%; max-width: 1400px; margin: 0 auto;
@@ -181,41 +184,46 @@ body.arch-page .global-footer p { color: #5c6470; }
     filter: grayscale(35%) brightness(80%);
     opacity: 0.7;
 }
+
+/* هاور اصلی روی کارت */
 .products-grid .card-link:hover {
     transform: scale(1.08); filter: grayscale(0%) brightness(100%); opacity: 1; z-index: 5;
 }
 
-/* افکت سایه برای کارت‌های گیم (زرد) */
-body.game-page .products-grid .card-link:hover .card {
-    box-shadow: 0 0 30px rgba(229, 154, 25, 0.6), 0 0 55px rgba(229, 154, 25, 0.35), 0 0 80px rgba(229, 154, 25, 0.15);
+/* افکت سایه یکپارچه برای عکس و کپشن باز شده در گیم (زرد) */
+body.game-page .products-grid .card-link:hover .card-img-holder,
+body.game-page .products-grid .card-link:hover .card-info {
+    box-shadow: 0 0 25px rgba(229, 154, 25, 0.4), 0 0 50px rgba(229, 154, 25, 0.2);
 }
 
-/* افکت سایه برای کارت‌های معماری (آبی) */
-body.arch-page .products-grid .card-link:hover .card {
-    box-shadow: 0 0 20px rgba(0, 180, 216, 0.25), 0 0 40px rgba(0, 180, 216, 0.15), 0 0 60px rgba(0, 180, 216, 0.08);
+/* افکت سایه یکپارچه برای عکس و کپشن باز شده در معماری (آبی) */
+body.arch-page .products-grid .card-link:hover .card-img-holder,
+body.arch-page .products-grid .card-link:hover .card-info {
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.25), 0 0 40px rgba(0, 180, 216, 0.15);
 }
 
-/* ==========================================================================
-   4. DYNAMIC GRID & CARDS (اصلاح شده برای باز شدن کپشن به سمت پایین)
-   ========================================================================== */
+/* بالا آوردن لایه عکس برای اینکه سایه‌ها با کپشن تداخل نکنند */
+.products-grid .card-link:hover .card-img-holder {
+    z-index: 101;
+}
+
 .card {
     position: relative; background-color: transparent; border-radius: 8px;
-    /* overflow: hidden; 👈 این خط کلاً حذف شد تا کپشن اجازه داشته باشد از کادر بیرون بزند */
     display: flex; flex-direction: column; width: 100%;
 }
 
 .card-img-holder { 
     width: 100%; aspect-ratio: 1 / 1; overflow: hidden; 
-    border-radius: 8px; /* گوشه‌های گرد حالا مستقیماً به خود عکس داده شد */
+    border-radius: 8px; 
     position: relative;
-    z-index: 2; /* عکس باید بالاتر از کپشن باشد */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* کمی سایه برای تفکیک از کپشن */
+    z-index: 2; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
 }
 .card-img-holder img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .card-info {
     position: absolute; 
-    top: 100%; /* 👈 شاه‌کلید! یعنی دقیقا از خطِ پایانِ عکس شروع شو به سمت پایین */
+    top: 100%; 
     left: 0; 
     width: 100%;
     max-height: 0; 
@@ -229,16 +237,16 @@ body.arch-page .products-grid .card-link:hover .card {
     transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1), padding 0.3s ease, opacity 0.2s ease;
     border-radius: 0 0 8px 8px;
     z-index: 100;
-    margin-top: -5px; /* کمی می‌رود زیر عکس تا یکپارچه شود */
-    padding-top: 5px; /* جبران مارجین منفی */
+    margin-top: -5px; 
+    padding-top: 5px; 
 }
+
 .products-grid .card-link:hover .card-info {
     max-height: 80px; opacity: 1; padding: 15px;
 }
 
 .card-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; color: var(--accent-game); }
 .card-category { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
-
 /* ==========================================================================
    5. SCROLL TO TOP BUTTON
    ========================================================================== */
@@ -392,12 +400,10 @@ body.arch-page .products-grid .card-link:hover .card {
 .quick-view-container {
     width: 95%;
     max-width: 1250px;
-    /* این خط دقیقاً افکت شیشه‌ای شفافِ "درباره ما" را می‌سازد */
-    background: rgba(255, 255, 255, 0.03); 
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    /* دقیقاً استایل‌های شیشه‌ای بخش درباره ما */
+    background: rgba(255, 255, 255, 0.02); 
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
+    border-radius: 12px; /* گوشه‌ها مثل درباره ما شد */
     padding: 45px;
     position: relative;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
@@ -407,7 +413,7 @@ body.arch-page .products-grid .card-link:hover .card {
 }
 .modal-overlay.active .quick-view-container { transform: translateY(0); }
 
-/* دکمه خروج: بازگشت به حالت ساده (بدون دایره) با هاور آبی معماری */
+/* دکمه خروج مودال محصولات */
 .quick-view-container .modal-close-btn {
     top: 25px; 
     right: 30px;
@@ -434,7 +440,7 @@ body.arch-page .products-grid .card-link:hover .card {
 .qv-main-img { 
     width: 100%; 
     aspect-ratio: 1 / 1;
-    border-radius: 12px; 
+    border-radius: 8px; 
     overflow: hidden; 
     background: rgba(0,0,0,0.2); 
     border: 1px solid rgba(255,255,255,0.05); 
@@ -442,7 +448,6 @@ body.arch-page .products-grid .card-link:hover .card {
 }
 .qv-main-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* فلش‌های گالری: مشابه بخش گیم اما با پالت آبی معماری */
 .qv-nav-arrow {
     position: absolute; top: 50%; transform: translateY(-50%);
     background: rgba(11, 14, 20, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
@@ -461,7 +466,7 @@ body.arch-page .products-grid .card-link:hover .card {
 .qv-thumb { 
     width: 85px; 
     aspect-ratio: 1 / 1; 
-    border-radius: 8px; 
+    border-radius: 6px; 
     overflow: hidden; cursor: pointer; border: 2px solid transparent; 
     opacity: 0.4; transition: all 0.2s ease; background-color: rgba(0,0,0,0.2);
 }
@@ -473,7 +478,6 @@ body.arch-page .products-grid .card-link:hover .card {
 .qv-info-col { display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; }
 .qv-header { border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 15px; }
 
-/* اصلاح رنگ متون به روشن برای خوانایی کامل روی شیشه تاریک */
 .qv-title { font-size: 2rem; color: #ffffff; font-family: var(--font-main); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; }
 .qv-subtitle { font-family: var(--font-body); font-size: 0.95rem; color: rgba(255,255,255,0.6); margin-top: 6px; font-weight: 500; }
 
@@ -481,7 +485,16 @@ body.arch-page .products-grid .card-link:hover .card {
 .qv-buy-btn:hover { background-color: #0096b4 !important; box-shadow: 0 8px 25px rgba(0, 180, 216, 0.35) !important; }
 .qv-buy-btn svg { fill: #ffffff !important; }
 
-.qv-description { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.85); overflow-y: auto; max-height: 350px; padding-right: 12px; }
+.qv-description { 
+    font-family: var(--font-body); 
+    font-size: 1.05rem; 
+    line-height: 1.7; 
+    color: rgba(255,255,255,0.85); 
+    overflow-y: auto; 
+    max-height: 350px; 
+    padding-right: 12px; 
+    white-space: pre-line; /* 👈 کلید جادویی: خواندن Enter و \n برای لیست‌ها */
+}
 .qv-description::-webkit-scrollbar { width: 4px; }
 .qv-description::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
 
@@ -492,7 +505,6 @@ body.arch-page .products-grid .card-link:hover .card {
     .qv-description { max-height: none; overflow: visible; }
     .quick-view-container .modal-close-btn { top: 15px; right: 15px; font-size: 1.6rem; }
 }
-
 /* ==========================================================================
    8. PRODUCT LIGHTBOX (IMAGE ZOOM)
    ========================================================================== */
