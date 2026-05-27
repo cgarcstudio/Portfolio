@@ -390,13 +390,43 @@
         ]
       }
     },
-    {
-      "id": "7",
-      "title": "Modernist Kitchen",
+ {
+      "id": "cat_childroom",
+      "title": "Childroom",
       "category": "archviz",
-      "type": "INTERIOR SCENE",
-      "image": "public/image/arch/covers/kitchen_cover.webp",
-      "url": "product.html?id=7"
+      "type": "Toy",
+      "image": "public/image/arch/cover/childroom_cover.webp",
+      "url": "category.html?id=childroom"
+    },
+    {
+      "id": "cat_decoration",
+      "title": "Decoration",
+      "category": "archviz",
+      "type": "Decorative set - Bouquet",
+      "image": "public/image/arch/cover/decoration_cover.webp",
+      "url": "category.html?id=decoration"
+    },
+    {
+      "id": "cat_furniture",
+      "title": "Furniture",
+      "category": "archviz",
+      "type": "Chair - Lighting",
+      "image": "public/image/arch/cover/furniture_cover.webp",
+      "url": "category.html?id=furniture"
+    },
+    {
+      "id": "cat_kitchen",
+      "title": "Kitchen",
+      "category": "archviz",
+      "type": "Kitchen appliance",
+      "image": "public/image/arch/cover/kitchen_cover.webp",
+      "url": "category.html?id=kitchen"
+    },
+    {
+      "id": "cat_technology",
+      "title": "Technology",
+      "category": "archviz",
+      "type": "Household appliance",
+      "image": "public/image/arch/cover/technology_cover.webp",
+      "url": "category.html?id=technology"
     }
-  ]
-}
