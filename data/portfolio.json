@@ -42,9 +42,7 @@
     ]
   },
 
-
   "projects": [
-    
     {
       "id": "1",
       "title": "LEICA Q3",
@@ -393,8 +391,6 @@
         ]
       }
     },
-
-
     {
       "id": "cat_childroom",
       "title": "Childroom",
@@ -434,10 +430,8 @@
       "type": "Household appliance",
       "image": "public/image/arch/cover/technology_cover.webp",
       "url": "category.html?id=technology"
-    }
-  ]
-},
-{
+    },
+    {
       "id": "decor_prod_1",
       "title": "Minimalist Vase Set",
       "category": "decoration",
@@ -488,3 +482,5 @@
         "description": "Complete modernist kitchen cabinet set integrated with contemporary household appliances. All models feature fully clean quad topology and un-wrapped high-resolution texel densities."
       }
     }
+  ]
+}
