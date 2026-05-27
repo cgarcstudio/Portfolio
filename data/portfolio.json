@@ -436,4 +436,55 @@
       "url": "category.html?id=technology"
     }
   ]
-}
+},
+{
+      "id": "decor_prod_1",
+      "title": "Minimalist Vase Set",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/cover/decoration_cover.webp",
+      "details": {
+        "page_title": "Minimalist Ceramic Vase Pack",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://artstn.co/m/8GJxw",
+        "gallery": [
+          "public/image/arch/cover/decoration_cover.webp",
+          "public/image/arch/cover/childroom_cover.webp",
+          "public/image/arch/cover/furniture_cover.webp"
+        ],
+        "description": "This premium decorative set features carefully sculpted ceramic vases with ultra-detailed, tileable PBR textures. Optimized perfectly for architectural visualization in Blender and 3ds Max. Includes seamless procedural clay and stone materials."
+      }
+    },
+    {
+      "id": "decor_prod_2",
+      "title": "Classic Bouquet Set",
+      "category": "decoration",
+      "type": "3D Asset",
+      "image": "public/image/arch/cover/furniture_cover.webp",
+      "details": {
+        "page_title": "Luxury Classic Bouquet & Table Decor",
+        "page_subtitle": "Photorealistic royal decorative set",
+        "buy_link": "https://artstn.co/m/Kmve7",
+        "gallery": [
+          "public/image/arch/cover/furniture_cover.webp",
+          "public/image/arch/cover/kitchen_cover.webp"
+        ],
+        "description": "An elegant classic bouquet arrangement paired with royal decorative element props. Perfect for luxury staging, classic underground gallery tables, or residential royal palace rendering projects."
+      }
+    },
+    {
+      "id": "kitchen_prod_1",
+      "title": "Modernist Kitchen Suite",
+      "category": "kitchen",
+      "type": "Interior Scene",
+      "image": "public/image/arch/cover/kitchen_cover.webp",
+      "details": {
+        "page_title": "Modern Cabinets & Appliances Pack",
+        "page_subtitle": "Full scene staging kit",
+        "buy_link": "https://artstn.co/m/PXxP9",
+        "gallery": [
+          "public/image/arch/cover/kitchen_cover.webp"
+        ],
+        "description": "Complete modernist kitchen cabinet set integrated with contemporary household appliances. All models feature fully clean quad topology and un-wrapped high-resolution texel densities."
+      }
+    }
