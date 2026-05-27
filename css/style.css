@@ -180,6 +180,9 @@ body.arch-page .global-footer p { color: #5c6470; }
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, opacity 0.4s ease;
 }
 
+/* ==========================================================================
+   تغییرات هاور کارت (Drop-Shadow یکپارچه)
+   ========================================================================== */
 .products-grid:has(.card-link:hover) .card-link:not(:hover) {
     filter: grayscale(35%) brightness(80%);
     opacity: 0.7;
@@ -187,30 +190,25 @@ body.arch-page .global-footer p { color: #5c6470; }
 
 /* هاور اصلی روی کارت */
 .products-grid .card-link:hover {
-    transform: scale(1.08); filter: grayscale(0%) brightness(100%); opacity: 1; z-index: 5;
+    transform: scale(1.08); 
+    opacity: 1; 
+    z-index: 5;
 }
 
-/* افکت سایه یکپارچه برای عکس و کپشن باز شده در گیم (زرد) */
-body.game-page .products-grid .card-link:hover .card-img-holder,
-body.game-page .products-grid .card-link:hover .card-info {
-    box-shadow: 0 0 25px rgba(229, 154, 25, 0.4), 0 0 50px rgba(229, 154, 25, 0.2);
+/* 🌟 ترفند حرفه‌ای: استفاده از drop-shadow برای درخشش یکپارچه‌ی رندر + کپشن */
+body.game-page .products-grid .card-link:hover {
+    filter: grayscale(0%) brightness(100%) drop-shadow(0 0 18px rgba(229, 154, 25, 0.6));
 }
 
-/* افکت سایه یکپارچه برای عکس و کپشن باز شده در معماری (آبی) */
-body.arch-page .products-grid .card-link:hover .card-img-holder,
-body.arch-page .products-grid .card-link:hover .card-info {
-    box-shadow: 0 0 20px rgba(0, 180, 216, 0.25), 0 0 40px rgba(0, 180, 216, 0.15);
-}
-
-/* بالا آوردن لایه عکس برای اینکه سایه‌ها با کپشن تداخل نکنند */
-.products-grid .card-link:hover .card-img-holder {
-    z-index: 101;
+body.arch-page .products-grid .card-link:hover {
+    filter: grayscale(0%) brightness(100%) drop-shadow(0 0 15px rgba(0, 180, 216, 0.4));
 }
 
 .card {
     position: relative; background-color: transparent; border-radius: 8px;
     display: flex; flex-direction: column; width: 100%;
 }
+
 
 .card-img-holder { 
     width: 100%; aspect-ratio: 1 / 1; overflow: hidden; 
@@ -431,8 +429,9 @@ body.arch-page .products-grid .card-link:hover .card-info {
 
 .quick-view-content {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-columns: 1.3fr 0.7fr; /* تغییر شیک شما */
     gap: 45px;
+    align-items: stretch; /* 👈 هم‌قد کردن اجباری ستون چپ و راست */
 }
 
 /* ستون گالری چپ */
@@ -440,7 +439,7 @@ body.arch-page .products-grid .card-link:hover .card-info {
 .qv-main-img { 
     width: 100%; 
     aspect-ratio: 1 / 1;
-    border-radius: 8px; 
+    border-radius: 12px; 
     overflow: hidden; 
     background: rgba(0,0,0,0.2); 
     border: 1px solid rgba(255,255,255,0.05); 
@@ -475,7 +474,15 @@ body.arch-page .products-grid .card-link:hover .card-info {
 .qv-thumb.active { border-color: var(--accent-arch); opacity: 1; box-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
 
 /* ستون اطلاعات راست */
-.qv-info-col { display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; }
+.qv-info-col { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    justify-content: flex-start; 
+    height: 100%; /* 👈 گرفتن کل ارتفاع ممکن از گرید */
+    max-height: 100%;
+    min-height: 0;
+}
 .qv-header { border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 15px; }
 
 .qv-title { font-size: 2rem; color: #ffffff; font-family: var(--font-main); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; }
@@ -490,20 +497,49 @@ body.arch-page .products-grid .card-link:hover .card-info {
     font-size: 1.05rem; 
     line-height: 1.7; 
     color: rgba(255,255,255,0.85); 
+    flex-grow: 1; /* 👈 کلید حل مشکل: پر کردن کل فضای خالی تا پایین ستون */
     overflow-y: auto; 
-    max-height: 350px; 
+    min-height: 0; /* برای فعال شدن اسکرول در فلکس‌باکس الزامی است */
     padding-right: 12px; 
-    white-space: pre-line; /* 👈 کلید جادویی: خواندن Enter و \n برای لیست‌ها */
+    white-space: pre-line; 
 }
 .qv-description::-webkit-scrollbar { width: 4px; }
 .qv-description::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
 
+/* 📱 تنظیمات کاملاً رسپانسیو و اپلیکیشن‌گونه برای موبایل */
 @media (max-width: 900px) {
-    .quick-view-container { padding: 25px 15px; max-height: 90vh; overflow-y: auto; border-radius: 12px; width: 95%; }
-    .quick-view-content { grid-template-columns: 1fr; gap: 25px; }
+    .quick-view-container { 
+        padding: 45px 20px 25px 20px; /* فضای بیشتر در بالا برای دکمه خروج */
+        max-height: 90vh; 
+        overflow-y: auto; /* اسکرول کل مودال در موبایل */
+        border-radius: 16px; 
+        width: 95%; 
+    }
+    .quick-view-content { 
+        grid-template-columns: 1fr; /* تبدیل به یک ستون کامل */
+        gap: 25px; 
+    }
+    .qv-info-col { 
+        height: auto; /* آزادسازی ارتفاع در موبایل */
+        max-height: none; 
+    }
     .qv-title { font-size: 1.6rem; }
-    .qv-description { max-height: none; overflow: visible; }
-    .quick-view-container .modal-close-btn { top: 15px; right: 15px; font-size: 1.6rem; }
+    .qv-description { 
+        flex-grow: 0; 
+        overflow: visible; /* غیرفعال کردن اسکرول داخلی در موبایل */
+    }
+    .quick-view-container .modal-close-btn { 
+        top: 12px; 
+        right: 15px; 
+        font-size: 1.6rem; 
+        background: rgba(0,0,0,0.3); /* در موبایل دکمه خروج خواناتر باشد */
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 /* ==========================================================================
    8. PRODUCT LIGHTBOX (IMAGE ZOOM)
