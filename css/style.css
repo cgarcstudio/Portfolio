@@ -390,37 +390,43 @@ body.arch-page .products-grid .card-link:hover .card {
    7.5. QUICK VIEW GLASSMORPHISM MODAL (ARCHVIZ PRODUCTS)
    ========================================================================== */
 .quick-view-container {
-    width: 95%; /* مودال بزرگتر شد */
+    width: 95%;
     max-width: 1250px;
-    background: rgba(255, 255, 255, 0.12); /* به شدت شفاف‌تر شد */
-    backdrop-filter: blur(35px) saturate(180%); /* مات‌شدگی شیشه بیشتر شد */
-    -webkit-backdrop-filter: blur(35px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.4); /* رفلکس لبه‌های شیشه */
+    /* افکت شیشه‌ای لوکس دارک: پس‌زمینه نیمه‌شفاف همراه با بلور بالا */
+    background: rgba(15, 18, 25, 0.6);
+    backdrop-filter: blur(25px) saturate(150%);
+    -webkit-backdrop-filter: blur(25px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 45px;
     position: relative;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.2); /* افکت عمق سه‌بعدی */
+    /* سایه بیرونی برای جدا شدن از بک‌گراند و هایلایت ظریف داخلی برای لبه شیشه */
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     transform: translateY(30px);
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    color: #11161d;
+    color: #ffffff; /* اصلاح رنگ پایه به سفید برای وضوح کامل */
 }
 .modal-overlay.active .quick-view-container { transform: translateY(0); }
 
-/* جایگاه و ظاهر جدید دکمه خروج */
+/* دکمه خروج: بازگشت به حالت ساده (بدون دایره) با هاور آبی معماری */
 .quick-view-container .modal-close-btn {
-    top: 15px; 
-    right: 15px;
-    background: rgba(255, 255, 255, 0.4);
-    color: #11161d;
-    width: 38px; height: 38px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%; border: 1px solid rgba(255,255,255,0.5);
+    top: 25px; 
+    right: 30px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    width: auto; height: auto;
+    border: none; border-radius: 0;
+    font-size: 1.8rem;
 }
-.quick-view-container .modal-close-btn:hover { background: #11161d; color: #ffffff; transform: rotate(90deg); }
+.quick-view-container .modal-close-btn:hover { 
+    background: transparent; 
+    color: var(--accent-arch); 
+    transform: rotate(90deg); 
+}
 
 .quick-view-content {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* تقسیم مساوی ستون‌ها برای فرمت مربعی */
+    grid-template-columns: 1fr 1fr;
     gap: 45px;
 }
 
@@ -428,63 +434,66 @@ body.arch-page .products-grid .card-link:hover .card {
 .qv-gallery-col { display: flex; flex-direction: column; gap: 15px; }
 .qv-main-img { 
     width: 100%; 
-    aspect-ratio: 1 / 1; /* 👈 عکس اصلی کاملاً مربعی شد */
+    aspect-ratio: 1 / 1;
     border-radius: 12px; 
     overflow: hidden; 
-    background: rgba(0,0,0,0.03); 
-    border: 1px solid rgba(255,255,255,0.4); 
+    background: rgba(0,0,0,0.2); 
+    border: 1px solid rgba(255,255,255,0.05); 
     position: relative;
 }
 .qv-main-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* استایل فلش‌های گالری مودال */
+/* فلش‌های گالری: مشابه بخش گیم اما با پالت آبی معماری */
 .qv-nav-arrow {
     position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.6); color: #11161d; width: 45px; height: 45px;
+    background: rgba(11, 14, 20, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; width: 50px; height: 50px;
     display: flex; align-items: center; justify-content: center; cursor: pointer;
-    border-radius: 50%; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 5;
+    border-radius: 6px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 5;
 }
-.qv-main-img:hover .qv-nav-arrow { opacity: 0.9; visibility: visible; }
-.qv-nav-arrow:hover { opacity: 1 !important; background: var(--accent-arch); color: #ffffff; border-color: var(--accent-arch); }
+.qv-main-img:hover .qv-nav-arrow { opacity: 0.8; visibility: visible; }
+.qv-nav-arrow:hover { opacity: 1 !important; background: rgba(11, 14, 20, 0.9); color: var(--accent-arch); border-color: var(--accent-arch); }
 .qv-nav-arrow.prev-arrow { left: 15px; }
 .qv-nav-arrow.next-arrow { right: 15px; }
-.qv-nav-arrow svg { width: 26px; height: 26px; fill: currentColor; }
+.qv-nav-arrow svg { width: 24px; height: 24px; fill: currentColor; }
 
 .qv-thumbnails { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; padding-bottom: 5px; }
 .qv-thumbnails::-webkit-scrollbar { display: none; }
 .qv-thumb { 
     width: 85px; 
-    aspect-ratio: 1 / 1; /* 👈 ریزعکس‌ها هم کاملاً مربعی شدند */
+    aspect-ratio: 1 / 1; 
     border-radius: 8px; 
     overflow: hidden; cursor: pointer; border: 2px solid transparent; 
-    opacity: 0.5; transition: all 0.2s ease; background-color: rgba(0,0,0,0.05);
+    opacity: 0.4; transition: all 0.2s ease; background-color: rgba(0,0,0,0.2);
 }
 .qv-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .qv-thumb:hover { opacity: 0.8; }
-.qv-thumb.active { border-color: var(--accent-arch); opacity: 1; box-shadow: 0 0 10px rgba(0, 180, 216, 0.3); }
+.qv-thumb.active { border-color: var(--accent-arch); opacity: 1; box-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
 
 /* ستون اطلاعات راست */
 .qv-info-col { display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; }
-.qv-header { border-bottom: 1px solid rgba(0, 0, 0, 0.08); padding-bottom: 15px; }
-.qv-title { font-size: 2rem; color: #11161d; font-family: var(--font-main); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; }
-.qv-subtitle { font-family: var(--font-body); font-size: 0.95rem; color: #5c6470; margin-top: 6px; font-weight: 500; }
+.qv-header { border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 15px; }
+
+/* اصلاح رنگ متون به روشن برای خوانایی کامل روی شیشه تاریک */
+.qv-title { font-size: 2rem; color: #ffffff; font-family: var(--font-main); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; }
+.qv-subtitle { font-family: var(--font-body); font-size: 0.95rem; color: rgba(255,255,255,0.6); margin-top: 6px; font-weight: 500; }
 
 .qv-buy-btn { background-color: var(--accent-arch) !important; color: #ffffff !important; margin-top: 5px; }
 .qv-buy-btn:hover { background-color: #0096b4 !important; box-shadow: 0 8px 25px rgba(0, 180, 216, 0.35) !important; }
 .qv-buy-btn svg { fill: #ffffff !important; }
 
-.qv-description { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: #2c3540; overflow-y: auto; max-height: 350px; padding-right: 8px; }
+.qv-description { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.85); overflow-y: auto; max-height: 350px; padding-right: 12px; }
 .qv-description::-webkit-scrollbar { width: 4px; }
-.qv-description::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 2px; }
+.qv-description::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
 
 @media (max-width: 900px) {
     .quick-view-container { padding: 25px 15px; max-height: 90vh; overflow-y: auto; border-radius: 12px; width: 95%; }
     .quick-view-content { grid-template-columns: 1fr; gap: 25px; }
     .qv-title { font-size: 1.6rem; }
     .qv-description { max-height: none; overflow: visible; }
-    .quick-view-container .modal-close-btn { top: 10px; right: 10px; width: 32px; height: 32px; }
+    .quick-view-container .modal-close-btn { top: 15px; right: 15px; font-size: 1.6rem; }
 }
+
 /* ==========================================================================
    8. PRODUCT LIGHTBOX (IMAGE ZOOM)
    ========================================================================== */
