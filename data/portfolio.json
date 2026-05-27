@@ -449,7 +449,7 @@
           "public/image/arch/products/decoration/ds22/preview5.webp",
           "public/image/arch/products/decoration/ds22/preview6.webp"
         ],
-        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 138 MB\nPolygons: 367K\nStyle: Modern\nMaterials: Wood, Stone\nPolys: 367570\nVerts: 365914\n--------------------------------------------------\nZipped size of 3dmax and obj files : 45.5Mb\nZipped size Map: 92.5Mb\n--------------------------------------------------\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\n--------------------------------------------------\nFormat: 3dsmax(2017), OBJ\nRender: Vray and Corona\n--------------------------------------------------\nI hope you enjoy."
+        "description": "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 138 MB\nPolygons: 367K\nStyle: Modern\nMaterials: Wood, Stone\nPolys: 367570\nVerts: 365914\n--------------------------------------------------\nZipped size of 3dmax and obj files : 45.5Mb\nZipped size Map: 92.5Mb\n--------------------------------------------------\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\n--------------------------------------------------\nFormat: 3dsmax(2017), OBJ\nRender: Vray and Corona\n--------------------------------------------------\nI hope you enjoy"
       }
     },
     {
