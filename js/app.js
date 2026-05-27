@@ -187,11 +187,16 @@ document.addEventListener('DOMContentLoaded', () => {
 // ==========================================================================
 // 4. 🌟 مـوتـور اخـتـصـاصـی مـودال شـیـشـه‌ای مـعـمـاری (Quick View Engine)
 // ==========================================================================
+let currentQvIndex = 0; // حافظه ردگیری عکس فعلی
+let currentQvGallery = []; // آرایه عکس‌های لود شده
+
 function openQuickViewModal(product) {
     const modal = document.getElementById('quickViewModal');
     if (!product || !modal) return;
 
     const details = product.details || {};
+    currentQvGallery = details.gallery || [];
+    currentQvIndex = 0;
     
     // پر کردن متن‌ها
     document.getElementById('qvTitle').textContent = details.page_title || product.title;
@@ -199,40 +204,77 @@ function openQuickViewModal(product) {
     document.getElementById('qvBuyBtn').href = details.buy_link || '#';
     document.getElementById('qvDescription').innerHTML = `<p>${details.description || 'No description provided.'}</p>`;
 
-    // رندر هوشمند گالری و ریزعکس‌های داخل مودال
     const mainImg = document.getElementById('qvMainImage');
     const thumbContainer = document.getElementById('qvThumbContainer');
     
-    if (details.gallery && details.gallery.length > 0) {
-        mainImg.src = details.gallery[0];
-        
+    if (currentQvGallery.length > 0) {
+        mainImg.src = currentQvGallery[0];
         if (thumbContainer) {
-            thumbContainer.innerHTML = details.gallery.map((imgUrl, idx) => `
+            thumbContainer.innerHTML = currentQvGallery.map((imgUrl, idx) => `
                 <div class="qv-thumb ${idx === 0 ? 'active' : ''}" data-index="${idx}">
                     <img src="${imgUrl}" alt="Thumbnail">
                 </div>
             `).join('');
 
-            // فعال کردن تغییر عکس با کلیک روی تصاویر ریز داخل مودال
             const thumbs = thumbContainer.querySelectorAll('.qv-thumb');
             thumbs.forEach(thumb => {
                 thumb.addEventListener('click', () => {
-                    thumbContainer.querySelector('.qv-thumb.active').classList.remove('active');
-                    thumb.classList.add('active');
-                    mainImg.src = details.gallery[thumb.getAttribute('data-index')];
+                    updateQvGallery(parseInt(thumb.getAttribute('data-index')));
                 });
             });
         }
+    } else {
+        mainImg.src = product.image;
+        if (thumbContainer) thumbContainer.innerHTML = '';
     }
 
-    // باز کردن پنجره با افکت شیک
     modal.classList.add('active');
-    
-    // محافظت از کپی رایت تصاویر معماری
-    modal.querySelectorAll('img').forEach(img => {
-        img.addEventListener('contextmenu', e => e.preventDefault());
-    });
+    modal.querySelectorAll('img').forEach(img => img.addEventListener('contextmenu', e => e.preventDefault()));
 }
+
+// تابع بروزرسانی عکس گالری با کلیک یا فلش
+function updateQvGallery(index) {
+    if (currentQvGallery.length === 0) return;
+    const mainImg = document.getElementById('qvMainImage');
+    const thumbContainer = document.getElementById('qvThumbContainer');
+    
+    currentQvIndex = index;
+    mainImg.src = currentQvGallery[currentQvIndex];
+    
+    if (thumbContainer) {
+        const activeThumb = thumbContainer.querySelector('.qv-thumb.active');
+        if (activeThumb) activeThumb.classList.remove('active');
+        const nextThumb = thumbContainer.querySelector(`.qv-thumb[data-index="${currentQvIndex}"]`);
+        if (nextThumb) nextThumb.classList.add('active');
+        
+        // اسکرول نرم ریزعکس‌ها به سمت عکس فعال
+        if(nextThumb) nextThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+}
+
+// اتصال رویداد فلش‌های گالری مودال
+document.addEventListener('DOMContentLoaded', () => {
+    const qvPrevBtn = document.getElementById('qvPrevBtn');
+    const qvNextBtn = document.getElementById('qvNextBtn');
+    
+    if (qvPrevBtn) {
+        qvPrevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // ایجاد حالت لوپ (اگر اولی بود برو به آخری)
+            let prevIndex = (currentQvIndex - 1) < 0 ? currentQvGallery.length - 1 : currentQvIndex - 1;
+            updateQvGallery(prevIndex);
+        });
+    }
+    
+    if (qvNextBtn) {
+        qvNextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // ایجاد حالت لوپ (اگر آخری بود برو به اولی)
+            let nextIndex = (currentQvIndex + 1) >= currentQvGallery.length ? 0 : currentQvIndex + 1;
+            updateQvGallery(nextIndex);
+        });
+    }
+});
 
 // ==========================================================================
 // 5. LIGHTBOX & SLIDER ENGINE FOR PRODUCT PAGE
