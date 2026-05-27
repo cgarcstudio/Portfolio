@@ -41,7 +41,10 @@
       }
     ]
   },
+
+
   "projects": [
+    
     {
       "id": "1",
       "title": "LEICA Q3",
@@ -390,7 +393,9 @@
         ]
       }
     },
- {
+
+
+    {
       "id": "cat_childroom",
       "title": "Childroom",
       "category": "archviz",
@@ -430,3 +435,5 @@
       "image": "public/image/arch/cover/technology_cover.webp",
       "url": "category.html?id=technology"
     }
+  ]
+}
