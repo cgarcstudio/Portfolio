@@ -381,7 +381,15 @@ body:has(.nav-container:hover) .global-footer {
     background-repeat: no-repeat;
     z-index: -1;
 }
-
+.page-bg-wallpaper-arch {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: var(--bg-dark);
+    background-image: url('../public/image/hub/arch_bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
 /* ==========================================================================
    10. FIXED GLOBAL FOOTER
    ========================================================================== */
