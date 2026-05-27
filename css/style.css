@@ -21,7 +21,7 @@ html, body {
     width: 100%;
     min-height: 100vh;
     font-family: var(--font-main);
-    background-color: var(--bg-dark);
+    background-color: transparent; /* 👈 راز حل معما اینجاست! */
     color: #ffffff;
     overflow-x: hidden;
     scrollbar-width: none;
