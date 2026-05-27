@@ -385,7 +385,109 @@ body.arch-page .products-grid .card-link:hover .card {
 
 .features-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-family: var(--font-body); }
 .features-list li { font-size: 1.02rem; line-height: 1.5; white-space: normal; color: rgba(255, 255, 255, 0.92); padding-left: 5px; }
+/* ==========================================================================
+   7.5. QUICK VIEW GLASSMORPHISM MODAL (ARCHVIZ PRODUCTS)
+   ========================================================================== */
+.quick-view-container {
+    width: 92%;
+    max-width: 1150px;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(25px) saturate(170%);
+    -webkit-backdrop-filter: blur(25px) saturate(170%);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    transform: translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    color: #11161d;
+}
+.modal-overlay.active .quick-view-container { transform: translateY(0); }
 
+.quick-view-content {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+}
+
+/* ستون گالری چپ */
+.qv-gallery-col { display: flex; flex-direction: column; gap: 15px; }
+.qv-main-img { 
+    width: 100%; 
+    aspect-ratio: 16 / 10; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    background: rgba(0,0,0,0.03); 
+    border: 1px solid rgba(255,255,255,0.4); 
+}
+.qv-main-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.qv-thumbnails { 
+    display: flex; 
+    gap: 10px; 
+    overflow-x: auto; 
+    scrollbar-width: none; 
+    padding-bottom: 5px;
+}
+.qv-thumbnails::-webkit-scrollbar { display: none; }
+.qv-thumb { 
+    width: 90px; 
+    aspect-ratio: 16 / 10; 
+    border-radius: 4px; 
+    overflow: hidden; 
+    cursor: pointer; 
+    border: 2px solid transparent; 
+    opacity: 0.5; 
+    transition: all 0.2s ease; 
+    background-color: rgba(0,0,0,0.05);
+}
+.qv-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.qv-thumb:hover { opacity: 0.8; }
+.qv-thumb.active { border-color: var(--accent-arch); opacity: 1; box-shadow: 0 0 10px rgba(0, 180, 216, 0.25); }
+
+/* ستون اطلاعات راست */
+.qv-info-col { display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; }
+.qv-header { border-bottom: 1px solid rgba(0, 0, 0, 0.06); padding-bottom: 15px; }
+.qv-title { font-size: 1.9rem; color: #11161d; font-family: var(--font-main); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; }
+.qv-subtitle { font-family: var(--font-body); font-size: 0.95rem; color: #5c6470; margin-top: 6px; font-weight: 500; }
+
+.qv-buy-btn { 
+    background-color: var(--accent-arch) !important; 
+    color: #ffffff !important; 
+    margin-top: 5px;
+}
+.qv-buy-btn:hover { 
+    background-color: #0096b4 !important; 
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.35) !important; 
+}
+.qv-buy-btn svg { fill: #ffffff !important; }
+
+.qv-description { 
+    font-family: var(--font-body); 
+    font-size: 0.98rem; 
+    line-height: 1.6; 
+    color: #2c3540; 
+    overflow-y: auto; 
+    max-height: 260px; 
+    padding-right: 8px; 
+}
+.qv-description::-webkit-scrollbar { width: 4px; }
+.qv-description::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 2px; }
+
+/* 📱 واکنش‌گرایی موبایلِ فوق‌العاده تمیز (Instagram-Style) */
+@media (max-width: 900px) {
+    .quick-view-container { 
+        padding: 25px 15px; 
+        max-height: 85vh; 
+        overflow-y: auto; 
+        border-radius: 12px;
+    }
+    .quick-view-content { grid-template-columns: 1fr; gap: 25px; }
+    .qv-title { font-size: 1.4rem; }
+    .qv-description { max-height: none; overflow: visible; }
+    .modal-close-btn { top: 15px; right: 15px; }
+}
 /* ==========================================================================
    8. PRODUCT LIGHTBOX (IMAGE ZOOM)
    ========================================================================== */
