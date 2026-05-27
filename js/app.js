@@ -1,37 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================================================
-    // 1. SCROLL TO TOP LOGIC (رویداد امن‌تر و بدون تداخل با استفاده از addEventListener)
+    // 1. SCROLL TO TOP LOGIC
     // ==========================================================================
     const scrollBtn = document.getElementById("scrollTopBtn");
     if (scrollBtn) {
         window.addEventListener('scroll', () => {
-            // محاسبه دقیق میزان اسکرول در تمامی مرورگرها
-            if (window.scrollY > 300 || document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
+            if (window.scrollY > 300 || document.documentElement.scrollTop > 300) {
                 scrollBtn.classList.add("show");
-                scrollBtn.classList.add("visible"); // سازگاری کامل با کلاس استایل شما
             } else {
                 scrollBtn.classList.remove("show");
-                scrollBtn.classList.remove("visible");
             }
         });
-
         scrollBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
     // ==========================================================================
-    // 2. FETCH DATA & ROUTING
+    // 2. FETCH DATA & ROUTING ENGINE (ALL PAGES)
     // ==========================================================================
     const projectGrid = document.getElementById('projects-grid');
+    const categoryGrid = document.getElementById('category-projects-grid');
     const isProductPage = document.body.classList.contains('dynamic-product-page');
+    const isCategoryPage = document.body.classList.contains('category-page');
 
     fetch('data/portfolio.json')
         .then(response => response.json())
         .then(data => {
             
-            // الف: اگر در صفحه گرید (Game/Arch) بودیم، کارت‌ها را رندر کن
+            // الف: رندر صفحات اصلی گرید (GameArt / ArchViz)
             if (projectGrid) {
                 const isGamePage = document.body.classList.contains('game-page');
                 const targetCategory = isGamePage ? 'gameart' : 'archviz';
@@ -44,7 +42,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // ب: اگر در صفحه قالب محصول (product.html) بودیم، اطلاعات تفصیلی را لود کن
+            // ب: 🌟 منطق کاملاً داینامیک صفحه جدید کتگوری معماری (category.html)
+            if (isCategoryPage && categoryGrid) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const catId = urlParams.get('id'); // گرفتن شناسه مثل decoration
+                
+                // تنظیم عنوان صفحه بر اساس کتگوری جاری
+                const categoryTitleEl = document.getElementById('categoryTitle');
+                if (categoryTitleEl) categoryTitleEl.textContent = catId;
+                document.title = `${catId ? catId.toUpperCase() : 'Category'} - CGArc Studio`;
+
+                // فیلتر کردن محصولاتی که متعلق به این کتگوری هستند
+                const filteredProducts = data.projects.filter(p => p.category === catId);
+                
+                if (filteredProducts.length === 0) {
+                    categoryGrid.innerHTML = `<p style="color: #5c6470; text-align:center; width:100%; grid-column:1/-1;">No assets listed in this category yet.</p>`;
+                } else {
+                    // رندر کارت‌ها به همراه اتریبیوت دیتا برای فعال‌سازی مودال
+                    categoryGrid.innerHTML = filteredProducts.map(p => `
+                        <div class="card-link qv-trigger" data-id="${p.id}" style="cursor: pointer;">
+                            <div class="card">
+                                <div class="card-img-holder">
+                                    <img src="${p.image}" alt="${p.title}">
+                                </div>
+                                <div class="card-info">
+                                    <span class="card-title">${p.title}</span>
+                                    <span class="card-category">${p.type}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+
+                    // اتصال رویداد کلیک کارت‌ها به پنجره مودال نمایش سریع
+                    document.querySelectorAll('.qv-trigger').forEach(card => {
+                        card.addEventListener('click', () => {
+                            const prodId = card.getAttribute('data-id');
+                            const product = filteredProducts.find(p => p.id === prodId);
+                            openQuickViewModal(product);
+                        });
+                    });
+                }
+            }
+
+            // ج: رندر صفحه تفصیلی تک‌محصولی گیم (product.html)
             if (isProductPage) {
                 const urlParams = new URLSearchParams(window.location.search);
                 const projectId = urlParams.get('id');
@@ -52,96 +92,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (project && project.details) {
                     const details = project.details;
-
-                    // پر کردن متون اصلی صفحه
                     document.title = `${project.title} - CGArc Studio`;
                     document.getElementById('dynamicTitle').textContent = details.page_title;
                     document.getElementById('dynamicSubtitle').textContent = details.page_subtitle;
                     
-                    // مدیریت لینک و متن داینامیک دکمه خرید
                     const buyBtn = document.getElementById('dynamicBuyLink');
                     if (buyBtn) {
                         buyBtn.href = details.buy_link;
-                        buyBtn.innerHTML = `
-                            <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.86 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1 1 2 2.1 2h13.9v-2H7.42c-.13 0-.25-.11-.25-.25z"/></svg>
-                            ${details.button_text ? details.button_text : "PURCHASE ASSET"}
-                        `;
+                        buyBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.86 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1 1 2 2.1 2h13.9v-2H7.42c-.13 0-.25-.11-.25-.25z"/></svg>${details.button_text || "PURCHASE ASSET"}`;
                     }
                     
-                    // مدیریت دکمه بازگشت هوشمند بر اساس دسته بندی
                     const backBtn = document.getElementById('dynamicBackBtn');
-                    if (backBtn && project.category === 'archviz') {
-                        backBtn.href = 'arch.html';
-                    }
+                    if (backBtn && project.category === 'archviz') backBtn.href = 'arch.html';
 
-                    // لود ویدیو (اگر وجود داشت، وگرنه باکس ویدیو پنهان می‌شود)
                     const videoFrame = document.getElementById('dynamicVideo');
-                    if (details.video_link) {
-                        if (videoFrame) videoFrame.src = details.video_link;
-                    } else {
-                        const videoWrapper = document.getElementById('videoWrapper');
-                        if (videoWrapper) videoWrapper.style.display = 'none';
-                    }
+                    if (details.video_link) { if (videoFrame) videoFrame.src = details.video_link; }
+                    else { const wrapper = document.getElementById('videoWrapper'); if (wrapper) wrapper.style.display = 'none'; }
 
-                    // پر کردن لیست ویژگی‌ها (Features)
                     const featuresList = document.getElementById('dynamicFeatures');
-                    if (details.features && details.features.length > 0) {
-                        if (featuresList) featuresList.innerHTML = details.features.map(f => `<li>${f}</li>`).join('');
-                    } else {
-                        const featuresBlock = document.getElementById('featuresBlock');
-                        if (featuresBlock) featuresBlock.style.display = 'none';
-                    }
+                    if (details.features && details.features.length > 0) { if (featuresList) featuresList.innerHTML = details.features.map(f => `<li>${f}</li>`).join(''); }
+                    else { const block = document.getElementById('featuresBlock'); if (block) block.style.display = 'none'; }
 
-                    // پر کردن لیست مشخصات فنی (Specifications)
                     const specsList = document.getElementById('dynamicSpecs');
-                    if (details.specifications && details.specifications.length > 0) {
-                        if (specsList) specsList.innerHTML = details.specifications.map(s => `<li>${s}</li>`).join('');
-                    } else {
-                        const specsBlock = document.getElementById('specsBlock');
-                        if (specsBlock) specsBlock.style.display = 'none';
-                    }
+                    if (details.specifications && details.specifications.length > 0) { if (specsList) specsList.innerHTML = details.specifications.map(s => `<li>${s}</li>`).join(''); }
+                    else { const block = document.getElementById('specsBlock'); if (block) block.style.display = 'none'; }
 
-                    // پر کردن باکس توضیحات کلی (Overview)
                     const overviewBox = document.getElementById('dynamicOverview');
                     if (overviewBox) {
                         let overviewHTML = '';
                         details.overview.forEach(sec => {
-                            if (sec.type === 'paragraph') {
-                                overviewHTML += `<p>${sec.content}</p>`;
-                            } else if (sec.type === 'warning') {
-                                overviewHTML += `<p class="warning-text">${sec.content}</p>`;
-                            } else if (sec.type === 'heading') {
-                                overviewHTML += `<h5>${sec.content}</h5>`;
-                            }
+                            if (sec.type === 'paragraph') overviewHTML += `<p>${sec.content}</p>`;
+                            else if (sec.type === 'warning') overviewHTML += `<p class="warning-text">${sec.content}</p>`;
+                            else if (sec.type === 'heading') overviewHTML += `<h5>${sec.content}</h5>`;
                         });
                         overviewBox.innerHTML = overviewHTML;
                     }
 
-                    // ساخت داینامیک گالری رندرها و ریزعکس‌ها
                     const thumbContainer = document.getElementById('thumbContainer');
                     const currentRender = document.getElementById('currentRender');
-                    
                     if (details.gallery && details.gallery.length > 0) {
                         if (currentRender) currentRender.src = details.gallery[0];
                         if (thumbContainer) {
                             thumbContainer.innerHTML = details.gallery.map((imgUrl, idx) => `
-                                <div class="thumb-item ${idx === 0 ? 'active' : ''}">
-                                    <img src="${imgUrl}" alt="Render ${idx + 1}">
-                                </div>
+                                <div class="thumb-item ${idx === 0 ? 'active' : ''}"><img src="${imgUrl}" alt="Render"></div>
                             `).join('');
                         }
-                        
-                        // فعال سازی موتور اسلایدر و لایت باکس پس از رندر تصاویر
                         initProductSlider(details.gallery);
                     }
-
-                } else {
-                    const dynamicTitle = document.getElementById('dynamicTitle');
-                    if (dynamicTitle) dynamicTitle.textContent = "Project Not Found";
                 }
             }
 
-            // ج: پر کردن مودال درباره ما (About Us) در صفحات گرید
+            // د: تنظیم متن مودال درباره ما (About Us)
             const modalTitle = document.getElementById('modalTitle');
             const modalContent = document.getElementById('modalContent');
             if (modalTitle && modalContent && data.profile) {
@@ -157,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalContent.innerHTML = contentHTML;
             }
         })
-        .catch(error => console.error('Error fetching data:', error));
+        .catch(error => console.error('Error loading data:', error));
 
     // ==========================================================================
     // 3. ABOUT US MODAL INTERACTION
@@ -171,10 +172,70 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal.addEventListener("click", () => { aboutModal.classList.remove('active'); });
         aboutModal.addEventListener("click", (e) => { if (e.target === aboutModal) aboutModal.classList.remove('active'); });
     }
+
+    // ==========================================================================
+    // 3.5. QUICK VIEW MODAL CLOSING LOGIC
+    // ==========================================================================
+    const qvModal = document.getElementById('quickViewModal');
+    const closeQVBtn = document.getElementById('closeQuickView');
+    if (qvModal && closeQVBtn) {
+        closeQVBtn.addEventListener('click', () => qvModal.classList.remove('active'));
+        qvModal.addEventListener('click', (e) => { if (e.target === qvModal) qvModal.classList.remove('active'); });
+    }
 });
 
 // ==========================================================================
-// 4. LIGHTBOX & SLIDER ENGINE FOR PRODUCT PAGE
+// 4. 🌟 مـوتـور اخـتـصـاصـی مـودال شـیـشـه‌ای مـعـمـاری (Quick View Engine)
+// ==========================================================================
+function openQuickViewModal(product) {
+    const modal = document.getElementById('quickViewModal');
+    if (!product || !modal) return;
+
+    const details = product.details || {};
+    
+    // پر کردن متن‌ها
+    document.getElementById('qvTitle').textContent = details.page_title || product.title;
+    document.getElementById('qvSubtitle').textContent = details.page_subtitle || '';
+    document.getElementById('qvBuyBtn').href = details.buy_link || '#';
+    document.getElementById('qvDescription').innerHTML = `<p>${details.description || 'No description provided.'}</p>`;
+
+    // رندر هوشمند گالری و ریزعکس‌های داخل مودال
+    const mainImg = document.getElementById('qvMainImage');
+    const thumbContainer = document.getElementById('qvThumbContainer');
+    
+    if (details.gallery && details.gallery.length > 0) {
+        mainImg.src = details.gallery[0];
+        
+        if (thumbContainer) {
+            thumbContainer.innerHTML = details.gallery.map((imgUrl, idx) => `
+                <div class="qv-thumb ${idx === 0 ? 'active' : ''}" data-index="${idx}">
+                    <img src="${imgUrl}" alt="Thumbnail">
+                </div>
+            `).join('');
+
+            // فعال کردن تغییر عکس با کلیک روی تصاویر ریز داخل مودال
+            const thumbs = thumbContainer.querySelectorAll('.qv-thumb');
+            thumbs.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    thumbContainer.querySelector('.qv-thumb.active').classList.remove('active');
+                    thumb.classList.add('active');
+                    mainImg.src = details.gallery[thumb.getAttribute('data-index')];
+                });
+            });
+        }
+    }
+
+    // باز کردن پنجره با افکت شیک
+    modal.classList.add('active');
+    
+    // محافظت از کپی رایت تصاویر معماری
+    modal.querySelectorAll('img').forEach(img => {
+        img.addEventListener('contextmenu', e => e.preventDefault());
+    });
+}
+
+// ==========================================================================
+// 5. LIGHTBOX & SLIDER ENGINE FOR PRODUCT PAGE
 // ==========================================================================
 function initProductSlider(galleryArray) {
     const thumbItems = document.querySelectorAll('.thumb-item');
@@ -207,7 +268,6 @@ function initProductSlider(galleryArray) {
             updateSlider(nextIndex);
         });
     }
-
     if (prevBtn) {
         prevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -215,26 +275,11 @@ function initProductSlider(galleryArray) {
             updateSlider(prevIndex);
         });
     }
-
-    currentRender.addEventListener('click', () => {
-        if (lightboxImg) {
-            lightboxImg.src = currentRender.src;
-            if (lightbox) lightbox.classList.add('active');
-        }
-    });
-
-    if (lightboxClose) {
-        lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
-    }
-    if (lightbox) {
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) lightbox.classList.remove('active');
+    if (currentRender) {
+        currentRender.addEventListener('click', () => {
+            if (lightboxImg) { lightboxImg.src = currentRender.src; if (lightbox) lightbox.classList.add('active'); }
         });
     }
-
-    // جلوگیری از راست کلیک برای امنیت تصاویر
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('contextmenu', e => e.preventDefault());
-    });
-    if (lightbox) lightbox.addEventListener('contextmenu', e => e.preventDefault());
+    if (lightboxClose) lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+    if (lightbox) lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
 }
