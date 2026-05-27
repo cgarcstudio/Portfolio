@@ -442,9 +442,12 @@
         "page_subtitle": "Premium high-poly asset for high-end interior staging",
         "buy_link": "https://artstn.co/m/8GJxw",
         "gallery": [
-          "public/image/arch/cover/decoration_cover.webp",
-          "public/image/arch/cover/childroom_cover.webp",
-          "public/image/arch/cover/furniture_cover.webp"
+          "public/image/arch/products/decoration/ds22/preview1.webp",
+          "public/image/arch/products/decoration/ds22/preview2.webp",
+          "public/image/arch/products/decoration/ds22/preview3.webp",
+          "public/image/arch/products/decoration/ds22/preview4.webp",
+          "public/image/arch/products/decoration/ds22/preview5.webp",
+          "public/image/arch/products/decoration/ds22/preview6.webp"
         ],
         "description": "This premium decorative set features carefully sculpted ceramic vases with ultra-detailed, tileable PBR textures. Optimized perfectly for architectural visualization in Blender and 3ds Max. Includes seamless procedural clay and stone materials."
       }
@@ -460,8 +463,12 @@
         "page_subtitle": "Photorealistic royal decorative set",
         "buy_link": "https://artstn.co/m/Kmve7",
         "gallery": [
-          "public/image/arch/cover/furniture_cover.webp",
-          "public/image/arch/cover/kitchen_cover.webp"
+          "public/image/arch/products/decoration/ds22/preview1.webp",
+          "public/image/arch/products/decoration/ds22/preview2.webp",
+          "public/image/arch/products/decoration/ds22/preview3.webp",
+          "public/image/arch/products/decoration/ds22/preview4.webp",
+          "public/image/arch/products/decoration/ds22/preview5.webp",
+          "public/image/arch/products/decoration/ds22/preview6.webp"
         ],
         "description": "An elegant classic bouquet arrangement paired with royal decorative element props. Perfect for luxury staging, classic underground gallery tables, or residential royal palace rendering projects."
       }
@@ -477,7 +484,12 @@
         "page_subtitle": "Full scene staging kit",
         "buy_link": "https://artstn.co/m/PXxP9",
         "gallery": [
-          "public/image/arch/cover/kitchen_cover.webp"
+          "public/image/arch/products/decoration/ds22/preview1.webp",
+          "public/image/arch/products/decoration/ds22/preview2.webp",
+          "public/image/arch/products/decoration/ds22/preview3.webp",
+          "public/image/arch/products/decoration/ds22/preview4.webp",
+          "public/image/arch/products/decoration/ds22/preview5.webp",
+          "public/image/arch/products/decoration/ds22/preview6.webp"
         ],
         "description": "Complete modernist kitchen cabinet set integrated with contemporary household appliances. All models feature fully clean quad topology and un-wrapped high-resolution texel densities."
       }
