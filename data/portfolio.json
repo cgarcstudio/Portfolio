@@ -1231,8 +1231,7 @@
           "public/image/arch/products/kitchen/k05/preview03.webp",
           "public/image/arch/products/kitchen/k05/preview04.webp",
           "public/image/arch/products/kitchen/k05/preview05.webp",
-          "public/image/arch/products/kitchen/k05/preview06.webp",
-          "public/image/arch/products/kitchen/k05/preview07.webp"
+          "public/image/arch/products/kitchen/k05/preview06.webp"
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 48 MB\nPolygons: 381K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 381148\nVerts: 403598\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
@@ -1549,27 +1548,7 @@
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 38 MB\nPolygons: 617K\nStyle: Modern\nMaterials: Metal, Plastic\nPolys: 617570\nVerts: 311163\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
-    },
-    {
-      "id": "kitchen_prod_1",
-      "title": "Modernist Kitchen Suite",
-      "category": "kitchen",
-      "type": "Interior Scene",
-      "image": "public/image/arch/cover/kitchen_cover.webp",
-      "details": {
-        "page_title": "Modern Cabinets & Appliances Pack",
-        "page_subtitle": "Full scene staging kit",
-        "buy_link": "https://artstn.co/m/PXxP9",
-        "gallery": [
-          "public/image/arch/products/decoration/ds22/preview1.webp",
-          "public/image/arch/products/decoration/ds22/preview2.webp",
-          "public/image/arch/products/decoration/ds22/preview3.webp",
-          "public/image/arch/products/decoration/ds22/preview4.webp",
-          "public/image/arch/products/decoration/ds22/preview5.webp",
-          "public/image/arch/products/decoration/ds22/preview6.webp"
-        ],
-        "description": "Complete modernist kitchen cabinet set integrated with contemporary household appliances. All models feature fully clean quad topology and un-wrapped high-resolution texel densities."
-      }
+    }
     }
   ]
 }
