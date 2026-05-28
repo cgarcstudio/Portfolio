@@ -995,7 +995,132 @@
           "public/image/arch/products/furniture/f01/preview4.webp",
           "public/image/arch/products/furniture/f01/preview5.webp"
         ],
-        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 11 MB\nPolygons: 62K\nStyle: Modern\nMaterials: Plastic\nPolys: 62672\nVerts: 63063\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 152 MB\nPolygons: 891K\nStyle: Modern\nMaterials: Fabric\nPolys: 891198\nVerts: 889122\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "f_2",
+      "title": "Uchiwa Lounge Chair",
+      "category": "furniture",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/furniture/f02/preview1.webp",
+      "details": {
+        "page_title": "Uchiwa Lounge Chair",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/users/cg_arc",
+        "gallery": [
+          "public/image/arch/products/furniture/f02/preview1.webp",
+          "public/image/arch/products/furniture/f02/preview2.webp",
+          "public/image/arch/products/furniture/f02/preview3.webp",
+          "public/image/arch/products/furniture/f02/preview4.webp",
+          "public/image/arch/products/furniture/f02/preview5.webp",
+          "public/image/arch/products/furniture/f02/preview6.webp",
+          "public/image/arch/products/furniture/f02/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 99 MB\nPolygons: 246K\nStyle: Modern\nMaterials: Fabric\nPolys: 246192\nVerts: 255972\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "f_3",
+      "title": "ROSS Chair",
+      "category": "furniture",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/furniture/f03/preview1.webp",
+      "details": {
+        "page_title": "ROSS Chair",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/users/cg_arc",
+        "gallery": [
+          "public/image/arch/products/furniture/f01/preview1.webp",
+          "public/image/arch/products/furniture/f01/preview2.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 12 MB\nPolygons: 42K\nStyle: Modern\nMaterials: Fabric\nPolys: 42640\nVerts: 22178\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "f_4",
+      "title": "Minotti Armchair",
+      "category": "furniture",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/furniture/f04/preview1.webp",
+      "details": {
+        "page_title": "Minotti Armchair",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/users/cg_arc",
+        "gallery": [
+          "public/image/arch/products/furniture/f04/preview1.webp",
+          "public/image/arch/products/furniture/f04/preview2.webp",
+          "public/image/arch/products/furniture/f04/preview3.webp",
+          "public/image/arch/products/furniture/f04/preview4.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 19 MB\nPolygons: 58K\nStyle: Modern\nMaterials: Fabric\nPolys: 58464\nVerts: 58484\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "f_5",
+      "title": "Baxter Marilyn",
+      "category": "furniture",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/furniture/f05/preview1.webp",
+      "details": {
+        "page_title": "Baxter Marilyn",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/users/cg_arc",
+        "gallery": [
+          "public/image/arch/products/furniture/f05/preview1.webp",
+          "public/image/arch/products/furniture/f05/preview2.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 45 MB\nPolygons: 178K\nStyle: Modern\nMaterials: Fabric\nPolys: 178866\nVerts: 160467\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "f_6",
+      "title": "Cantori portofino armchair",
+      "category": "furniture",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/furniture/f06/preview1.webp",
+      "details": {
+        "page_title": "Cantori portofino armchair",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/users/cg_arc",
+        "gallery": [
+          "public/image/arch/products/furniture/f06/preview1.webp",
+          "public/image/arch/products/furniture/f06/preview2.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 43 MB\nPolygons: 172K\nStyle: Modern\nMaterials: Fabric\nPolys: 172310\nVerts: 172452\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "f_7",
+      "title": "Rugiano Nella Vetrina Armchair",
+      "category": "furniture",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/furniture/f07/preview1.webp",
+      "details": {
+        "page_title": "Rugiano Nella Vetrina Armchair",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/users/cg_arc",
+        "gallery": [
+          "public/image/arch/products/furniture/f07/preview1.webp",
+          "public/image/arch/products/furniture/f07/preview2.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 81 MB\nPolygons: 250K\nStyle: Modern\nMaterials: Fabric\nPolys: 250248\nVerts: 251045\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "f_8",
+      "title": "Baxter Greta-Chair",
+      "category": "furniture",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/furniture/f08/preview1.webp",
+      "details": {
+        "page_title": "Baxter Greta-Chair",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/users/cg_arc",
+        "gallery": [
+          "public/image/arch/products/furniture/f08/preview1.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 52 MB\nPolygons: 891K\nStyle: Modern\nMaterials: Fabric\nPolys: 234754\nVerts: 234970\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
