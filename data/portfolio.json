@@ -844,6 +844,42 @@
       }
     },
     {
+      "id": "tech3",
+      "title": "AirFly-AirDryer",
+      "category": "technology",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/technology/airfly/preview1.webp",
+      "details": {
+        "page_title": "AirFly-AirDryer",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/airfly_airdryer",
+        "gallery": [
+          "public/image/arch/products/technology/airfly/preview1.webp",
+          "public/image/arch/products/technology/airfly/preview2.webp",
+          "public/image/arch/products/technology/airfly/preview3.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 57MB\nPolygons: 720K\nStyle: Modern\nMaterials: Metal, Plastic\nPolys: 720288\nVerts: 363600\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "tech2",
+      "title": "Philips Humidifier 3000 Series HU3916",
+      "category": "technology",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/technology/philips_humidifire/preview1.webp",
+      "details": {
+        "page_title": "Philips Humidifier 3000 Series HU3916",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/philips_humidifier_3000_series_hu3916",
+        "gallery": [
+          "public/image/arch/products/technology/philips_humidifire/preview1.webp",
+          "public/image/arch/products/technology/philips_humidifire/preview2.webp",
+          "public/image/arch/products/technology/philips_humidifire/preview3.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 7 MB\nPolygons: 199K\nStyle: Modern\nMaterials: Metal, Plastic\nPolys: 199064\nVerts: 102539\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "tech1",
       "title": "SENCOR HOT AIR FAN HEATER",
       "category": "technology",
@@ -856,7 +892,7 @@
         "gallery": [
           "public/image/arch/products/technology/airfan/preview1.webp",
           "public/image/arch/products/technology/airfan/preview2.webp",
-          "public/image/arch/products/technology/airfan/preview2.webp"
+          "public/image/arch/products/technology/airfan/preview3.webp"
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 38 MB\nPolygons: 617K\nStyle: Modern\nMaterials: Metal, Plastic\nPolys: 617570\nVerts: 311163\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
