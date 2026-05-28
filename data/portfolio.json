@@ -425,6 +425,14 @@
       "url": "category.html?id=kitchen"
     },
     {
+      "id": "cat_kitchenappliance",
+      "title": "Kitchen appliance",
+      "category": "archviz",
+      "type": "Kitchen appliance",
+      "image": "public/image/arch/cover/kitchen_cover.webp",
+      "url": "category.html?id=kitchenappliance"
+    },
+    {
       "id": "cat_lighting",
       "title": "Lighting",
       "category": "archviz",
@@ -1121,6 +1129,24 @@
           "public/image/arch/products/furniture/f08/preview1.webp"
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 52 MB\nPolygons: 891K\nStyle: Modern\nMaterials: Fabric\nPolys: 234754\nVerts: 234970\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "k1",
+      "title": "Kitchen 01",
+      "category": "kitchen",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen/k01/preview1.webp",
+      "details": {
+        "page_title": "Philips Table Lamp - VDTMate Functional DSK501",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/philips_vdtmate_functional_dsk501_1",
+        "gallery": [
+          "public/image/arch/products/kitchen/k01/preview1.webp",
+          "public/image/arch/products/kitchen/k01/preview2.webp",
+          "public/image/arch/products/kitchen/k01/preview3.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 24 MB\nPolygons: 516K\nStyle: Modern\nMaterials: Metal, Plastic\nPolys: 516040\nVerts: 261480\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
