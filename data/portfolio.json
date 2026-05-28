@@ -1132,23 +1132,109 @@
       }
     },
     {
-      "id": "k1",
+      "id": "k_1",
       "title": "Kitchen 01",
       "category": "kitchen",
       "type": "3D Asset - Pack",
-      "image": "public/image/arch/products/kitchen/k01/preview1.webp",
+      "image": "public/image/arch/products/kitchen/k01/preview01.webp",
       "details": {
-        "page_title": "Philips Table Lamp - VDTMate Functional DSK501",
+        "page_title": "Kitchen 01",
         "page_subtitle": "Premium high-poly asset for high-end interior staging",
         "buy_link": "https://3dsky.org/3dmodels/show/kitchen_01_110",
         "gallery": [
-          "public/image/arch/products/kitchen/k01/preview1.webp",
-          "public/image/arch/products/kitchen/k01/preview2.webp",
-          "public/image/arch/products/kitchen/k01/preview3.webp",
-          "public/image/arch/products/kitchen/k01/preview4.webp",
-          "public/image/arch/products/kitchen/k01/preview5.webp"
+          "public/image/arch/products/kitchen/k01/preview01.webp",
+          "public/image/arch/products/kitchen/k01/preview02.webp",
+          "public/image/arch/products/kitchen/k01/preview03.webp",
+          "public/image/arch/products/kitchen/k01/preview04.webp",
+          "public/image/arch/products/kitchen/k01/preview05.webp"
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 58 MB\nPolygons: 516K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 207422\nVerts: 212711\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "k_2",
+      "title": "Kitchen 02",
+      "category": "kitchen",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen/k02/preview01.webp",
+      "details": {
+        "page_title": "Kitchen 02",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/kitchen_08_32",
+        "gallery": [
+          "public/image/arch/products/kitchen/k02/preview01.webp",
+          "public/image/arch/products/kitchen/k02/preview02.webp",
+          "public/image/arch/products/kitchen/k02/preview03.webp",
+          "public/image/arch/products/kitchen/k02/preview04.webp",
+          "public/image/arch/products/kitchen/k02/preview05.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 87 MB\nPolygons: 613K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 613429\nVerts: 474321\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "k_3",
+      "title": "Kitchen 03",
+      "category": "kitchen",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen/k03/preview01.webp",
+      "details": {
+        "page_title": "Kitchen 03",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/kitchen_10_41",
+        "gallery": [
+          "public/image/arch/products/kitchen/k03/preview01.webp",
+          "public/image/arch/products/kitchen/k03/preview02.webp",
+          "public/image/arch/products/kitchen/k03/preview03.webp",
+          "public/image/arch/products/kitchen/k03/preview04.webp",
+          "public/image/arch/products/kitchen/k03/preview05.webp",
+          "public/image/arch/products/kitchen/k03/preview06.webp",
+          "public/image/arch/products/kitchen/k03/preview07.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 64 MB\nPolygons: 465K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 465597\nVerts: 473143\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "k_4",
+      "title": "Kitchen 04",
+      "category": "kitchen",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen/k04/preview01.webp",
+      "details": {
+        "page_title": "Kitchen 04",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/kitchen_11_31",
+        "gallery": [
+          "public/image/arch/products/kitchen/k04/preview01.webp",
+          "public/image/arch/products/kitchen/k04/preview02.webp",
+          "public/image/arch/products/kitchen/k04/preview03.webp",
+          "public/image/arch/products/kitchen/k04/preview04.webp",
+          "public/image/arch/products/kitchen/k04/preview05.webp",
+          "public/image/arch/products/kitchen/k04/preview06.webp",
+          "public/image/arch/products/kitchen/k04/preview07.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 74 MB\nPolygons: 201K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 201044\nVerts: 211500\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "k_5",
+      "title": "Kitchen 05",
+      "category": "kitchen",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen/k05/preview01.webp",
+      "details": {
+        "page_title": "Kitchen 05",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/kitchen_12_31",
+        "gallery": [
+          "public/image/arch/products/kitchen/k05/preview01.webp",
+          "public/image/arch/products/kitchen/k05/preview02.webp",
+          "public/image/arch/products/kitchen/k05/preview03.webp",
+          "public/image/arch/products/kitchen/k05/preview04.webp",
+          "public/image/arch/products/kitchen/k05/preview05.webp",
+          "public/image/arch/products/kitchen/k05/preview06.webp",
+          "public/image/arch/products/kitchen/k05/preview07.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 48 MB\nPolygons: 381K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 381148\nVerts: 403598\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
