@@ -441,6 +441,28 @@
       "url": "category.html?id=technology"
     },
     {
+      "id": "ch_1",
+      "title": "UMATOLL Scooter",
+      "category": "childroom",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/children/ch01/preview1.webp",
+      "details": {
+        "page_title": "UMATOLL Scooter",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/umatoll_scooter",
+        "gallery": [
+          "public/image/arch/products/children/ch01/preview1.webp",
+          "public/image/arch/products/children/ch01/preview2.webp",
+          "public/image/arch/products/children/ch01/preview3.webp",
+          "public/image/arch/products/children/ch01/preview4.webp",
+          "public/image/arch/products/children/ch01/preview5.webp",
+          "public/image/arch/products/children/ch01/preview6.webp",
+          "public/image/arch/products/children/ch01/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 11 MB\nPolygons: 62K\nStyle: Modern\nMaterials: Plastic\nPolys: 62672\nVerts: 63063\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "fb_1",
       "title": "Flower Bouquet 01",
       "category": "decoration",
