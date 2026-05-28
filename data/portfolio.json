@@ -529,6 +529,26 @@
       }
     },
     {
+      "id": "d_1",
+      "title": "Vintage Telescope",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/d01/preview1.webp",
+      "details": {
+        "page_title": "Vintage Telescope",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/telescope_12",
+        "gallery": [
+          "public/image/arch/products/decoration/d01/preview1.webp",
+          "public/image/arch/products/decoration/d01/preview2.webp",
+          "public/image/arch/products/decoration/d01/preview3.webp",
+          "public/image/arch/products/decoration/d01/preview4.webp",
+          "public/image/arch/products/decoration/d01/preview5.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 17 MB\nPolygons: 89K\nStyle: Modern\nMaterials: Metal, Glass\nPolys: 89538\nVerts: 90554\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "fb_1",
       "title": "Flower Bouquet 01",
       "category": "decoration",
