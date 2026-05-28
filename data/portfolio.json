@@ -425,6 +425,14 @@
       "url": "category.html?id=kitchen"
     },
     {
+      "id": "cat_lighting",
+      "title": "Childroom",
+      "category": "archviz",
+      "type": "Pendant - Table - Wall",
+      "image": "public/image/arch/cover/childroom_cover.webp",
+      "url": "category.html?id=lighting"
+    },
+    {
       "id": "cat_technology",
       "title": "Technology",
       "category": "archviz",
