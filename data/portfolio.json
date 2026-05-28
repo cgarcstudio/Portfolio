@@ -845,20 +845,20 @@
     },
     {
       "id": "tech1",
-      "title": "Sculpture 02",
+      "title": "SENCOR HOT AIR FAN HEATER",
       "category": "technology",
       "type": "3D Asset - Pack",
-      "image": "public/image/arch/products/decoration/sc2/preview1.webp",
+      "image": "public/image/arch/products/technology/airfan/preview1.webp",
       "details": {
-        "page_title": "Sculpture 02",
+        "page_title": "SENCOR HOT AIR FAN HEATER",
         "page_subtitle": "Premium high-poly asset for high-end interior staging",
-        "buy_link": "https://3dsky.org/3dmodels/show/sculpture-02-1",
+        "buy_link": "https://3dsky.org/3dmodels/show/sencor_hot_air_fan_heater_1",
         "gallery": [
           "public/image/arch/products/technology/airfan/preview1.webp",
           "public/image/arch/products/technology/airfan/preview2.webp",
           "public/image/arch/products/technology/airfan/preview2.webp"
         ],
-        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 145 MB\nPolygons: 54K\nStyle: Modern\nMaterials: Metal, Stone\nPolys: 54689\nVerts: 54147\nZipped size of 3dmax and obj files : 7.5Mb\nZipped size Map: 137Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 38 MB\nPolygons: 617K\nStyle: Modern\nMaterials: Metal, Plastic\nPolys: 617570\nVerts: 311163\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
