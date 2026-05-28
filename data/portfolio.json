@@ -434,14 +434,14 @@
     },
     {
       "id": "sc_3",
-      "title": "Decorative Set 36",
+      "title": "Sculpure 03",
       "category": "decoration",
       "type": "3D Asset - Pack",
       "image": "public/image/arch/products/decoration/sc3/preview1.webp",
       "details": {
-        "page_title": "Decorative Set 36",
+        "page_title": "Sculpure 03",
         "page_subtitle": "Premium high-poly asset for high-end interior staging",
-        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set-36-4",
+        "buy_link": "https://3dsky.org/3dmodels/show/sculpure-03",
         "gallery": [
           "public/image/arch/products/decoration/sc3/preview1.webp",
           "public/image/arch/products/decoration/sc3/preview2.webp",
@@ -451,19 +451,19 @@
           "public/image/arch/products/decoration/sc3/preview6.webp",
           "public/image/arch/products/decoration/sc3/preview7.webp"
         ],
-        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 172 MB\nPolygons: 780K\nStyle: Modern\nMaterials: Stone, Organics\nPolys: 780410\nVerts: 1034886\nZipped size of 3dmax and obj files : 102Mb\nZipped size Map: 68.5Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 35 MB\nPolygons: 47K\nStyle: Modern\nMaterials: Metal, Stone\nPolys: 47727\nVerts: 47578\nZipped size of 3dmax and obj files : 6.5Mb\nZipped size Map: 28.5Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
       "id": "sc_2",
-      "title": "Decorative Set 36",
+      "title": "Sculpture 02",
       "category": "decoration",
       "type": "3D Asset - Pack",
       "image": "public/image/arch/products/decoration/sc2/preview1.webp",
       "details": {
-        "page_title": "Decorative Set 36",
+        "page_title": "Sculpture 02",
         "page_subtitle": "Premium high-poly asset for high-end interior staging",
-        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set-36-4",
+        "buy_link": "https://3dsky.org/3dmodels/show/sculpture-02-1",
         "gallery": [
           "public/image/arch/products/decoration/sc2/preview1.webp",
           "public/image/arch/products/decoration/sc2/preview2.webp",
@@ -473,19 +473,19 @@
           "public/image/arch/products/decoration/sc2/preview6.webp",
           "public/image/arch/products/decoration/sc2/preview7.webp"
         ],
-        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 172 MB\nPolygons: 780K\nStyle: Modern\nMaterials: Stone, Organics\nPolys: 780410\nVerts: 1034886\nZipped size of 3dmax and obj files : 102Mb\nZipped size Map: 68.5Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 145 MB\nPolygons: 54K\nStyle: Modern\nMaterials: Metal, Stone\nPolys: 54689\nVerts: 54147\nZipped size of 3dmax and obj files : 7.5Mb\nZipped size Map: 137Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
       "id": "sc_1",
-      "title": "Decorative Set 36",
+      "title": "Sculpture 01",
       "category": "decoration",
       "type": "3D Asset - Pack",
       "image": "public/image/arch/products/decoration/sc1/preview1.webp",
       "details": {
-        "page_title": "Decorative Set 36",
+        "page_title": "Sculpture 01",
         "page_subtitle": "Premium high-poly asset for high-end interior staging",
-        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set-36-4",
+        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set-26",
         "gallery": [
           "public/image/arch/products/decoration/sc1/preview1.webp",
           "public/image/arch/products/decoration/sc1/preview2.webp",
@@ -495,7 +495,7 @@
           "public/image/arch/products/decoration/sc1/preview6.webp",
           "public/image/arch/products/decoration/sc1/preview7.webp"
         ],
-        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 172 MB\nPolygons: 780K\nStyle: Modern\nMaterials: Stone, Organics\nPolys: 780410\nVerts: 1034886\nZipped size of 3dmax and obj files : 102Mb\nZipped size Map: 68.5Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 134 MB\nPolygons: 53K\nStyle: Modern\nMaterials: Metal, Stone\nPolys: 53166\nVerts: 52686\nZipped size of 3dmax and obj files : 7Mb\nZipped size Map: 127Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
@@ -841,6 +841,24 @@
           "public/image/arch/products/decoration/ds21/preview6.webp"
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 141 MB\nPolygons: 524K\nStyle: Modern\nMaterials: Wood, Stone\nPolys: 524571\nVerts: 659720\nZipped size of 3dmax and obj files : 70.5Mb\nZipped size Map: 70.5Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "tech1",
+      "title": "Sculpture 02",
+      "category": "technology",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/sc2/preview1.webp",
+      "details": {
+        "page_title": "Sculpture 02",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/sculpture-02-1",
+        "gallery": [
+          "public/image/arch/products/technology/airfan/preview1.webp",
+          "public/image/arch/products/technology/airfan/preview2.webp",
+          "public/image/arch/products/technology/airfan/preview2.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 145 MB\nPolygons: 54K\nStyle: Modern\nMaterials: Metal, Stone\nPolys: 54689\nVerts: 54147\nZipped size of 3dmax and obj files : 7.5Mb\nZipped size Map: 137Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
