@@ -463,6 +463,72 @@
       }
     },
     {
+      "id": "ch_2",
+      "title": "Delivery scooter",
+      "category": "childroom",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/children/ch02/preview1.webp",
+      "details": {
+        "page_title": "Delivery scooter",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/delivery_scooter",
+        "gallery": [
+          "public/image/arch/products/children/ch02/preview1.webp",
+          "public/image/arch/products/children/ch02/preview2.webp",
+          "public/image/arch/products/children/ch02/preview3.webp",
+          "public/image/arch/products/children/ch02/preview4.webp",
+          "public/image/arch/products/children/ch02/preview5.webp",
+          "public/image/arch/products/children/ch02/preview6.webp",
+          "public/image/arch/products/children/ch02/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 14 MB\nPolygons: 71K\nStyle: Modern\nMaterials: Wood, Plastic\nPolys: 71578\nVerts: 72089\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "ch_3",
+      "title": "Wooden Ride-on with Trailer",
+      "category": "childroom",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/children/ch03/preview1.webp",
+      "details": {
+        "page_title": "Wooden Ride-on with Trailer",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/wooden_4_wheel_ride_on_with_trailer",
+        "gallery": [
+          "public/image/arch/products/children/ch03/preview1.webp",
+          "public/image/arch/products/children/ch03/preview2.webp",
+          "public/image/arch/products/children/ch03/preview3.webp",
+          "public/image/arch/products/children/ch03/preview4.webp",
+          "public/image/arch/products/children/ch03/preview5.webp",
+          "public/image/arch/products/children/ch03/preview6.webp",
+          "public/image/arch/products/children/ch03/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 45 MB\nPolygons: 327K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 327396\nVerts: 327624\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "ch_4",
+      "title": "Wooden Cargo",
+      "category": "childroom",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/children/ch04/preview1.webp",
+      "details": {
+        "page_title": "Wooden Cargo",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/wooden_cargo",
+        "gallery": [
+          "public/image/arch/products/children/ch04/preview1.webp",
+          "public/image/arch/products/children/ch04/preview2.webp",
+          "public/image/arch/products/children/ch04/preview3.webp",
+          "public/image/arch/products/children/ch04/preview4.webp",
+          "public/image/arch/products/children/ch04/preview5.webp",
+          "public/image/arch/products/children/ch04/preview6.webp",
+          "public/image/arch/products/children/ch04/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 62 MB\nPolygons: 145K\nStyle: Modern\nMaterials: Plastic\nPolys: 145794\nVerts: 146484\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "fb_1",
       "title": "Flower Bouquet 01",
       "category": "decoration",
