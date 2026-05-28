@@ -875,15 +875,15 @@
       "title": "Philips Table Lamp - VDTMate Functional DSK501",
       "category": "lighting",
       "type": "3D Asset - Pack",
-      "image": "public/image/arch/products/lighting/l1/preview1.webp",
+      "image": "public/image/arch/products/lighting/l01/preview1.webp",
       "details": {
         "page_title": "Philips Table Lamp - VDTMate Functional DSK501",
         "page_subtitle": "Premium high-poly asset for high-end interior staging",
         "buy_link": "https://3dsky.org/3dmodels/show/philips_vdtmate_functional_dsk501_1",
         "gallery": [
-          "public/image/arch/products/lighting/l1/preview1.webp",
-          "public/image/arch/products/lighting/l1/preview2.webp",
-          "public/image/arch/products/lighting/l1/preview3.webp"
+          "public/image/arch/products/lighting/l01/preview1.webp",
+          "public/image/arch/products/lighting/l01/preview2.webp",
+          "public/image/arch/products/lighting/l01/preview3.webp"
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 24 MB\nPolygons: 516K\nStyle: Modern\nMaterials: Metal, Plastic\nPolys: 516040\nVerts: 261480\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
