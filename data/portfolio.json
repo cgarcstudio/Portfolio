@@ -433,6 +433,25 @@
       "url": "category.html?id=technology"
     },
     {
+      "id": "fb_1",
+      "title": "Flower Bouquet 01",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/fb1/preview1.webp",
+      "details": {
+        "page_title": "Flower Bouquet 01",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/bouquet-01-1",
+        "gallery": [
+          "public/image/arch/products/decoration/fb1/preview1.webp",
+          "public/image/arch/products/decoration/fb1/preview2.webp",
+          "public/image/arch/products/decoration/fb1/preview3.webp",
+          "public/image/arch/products/decoration/fb1/preview4.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 50 MB\nPolygons: 311K\nStyle: Modern\nMaterials: Glass, Organics\nPolys: 311800\nVerts: 329042\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "sc_3",
       "title": "Sculpure 03",
       "category": "decoration",
