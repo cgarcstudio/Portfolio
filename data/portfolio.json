@@ -407,6 +407,7 @@
       "image": "public/image/arch/cover/decoration_cover.webp",
       "url": "category.html?id=decoration"
     },
+    
     {
       "id": "cat_furniture",
       "title": "Furniture",
@@ -430,6 +431,72 @@
       "type": "Household appliance",
       "image": "public/image/arch/cover/technology_cover.webp",
       "url": "category.html?id=technology"
+    },
+    {
+      "id": "sc_3",
+      "title": "Decorative Set 36",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/sc3/preview1.webp",
+      "details": {
+        "page_title": "Decorative Set 36",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set-36-4",
+        "gallery": [
+          "public/image/arch/products/decoration/sc3/preview1.webp",
+          "public/image/arch/products/decoration/sc3/preview2.webp",
+          "public/image/arch/products/decoration/sc3/preview3.webp",
+          "public/image/arch/products/decoration/sc3/preview4.webp",
+          "public/image/arch/products/decoration/sc3/preview5.webp",
+          "public/image/arch/products/decoration/sc3/preview6.webp",
+          "public/image/arch/products/decoration/sc3/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 172 MB\nPolygons: 780K\nStyle: Modern\nMaterials: Stone, Organics\nPolys: 780410\nVerts: 1034886\nZipped size of 3dmax and obj files : 102Mb\nZipped size Map: 68.5Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "sc_2",
+      "title": "Decorative Set 36",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/sc2/preview1.webp",
+      "details": {
+        "page_title": "Decorative Set 36",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set-36-4",
+        "gallery": [
+          "public/image/arch/products/decoration/sc2/preview1.webp",
+          "public/image/arch/products/decoration/sc2/preview2.webp",
+          "public/image/arch/products/decoration/sc2/preview3.webp",
+          "public/image/arch/products/decoration/sc2/preview4.webp",
+          "public/image/arch/products/decoration/sc2/preview5.webp",
+          "public/image/arch/products/decoration/sc2/preview6.webp",
+          "public/image/arch/products/decoration/sc2/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 172 MB\nPolygons: 780K\nStyle: Modern\nMaterials: Stone, Organics\nPolys: 780410\nVerts: 1034886\nZipped size of 3dmax and obj files : 102Mb\nZipped size Map: 68.5Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "sc_1",
+      "title": "Decorative Set 36",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/sc1/preview1.webp",
+      "details": {
+        "page_title": "Decorative Set 36",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set-36-4",
+        "gallery": [
+          "public/image/arch/products/decoration/sc1/preview1.webp",
+          "public/image/arch/products/decoration/sc1/preview2.webp",
+          "public/image/arch/products/decoration/sc1/preview3.webp",
+          "public/image/arch/products/decoration/sc1/preview4.webp",
+          "public/image/arch/products/decoration/sc1/preview5.webp",
+          "public/image/arch/products/decoration/sc1/preview6.webp",
+          "public/image/arch/products/decoration/sc1/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 172 MB\nPolygons: 780K\nStyle: Modern\nMaterials: Stone, Organics\nPolys: 780410\nVerts: 1034886\nZipped size of 3dmax and obj files : 102Mb\nZipped size Map: 68.5Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
     },
     {
       "id": "ds_36",
