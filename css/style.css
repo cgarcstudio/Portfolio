@@ -59,7 +59,7 @@ body::-webkit-scrollbar { display: none; }
 .arch-viz:hover .arch-text { color: var(--accent-arch); }
 
 /* ==========================================================================
-   3. SHARED HEADER & MENU (GAME / PRODUCT)
+   3. SHARED HEADER & MENU (GAME / ARCH / PRODUCT)
    ========================================================================== */
 .logo-container {
     position: fixed; top: 35px; left: 40px; z-index: 10;
@@ -73,7 +73,7 @@ body::-webkit-scrollbar { display: none; }
 
 .nav-container {
     position: fixed; top: 40px; right: 40px; z-index: 20;
-    display: flex; flex-direction: column; align-items: flex-end; width: max-content;
+    display: flex; flex-direction: column; align-items: flex-end; 
 }
 
 .hamburger-btn {
@@ -89,7 +89,8 @@ body::-webkit-scrollbar { display: none; }
 .hamburger-btn span:nth-child(2) { width: 75%; align-self: flex-end; }
 
 .menu-links {
-    margin-top: 25px; display: flex; flex-direction: column; align-items: flex-end;
+    position: absolute; top: 35px; right: 0;
+    display: flex; flex-direction: column; align-items: flex-end;
     gap: 18px; list-style: none; opacity: 0; visibility: hidden;
     transform: translateY(-15px); transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.4s;
 }
@@ -98,16 +99,39 @@ body::-webkit-scrollbar { display: none; }
     font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease;
 }
 
-.nav-container:hover .menu-links { opacity: 1; visibility: visible; transform: translateY(0); }
-.nav-container:hover .hamburger-btn { transform: rotate(90deg); }
-.nav-container:hover .hamburger-btn span:nth-child(1) { transform: translateY(11px) rotate(45deg); background-color: var(--accent-game); }
-.nav-container:hover .hamburger-btn span:nth-child(2) { opacity: 0; transform: translateX(10px); }
-.nav-container:hover .hamburger-btn span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); background-color: var(--accent-game); }
+/* هاور منو و کلیک موبایل */
+.nav-container:hover .menu-links, .nav-container.active-mobile .menu-links { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-container:hover .hamburger-btn, .nav-container.active-mobile .hamburger-btn { transform: rotate(90deg); }
+.nav-container:hover .hamburger-btn span:nth-child(1), .nav-container.active-mobile .hamburger-btn span:nth-child(1) { transform: translateY(11px) rotate(45deg); background-color: var(--accent-game); }
+.nav-container:hover .hamburger-btn span:nth-child(2), .nav-container.active-mobile .hamburger-btn span:nth-child(2) { opacity: 0; transform: translateX(10px); }
+.nav-container:hover .hamburger-btn span:nth-child(3), .nav-container.active-mobile .hamburger-btn span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); background-color: var(--accent-game); }
 .menu-links li a:hover { color: var(--accent-game); font-weight: 900; }
 
 .social-box { display: flex; gap: 15px; margin-top: 5px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
 .social-box a { font-size: 0.9rem !important; color: rgba(255,255,255,0.4) !important; text-decoration: none; }
 .social-box a:hover { color: #ffffff !important; }
+
+/* استایل‌های بخش فروشگاه‌ها در منو */
+.stores-section { margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.stores-title { font-size: 0.85rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; }
+.store-icons { display: flex; gap: 12px; justify-content: flex-end; }
+.store-icons a { color: rgba(255,255,255,0.5); width: 28px; height: 28px; transition: color 0.3s ease, transform 0.3s ease; display: inline-block; }
+.store-icons a svg { width: 100%; height: 100%; }
+.store-icons a:hover { color: var(--accent-game); transform: translateY(-3px); }
+
+/* استایل‌های مودال Contact Us */
+.contact-modal-container { max-width: 500px !important; text-align: center; }
+.contact-links-wrapper { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
+.contact-item { 
+    display: flex; align-items: center; justify-content: center; gap: 15px; 
+    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); 
+    padding: 16px; border-radius: 8px; text-decoration: none; color: #ffffff; 
+    font-family: var(--font-body); font-size: 1.1rem; letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+.contact-icon { width: 24px; height: 24px; fill: var(--accent-game); transition: transform 0.3s ease; }
+.contact-item:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent-game); transform: translateY(-2px); }
+.contact-item:hover .contact-icon { transform: scale(1.1); }
 
 /* انیمیشن پایه برای محو شدن */
 .portfolio-wrapper, .product-container, .global-footer {
@@ -130,8 +154,8 @@ body.arch-page .logo-container,
 body.arch-page .logo-text { color: #11161d; }
 
 body.arch-page .hamburger-btn span { background-color: #11161d; }
-body.arch-page .nav-container:hover .hamburger-btn span:nth-child(1),
-body.arch-page .nav-container:hover .hamburger-btn span:nth-child(3) { background-color: var(--accent-arch); }
+body.arch-page .nav-container:hover .hamburger-btn span:nth-child(1), body.arch-page .nav-container.active-mobile .hamburger-btn span:nth-child(1),
+body.arch-page .nav-container:hover .hamburger-btn span:nth-child(3), body.arch-page .nav-container.active-mobile .hamburger-btn span:nth-child(3) { background-color: var(--accent-arch); }
 
 body.arch-page .menu-links li a { color: rgba(17, 22, 29, 0.75); }
 body.arch-page .menu-links li a:hover { color: var(--accent-arch); }
@@ -139,6 +163,11 @@ body.arch-page .menu-links li a:hover { color: var(--accent-arch); }
 body.arch-page .social-box { border-top: 1px solid rgba(0,0,0,0.08); }
 body.arch-page .social-box a { color: #5c6470 !important; }
 body.arch-page .social-box a:hover { color: #11161d !important; }
+
+body.arch-page .stores-section { border-top: 1px solid rgba(0,0,0,0.08); }
+body.arch-page .stores-title { color: rgba(17, 22, 29, 0.4); }
+body.arch-page .store-icons a { color: rgba(17, 22, 29, 0.5); }
+body.arch-page .store-icons a:hover { color: var(--accent-arch); }
 
 /* افکت مات‌شدگی روشن (فقط برای صفحه معماری) */
 body.arch-page:has(.nav-container:hover) .portfolio-wrapper,
@@ -151,13 +180,13 @@ body.arch-page .card-info { background-color: #ffffff; border-top: 1px solid rgb
 body.arch-page .card-title { color: var(--accent-arch); }
 body.arch-page .card-category { color: #5c6470; }
 
-/* رنگ سایه دکمه بازگشت به بالا در حالت معماری */
 body.arch-page .back-to-top { background-color: #ffffff; border-color: var(--accent-arch); }
 body.arch-page .back-to-top:hover { background-color: var(--accent-arch); box-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
 body.arch-page .back-to-top::after { border-color: var(--accent-arch); }
 body.arch-page .back-to-top:hover::after { border-color: #ffffff; }
 
 body.arch-page .global-footer p { color: #5c6470; }
+
 
 /* ==========================================================================
    4. DYNAMIC GRID & CARDS (PORTFOLIO PAGES)
@@ -204,11 +233,11 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
     border-radius: 8px; 
     position: relative;
     z-index: 2; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* 👈 سایه مشکی در حالت عادی */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
     transition: box-shadow 0.3s ease;
 }
 
-/* 👈 کلید حل مشکل: مخفی کردن سایه مشکی در زمان هاور شدن کارت */
+/* مخفی کردن سایه مشکی در زمان هاور شدن کارت */
 .products-grid .card-link:hover .card-img-holder {
     box-shadow: none;
     z-index: 101;
@@ -231,6 +260,7 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 
 .card-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; color: var(--accent-game); }
 .card-category { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
+
 /* ==========================================================================
    5. SCROLL TO TOP BUTTON
    ========================================================================== */
@@ -398,18 +428,16 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 }
 .quick-view-container .modal-close-btn:hover { background: transparent; color: var(--accent-arch); transform: rotate(90deg); }
 
-/* 🌟 ترفند Flexbox برای همسان‌سازی اجباری ارتفاع دو ستون */
 .quick-view-content {
     display: flex; 
-    align-items: stretch; /* کش آوردن ستون‌ها تا هم‌قد شوند */
+    align-items: stretch;
     gap: 45px;
     width: 100%;
 }
 
-/* ستون گالری چپ */
 .qv-gallery-col { 
     flex: 1.3; 
-    min-width: 0; /* جلوگیری از بیرون‌زدگی در موبایل */
+    min-width: 0; 
     display: flex; flex-direction: column; gap: 15px; 
     max-width: 100%;
 }
@@ -434,7 +462,7 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 
 .qv-thumbnails { 
     display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; padding-bottom: 5px; 
-    width: 100%; /* جلوگیری از بیرون‌زدگی */
+    width: 100%; 
 }
 .qv-thumbnails::-webkit-scrollbar { display: none; }
 .qv-thumb { 
@@ -445,7 +473,6 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 .qv-thumb:hover { opacity: 0.8; }
 .qv-thumb.active { border-color: var(--accent-arch); opacity: 1; box-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
 
-/* ستون اطلاعات راست */
 .qv-info-col { 
     flex: 0.7; 
     min-width: 0; 
@@ -460,40 +487,16 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 .qv-buy-btn:hover { background-color: #0096b4 !important; box-shadow: 0 8px 25px rgba(0, 180, 216, 0.35) !important; }
 .qv-buy-btn svg { fill: #ffffff !important; }
 
-/* 🌟 ترفند جادویی اسکرول: پر کردن فضای خالی تا دقیقاً زیر گالری */
 .qv-description { 
     font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.85); 
     flex-grow: 1; 
     overflow-y: auto; 
-    min-height: 0; /* الزام فلکس‌باکس برای فعال‌سازی اسکرول داخلی */
+    min-height: 0; 
     padding-right: 12px; white-space: pre-line; 
 }
 .qv-description::-webkit-scrollbar { width: 4px; }
 .qv-description::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
 
-/* 📱 تنظیمات کاملاً رسپانسیو و اپلیکیشن‌گونه برای موبایل */
-@media (max-width: 900px) {
-    .quick-view-container { 
-        padding: 45px 20px 25px 20px; max-height: 90vh; overflow-y: auto; 
-        border-radius: 16px; width: 95%; 
-    }
-    .quick-view-content { 
-        flex-direction: column; /* در موبایل زیر هم می‌روند */
-        gap: 25px; 
-    }
-    .qv-gallery-col, .qv-info-col { 
-        flex: none; width: 100%; /* عرض کامل در موبایل */
-    }
-    .qv-title { font-size: 1.6rem; }
-    .qv-description { 
-        flex-grow: 0; overflow: visible; min-height: auto; /* در موبایل اسکرول داخلی لغو و کل مودال اسکرول می‌شود */
-    }
-    .quick-view-container .modal-close-btn { 
-        top: 12px; right: 15px; font-size: 1.6rem; 
-        background: rgba(0,0,0,0.4); border-radius: 50%; /* دکمه خروج خواناتر در موبایل */
-        width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;
-    }
-}
 /* ==========================================================================
    8. PRODUCT LIGHTBOX (IMAGE ZOOM)
    ========================================================================== */
@@ -533,7 +536,6 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 
 .page-bg-wallpaper-arch {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    /* اعمال گرادیانت روشن قدیمی برای بخش معماری */
     background: linear-gradient(rgba(244, 247, 246, 0.65), rgba(244, 247, 246, 0.65)), url('../public/image/hub/arch_bg.webp');
     background-size: cover;
     background-position: center;
@@ -587,6 +589,29 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
     .back-btn { top: 20px; left: 15px; }
 }
 
+@media (max-width: 900px) {
+    .quick-view-container { 
+        padding: 45px 20px 25px 20px; max-height: 90vh; overflow-y: auto; 
+        border-radius: 16px; width: 95%; 
+    }
+    .quick-view-content { flex-direction: column; gap: 25px; }
+    .qv-gallery-col, .qv-info-col { flex: none; width: 100%; }
+    .qv-title { font-size: 1.6rem; }
+    .qv-description { flex-grow: 0; overflow: visible; min-height: auto; }
+    
+    .qv-nav-arrow { display: none !important; }
+    .qv-thumbnails { padding-bottom: 10px; }
+    .qv-thumb { width: 75px; min-width: 75px; }
+
+    .quick-view-container .modal-close-btn { 
+        top: 15px; right: 15px; font-size: 1.6rem; 
+        background: transparent;
+        border-radius: 0; 
+        width: auto; height: auto; 
+        display: flex; align-items: center; justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
     .logo-container { top: 15px; left: 15px; gap: 8px; }
     .logo-img { width: 30px; height: 30px; }
@@ -609,10 +634,10 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
     .products-grid { grid-template-columns: repeat(1, 1fr); gap: 25px; }
     .portfolio-wrapper { padding: 90px 4% 30px 4%; }
     
-    /* در موبایل چون هاور نداریم، کپشن به صورت استاتیک نشان داده شود */
     .card { display: flex; flex-direction: column; }
     .card-info { position: static; max-height: 80px; opacity: 1; padding: 15px; }
     .card-img-holder { border-radius: 8px 8px 0 0; }
+    .products-grid .card-link:hover .card-img-holder { box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
     
     .thumbnails-container { grid-template-columns: repeat(4, 1fr); }
     .product-title { font-size: 1.4rem; }
