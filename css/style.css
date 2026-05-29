@@ -93,10 +93,13 @@ body::-webkit-scrollbar { display: none; }
     display: flex; flex-direction: column; align-items: flex-end;
     gap: 18px; list-style: none; opacity: 0; visibility: hidden;
     transform: translateY(-15px); transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.4s;
+    width: max-content; /* 👈 این خط اضافه شد تا منو فضای کافی داشته باشد */
 }
+
 .menu-links li a {
     text-decoration: none; color: rgba(255, 255, 255, 0.75);
     font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease;
+    white-space: nowrap; /* 👈 این خط اضافه شد تا کلمات هرگز مچاله نشوند */
 }
 
 /* تعاملات منو */
@@ -470,7 +473,7 @@ body.arch-page .contact-icon-btn:hover { border-color: var(--accent-arch); }
     .hamburger-btn { width: 35px; height: 24px; }
     .menu-links li a { font-size: 1.1rem; }
 
-    /* تفکیک و فاصله دادن به متون GAME ART و ARCHVIZ از خط وسط در موبایل */
+    /* تفکیک و نزدیک کردن متون GAME ART و ARCHVIZ به خط وسط در موبایل */
     .split-container { flex-direction: column; }
     .vertical-text { 
         writing-mode: horizontal-tb; 
@@ -478,8 +481,15 @@ body.arch-page .contact-icon-btn:hover { border-color: var(--accent-arch); }
         width: 100%; text-align: center;
         left: 50%;
     }
-    .game-text { top: 22%; transform: translate(-50%, -50%) !important; right: auto; }
-    .arch-text { top: 78%; transform: translate(-50%, -50%) !important; }
+    .game-text { 
+        top: 42%; /* 👈 از 22 درصد به 42 درصد تغییر کرد تا کاملاً نزدیک خط وسط شود */
+        transform: translate(-50%, -50%) !important; 
+        right: auto; 
+    }
+    .arch-text { 
+        top: 58%; /* 👈 از 78 درصد به 58 درصد تغییر کرد تا به خط وسط نزدیک شود */
+        transform: translate(-50%, -50%) !important; 
+    }
     
     .products-grid { grid-template-columns: repeat(1, 1fr); gap: 25px; }
     .portfolio-wrapper { padding: 90px 4% 30px 4%; }
