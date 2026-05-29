@@ -99,7 +99,7 @@ body::-webkit-scrollbar { display: none; }
     font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease;
 }
 
-/* هاور منو و کلیک موبایل */
+/* تعاملات منو */
 .nav-container:hover .menu-links, .nav-container.active-mobile .menu-links { opacity: 1; visibility: visible; transform: translateY(0); }
 .nav-container:hover .hamburger-btn, .nav-container.active-mobile .hamburger-btn { transform: rotate(90deg); }
 .nav-container:hover .hamburger-btn span:nth-child(1), .nav-container.active-mobile .hamburger-btn span:nth-child(1) { transform: translateY(11px) rotate(45deg); background-color: var(--accent-game); }
@@ -107,38 +107,10 @@ body::-webkit-scrollbar { display: none; }
 .nav-container:hover .hamburger-btn span:nth-child(3), .nav-container.active-mobile .hamburger-btn span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); background-color: var(--accent-game); }
 .menu-links li a:hover { color: var(--accent-game); font-weight: 900; }
 
-.social-box { display: flex; gap: 15px; margin-top: 5px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
-.social-box a { font-size: 0.9rem !important; color: rgba(255,255,255,0.4) !important; text-decoration: none; }
-.social-box a:hover { color: #ffffff !important; }
-
-/* استایل‌های بخش فروشگاه‌ها در منو */
-.stores-section { margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
-.stores-title { font-size: 0.85rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; }
-.store-icons { display: flex; gap: 12px; justify-content: flex-end; }
-.store-icons a { color: rgba(255,255,255,0.5); width: 28px; height: 28px; transition: color 0.3s ease, transform 0.3s ease; display: inline-block; }
-.store-icons a svg { width: 100%; height: 100%; }
-.store-icons a:hover { color: var(--accent-game); transform: translateY(-3px); }
-
-/* استایل‌های مودال Contact Us */
-.contact-modal-container { max-width: 500px !important; text-align: center; }
-.contact-links-wrapper { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
-.contact-item { 
-    display: flex; align-items: center; justify-content: center; gap: 15px; 
-    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); 
-    padding: 16px; border-radius: 8px; text-decoration: none; color: #ffffff; 
-    font-family: var(--font-body); font-size: 1.1rem; letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-}
-.contact-icon { width: 24px; height: 24px; fill: var(--accent-game); transition: transform 0.3s ease; }
-.contact-item:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent-game); transform: translateY(-2px); }
-.contact-item:hover .contact-icon { transform: scale(1.1); }
-
-/* انیمیشن پایه برای محو شدن */
+/* انیمیشن محو شدن محتوای پس‌زمینه با هاور منو */
 .portfolio-wrapper, .product-container, .global-footer {
     transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
-/* افکت مات‌شدگی تیره (برای صفحات گیم و محصولات) */
 body:not(.arch-page):has(.nav-container:hover) .portfolio-wrapper,
 body:not(.arch-page):has(.nav-container:hover) .product-container,
 body:not(.arch-page):has(.nav-container:hover) .global-footer {
@@ -146,47 +118,30 @@ body:not(.arch-page):has(.nav-container:hover) .global-footer {
     transform: scale(0.98);
 }
 
-
 /* ==========================================================================
-   3.5. ARCHVIZ PAGE SPECIFIC OVERRIDES (استایل‌های اختصاصی بخش روشن)
+   3.5. ARCHVIZ PAGE SPECIFIC OVERRIDES (استایل‌های بخش معماری)
    ========================================================================== */
 body.arch-page .logo-container,
 body.arch-page .logo-text { color: #11161d; }
-
 body.arch-page .hamburger-btn span { background-color: #11161d; }
 body.arch-page .nav-container:hover .hamburger-btn span:nth-child(1), body.arch-page .nav-container.active-mobile .hamburger-btn span:nth-child(1),
 body.arch-page .nav-container:hover .hamburger-btn span:nth-child(3), body.arch-page .nav-container.active-mobile .hamburger-btn span:nth-child(3) { background-color: var(--accent-arch); }
-
 body.arch-page .menu-links li a { color: rgba(17, 22, 29, 0.75); }
 body.arch-page .menu-links li a:hover { color: var(--accent-arch); }
 
-body.arch-page .social-box { border-top: 1px solid rgba(0,0,0,0.08); }
-body.arch-page .social-box a { color: #5c6470 !important; }
-body.arch-page .social-box a:hover { color: #11161d !important; }
-
-body.arch-page .stores-section { border-top: 1px solid rgba(0,0,0,0.08); }
-body.arch-page .stores-title { color: rgba(17, 22, 29, 0.4); }
-body.arch-page .store-icons a { color: rgba(17, 22, 29, 0.5); }
-body.arch-page .store-icons a:hover { color: var(--accent-arch); }
-
-/* افکت مات‌شدگی روشن (فقط برای صفحه معماری) */
 body.arch-page:has(.nav-container:hover) .portfolio-wrapper,
 body.arch-page:has(.nav-container:hover) .global-footer {
     filter: blur(12px) contrast(95%) brightness(90%);
     transform: scale(0.98);
 }
-
 body.arch-page .card-info { background-color: #ffffff; border-top: 1px solid rgba(0,0,0,0.03); }
 body.arch-page .card-title { color: var(--accent-arch); }
 body.arch-page .card-category { color: #5c6470; }
-
 body.arch-page .back-to-top { background-color: #ffffff; border-color: var(--accent-arch); }
 body.arch-page .back-to-top:hover { background-color: var(--accent-arch); box-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
 body.arch-page .back-to-top::after { border-color: var(--accent-arch); }
 body.arch-page .back-to-top:hover::after { border-color: #ffffff; }
-
 body.arch-page .global-footer p { color: #5c6470; }
-
 
 /* ==========================================================================
    4. DYNAMIC GRID & CARDS (PORTFOLIO PAGES)
@@ -194,70 +149,42 @@ body.arch-page .global-footer p { color: #5c6470; }
 .portfolio-wrapper {
     position: relative; width: 100%; min-height: 100vh; z-index: 1;
     padding: 140px 4% 40px 4%; display: flex; flex-direction: column; justify-content: space-between;
-    transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
 .products-container { width: 100%; flex-grow: 1; }
-
 .products-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;
     width: 100%; max-width: 1400px; margin: 0 auto;
 }
-
 .card-link {
     text-decoration: none; display: block; color: inherit;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, opacity 0.4s ease;
 }
-
 .products-grid:has(.card-link:hover) .card-link:not(:hover) {
-    filter: grayscale(35%) brightness(80%);
-    opacity: 0.7;
+    filter: grayscale(35%) brightness(80%); opacity: 0.7;
+}
+.products-grid .card-link:hover {
+    transform: scale(1.08); opacity: 1; z-index: 5;
 }
 
-/* 🌟 هاور اصلی روی کارت (ایجاد هاله نورانیِ یکپارچه دورِ رندر و کپشن) */
-.products-grid .card-link:hover {
-    transform: scale(1.08); 
-    opacity: 1; 
-    z-index: 5;
-}
+/* افکت درخشش یکپارچه دور کارت و کپشن */
 body.game-page .products-grid .card-link:hover { filter: grayscale(0%) brightness(100%) drop-shadow(0 0 18px rgba(229, 154, 25, 0.6)); }
 body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightness(100%) drop-shadow(0 0 15px rgba(0, 180, 216, 0.4)); }
 
-.card {
-    position: relative; background-color: transparent; border-radius: 8px;
-    display: flex; flex-direction: column; width: 100%;
-}
-
+.card { position: relative; background-color: transparent; border-radius: 8px; display: flex; flex-direction: column; width: 100%; }
 .card-img-holder { 
-    width: 100%; aspect-ratio: 1 / 1; overflow: hidden; 
-    border-radius: 8px; 
-    position: relative;
-    z-index: 2; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
-    transition: box-shadow 0.3s ease;
+    width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; position: relative; z-index: 2; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); transition: box-shadow 0.3s ease;
 }
-
-/* مخفی کردن سایه مشکی در زمان هاور شدن کارت */
-.products-grid .card-link:hover .card-img-holder {
-    box-shadow: none;
-    z-index: 101;
-}
-
+.products-grid .card-link:hover .card-img-holder { box-shadow: none; z-index: 101; }
 .card-img-holder img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .card-info {
-    position: absolute; top: 100%; left: 0; width: 100%;
-    max-height: 0; opacity: 0; background-color: var(--card-dark);
+    position: absolute; top: 100%; left: 0; width: 100%; max-height: 0; opacity: 0; background-color: var(--card-dark);
     padding: 0 15px; display: flex; flex-direction: column; justify-content: center; gap: 5px;
     transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1), padding 0.3s ease, opacity 0.2s ease;
-    border-radius: 0 0 8px 8px;
-    z-index: 100; margin-top: -5px; padding-top: 5px; 
+    border-radius: 0 0 8px 8px; z-index: 100; margin-top: -5px; padding-top: 5px; 
 }
-
-.products-grid .card-link:hover .card-info {
-    max-height: 80px; opacity: 1; padding: 15px;
-}
-
+.products-grid .card-link:hover .card-info { max-height: 80px; opacity: 1; padding: 15px; }
 .card-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; color: var(--accent-game); }
 .card-category { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
 
@@ -270,19 +197,13 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
     cursor: pointer; z-index: 99; display: flex; align-items: center; justify-content: center;
     opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.back-to-top:hover, .scroll-top-btn:hover {
-    background-color: var(--accent-game); transform: translateY(-4px); box-shadow: 0 0 15px rgba(229, 154, 25, 0.4);
-}
-.back-to-top::after, .scroll-top-btn::after {
-    content: ''; width: 10px; height: 10px;
-    border-left: 2.5px solid var(--accent-game); border-top: 2.5px solid var(--accent-game);
-    transform: rotate(45deg); margin-top: 4px; transition: border-color 0.3s ease;
-}
+.back-to-top:hover, .scroll-top-btn:hover { background-color: var(--accent-game); transform: translateY(-4px); box-shadow: 0 0 15px rgba(229, 154, 25, 0.4); }
+.back-to-top::after, .scroll-top-btn::after { content: ''; width: 10px; height: 10px; border-left: 2.5px solid var(--accent-game); border-top: 2.5px solid var(--accent-game); transform: rotate(45deg); margin-top: 4px; transition: border-color 0.3s ease; }
 .back-to-top:hover::after, .scroll-top-btn:hover::after { border-left-color: #111111; border-top-color: #111111; }
 .back-to-top.show, .scroll-top-btn.show { opacity: 1; visibility: visible; }
 
 /* ==========================================================================
-   6. GLASSMORPHISM MODAL (ABOUT US)
+   6. GLASSMORPHISM MODALS (ABOUT / CONTACT / STORES)
    ========================================================================== */
 .modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -293,7 +214,7 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 .modal-overlay.active { opacity: 1; pointer-events: auto; }
 
 .modal-container {
-    width: 90%; max-width: 800px; max-height: 85vh; overflow-y: auto;
+    width: 90%; max-width: 650px; max-height: 85vh; overflow-y: auto;
     background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px; padding: 50px 40px; position: relative;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
@@ -304,107 +225,105 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 .modal-close-btn {
     position: absolute; top: 25px; right: 25px; background: none; border: none;
     font-size: 1.5rem; cursor: pointer; color: var(--accent-game);
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease; z-index: 10;
 }
 .modal-close-btn:hover { transform: rotate(90deg); color: #ffffff; }
+body.arch-page .modal-close-btn { color: var(--accent-arch); }
 
 .modal-title {
     font-family: var(--font-main); color: var(--accent-game); font-size: 1.8rem;
     letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase;
     border-bottom: 1px solid rgba(229, 154, 25, 0.2); padding-bottom: 12px;
 }
+body.arch-page .modal-title { color: var(--accent-arch); border-bottom-color: rgba(0, 180, 216, 0.2); }
 
-.modal-text-content {
-    font-family: var(--font-body);
-    font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9);
-    direction: ltr; text-align: left; display: flex; flex-direction: column; gap: 20px;
-}
+.modal-text-content { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9); direction: ltr; text-align: left; display: flex; flex-direction: column; gap: 20px; }
 .modal-subtitle { color: var(--accent-game); font-family: var(--font-main); font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px; }
-.modal-text-content h4 { font-family: var(--font-main); color: #ffffff; font-size: 1.15rem; letter-spacing: 1px; margin-top: 15px; margin-bottom: -5px; text-transform: uppercase; }
+body.arch-page .modal-subtitle { color: var(--accent-arch); }
+.modal-text-content h4 { font-family: var(--font-main); color: #ffffff; font-size: 1.15rem; letter-spacing: 1px; margin-top: 15px; text-transform: uppercase; }
 .modal-quote { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 18px; font-weight: 500; text-align: center; color: var(--accent-game); margin-top: 15px; }
 
-.modal-container::-webkit-scrollbar { width: 6px; }
-.modal-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.01); }
-.modal-container::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 4px; }
-.modal-container::-webkit-scrollbar-thumb:hover { background: var(--accent-game); }
+/* استایل اختصاصی مودال جدید تماس با ما */
+.contact-modal-container { max-width: 480px !important; }
+.contact-links-wrapper { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; width: 100%; }
+.contact-item { 
+    display: flex; align-items: center; justify-content: center; gap: 12px; 
+    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); 
+    padding: 16px; border-radius: 8px; text-decoration: none; color: #ffffff; 
+    font-family: var(--font-body); font-size: 1.1rem; transition: all 0.3s ease; width: 100%;
+}
+.contact-icon { width: 22px; height: 22px; fill: var(--accent-game); }
+body.arch-page .contact-icon { fill: var(--accent-arch); }
+.contact-item:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent-game); transform: translateY(-2px); }
+body.arch-page .contact-item:hover { border-color: var(--accent-arch); }
+
+/* چیدمان افقی و ۳ تایی دکمه‌های اجتماعی بدون متن */
+.contact-social-row { display: flex; gap: 15px; width: 100%; }
+.contact-icon-btn {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); 
+    padding: 16px 0; border-radius: 8px; transition: all 0.3s ease;
+}
+.contact-icon-lg { width: 32px; height: 32px; fill: var(--accent-game); transition: transform 0.3s ease; }
+body.arch-page .contact-icon-lg { fill: var(--accent-arch); }
+.contact-icon-btn:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent-game); transform: translateY(-2px); }
+body.arch-page .contact-icon-btn:hover { border-color: var(--accent-arch); }
+.contact-icon-btn:hover .contact-icon-lg { transform: scale(1.1); }
+
+/* استایل اختصاصی مودال شیشه‌ای فروشگاه‌ها */
+.stores-modal-container { max-width: 520px !important; }
+.stores-links-wrapper { display: flex; flex-direction: column; gap: 30px; margin-top: 10px; width: 100%; }
+.store-category { display: flex; flex-direction: column; gap: 12px; }
+.store-cat-title { font-family: var(--font-main); font-size: 1.2rem; letter-spacing: 2px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 6px; text-align: left; }
+.store-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+.store-btn { 
+    flex: 1 1 calc(50% - 12px); min-width: 130px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); 
+    padding: 14px; border-radius: 8px; text-decoration: none; color: #ffffff; font-family: var(--font-body); 
+    font-size: 1.05rem; font-weight: 500; text-align: center; transition: all 0.3s ease; 
+}
+.store-btn:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-2px); }
+.game-btn:hover { border-color: var(--accent-game); color: var(--accent-game); }
+.arch-btn:hover { border-color: var(--accent-arch); color: var(--accent-arch); }
 
 /* ==========================================================================
    7. PRODUCT DETAILS PAGE (DYNAMIC TEMPLATE)
    ========================================================================== */
-.back-btn {
-    position: absolute; top: 25px; left: 20px; color: rgba(255, 255, 255, 0.6);
-    text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; 
-    transition: color 0.3s ease; z-index: 10;
-}
+.back-btn { position: absolute; top: 25px; left: 20px; color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; transition: color 0.3s ease; z-index: 10; }
 .back-btn:hover { color: var(--accent-game); }
-
-.product-container {
-    max-width: 1600px; width: 100%; margin: 0 auto;
-    padding: 85px 20px 40px 20px; display: grid;
-    grid-template-columns: 1.15fr 0.85fr; gap: 40px; flex: 1;
-}
-
+.product-container { max-width: 1600px; width: 100%; margin: 0 auto; padding: 85px 20px 40px 20px; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; flex: 1; }
 .gallery-column { display: flex; flex-direction: column; gap: 15px; }
-
-.main-display {
-    width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden;
-    background-color: #010204; border: 1px solid rgba(255, 255, 255, 0.05);
-    position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-}
+.main-display { width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; background-color: #010204; border: 1px solid rgba(255, 255, 255, 0.05); position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
 .main-display img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
-
-.nav-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(11, 14, 20, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; width: 50px; height: 50px;
-    display: flex; align-items: center; justify-content: center; cursor: pointer;
-    border-radius: 6px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 5;
-}
+.nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(11, 14, 20, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 6px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 5; }
 .main-display:hover .nav-arrow { opacity: 0.8; visibility: visible; }
 .nav-arrow:hover { opacity: 1 !important; background: rgba(11, 14, 20, 0.9); color: var(--accent-game); border-color: var(--accent-game); }
 .nav-arrow.prev-arrow { left: 15px; }
 .nav-arrow.next-arrow { right: 15px; }
 .nav-arrow svg { width: 24px; height: 24px; fill: currentColor; }
-
 .thumbnails-container { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; width: 100%; margin-bottom: 15px; }
 .thumb-item { aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden; cursor: pointer; background-color: #0b0e14; border: 2px solid transparent; transition: all 0.2s ease; opacity: 0.5; }
 .thumb-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
 .thumb-item:hover { opacity: 0.9; }
 .thumb-item.active { border-color: var(--accent-game); opacity: 1; box-shadow: 0 0 10px rgba(229, 154, 25, 0.3); }
-
 .overview-panel { background: rgba(11, 14, 20, 0.35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 6px; padding: 25px; }
 .overview-title { color: var(--accent-game); font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
-
 .info-column { display: flex; flex-direction: column; gap: 20px; }
-
-.buy-button-artstation {
-    display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%;
-    background-color: var(--accent-game); color: #05070c; text-decoration: none;
-    padding: 16px; border-radius: 8px; font-family: var(--font-body); font-size: 1.2rem; font-weight: 700; 
-    letter-spacing: 0.5px; text-transform: uppercase;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
+.buy-button-artstation { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; background-color: var(--accent-game); color: #05070c; text-decoration: none; padding: 16px; border-radius: 8px; font-family: var(--font-body); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); }
 .buy-button-artstation:hover { background-color: #ffbe3b; box-shadow: 0 8px 25px rgba(255, 190, 59, 0.45), 0 4px 10px rgba(0, 0, 0, 0.6); }
 .buy-button-artstation:active { transform: scale(0.99); }
 .buy-button-artstation svg { width: 24px; height: 24px; fill: #05070c; }
-
 .details-panel { background: rgba(11, 14, 20, 0.45); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 6px; padding: 30px 25px; display: flex; flex-direction: column; }
 .panel-header { border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 20px; margin-bottom: 25px; }
 .product-title { color: var(--accent-game); font-size: 1.8rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; line-height: 1.3; }
 .product-subtitle { font-family: var(--font-body); font-size: 0.95rem; color: rgba(255, 255, 255, 0.5); letter-spacing: 0.5px; font-weight: 500; line-height: 1.4; }
-
 .video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden; margin-bottom: 25px; background-color: #000000; }
 .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
 .bottom-metadata-rows { display: flex; flex-direction: column; gap: 25px; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 25px; }
 .metadata-row-block { background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 6px; }
 .metadata-column-title { color: var(--accent-game); font-size: 1.1rem; margin-bottom: 15px; letter-spacing: 0.5px; text-transform: uppercase; border-bottom: 1px solid rgba(229, 154, 25, 0.2); padding-bottom: 6px; display: inline-block; }
-
 .product-description { font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6; color: rgba(255, 255, 255, 0.8); display: flex; flex-direction: column; gap: 12px; }
 .product-description h5 { font-family: var(--font-main); color: #ffffff; font-size: 1.1rem; margin-top: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
 .product-description .warning-text { color: var(--accent-game); font-weight: 500; }
-
 .features-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-family: var(--font-body); }
 .features-list li { font-size: 1.02rem; line-height: 1.5; white-space: normal; color: rgba(255, 255, 255, 0.92); padding-left: 5px; }
 
@@ -428,19 +347,9 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 }
 .quick-view-container .modal-close-btn:hover { background: transparent; color: var(--accent-arch); transform: rotate(90deg); }
 
-.quick-view-content {
-    display: flex; 
-    align-items: stretch;
-    gap: 45px;
-    width: 100%;
-}
+.quick-view-content { display: flex; align-items: stretch; gap: 45px; width: 100%; }
 
-.qv-gallery-col { 
-    flex: 1.3; 
-    min-width: 0; 
-    display: flex; flex-direction: column; gap: 15px; 
-    max-width: 100%;
-}
+.qv-gallery-col { flex: 1.3; min-width: 0; display: flex; flex-direction: column; gap: 15px; max-width: 100%; }
 .qv-main-img { 
     width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; 
     background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); position: relative;
@@ -457,13 +366,10 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 .qv-main-img:hover .qv-nav-arrow { opacity: 0.8; visibility: visible; }
 .qv-nav-arrow:hover { opacity: 1 !important; background: rgba(11, 14, 20, 0.9); color: var(--accent-arch); border-color: var(--accent-arch); }
 .qv-nav-arrow.prev-arrow { left: 15px; }
-.qv-nav-arrow.next-arrow { right: 15px; }
+.nav-arrow.next-arrow { right: 15px; }
 .qv-nav-arrow svg { width: 24px; height: 24px; fill: currentColor; }
 
-.qv-thumbnails { 
-    display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; padding-bottom: 5px; 
-    width: 100%; 
-}
+.qv-thumbnails { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; padding-bottom: 5px; width: 100%; }
 .qv-thumbnails::-webkit-scrollbar { display: none; }
 .qv-thumb { 
     width: 85px; min-width: 85px; aspect-ratio: 1 / 1; border-radius: 6px; overflow: hidden; cursor: pointer; 
@@ -473,13 +379,8 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 .qv-thumb:hover { opacity: 0.8; }
 .qv-thumb.active { border-color: var(--accent-arch); opacity: 1; box-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
 
-.qv-info-col { 
-    flex: 0.7; 
-    min-width: 0; 
-    display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; 
-}
+.qv-info-col { flex: 0.7; min-width: 0; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; }
 .qv-header { border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 15px; }
-
 .qv-title { font-size: 2rem; color: #ffffff; font-family: var(--font-main); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; }
 .qv-subtitle { font-family: var(--font-body); font-size: 0.95rem; color: rgba(255,255,255,0.6); margin-top: 6px; font-weight: 500; }
 
@@ -489,10 +390,7 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 
 .qv-description { 
     font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.85); 
-    flex-grow: 1; 
-    overflow-y: auto; 
-    min-height: 0; 
-    padding-right: 12px; white-space: pre-line; 
+    flex-grow: 1; overflow-y: auto; min-height: 0; padding-right: 12px; white-space: pre-line; 
 }
 .qv-description::-webkit-scrollbar { width: 4px; }
 .qv-description::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
@@ -500,78 +398,25 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 /* ==========================================================================
    8. PRODUCT LIGHTBOX (IMAGE ZOOM)
    ========================================================================== */
-.lightbox-overlay { 
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-    background-color: rgba(3, 4, 7, 0.95); z-index: 100; 
-    display: flex; align-items: center; justify-content: center; 
-    opacity: 0; pointer-events: none; transition: opacity 0.3s ease; 
-}
+.lightbox-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(3, 4, 7, 0.95); z-index: 100; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .lightbox-overlay.active { opacity: 1; pointer-events: auto; }
-
 .lightbox-content { position: relative; max-width: 90%; max-height: 90vh; }
-.lightbox-img { 
-    max-width: 100%; max-height: 90vh; object-fit: contain; 
-    border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); 
-    -webkit-user-select: none; user-select: none; pointer-events: none; 
-}
-.lightbox-close { 
-    position: absolute; top: -45px; right: -10px; background: none; 
-    border: none; color: #ffffff; font-size: 2rem; cursor: pointer; 
-    font-family: var(--font-body); transition: color 0.2s ease; 
-}
+.lightbox-img { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); -webkit-user-select: none; user-select: none; pointer-events: none; }
+.lightbox-close { position: absolute; top: -45px; right: -10px; background: none; border: none; color: #ffffff; font-size: 2rem; cursor: pointer; font-family: var(--font-body); transition: color 0.2s ease; }
 .lightbox-close:hover { color: var(--accent-game); }
 
 /* ==========================================================================
-   9. FIXED GLOBAL BACKGROUNDS (Foolproof Method)
+   9. FIXED GLOBAL BACKGROUNDS
    ========================================================================== */
-.page-bg-wallpaper {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background-color: var(--bg-dark);
-    background-image: url('../public/image/hub/game_bg.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
-
-.page-bg-wallpaper-arch {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: linear-gradient(rgba(244, 247, 246, 0.65), rgba(244, 247, 246, 0.65)), url('../public/image/hub/arch_bg.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
-
-.page-bg-product {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background-color: var(--bg-dark);
-    background-image: linear-gradient(180deg, rgba(5,7,12,0.5) 0%, rgba(5,7,12,0.98) 100%), url('../public/image/hub/game_bg.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
+.page-bg-wallpaper { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: var(--bg-dark); background-image: url('../public/image/hub/game_bg.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: -1; }
+.page-bg-wallpaper-arch { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(rgba(244, 247, 246, 0.65), rgba(244, 247, 246, 0.65)), url('../public/image/hub/arch_bg.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: -1; }
+.page-bg-product { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: var(--bg-dark); background-image: linear-gradient(180deg, rgba(5,7,12,0.5) 0%, rgba(5,7,12,0.98) 100%), url('../public/image/hub/game_bg.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: -1; }
 
 /* ==========================================================================
    10. FIXED GLOBAL FOOTER
    ========================================================================== */
-.global-footer {
-    width: 100%;
-    text-align: center;
-    padding: 40px 20px 20px 20px;
-    background: transparent;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 30px;
-}
-
-.global-footer p {
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    color: #5c6470;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
+.global-footer { width: 100%; text-align: center; padding: 40px 20px 20px 20px; background: transparent; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 30px; }
+.global-footer p { font-family: var(--font-body); font-size: 0.85rem; color: #5c6470; letter-spacing: 1px; text-transform: uppercase; }
 
 /* ==========================================================================
    11. RESPONSIVE DESIGN (ALL PAGES)
@@ -584,16 +429,12 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 @media (max-width: 1024px) {
     .products-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .portfolio-wrapper { padding: 110px 4% 40px 4%; }
-    
     .product-container { grid-template-columns: 1fr; padding-top: 100px; gap: 30px; }
     .back-btn { top: 20px; left: 15px; }
 }
 
 @media (max-width: 900px) {
-    .quick-view-container { 
-        padding: 45px 20px 25px 20px; max-height: 90vh; overflow-y: auto; 
-        border-radius: 16px; width: 95%; 
-    }
+    .quick-view-container { padding: 45px 20px 25px 20px; max-height: 90vh; overflow-y: auto; border-radius: 16px; width: 95%; }
     .quick-view-content { flex-direction: column; gap: 25px; }
     .qv-gallery-col, .qv-info-col { flex: none; width: 100%; }
     .qv-title { font-size: 1.6rem; }
@@ -604,15 +445,22 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
     .qv-thumb { width: 75px; min-width: 75px; }
 
     .quick-view-container .modal-close-btn { 
-        top: 15px; right: 15px; font-size: 1.6rem; 
-        background: transparent;
-        border-radius: 0; 
-        width: auto; height: auto; 
-        display: flex; align-items: center; justify-content: center;
+        top: 15px; right: 15px; font-size: 1.6rem; background: transparent;
+        border-radius: 0; width: auto; height: auto; display: flex; align-items: center; justify-content: center;
     }
 }
 
 @media (max-width: 768px) {
+    /* اصلاحات کامل لوگوی وسط صفحه اول در موبایل */
+    .center-brand-container {
+        flex-direction: row-reverse; /* قرار دادن متن در سمت چپ لوگو */
+        gap: 12px;
+        top: 30px;
+        width: auto;
+    }
+    .brand-logo { width: 44px; height: 44px; margin-bottom: 0; }
+    .brand-name { font-size: 0.85rem; letter-spacing: 3px; }
+
     .logo-container { top: 15px; left: 15px; gap: 8px; }
     .logo-img { width: 30px; height: 30px; }
     .logo-text { font-size: 0.8rem; letter-spacing: 0.5px; }
@@ -622,14 +470,16 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
     .hamburger-btn { width: 35px; height: 24px; }
     .menu-links li a { font-size: 1.1rem; }
 
+    /* تفکیک و فاصله دادن به متون GAME ART و ARCHVIZ از خط وسط در موبایل */
     .split-container { flex-direction: column; }
     .vertical-text { 
         writing-mode: horizontal-tb; 
-        transform: translate(-50%, -50%) !important; 
         font-size: 2rem; 
-        top: 50%; left: 50%; right: auto; 
         width: 100%; text-align: center;
+        left: 50%;
     }
+    .game-text { top: 22%; transform: translate(-50%, -50%) !important; right: auto; }
+    .arch-text { top: 78%; transform: translate(-50%, -50%) !important; }
     
     .products-grid { grid-template-columns: repeat(1, 1fr); gap: 25px; }
     .portfolio-wrapper { padding: 90px 4% 30px 4%; }
