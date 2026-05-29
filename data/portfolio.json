@@ -425,7 +425,7 @@
       "url": "category.html?id=kitchen"
     },
     {
-      "id": "cat_kitchen-appliance",
+      "id": "cat_kitchenappliance",
       "title": "Kitchen appliance",
       "category": "archviz",
       "type": "Appliance-Hood-Sink-Hub",
@@ -1666,6 +1666,66 @@
           "public/image/arch/products/kitchen_app/set/set10/preview7.webp"
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 84 MB\nPolygons: 312K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 152848\nVerts: 155306\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kah_01",
+      "title": "Klarstein-Skyfall Smart Island Hood",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/hood/h01/preview1.webp",
+      "details": {
+        "page_title": "Klarstein-Skyfall Smart Island Hood",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/klarstein_skyfall_smart_island_hood",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/hood/h01/preview1.webp",
+          "public/image/arch/products/kitchen_app/hood/h01/preview2.webp",
+          "public/image/arch/products/kitchen_app/hood/h01/preview3.webp",
+          "public/image/arch/products/kitchen_app/hood/h01/preview4.webp",
+          "public/image/arch/products/kitchen_app/hood/h01/preview5.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 41 MB\nPolygons: 277K\nStyle: Modern\nMaterials: Metal\nPolys: 277668\nVerts: 282126\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kah_02",
+      "title": "Klarstein Barett island cooker hood",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/hood/h02/preview1.webp",
+      "details": {
+        "page_title": "Klarstein Barett island cooker hood",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/klarstein_barett_island_cooker_hood",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/hood/h02/preview1.webp",
+          "public/image/arch/products/kitchen_app/hood/h02/preview2.webp",
+          "public/image/arch/products/kitchen_app/hood/h02/preview3.webp",
+          "public/image/arch/products/kitchen_app/hood/h02/preview4.webp",
+          "public/image/arch/products/kitchen_app/hood/h02/preview5.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 28 MB\nPolygons: 251K\nStyle: Modern\nMaterials: Metal\nPolys: 251580\nVerts: 253044\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kah_03",
+      "title": "Klarstein Beretta Cooker Extractor Hood",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/hood/h03/preview1.webp",
+      "details": {
+        "page_title": "Klarstein Beretta Cooker Extractor Hood",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/klarstein_beretta_cooker_extractor_hood",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/hood/h03/preview1.webp",
+          "public/image/arch/products/kitchen_app/hood/h03/preview2.webp",
+          "public/image/arch/products/kitchen_app/hood/h03/preview3.webp",
+          "public/image/arch/products/kitchen_app/hood/h03/preview4.webp",
+          "public/image/arch/products/kitchen_app/hood/h03/preview5.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 36 MB\nPolygons: 321K\nStyle: Modern\nMaterials: Metal\nPolys: 321828\nVerts: 323604\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
