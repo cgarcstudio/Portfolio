@@ -1993,6 +1993,48 @@
       }
     },
     {
+      "id": "kac_01",
+      "title": "IKEA Induction cooktop",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/cooktop/c01/preview1.webp",
+      "details": {
+        "page_title": "IKEA Induction cooktop",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/ikea_induction_cooktop",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/cooktop/c01/preview1.webp",
+          "public/image/arch/products/kitchen_app/cooktop/c01/preview2.webp",
+          "public/image/arch/products/kitchen_app/cooktop/c01/preview3.webp",
+          "public/image/arch/products/kitchen_app/cooktop/c01/preview4.webp",
+          "public/image/arch/products/kitchen_app/cooktop/c01/preview5.webp",
+          "public/image/arch/products/kitchen_app/cooktop/c01/preview6.webp",
+          "public/image/arch/products/kitchen_app/cooktop/c01/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 1 MB\nPolygons: 4.3K\nStyle: Modern\nMaterials: Metal\nPolys: 4362\nVerts: 4596\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kac_02",
+      "title": "IsEasy Gas Hob",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/cooktop/c02/preview1.webp",
+      "details": {
+        "page_title": "IsEasy Gas Hob",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/iseasy_gas_hob_1",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/cooktop/c02/preview1.webp",
+          "public/image/arch/products/kitchen_app/cooktop/c02/preview2.webp",
+          "public/image/arch/products/kitchen_app/cooktop/c02/preview3.webp",
+          "public/image/arch/products/kitchen_app/cooktop/c02/preview4.webp",
+          "public/image/arch/products/kitchen_app/cooktop/c02/preview5.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 62 MB\nPolygons: 1.5M\nStyle: Modern\nMaterials: Metal\nPolys: 1545592\nVerts: 779698\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "l1",
       "title": "Philips Table Lamp - VDTMate Functional DSK501",
       "category": "lighting",
