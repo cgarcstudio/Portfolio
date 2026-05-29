@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error loading data:', error));
 
     // ==========================================================================
-    // 3. ABOUT US MODAL INTERACTION
+    // 3. MENUS & MODALS INTERACTION (ABOUT US & CONTACT & MOBILE MENU)
     // ==========================================================================
     const aboutMenuBtn = document.getElementById("aboutMenuBtn");
     const aboutModal = document.getElementById("aboutModal");
@@ -171,6 +171,32 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutMenuBtn.addEventListener("click", (e) => { e.preventDefault(); aboutModal.classList.add("active"); });
         closeModal.addEventListener("click", () => { aboutModal.classList.remove('active'); });
         aboutModal.addEventListener("click", (e) => { if (e.target === aboutModal) aboutModal.classList.remove('active'); });
+    }
+
+    // 🌟 راه‌اندازی مودال Contact Us
+    const contactMenuBtn = document.getElementById("contactMenuBtn");
+    const contactModal = document.getElementById("contactModal");
+    const closeContactModal = document.getElementById("closeContactModal");
+
+    if (contactMenuBtn && contactModal && closeContactModal) {
+        contactMenuBtn.addEventListener("click", (e) => { e.preventDefault(); contactModal.classList.add("active"); });
+        closeContactModal.addEventListener("click", () => { contactModal.classList.remove('active'); });
+        contactModal.addEventListener("click", (e) => { if (e.target === contactModal) contactModal.classList.remove('active'); });
+    }
+
+    // 🌟 حل مشکل دکمه همبرگری در موبایل با تبدیل hover به کلیک
+    const menuToggleBtn = document.getElementById("menuToggleBtn");
+    const mainNav = document.getElementById("mainNav");
+    if (menuToggleBtn && mainNav) {
+        menuToggleBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mainNav.classList.toggle("active-mobile");
+        });
+        document.addEventListener("click", (e) => {
+            if (!mainNav.contains(e.target)) {
+                mainNav.classList.remove("active-mobile");
+            }
+        });
     }
 
     // ==========================================================================
