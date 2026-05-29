@@ -482,12 +482,12 @@ body.arch-page .contact-icon-btn:hover { border-color: var(--accent-arch); }
         left: 50%;
     }
     .game-text { 
-        top: 96%; /* 👈 از 22 درصد به 42 درصد تغییر کرد تا کاملاً نزدیک خط وسط شود */
+        top: 94%; /* 👈 از 22 درصد به 42 درصد تغییر کرد تا کاملاً نزدیک خط وسط شود */
         transform: translate(-50%, -50%) !important; 
         right: auto; 
     }
     .arch-text { 
-        top: 4%; /* 👈 از 78 درصد به 58 درصد تغییر کرد تا به خط وسط نزدیک شود */
+        top: 6%; /* 👈 از 78 درصد به 58 درصد تغییر کرد تا به خط وسط نزدیک شود */
         transform: translate(-50%, -50%) !important; 
     }
     
