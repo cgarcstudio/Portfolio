@@ -183,6 +183,16 @@ document.addEventListener('DOMContentLoaded', () => {
         closeContactModal.addEventListener("click", () => { contactModal.classList.remove('active'); });
         contactModal.addEventListener("click", (e) => { if (e.target === contactModal) contactModal.classList.remove('active'); });
     }
+    // 🌟 راه‌اندازی مودال Stores
+    const storesMenuBtn = document.getElementById("storesMenuBtn");
+    const storesModal = document.getElementById("storesModal");
+    const closeStoresModal = document.getElementById("closeStoresModal");
+
+    if (storesMenuBtn && storesModal && closeStoresModal) {
+        storesMenuBtn.addEventListener("click", (e) => { e.preventDefault(); storesModal.classList.add("active"); });
+        closeStoresModal.addEventListener("click", () => { storesModal.classList.remove('active'); });
+        storesModal.addEventListener("click", (e) => { if (e.target === storesModal) storesModal.classList.remove('active'); });
+    }
 
     // 🌟 حل مشکل دکمه همبرگری در موبایل با تبدیل hover به کلیک
     const menuToggleBtn = document.getElementById("menuToggleBtn");
