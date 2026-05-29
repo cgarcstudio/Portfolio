@@ -1455,15 +1455,15 @@
       }
     },
     {
-      "id": "ka_1",
-      "title": "Kitchen 05",
+      "id": "kaset_1",
+      "title": "Bosch Appliance Collection 01",
       "category": "kitchenappliance",
       "type": "3D Asset - Pack",
       "image": "public/image/arch/products/kitchen_app/set/set01/preview1.webp",
       "details": {
-        "page_title": "Kitchen 05",
+        "page_title": "Bosch Appliance Collection 01",
         "page_subtitle": "Premium high-poly asset for high-end interior staging",
-        "buy_link": "https://3dsky.org/3dmodels/show/kitchen_12_31",
+        "buy_link": "https://3dsky.org/3dmodels/show/bosch_appliance_collection_01",
         "gallery": [
           "public/image/arch/products/kitchen_app/set/set01/preview1.webp",
           "public/image/arch/products/kitchen_app/set/set01/preview2.webp",
@@ -1472,7 +1472,7 @@
           "public/image/arch/products/kitchen_app/set/set01/preview5.webp",
           "public/image/arch/products/kitchen_app/set/set01/preview6.webp"
         ],
-        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 48 MB\nPolygons: 381K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 381148\nVerts: 403598\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 76 MB\nPolygons: 757K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 757088\nVerts: 764022\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
