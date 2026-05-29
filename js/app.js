@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             
-            // الف: رندر صفحات اصلی گرید (GameArt / ArchViz)
+            // الف: رندر صفحات اصلی گرید
             if (projectGrid) {
                 const isGamePage = document.body.classList.contains('game-page');
                 const targetCategory = isGamePage ? 'gameart' : 'archviz';
@@ -38,27 +38,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (filteredProjects.length === 0) {
                     projectGrid.innerHTML = `<p style="color: #5c6470;">No projects added yet.</p>`;
                 } else {
-                    projectGrid.innerHTML = filteredProjects.map(project => createCard(project)).join('');
+                    projectGrid.innerHTML = filteredProjects.map(project => `
+                        <a href="${project.url}" class="card-link">
+                            <div class="card">
+                                <div class="card-img-holder">
+                                    <img src="${project.image}" alt="${project.title}">
+                                </div>
+                                <div class="card-info">
+                                    <span class="card-title">${project.title}</span>
+                                    <span class="card-category">${project.type}</span>
+                                </div>
+                            </div>
+                        </a>
+                    `).join('');
                 }
             }
 
-            // ب: 🌟 منطق کاملاً داینامیک صفحه جدید کتگوری معماری (category.html)
+            // ب: صفحه کتگوری معماری و اتصال به مودال شیشه‌ای
             if (isCategoryPage && categoryGrid) {
                 const urlParams = new URLSearchParams(window.location.search);
-                const catId = urlParams.get('id'); // گرفتن شناسه مثل decoration
+                const catId = urlParams.get('id'); 
                 
-                // تنظیم عنوان صفحه بر اساس کتگوری جاری
                 const categoryTitleEl = document.getElementById('categoryTitle');
                 if (categoryTitleEl) categoryTitleEl.textContent = catId;
                 document.title = `${catId ? catId.toUpperCase() : 'Category'} - CGArc Studio`;
 
-                // فیلتر کردن محصولاتی که متعلق به این کتگوری هستند
                 const filteredProducts = data.projects.filter(p => p.category === catId);
                 
                 if (filteredProducts.length === 0) {
                     categoryGrid.innerHTML = `<p style="color: #5c6470; text-align:center; width:100%; grid-column:1/-1;">No assets listed in this category yet.</p>`;
                 } else {
-                    // رندر کارت‌ها به همراه اتریبیوت دیتا برای فعال‌سازی مودال
                     categoryGrid.innerHTML = filteredProducts.map(p => `
                         <div class="card-link qv-trigger" data-id="${p.id}" style="cursor: pointer;">
                             <div class="card">
@@ -73,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     `).join('');
 
-                    // اتصال رویداد کلیک کارت‌ها به پنجره مودال نمایش سریع
                     document.querySelectorAll('.qv-trigger').forEach(card => {
                         card.addEventListener('click', () => {
                             const prodId = card.getAttribute('data-id');
@@ -84,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // ج: رندر صفحه تفصیلی تک‌محصولی گیم (product.html)
+            // ج: صفحه محصول گیم
             if (isProductPage) {
                 const urlParams = new URLSearchParams(window.location.search);
                 const projectId = urlParams.get('id');
@@ -142,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // د: تنظیم متن مودال درباره ما (About Us)
+            // د: تنظیم مودال درباره ما
             const modalTitle = document.getElementById('modalTitle');
             const modalContent = document.getElementById('modalContent');
             if (modalTitle && modalContent && data.profile) {
@@ -161,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error loading data:', error));
 
     // ==========================================================================
-    // 3. MENUS & MODALS INTERACTION (ABOUT US & CONTACT & MOBILE MENU)
+    // 3. MENUS & MODALS INTERACTION 
     // ==========================================================================
     const aboutMenuBtn = document.getElementById("aboutMenuBtn");
     const aboutModal = document.getElementById("aboutModal");
@@ -173,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutModal.addEventListener("click", (e) => { if (e.target === aboutModal) aboutModal.classList.remove('active'); });
     }
 
-    // 🌟 راه‌اندازی مودال Contact Us
     const contactMenuBtn = document.getElementById("contactMenuBtn");
     const contactModal = document.getElementById("contactModal");
     const closeContactModal = document.getElementById("closeContactModal");
@@ -183,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         closeContactModal.addEventListener("click", () => { contactModal.classList.remove('active'); });
         contactModal.addEventListener("click", (e) => { if (e.target === contactModal) contactModal.classList.remove('active'); });
     }
-    // 🌟 راه‌اندازی مودال Stores
+
     const storesMenuBtn = document.getElementById("storesMenuBtn");
     const storesModal = document.getElementById("storesModal");
     const closeStoresModal = document.getElementById("closeStoresModal");
@@ -194,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         storesModal.addEventListener("click", (e) => { if (e.target === storesModal) storesModal.classList.remove('active'); });
     }
 
-    // 🌟 حل مشکل دکمه همبرگری در موبایل با تبدیل hover به کلیک
+    // کنترل دکمه همبرگری موبایل (حل مشکل کلیک)
     const menuToggleBtn = document.getElementById("menuToggleBtn");
     const mainNav = document.getElementById("mainNav");
     if (menuToggleBtn && mainNav) {
@@ -221,10 +228,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================================================
-// 4. 🌟 مـوتـور اخـتـصـاصـی مـودال شـیـشـه‌ای مـعـمـاری (Quick View Engine)
+// 4. QUICK VIEW ENGINE (ARCHVIZ PRODUCTS)
 // ==========================================================================
-let currentQvIndex = 0; // حافظه ردگیری عکس فعلی
-let currentQvGallery = []; // آرایه عکس‌های لود شده
+let currentQvIndex = 0; 
+let currentQvGallery = []; 
 
 function openQuickViewModal(product) {
     const modal = document.getElementById('quickViewModal');
@@ -234,7 +241,6 @@ function openQuickViewModal(product) {
     currentQvGallery = details.gallery || [];
     currentQvIndex = 0;
     
-    // پر کردن متن‌ها
     document.getElementById('qvTitle').textContent = details.page_title || product.title;
     document.getElementById('qvSubtitle').textContent = details.page_subtitle || '';
     document.getElementById('qvBuyBtn').href = details.buy_link || '#';
@@ -268,7 +274,6 @@ function openQuickViewModal(product) {
     modal.querySelectorAll('img').forEach(img => img.addEventListener('contextmenu', e => e.preventDefault()));
 }
 
-// تابع بروزرسانی عکس گالری با کلیک یا فلش
 function updateQvGallery(index) {
     if (currentQvGallery.length === 0) return;
     const mainImg = document.getElementById('qvMainImage');
@@ -283,20 +288,19 @@ function updateQvGallery(index) {
         const nextThumb = thumbContainer.querySelector(`.qv-thumb[data-index="${currentQvIndex}"]`);
         if (nextThumb) nextThumb.classList.add('active');
         
-        // اسکرول نرم ریزعکس‌ها به سمت عکس فعال
         if(nextThumb) nextThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 }
 
-// اتصال رویداد فلش‌های گالری مودال
+// اتصال فلش‌ها و Swipe (ورق زدن لمسی) در موبایل
 document.addEventListener('DOMContentLoaded', () => {
     const qvPrevBtn = document.getElementById('qvPrevBtn');
     const qvNextBtn = document.getElementById('qvNextBtn');
+    const qvMainImg = document.getElementById('qvMainImage');
     
     if (qvPrevBtn) {
         qvPrevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            // ایجاد حالت لوپ (اگر اولی بود برو به آخری)
             let prevIndex = (currentQvIndex - 1) < 0 ? currentQvGallery.length - 1 : currentQvIndex - 1;
             updateQvGallery(prevIndex);
         });
@@ -305,10 +309,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (qvNextBtn) {
         qvNextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            // ایجاد حالت لوپ (اگر آخری بود برو به اولی)
             let nextIndex = (currentQvIndex + 1) >= currentQvGallery.length ? 0 : currentQvIndex + 1;
             updateQvGallery(nextIndex);
         });
+    }
+
+    // 📱 تشخیص کشیدن انگشت در موبایل (Swipe)
+    let touchStartX = 0;
+    let touchEndX = 0;
+    if (qvMainImg) {
+        qvMainImg.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        qvMainImg.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 40) { // کشیدن به چپ (عکس بعدی)
+                let nextIndex = (currentQvIndex + 1) >= currentQvGallery.length ? 0 : currentQvIndex + 1;
+                updateQvGallery(nextIndex);
+            }
+            if (touchEndX - touchStartX > 40) { // کشیدن به راست (عکس قبلی)
+                let prevIndex = (currentQvIndex - 1) < 0 ? currentQvGallery.length - 1 : currentQvIndex - 1;
+                updateQvGallery(prevIndex);
+            }
+        }, {passive: true});
     }
 });
 
