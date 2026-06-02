@@ -370,3 +370,52 @@ function initProductSlider(galleryArray) {
     if (lightboxClose) lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
     if (lightbox) lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
 }
+// ==========================================================================
+// 6. SWIPE GESTURES FOR MOBILE (GAME PAGE & ARCHVIZ MODAL)
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // ۱. قابلیت ورق زدن با انگشت برای صفحه محصولات گیم
+    const currentRender = document.getElementById('currentRender');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    if (currentRender) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        currentRender.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        currentRender.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 40) { // کشیدن به چپ (عکس بعدی)
+                if(nextBtn) nextBtn.click();
+            }
+            if (touchEndX - touchStartX > 40) { // کشیدن به راست (عکس قبلی)
+                if(prevBtn) prevBtn.click();
+            }
+        }, {passive: true});
+    }
+
+    // ۲. قابلیت ورق زدن با انگشت برای مودال گالری معماری
+    const qvMainImg = document.getElementById('qvMainImage');
+    const qvNextBtn = document.getElementById('qvNextBtn');
+    const qvPrevBtn = document.getElementById('qvPrevBtn');
+
+    if (qvMainImg) {
+        let qvTouchStartX = 0;
+        let qvTouchEndX = 0;
+        qvMainImg.addEventListener('touchstart', e => {
+            qvTouchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        qvMainImg.addEventListener('touchend', e => {
+            qvTouchEndX = e.changedTouches[0].screenX;
+            if (qvTouchStartX - qvTouchEndX > 40) { // کشیدن به چپ (عکس بعدی)
+                if(qvNextBtn) qvNextBtn.click();
+            }
+            if (qvTouchEndX - qvTouchStartX > 40) { // کشیدن به راست (عکس قبلی)
+                if(qvPrevBtn) qvPrevBtn.click();
+            }
+        }, {passive: true});
+    }
+});
