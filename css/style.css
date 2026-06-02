@@ -504,13 +504,21 @@ body.arch-page .contact-icon-btn:hover { border-color: var(--accent-arch); }
     .card-img-holder { border-radius: 8px 8px 0 0; }
     .products-grid .card-link:hover .card-img-holder { box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
     
+    /* 👈 مخفی کردن فلش‌های عکس اصلی در موبایل */
     .nav-arrow { display: none !important; }
+
+    /* 👈 قفل کردن عرض ستون گالری برای جلوگیری از بیرون‌زدگی کل صفحه در موبایل */
+    .gallery-column { min-width: 0; max-width: 100%; overflow: hidden; }
+
+    /* 👈 تبدیل گالری به حالت اسکرول افقی */
     .thumbnails-container { 
         display: flex; flex-wrap: nowrap; overflow-x: auto; 
         scrollbar-width: none; padding-bottom: 10px; 
+        max-width: 100%; /* جلوگیری از کش آمدن */
     }
     .thumbnails-container::-webkit-scrollbar { display: none; }
     .thumb-item { flex: 0 0 85px; min-width: 85px; }
+
     .product-title { font-size: 1.4rem; }
     .overview-panel, .details-panel { padding: 20px 15px; }
     .buy-button-artstation { font-size: 1rem; padding: 12px; }
