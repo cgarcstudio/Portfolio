@@ -54,14 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // ب: صفحه کتگوری معماری و اتصال به مودال شیشه‌ای
+            // ب: 🌟 حل مشکل نام کتگوری در صفحه معماری
             if (isCategoryPage && categoryGrid) {
                 const urlParams = new URLSearchParams(window.location.search);
                 const catId = urlParams.get('id'); 
                 
+                // پیدا کردن یک نام خوانا با برداشتن خط تیره یا آندرلاین
+                const formatTitle = (str) => str ? str.replace(/[-_]/g, ' ').toUpperCase() : 'CATEGORY';
+                const displayTitle = formatTitle(catId);
+
                 const categoryTitleEl = document.getElementById('categoryTitle');
-                if (categoryTitleEl) categoryTitleEl.textContent = catId;
-                document.title = `${catId ? catId.toUpperCase() : 'Category'} - CGArc Studio`;
+                if (categoryTitleEl) categoryTitleEl.textContent = displayTitle;
+                document.title = `${displayTitle} - CGArc Studio`;
 
                 const filteredProducts = data.projects.filter(p => p.category === catId);
                 
@@ -201,7 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
         storesModal.addEventListener("click", (e) => { if (e.target === storesModal) storesModal.classList.remove('active'); });
     }
 
-    // کنترل دکمه همبرگری موبایل (حل مشکل کلیک)
     const menuToggleBtn = document.getElementById("menuToggleBtn");
     const mainNav = document.getElementById("mainNav");
     if (menuToggleBtn && mainNav) {
@@ -216,9 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================================================
-    // 3.5. QUICK VIEW MODAL CLOSING LOGIC
-    // ==========================================================================
     const qvModal = document.getElementById('quickViewModal');
     const closeQVBtn = document.getElementById('closeQuickView');
     if (qvModal && closeQVBtn) {
@@ -292,7 +292,6 @@ function updateQvGallery(index) {
     }
 }
 
-// اتصال فلش‌ها و Swipe (ورق زدن لمسی) در موبایل
 document.addEventListener('DOMContentLoaded', () => {
     const qvPrevBtn = document.getElementById('qvPrevBtn');
     const qvNextBtn = document.getElementById('qvNextBtn');
@@ -314,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 📱 تشخیص کشیدن انگشت در موبایل (Swipe)
     let touchStartX = 0;
     let touchEndX = 0;
     if (qvMainImg) {
@@ -324,11 +322,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         qvMainImg.addEventListener('touchend', e => {
             touchEndX = e.changedTouches[0].screenX;
-            if (touchStartX - touchEndX > 40) { // کشیدن به چپ (عکس بعدی)
+            if (touchStartX - touchEndX > 40) { 
                 let nextIndex = (currentQvIndex + 1) >= currentQvGallery.length ? 0 : currentQvIndex + 1;
                 updateQvGallery(nextIndex);
             }
-            if (touchEndX - touchStartX > 40) { // کشیدن به راست (عکس قبلی)
+            if (touchEndX - touchStartX > 40) { 
                 let prevIndex = (currentQvIndex - 1) < 0 ? currentQvGallery.length - 1 : currentQvIndex - 1;
                 updateQvGallery(prevIndex);
             }
@@ -337,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================================================
-// 5. LIGHTBOX & SLIDER ENGINE FOR PRODUCT PAGE
+// 5. LIGHTBOX & SLIDER ENGINE FOR PRODUCT PAGE (GAME)
 // ==========================================================================
 function initProductSlider(galleryArray) {
     const thumbItems = document.querySelectorAll('.thumb-item');
@@ -357,6 +355,9 @@ function initProductSlider(galleryArray) {
         thumbItems[index].classList.add('active');
         currentRender.src = galleryArray[index];
         currentIndex = index;
+        
+        // اسکرول نرم ریزعکس‌ها در موبایل (هنگام تغییر عکس اصلی)
+        thumbItems[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
     thumbItems.forEach((thumb, index) => {
@@ -377,11 +378,32 @@ function initProductSlider(galleryArray) {
             updateSlider(prevIndex);
         });
     }
+    
     if (currentRender) {
         currentRender.addEventListener('click', () => {
             if (lightboxImg) { lightboxImg.src = currentRender.src; if (lightbox) lightbox.classList.add('active'); }
         });
+
+        // 🌟 قابلیت Swipe (کشیدن لمسی) برای گالری صفحه گیم
+        let touchStartX = 0;
+        let touchEndX = 0;
+        currentRender.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        currentRender.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 40) { 
+                let nextIndex = (currentIndex + 1) >= galleryArray.length ? 0 : currentIndex + 1;
+                updateSlider(nextIndex);
+            }
+            if (touchEndX - touchStartX > 40) { 
+                let prevIndex = (currentIndex - 1) < 0 ? galleryArray.length - 1 : currentIndex - 1;
+                updateSlider(prevIndex);
+            }
+        }, {passive: true});
     }
+    
     if (lightboxClose) lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
     if (lightbox) lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
 }
