@@ -2035,6 +2035,29 @@
       }
     },
     {
+      "id": "kas_01",
+      "title": "OMOIKIRI Sink Collection 01",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/cooktop/c02/preview1.webp",
+      "details": {
+        "page_title": "OMOIKIRI Sink Collection 01",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/omoikiri_sink_collection",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/sink/s01/preview1.webp",
+          "public/image/arch/products/kitchen_app/sink/s01/preview2.webp",
+          "public/image/arch/products/kitchen_app/sink/s01/preview3.webp",
+          "public/image/arch/products/kitchen_app/sink/s01/preview4.webp",
+          "public/image/arch/products/kitchen_app/sink/s01/preview5.webp",
+          "public/image/arch/products/kitchen_app/sink/s01/preview6.webp",
+          "public/image/arch/products/kitchen_app/sink/s01/preview7.webp",
+          "public/image/arch/products/kitchen_app/sink/s01/preview8.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 13 MB\nPolygons: 60k\nStyle: Modern\nMaterials: Metal\nPolys: 60071\nVerts: 63136\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "l1",
       "title": "Philips Table Lamp - VDTMate Functional DSK501",
       "category": "lighting",
