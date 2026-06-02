@@ -59,9 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const urlParams = new URLSearchParams(window.location.search);
                 const catId = urlParams.get('id'); 
                 
-                // پیدا کردن یک نام خوانا با برداشتن خط تیره یا آندرلاین
-                const formatTitle = (str) => str ? str.replace(/[-_]/g, ' ').toUpperCase() : 'CATEGORY';
-                const displayTitle = formatTitle(catId);
+                // 👈 این بخش اصلاح شد تا نام کتگوری از فایل جیسون خوانده شود
+                let displayTitle = catId;
+                const categoryObj = data.projects.find(p => p.id === `cat_${catId}`);
+                if (categoryObj && categoryObj.title) {
+                    displayTitle = categoryObj.title;
+                } else if (catId) {
+                    displayTitle = catId.toUpperCase();
+                }
 
                 const categoryTitleEl = document.getElementById('categoryTitle');
                 if (categoryTitleEl) categoryTitleEl.textContent = displayTitle;
@@ -312,26 +317,6 @@ document.addEventListener('DOMContentLoaded', () => {
             updateQvGallery(nextIndex);
         });
     }
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-    if (qvMainImg) {
-        qvMainImg.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, {passive: true});
-
-        qvMainImg.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            if (touchStartX - touchEndX > 40) { 
-                let nextIndex = (currentQvIndex + 1) >= currentQvGallery.length ? 0 : currentQvIndex + 1;
-                updateQvGallery(nextIndex);
-            }
-            if (touchEndX - touchStartX > 40) { 
-                let prevIndex = (currentQvIndex - 1) < 0 ? currentQvGallery.length - 1 : currentQvIndex - 1;
-                updateQvGallery(prevIndex);
-            }
-        }, {passive: true});
-    }
 });
 
 // ==========================================================================
@@ -355,9 +340,6 @@ function initProductSlider(galleryArray) {
         thumbItems[index].classList.add('active');
         currentRender.src = galleryArray[index];
         currentIndex = index;
-        
-        // اسکرول نرم ریزعکس‌ها در موبایل (هنگام تغییر عکس اصلی)
-        thumbItems[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
     thumbItems.forEach((thumb, index) => {
@@ -383,25 +365,6 @@ function initProductSlider(galleryArray) {
         currentRender.addEventListener('click', () => {
             if (lightboxImg) { lightboxImg.src = currentRender.src; if (lightbox) lightbox.classList.add('active'); }
         });
-
-        // 🌟 قابلیت Swipe (کشیدن لمسی) برای گالری صفحه گیم
-        let touchStartX = 0;
-        let touchEndX = 0;
-        currentRender.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, {passive: true});
-
-        currentRender.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            if (touchStartX - touchEndX > 40) { 
-                let nextIndex = (currentIndex + 1) >= galleryArray.length ? 0 : currentIndex + 1;
-                updateSlider(nextIndex);
-            }
-            if (touchEndX - touchStartX > 40) { 
-                let prevIndex = (currentIndex - 1) < 0 ? galleryArray.length - 1 : currentIndex - 1;
-                updateSlider(prevIndex);
-            }
-        }, {passive: true});
     }
     
     if (lightboxClose) lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
