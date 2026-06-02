@@ -93,12 +93,13 @@ body::-webkit-scrollbar { display: none; }
     display: flex; flex-direction: column; align-items: flex-end;
     gap: 18px; list-style: none; opacity: 0; visibility: hidden;
     transform: translateY(-15px); transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.4s;
-    width: max-content; 
+    width: max-content; /* 👈 این خط اضافه شد تا منو فضای کافی داشته باشد */
 }
+
 .menu-links li a {
     text-decoration: none; color: rgba(255, 255, 255, 0.75);
     font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease;
-    white-space: nowrap; 
+    white-space: nowrap; /* 👈 این خط اضافه شد تا کلمات هرگز مچاله نشوند */
 }
 
 /* تعاملات منو */
@@ -121,17 +122,20 @@ body:not(.arch-page):has(.nav-container:hover) .global-footer {
 }
 
 /* ==========================================================================
-   3.5. ARCHVIZ PAGE SPECIFIC OVERRIDES
+   3.5. ARCHVIZ PAGE SPECIFIC OVERRIDES (استایل‌های بخش معماری)
    ========================================================================== */
-body.arch-page .logo-container, body.arch-page .logo-text { color: #11161d; }
+body.arch-page .logo-container,
+body.arch-page .logo-text { color: #11161d; }
 body.arch-page .hamburger-btn span { background-color: #11161d; }
 body.arch-page .nav-container:hover .hamburger-btn span:nth-child(1), body.arch-page .nav-container.active-mobile .hamburger-btn span:nth-child(1),
 body.arch-page .nav-container:hover .hamburger-btn span:nth-child(3), body.arch-page .nav-container.active-mobile .hamburger-btn span:nth-child(3) { background-color: var(--accent-arch); }
 body.arch-page .menu-links li a { color: rgba(17, 22, 29, 0.75); }
 body.arch-page .menu-links li a:hover { color: var(--accent-arch); }
 
-body.arch-page:has(.nav-container:hover) .portfolio-wrapper, body.arch-page:has(.nav-container:hover) .global-footer {
-    filter: blur(12px) contrast(95%) brightness(90%); transform: scale(0.98);
+body.arch-page:has(.nav-container:hover) .portfolio-wrapper,
+body.arch-page:has(.nav-container:hover) .global-footer {
+    filter: blur(12px) contrast(95%) brightness(90%);
+    transform: scale(0.98);
 }
 body.arch-page .card-info { background-color: #ffffff; border-top: 1px solid rgba(0,0,0,0.03); }
 body.arch-page .card-title { color: var(--accent-arch); }
@@ -143,24 +147,46 @@ body.arch-page .back-to-top:hover::after { border-color: #ffffff; }
 body.arch-page .global-footer p { color: #5c6470; }
 
 /* ==========================================================================
-   4. DYNAMIC GRID & CARDS
+   4. DYNAMIC GRID & CARDS (PORTFOLIO PAGES)
    ========================================================================== */
-.portfolio-wrapper { position: relative; width: 100%; min-height: 100vh; z-index: 1; padding: 140px 4% 40px 4%; display: flex; flex-direction: column; justify-content: space-between; }
+.portfolio-wrapper {
+    position: relative; width: 100%; min-height: 100vh; z-index: 1;
+    padding: 140px 4% 40px 4%; display: flex; flex-direction: column; justify-content: space-between;
+}
 .products-container { width: 100%; flex-grow: 1; }
-.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; width: 100%; max-width: 1400px; margin: 0 auto; }
-.card-link { text-decoration: none; display: block; color: inherit; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, opacity 0.4s ease; }
-.products-grid:has(.card-link:hover) .card-link:not(:hover) { filter: grayscale(35%) brightness(80%); opacity: 0.7; }
-.products-grid .card-link:hover { transform: scale(1.08); opacity: 1; z-index: 5; }
+.products-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;
+    width: 100%; max-width: 1400px; margin: 0 auto;
+}
+.card-link {
+    text-decoration: none; display: block; color: inherit;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, opacity 0.4s ease;
+}
+.products-grid:has(.card-link:hover) .card-link:not(:hover) {
+    filter: grayscale(35%) brightness(80%); opacity: 0.7;
+}
+.products-grid .card-link:hover {
+    transform: scale(1.08); opacity: 1; z-index: 5;
+}
 
+/* افکت درخشش یکپارچه دور کارت و کپشن */
 body.game-page .products-grid .card-link:hover { filter: grayscale(0%) brightness(100%) drop-shadow(0 0 18px rgba(229, 154, 25, 0.6)); }
 body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightness(100%) drop-shadow(0 0 15px rgba(0, 180, 216, 0.4)); }
 
 .card { position: relative; background-color: transparent; border-radius: 8px; display: flex; flex-direction: column; width: 100%; }
-.card-img-holder { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; position: relative; z-index: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.4); transition: box-shadow 0.3s ease; }
+.card-img-holder { 
+    width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; position: relative; z-index: 2; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); transition: box-shadow 0.3s ease;
+}
 .products-grid .card-link:hover .card-img-holder { box-shadow: none; z-index: 101; }
 .card-img-holder img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.card-info { position: absolute; top: 100%; left: 0; width: 100%; max-height: 0; opacity: 0; background-color: var(--card-dark); padding: 0 15px; display: flex; flex-direction: column; justify-content: center; gap: 5px; transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1), padding 0.3s ease, opacity 0.2s ease; border-radius: 0 0 8px 8px; z-index: 100; margin-top: -5px; padding-top: 5px; }
+.card-info {
+    position: absolute; top: 100%; left: 0; width: 100%; max-height: 0; opacity: 0; background-color: var(--card-dark);
+    padding: 0 15px; display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1), padding 0.3s ease, opacity 0.2s ease;
+    border-radius: 0 0 8px 8px; z-index: 100; margin-top: -5px; padding-top: 5px; 
+}
 .products-grid .card-link:hover .card-info { max-height: 80px; opacity: 1; padding: 15px; }
 .card-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; color: var(--accent-game); }
 .card-category { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
@@ -168,7 +194,12 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 /* ==========================================================================
    5. SCROLL TO TOP BUTTON
    ========================================================================== */
-.back-to-top, .scroll-top-btn { position: fixed; bottom: 35px; right: 40px; width: 45px; height: 45px; background-color: #0b0e14; border: 1px solid var(--accent-game); border-radius: 6px; cursor: pointer; z-index: 99; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
+.back-to-top, .scroll-top-btn {
+    position: fixed; bottom: 35px; right: 40px; width: 45px; height: 45px;
+    background-color: #0b0e14; border: 1px solid var(--accent-game); border-radius: 6px;
+    cursor: pointer; z-index: 99; display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
 .back-to-top:hover, .scroll-top-btn:hover { background-color: var(--accent-game); transform: translateY(-4px); box-shadow: 0 0 15px rgba(229, 154, 25, 0.4); }
 .back-to-top::after, .scroll-top-btn::after { content: ''; width: 10px; height: 10px; border-left: 2.5px solid var(--accent-game); border-top: 2.5px solid var(--accent-game); transform: rotate(45deg); margin-top: 4px; transition: border-color 0.3s ease; }
 .back-to-top:hover::after, .scroll-top-btn:hover::after { border-left-color: #111111; border-top-color: #111111; }
@@ -177,25 +208,36 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 /* ==========================================================================
    6. GLASSMORPHISM MODALS (ABOUT / CONTACT / STORES)
    ========================================================================== */
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 6, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 100; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(4, 6, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    z-index: 100; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
 .modal-overlay.active { opacity: 1; pointer-events: auto; }
 
-.modal-container { width: 90%; max-width: 650px; max-height: 85vh; overflow-y: auto; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 50px 40px; position: relative; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6); transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+.modal-container {
+    width: 90%; max-width: 650px; max-height: 85vh; overflow-y: auto;
+    background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px; padding: 50px 40px; position: relative;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
 .modal-overlay.active .modal-container { transform: translateY(0); }
 
-/* 🌟 رفع باگ: رنگ دادن به اسکرول بارها تا سفید نشوند */
-.modal-container, .qv-description { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.2) transparent; }
-.modal-container::-webkit-scrollbar, .qv-description::-webkit-scrollbar { width: 6px; }
-.modal-container::-webkit-scrollbar-track, .qv-description::-webkit-scrollbar-track { background: transparent; }
-.modal-container::-webkit-scrollbar-thumb, .qv-description::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 4px; }
-.modal-container::-webkit-scrollbar-thumb:hover, .qv-description::-webkit-scrollbar-thumb:hover { background: var(--accent-game); }
-body.arch-page .modal-container::-webkit-scrollbar-thumb:hover, body.arch-page .qv-description::-webkit-scrollbar-thumb:hover { background: var(--accent-arch); }
-
-.modal-close-btn { position: absolute; top: 25px; right: 25px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--accent-game); transition: transform 0.3s ease, color 0.3s ease; z-index: 10; }
+.modal-close-btn {
+    position: absolute; top: 25px; right: 25px; background: none; border: none;
+    font-size: 1.5rem; cursor: pointer; color: var(--accent-game);
+    transition: transform 0.3s ease, color 0.3s ease; z-index: 10;
+}
 .modal-close-btn:hover { transform: rotate(90deg); color: #ffffff; }
 body.arch-page .modal-close-btn { color: var(--accent-arch); }
 
-.modal-title { font-family: var(--font-main); color: var(--accent-game); font-size: 1.8rem; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; border-bottom: 1px solid rgba(229, 154, 25, 0.2); padding-bottom: 12px; }
+.modal-title {
+    font-family: var(--font-main); color: var(--accent-game); font-size: 1.8rem;
+    letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase;
+    border-bottom: 1px solid rgba(229, 154, 25, 0.2); padding-bottom: 12px;
+}
 body.arch-page .modal-title { color: var(--accent-arch); border-bottom-color: rgba(0, 180, 216, 0.2); }
 
 .modal-text-content { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9); direction: ltr; text-align: left; display: flex; flex-direction: column; gap: 20px; }
@@ -204,29 +246,44 @@ body.arch-page .modal-subtitle { color: var(--accent-arch); }
 .modal-text-content h4 { font-family: var(--font-main); color: #ffffff; font-size: 1.15rem; letter-spacing: 1px; margin-top: 15px; text-transform: uppercase; }
 .modal-quote { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 18px; font-weight: 500; text-align: center; color: var(--accent-game); margin-top: 15px; }
 
-/* Contact Us Modal */
+/* استایل اختصاصی مودال جدید تماس با ما */
 .contact-modal-container { max-width: 480px !important; }
 .contact-links-wrapper { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; width: 100%; }
-.contact-item { display: flex; align-items: center; justify-content: center; gap: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); padding: 16px; border-radius: 8px; text-decoration: none; color: #ffffff; font-family: var(--font-body); font-size: 1.1rem; transition: all 0.3s ease; width: 100%; }
+.contact-item { 
+    display: flex; align-items: center; justify-content: center; gap: 12px; 
+    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); 
+    padding: 16px; border-radius: 8px; text-decoration: none; color: #ffffff; 
+    font-family: var(--font-body); font-size: 1.1rem; transition: all 0.3s ease; width: 100%;
+}
 .contact-icon { width: 22px; height: 22px; fill: var(--accent-game); }
 body.arch-page .contact-icon { fill: var(--accent-arch); }
 .contact-item:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent-game); transform: translateY(-2px); }
 body.arch-page .contact-item:hover { border-color: var(--accent-arch); }
+
+/* چیدمان افقی و ۳ تایی دکمه‌های اجتماعی بدون متن */
 .contact-social-row { display: flex; gap: 15px; width: 100%; }
-.contact-icon-btn { flex: 1; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); padding: 16px 0; border-radius: 8px; transition: all 0.3s ease; }
+.contact-icon-btn {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); 
+    padding: 16px 0; border-radius: 8px; transition: all 0.3s ease;
+}
 .contact-icon-lg { width: 32px; height: 32px; fill: var(--accent-game); transition: transform 0.3s ease; }
 body.arch-page .contact-icon-lg { fill: var(--accent-arch); }
 .contact-icon-btn:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent-game); transform: translateY(-2px); }
 body.arch-page .contact-icon-btn:hover { border-color: var(--accent-arch); }
 .contact-icon-btn:hover .contact-icon-lg { transform: scale(1.1); }
 
-/* Stores Modal */
+/* استایل اختصاصی مودال شیشه‌ای فروشگاه‌ها */
 .stores-modal-container { max-width: 520px !important; }
 .stores-links-wrapper { display: flex; flex-direction: column; gap: 30px; margin-top: 10px; width: 100%; }
 .store-category { display: flex; flex-direction: column; gap: 12px; }
 .store-cat-title { font-family: var(--font-main); font-size: 1.2rem; letter-spacing: 2px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 6px; text-align: left; }
 .store-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
-.store-btn { flex: 1 1 calc(50% - 12px); min-width: 130px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); padding: 14px; border-radius: 8px; text-decoration: none; color: #ffffff; font-family: var(--font-body); font-size: 1.05rem; font-weight: 500; text-align: center; transition: all 0.3s ease; }
+.store-btn { 
+    flex: 1 1 calc(50% - 12px); min-width: 130px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); 
+    padding: 14px; border-radius: 8px; text-decoration: none; color: #ffffff; font-family: var(--font-body); 
+    font-size: 1.05rem; font-weight: 500; text-align: center; transition: all 0.3s ease; 
+}
 .store-btn:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-2px); }
 .game-btn:hover { border-color: var(--accent-game); color: var(--accent-game); }
 .arch-btn:hover { border-color: var(--accent-arch); color: var(--accent-arch); }
@@ -240,16 +297,12 @@ body.arch-page .contact-icon-btn:hover { border-color: var(--accent-arch); }
 .gallery-column { display: flex; flex-direction: column; gap: 15px; }
 .main-display { width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; background-color: #010204; border: 1px solid rgba(255, 255, 255, 0.05); position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
 .main-display img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
-
-/* 🌟 رفع باگ: اضافه کردن qv- به فلش‌های مودال معماری تا روی هم نیفتند */
-.nav-arrow, .qv-nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(11, 14, 20, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 6px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 5; }
-.main-display:hover .nav-arrow, .qv-main-img:hover .qv-nav-arrow { opacity: 0.8; visibility: visible; }
-.nav-arrow:hover, .qv-nav-arrow:hover { opacity: 1 !important; background: rgba(11, 14, 20, 0.9); border-color: var(--accent-game); color: var(--accent-game); }
-body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: var(--accent-arch); }
-.nav-arrow.prev-arrow, .qv-nav-arrow.prev-arrow { left: 15px; }
-.nav-arrow.next-arrow, .qv-nav-arrow.next-arrow { right: 15px; }
-.nav-arrow svg, .qv-nav-arrow svg { width: 24px; height: 24px; fill: currentColor; }
-
+.nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(11, 14, 20, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 6px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 5; }
+.main-display:hover .nav-arrow { opacity: 0.8; visibility: visible; }
+.nav-arrow:hover { opacity: 1 !important; background: rgba(11, 14, 20, 0.9); color: var(--accent-game); border-color: var(--accent-game); }
+.nav-arrow.prev-arrow { left: 15px; }
+.nav-arrow.next-arrow { right: 15px; }
+.nav-arrow svg { width: 24px; height: 24px; fill: currentColor; }
 .thumbnails-container { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; width: 100%; margin-bottom: 15px; }
 .thumb-item { aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden; cursor: pointer; background-color: #0b0e14; border: 2px solid transparent; transition: all 0.2s ease; opacity: 0.5; }
 .thumb-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
@@ -280,18 +333,51 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
 /* ==========================================================================
    7.5. QUICK VIEW GLASSMORPHISM MODAL (ARCHVIZ PRODUCTS)
    ========================================================================== */
-.quick-view-container { width: 95%; max-width: 1080px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 45px; position: relative; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6); transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); color: #ffffff; box-sizing: border-box; }
+.quick-view-container {
+    width: 95%; max-width: 1080px;
+    background: rgba(255, 255, 255, 0.02); 
+    border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;
+    padding: 45px; position: relative;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    color: #ffffff; box-sizing: border-box;
+}
 .modal-overlay.active .quick-view-container { transform: translateY(0); }
-.quick-view-container .modal-close-btn { top: 25px; right: 30px; background: transparent; color: rgba(255, 255, 255, 0.5); width: auto; height: auto; border: none; border-radius: 0; font-size: 1.8rem; }
+
+.quick-view-container .modal-close-btn {
+    top: 25px; right: 30px; background: transparent; color: rgba(255, 255, 255, 0.5);
+    width: auto; height: auto; border: none; border-radius: 0; font-size: 1.8rem;
+}
 .quick-view-container .modal-close-btn:hover { background: transparent; color: var(--accent-arch); transform: rotate(90deg); }
 
 .quick-view-content { display: flex; align-items: stretch; gap: 45px; width: 100%; }
+
 .qv-gallery-col { flex: 1.3; min-width: 0; display: flex; flex-direction: column; gap: 15px; max-width: 100%; }
-.qv-main-img { width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); position: relative; }
+.qv-main-img { 
+    width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; 
+    background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); position: relative;
+}
 .qv-main-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.qv-nav-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(11, 14, 20, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; width: 50px; height: 50px;
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    border-radius: 6px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 5;
+}
+.qv-main-img:hover .qv-nav-arrow { opacity: 0.8; visibility: visible; }
+.qv-nav-arrow:hover { opacity: 1 !important; background: rgba(11, 14, 20, 0.9); color: var(--accent-arch); border-color: var(--accent-arch); }
+.qv-nav-arrow.prev-arrow { left: 15px; }
+.nav-arrow.next-arrow { right: 15px; }
+.qv-nav-arrow svg { width: 24px; height: 24px; fill: currentColor; }
+
 .qv-thumbnails { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; padding-bottom: 5px; width: 100%; }
 .qv-thumbnails::-webkit-scrollbar { display: none; }
-.qv-thumb { width: 85px; min-width: 85px; aspect-ratio: 1 / 1; border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; opacity: 0.4; transition: all 0.2s ease; background-color: rgba(0,0,0,0.2); }
+.qv-thumb { 
+    width: 85px; min-width: 85px; aspect-ratio: 1 / 1; border-radius: 6px; overflow: hidden; cursor: pointer; 
+    border: 2px solid transparent; opacity: 0.4; transition: all 0.2s ease; background-color: rgba(0,0,0,0.2);
+}
 .qv-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .qv-thumb:hover { opacity: 0.8; }
 .qv-thumb.active { border-color: var(--accent-arch); opacity: 1; box-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
@@ -300,10 +386,17 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
 .qv-header { border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 15px; }
 .qv-title { font-size: 2rem; color: #ffffff; font-family: var(--font-main); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; }
 .qv-subtitle { font-family: var(--font-body); font-size: 0.95rem; color: rgba(255,255,255,0.6); margin-top: 6px; font-weight: 500; }
+
 .qv-buy-btn { background-color: var(--accent-arch) !important; color: #ffffff !important; margin-top: 5px; }
 .qv-buy-btn:hover { background-color: #0096b4 !important; box-shadow: 0 8px 25px rgba(0, 180, 216, 0.35) !important; }
 .qv-buy-btn svg { fill: #ffffff !important; }
-.qv-description { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.85); flex-grow: 1; overflow-y: auto; min-height: 0; padding-right: 12px; white-space: pre-line; }
+
+.qv-description { 
+    font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.85); 
+    flex-grow: 1; overflow-y: auto; min-height: 0; padding-right: 12px; white-space: pre-line; 
+}
+.qv-description::-webkit-scrollbar { width: 4px; }
+.qv-description::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
 
 /* ==========================================================================
    8. PRODUCT LIGHTBOX (IMAGE ZOOM)
@@ -361,9 +454,9 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
 }
 
 @media (max-width: 768px) {
-    /* حفظ تنظیمات لوگوی وسط که شما انجام داده بودید */
+    /* اصلاحات کامل لوگوی وسط صفحه اول در موبایل */
     .center-brand-container {
-        flex-direction: row-reverse; 
+        flex-direction: row-reverse; /* قرار دادن متن در سمت چپ لوگو */
         gap: 12px;
         top: 30px;
         width: auto;
@@ -380,7 +473,7 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
     .hamburger-btn { width: 35px; height: 24px; }
     .menu-links li a { font-size: 1.1rem; }
 
-    /* 🌟 بازگردانی درصدها به همان مقادیری که در فایل شما بود */
+    /* تفکیک و نزدیک کردن متون GAME ART و ARCHVIZ به خط وسط در موبایل */
     .split-container { flex-direction: column; }
     .vertical-text { 
         writing-mode: horizontal-tb; 
@@ -389,12 +482,12 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
         left: 50%;
     }
     .game-text { 
-        top: 94%; 
+        top: 94%; /* 👈 از 22 درصد به 42 درصد تغییر کرد تا کاملاً نزدیک خط وسط شود */
         transform: translate(-50%, -50%) !important; 
         right: auto; 
     }
     .arch-text { 
-        top: 6%; 
+        top: 6%; /* 👈 از 78 درصد به 58 درصد تغییر کرد تا به خط وسط نزدیک شود */
         transform: translate(-50%, -50%) !important; 
     }
     
@@ -406,19 +499,7 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
     .card-img-holder { border-radius: 8px 8px 0 0; }
     .products-grid .card-link:hover .card-img-holder { box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
     
-    /* 👈 مخفی کردن فلش‌های عکس اصلی در موبایل (چون با دست ورق می‌خورد) */
-    .nav-arrow { display: none !important; }
-
-    /* 👈 تبدیل گالری به حالت اسکرول افقی (مثل اینستاگرام) */
-    .thumbnails-container { 
-        display: flex; 
-        flex-wrap: nowrap; 
-        overflow-x: auto; 
-        scrollbar-width: none; 
-        padding-bottom: 10px; 
-    }
-    .thumbnails-container::-webkit-scrollbar { display: none; }
-    .thumb-item { flex: 0 0 85px; min-width: 85px; }
+    .thumbnails-container { grid-template-columns: repeat(4, 1fr); }
     .product-title { font-size: 1.4rem; }
     .overview-panel, .details-panel { padding: 20px 15px; }
     .buy-button-artstation { font-size: 1rem; padding: 12px; }
