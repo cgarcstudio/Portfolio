@@ -406,7 +406,19 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
     .card-img-holder { border-radius: 8px 8px 0 0; }
     .products-grid .card-link:hover .card-img-holder { box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
     
-    .thumbnails-container { grid-template-columns: repeat(4, 1fr); }
+    /* 👈 مخفی کردن فلش‌های عکس اصلی در موبایل (چون با دست ورق می‌خورد) */
+    .nav-arrow { display: none !important; }
+
+    /* 👈 تبدیل گالری به حالت اسکرول افقی (مثل اینستاگرام) */
+    .thumbnails-container { 
+        display: flex; 
+        flex-wrap: nowrap; 
+        overflow-x: auto; 
+        scrollbar-width: none; 
+        padding-bottom: 10px; 
+    }
+    .thumbnails-container::-webkit-scrollbar { display: none; }
+    .thumb-item { flex: 0 0 85px; min-width: 85px; }
     .product-title { font-size: 1.4rem; }
     .overview-panel, .details-panel { padding: 20px 15px; }
     .buy-button-artstation { font-size: 1rem; padding: 12px; }
