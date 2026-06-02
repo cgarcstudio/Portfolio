@@ -175,7 +175,7 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 .back-to-top.show, .scroll-top-btn.show { opacity: 1; visibility: visible; }
 
 /* ==========================================================================
-   6. GLASSMORPHISM MODALS (ABOUT / CONTACT / STORES) & CUSTOM SCROLLBAR
+   6. GLASSMORPHISM MODALS (ABOUT / CONTACT / STORES)
    ========================================================================== */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 6, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 100; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
 .modal-overlay.active { opacity: 1; pointer-events: auto; }
@@ -183,7 +183,7 @@ body.arch-page .products-grid .card-link:hover { filter: grayscale(0%) brightnes
 .modal-container { width: 90%; max-width: 650px; max-height: 85vh; overflow-y: auto; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 50px 40px; position: relative; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6); transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
 .modal-overlay.active .modal-container { transform: translateY(0); }
 
-/* 🌟 اصلاح اسکرول بار مودال‌ها (جلوگیری از سفید شدن بک‌گراند) */
+/* 🌟 رفع باگ: رنگ دادن به اسکرول بارها تا سفید نشوند */
 .modal-container, .qv-description { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.2) transparent; }
 .modal-container::-webkit-scrollbar, .qv-description::-webkit-scrollbar { width: 6px; }
 .modal-container::-webkit-scrollbar-track, .qv-description::-webkit-scrollbar-track { background: transparent; }
@@ -241,13 +241,13 @@ body.arch-page .contact-icon-btn:hover { border-color: var(--accent-arch); }
 .main-display { width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; background-color: #010204; border: 1px solid rgba(255, 255, 255, 0.05); position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
 .main-display img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
 
-/* 🌟 اصلاح مشکل روی هم افتادن فلش‌ها */
+/* 🌟 رفع باگ: اضافه کردن qv- به فلش‌های مودال معماری تا روی هم نیفتند */
 .nav-arrow, .qv-nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(11, 14, 20, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 6px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 5; }
 .main-display:hover .nav-arrow, .qv-main-img:hover .qv-nav-arrow { opacity: 0.8; visibility: visible; }
 .nav-arrow:hover, .qv-nav-arrow:hover { opacity: 1 !important; background: rgba(11, 14, 20, 0.9); border-color: var(--accent-game); color: var(--accent-game); }
 body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: var(--accent-arch); }
 .nav-arrow.prev-arrow, .qv-nav-arrow.prev-arrow { left: 15px; }
-.nav-arrow.next-arrow, .qv-nav-arrow.next-arrow { right: 15px; } /* مشکل حل شد */
+.nav-arrow.next-arrow, .qv-nav-arrow.next-arrow { right: 15px; }
 .nav-arrow svg, .qv-nav-arrow svg { width: 24px; height: 24px; fill: currentColor; }
 
 .thumbnails-container { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; width: 100%; margin-bottom: 15px; }
@@ -255,7 +255,6 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
 .thumb-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
 .thumb-item:hover { opacity: 0.9; }
 .thumb-item.active { border-color: var(--accent-game); opacity: 1; box-shadow: 0 0 10px rgba(229, 154, 25, 0.3); }
-
 .overview-panel { background: rgba(11, 14, 20, 0.35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 6px; padding: 25px; }
 .overview-title { color: var(--accent-game); font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
 .info-column { display: flex; flex-direction: column; gap: 20px; }
@@ -362,6 +361,16 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
 }
 
 @media (max-width: 768px) {
+    /* حفظ تنظیمات لوگوی وسط که شما انجام داده بودید */
+    .center-brand-container {
+        flex-direction: row-reverse; 
+        gap: 12px;
+        top: 30px;
+        width: auto;
+    }
+    .brand-logo { width: 44px; height: 44px; margin-bottom: 0; }
+    .brand-name { font-size: 0.85rem; letter-spacing: 3px; }
+
     .logo-container { top: 15px; left: 15px; gap: 8px; }
     .logo-img { width: 30px; height: 30px; }
     .logo-text { font-size: 0.8rem; letter-spacing: 0.5px; }
@@ -371,6 +380,7 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
     .hamburger-btn { width: 35px; height: 24px; }
     .menu-links li a { font-size: 1.1rem; }
 
+    /* 🌟 بازگردانی درصدها به همان مقادیری که در فایل شما بود */
     .split-container { flex-direction: column; }
     .vertical-text { 
         writing-mode: horizontal-tb; 
@@ -378,8 +388,15 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
         width: 100%; text-align: center;
         left: 50%;
     }
-    .game-text { top: 42%; transform: translate(-50%, -50%) !important; right: auto; }
-    .arch-text { top: 58%; transform: translate(-50%, -50%) !important; }
+    .game-text { 
+        top: 94%; 
+        transform: translate(-50%, -50%) !important; 
+        right: auto; 
+    }
+    .arch-text { 
+        top: 6%; 
+        transform: translate(-50%, -50%) !important; 
+    }
     
     .products-grid { grid-template-columns: repeat(1, 1fr); gap: 25px; }
     .portfolio-wrapper { padding: 90px 4% 30px 4%; }
@@ -389,11 +406,7 @@ body.arch-page .qv-nav-arrow:hover { border-color: var(--accent-arch); color: va
     .card-img-holder { border-radius: 8px 8px 0 0; }
     .products-grid .card-link:hover .card-img-holder { box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
     
-    /* 🌟 اسکرول افقی برای ریزعکس‌ها در حالت موبایل (صفحه گیم) */
-    .thumbnails-container { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 10px; }
-    .thumbnails-container::-webkit-scrollbar { display: none; }
-    .thumb-item { flex: 0 0 85px; min-width: 85px; }
-    
+    .thumbnails-container { grid-template-columns: repeat(4, 1fr); }
     .product-title { font-size: 1.4rem; }
     .overview-panel, .details-panel { padding: 20px 15px; }
     .buy-button-artstation { font-size: 1rem; padding: 12px; }
