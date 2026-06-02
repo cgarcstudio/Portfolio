@@ -412,7 +412,7 @@
       "id": "cat_furniture",
       "title": "Furniture",
       "category": "archviz",
-      "type": "Chair - Lighting",
+      "type": "Chair - Sofa",
       "image": "public/image/arch/cover/furniture_cover.webp",
       "url": "category.html?id=furniture"
     },
@@ -2039,7 +2039,7 @@
       "title": "OMOIKIRI Sink Collection 01",
       "category": "kitchenappliance",
       "type": "3D Asset - Pack",
-      "image": "public/image/arch/products/kitchen_app/cooktop/c02/preview1.webp",
+      "image": "public/image/arch/products/kitchen_app/sink/s01/preview1.webp",
       "details": {
         "page_title": "OMOIKIRI Sink Collection 01",
         "page_subtitle": "Premium high-poly asset for high-end interior staging",
@@ -2055,6 +2055,136 @@
           "public/image/arch/products/kitchen_app/sink/s01/preview8.webp"
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 13 MB\nPolygons: 60k\nStyle: Modern\nMaterials: Metal\nPolys: 60071\nVerts: 63136\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kas_02",
+      "title": "OMOIKIRI Sink Collection 02",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/sink/s02/preview1.webp",
+      "details": {
+        "page_title": "OMOIKIRI Sink Collection 02",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/omoikiri_sink_collection02_1",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/sink/s02/preview1.webp",
+          "public/image/arch/products/kitchen_app/sink/s02/preview2.webp",
+          "public/image/arch/products/kitchen_app/sink/s02/preview3.webp",
+          "public/image/arch/products/kitchen_app/sink/s02/preview4.webp",
+          "public/image/arch/products/kitchen_app/sink/s02/preview5.webp",
+          "public/image/arch/products/kitchen_app/sink/s02/preview6.webp",
+          "public/image/arch/products/kitchen_app/sink/s02/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 21 MB\nPolygons: 109k\nStyle: Modern\nMaterials: Metal\nPolys: 109624\nVerts: 113816\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kas_03",
+      "title": "OMOIKIRI Sink Collection 03",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/sink/s03/preview1.webp",
+      "details": {
+        "page_title": "OMOIKIRI Sink Collection 03",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/omoikiri_sink_collection03",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/sink/s03/preview1.webp",
+          "public/image/arch/products/kitchen_app/sink/s03/preview2.webp",
+          "public/image/arch/products/kitchen_app/sink/s03/preview3.webp",
+          "public/image/arch/products/kitchen_app/sink/s03/preview4.webp",
+          "public/image/arch/products/kitchen_app/sink/s03/preview5.webp",
+          "public/image/arch/products/kitchen_app/sink/s03/preview6.webp",
+          "public/image/arch/products/kitchen_app/sink/s03/preview7.webp",
+          "public/image/arch/products/kitchen_app/sink/s03/preview8.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 27 MB\nPolygons: 119k\nStyle: Modern\nMaterials: Metal\nPolys: 119083\nVerts: 124598\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kas_04",
+      "title": "Gappo sink collection",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/sink/s04/preview1.webp",
+      "details": {
+        "page_title": "Gappo sink collection",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/gappo_sink_collection",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/sink/s04/preview1.webp",
+          "public/image/arch/products/kitchen_app/sink/s04/preview2.webp",
+          "public/image/arch/products/kitchen_app/sink/s04/preview3.webp",
+          "public/image/arch/products/kitchen_app/sink/s04/preview4.webp",
+          "public/image/arch/products/kitchen_app/sink/s04/preview5.webp",
+          "public/image/arch/products/kitchen_app/sink/s04/preview6.webp",
+          "public/image/arch/products/kitchen_app/sink/s04/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 18 MB\nPolygons: 79k\nStyle: Modern\nMaterials: Metal\nPolys: 79636\nVerts: 83626\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kas_05",
+      "title": "ZLINE sink collection",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/sink/s05/preview1.webp",
+      "details": {
+        "page_title": "ZLINE sink collection",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/zline_sink_collection_2",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/sink/s05/preview1.webp",
+          "public/image/arch/products/kitchen_app/sink/s05/preview2.webp",
+          "public/image/arch/products/kitchen_app/sink/s05/preview3.webp",
+          "public/image/arch/products/kitchen_app/sink/s05/preview4.webp",
+          "public/image/arch/products/kitchen_app/sink/s05/preview5.webp",
+          "public/image/arch/products/kitchen_app/sink/s05/preview6.webp",
+          "public/image/arch/products/kitchen_app/sink/s05/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 54 MB\nPolygons: 223k\nStyle: Modern\nMaterials: Metal\nPolys: 223212\nVerts: 229656\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kasf_01",
+      "title": "Omoikiri Faucet Collection 01",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/sink/sf01/preview1.webp",
+      "details": {
+        "page_title": "Omoikiri Faucet Collection 01",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/omoikiri_faucet_collection_01_4",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/sink/sf01/preview1.webp",
+          "public/image/arch/products/kitchen_app/sink/sf01/preview2.webp",
+          "public/image/arch/products/kitchen_app/sink/sf01/preview3.webp",
+          "public/image/arch/products/kitchen_app/sink/sf01/preview4.webp",
+          "public/image/arch/products/kitchen_app/sink/sf01/preview5.webp",
+          "public/image/arch/products/kitchen_app/sink/sf01/preview6.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 21 MB\nPolygons: 114k\nStyle: Modern\nMaterials: Metal\nPolys: 114946\nVerts: 115129\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kasf_02",
+      "title": "Omoikiri Faucet Collection 02",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/sink/sf02/preview1.webp",
+      "details": {
+        "page_title": "Omoikiri Faucet Collection 02",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/omoikiri_faucet_collection_02",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/sink/sf02/preview1.webp",
+          "public/image/arch/products/kitchen_app/sink/sf02/preview2.webp",
+          "public/image/arch/products/kitchen_app/sink/sf02/preview3.webp",
+          "public/image/arch/products/kitchen_app/sink/sf02/preview4.webp",
+          "public/image/arch/products/kitchen_app/sink/sf02/preview5.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 29 MB\nPolygons: 184k\nStyle: Modern\nMaterials: Metal\nPolys: 184874\nVerts: 184253\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     },
     {
