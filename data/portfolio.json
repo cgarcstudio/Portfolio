@@ -2312,6 +2312,26 @@
       }
     },
     {
+      "id": "kao_01",
+      "title": "Philips toaster HD2581",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/other/01/preview1.webp",
+      "details": {
+        "page_title": "Philips toaster HD2581",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/philips_toaster_hd2581_3",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/other/01/preview1.webp",
+          "public/image/arch/products/kitchen_app/other/01/preview2.webp",
+          "public/image/arch/products/kitchen_app/other/01/preview3.webp",
+          "public/image/arch/products/kitchen_app/other/01/preview4.webp",
+          "public/image/arch/products/kitchen_app/other/01/preview5.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 21 MB\nPolygons: 241k\nStyle: Modern\nMaterials: Metal\nPolys: 241568\nVerts: 121305\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "l1",
       "title": "Philips Table Lamp - VDTMate Functional DSK501",
       "category": "lighting",
@@ -2622,6 +2642,24 @@
           "public/image/arch/products/technology/airfan/preview3.webp"
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 38 MB\nPolygons: 617K\nStyle: Modern\nMaterials: Metal, Plastic\nPolys: 617570\nVerts: 311163\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "tech4",
+      "title": "Electric Toothbrush",
+      "category": "technology",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/technology/toothbrush/preview1.webp",
+      "details": {
+        "page_title": "Electric Toothbrush",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/electric_toothbrush_4",
+        "gallery": [
+          "public/image/arch/products/technology/toothbrush/preview1.webp",
+          "public/image/arch/products/technology/toothbrush/preview2.webp",
+          "public/image/arch/products/technology/toothbrush/preview3.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 53 MB\nPolygons: 252K\nStyle: Modern\nMaterials: Metal, Plastic\nPolys: 252816\nVerts: 126851\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
     }
   ]
