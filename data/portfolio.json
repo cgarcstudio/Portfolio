@@ -715,6 +715,7 @@
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 101 MB\nPolygons: 444K\nStyle: Modern\nMaterials: Wood, Concrete\nPolys: 444184\nVerts: 478613\nZipped size of 3dmax and obj files : 51.3 Mb\nZipped size Map: 49.5 Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
+    },
     {
       "id": "d_1",
       "title": "Vintage Telescope",
