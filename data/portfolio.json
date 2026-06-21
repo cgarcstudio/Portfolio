@@ -661,6 +661,61 @@
       }
     },
     {
+      "id": "bs_1",
+      "title": "Book set 01",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/bs01/preview1.webp",
+      "details": {
+        "page_title": "Book set 01",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/book-set-01-2",
+        "gallery": [
+          "public/image/arch/products/decoration/bs01/preview1.webp",
+          "public/image/arch/products/decoration/bs01/preview2.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 74 MB\nPolygons: 202K\nStyle: Modern\nMaterials: Paper\nPolys: 202092\nVerts: 203841\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "wa_1",
+      "title": "Wall art 01",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/wa01/preview1.webp",
+      "details": {
+        "page_title": "Wall art 01",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/wall-art-01-2",
+        "gallery": [
+          "public/image/arch/products/decoration/wa01/preview1.webp",
+          "public/image/arch/products/decoration/wa01/preview2.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 65 MB\nPolygons: 66K\nStyle: Modern\nMaterials: Wood,Ceramic\nPolys: 66912\nVerts: 67081\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "ds_37",
+      "title": "Decorative Set 37",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/ds37/preview1.webp",
+      "details": {
+        "page_title": "Decorative Set 37",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set-37-2",
+        "gallery": [
+          "public/image/arch/products/decoration/ds37/preview1.webp",
+          "public/image/arch/products/decoration/ds37/preview2.webp",
+          "public/image/arch/products/decoration/ds37/preview3.webp",
+          "public/image/arch/products/decoration/ds37/preview4.webp",
+          "public/image/arch/products/decoration/ds37/preview5.webp",
+          "public/image/arch/products/decoration/ds37/preview6.webp",
+          "public/image/arch/products/decoration/ds37/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 101 MB\nPolygons: 444K\nStyle: Modern\nMaterials: Wood, Concrete\nPolys: 444184\nVerts: 478613\nZipped size of 3dmax and obj files : 51.3 Mb\nZipped size Map: 49.5 Mb\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    {
       "id": "d_1",
       "title": "Vintage Telescope",
       "category": "decoration",
