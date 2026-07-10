@@ -661,6 +661,44 @@
       }
     },
     {
+      "id": "ds_39",
+      "title": "Oud & perfume Set 02",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/ds39/preview1.webp",
+      "details": {
+        "page_title": "Oud & perfume Set 02",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/oud-perfume-set02",
+        "gallery": [
+          "public/image/arch/products/decoration/ds39/preview1.webp",
+          "public/image/arch/products/decoration/ds39/preview2.webp",
+          "public/image/arch/products/decoration/ds39/preview3.webp",
+          "public/image/arch/products/decoration/ds39/preview4.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 55 MB\nPolygons: 353K\nStyle: Modern\nMaterials: Glass, Plastic\nPolys: 353301\nVerts: 353145\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "ds_38",
+      "title": "Oud & perfume Set 01",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/ds38/preview1.webp",
+      "details": {
+        "page_title": "Oud & perfume Set 01",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/oud-perfume-set01",
+        "gallery": [
+          "public/image/arch/products/decoration/ds38/preview1.webp",
+          "public/image/arch/products/decoration/ds38/preview2.webp",
+          "public/image/arch/products/decoration/ds38/preview3.webp",
+          "public/image/arch/products/decoration/ds38/preview4.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 78 MB\nPolygons: 390K\nStyle: Modern\nMaterials: Metal, Glass\nPolys: 390532\nVerts: 388074\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "bs_1",
       "title": "Book set 01",
       "category": "decoration",
