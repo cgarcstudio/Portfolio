@@ -661,6 +661,57 @@
       }
     },
     {
+      "id": "ds_53",
+      "title": "Flower collection 04",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/ds53/preview1.webp",
+      "details": {
+        "page_title": "Flower collection 04",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set53-flower-collection-04",
+        "gallery": [
+          "public/image/arch/products/decoration/ds53/preview1.webp",
+          "public/image/arch/products/decoration/ds53/preview2.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 199 MB\nPolygons: 1M\nStyle: Modern\nMaterials: Wood, Organics\nPolys: 1020692\nVerts: 1248302\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "ds_52",
+      "title": "Flower collection 03",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/ds52/preview1.webp",
+      "details": {
+        "page_title": "Flower collection 03",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set52-flower-collection-03",
+        "gallery": [
+          "public/image/arch/products/decoration/ds52/preview1.webp",
+          "public/image/arch/products/decoration/ds52/preview2.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 188 MB\nPolygons: 1M\nStyle: Modern\nMaterials: Wood, Organics\nPolys: 1010651\nVerts: 1424518\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "ds_51",
+      "title": "Flower collection 02",
+      "category": "decoration",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/decoration/ds51/preview1.webp",
+      "details": {
+        "page_title": "Flower collection 02",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/decorative-set51-flower-collection-02-1",
+        "gallery": [
+          "public/image/arch/products/decoration/ds51/preview1.webp",
+          "public/image/arch/products/decoration/ds51/preview2.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 133 MB\nPolygons: 715K\nStyle: Modern\nMaterials: Wood, Organics\nPolys: 715029\nVerts: 876447\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "ds_50",
       "title": "Flower collection 01",
       "category": "decoration",
