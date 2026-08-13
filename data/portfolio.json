@@ -44,6 +44,91 @@
 
   "projects": [
     {
+      "id": "7",
+      "title": "The Life Saver A.R.E.S-Viii Robot",
+      "category": "gameart",
+      "type": "FULL TUTORIAL",
+      "image": "public/image/game/covers/lifesavor_cover.webp",
+      "url": "product.html?id=7",
+      "details": {
+        "page_title": "The Life Saver A.R.E.S-VIII Robot",
+        "page_subtitle": "A Complete Hard-Surface Journey - Blender Tutorial",
+        "buy_link": "https://artstn.co/m/RywR3",
+        "video_link": "https://youtu.be/FB20zHUKBAM",
+        "button_text": "BUY TUTORIAL",
+        "gallery": [
+          "public/image/game/products/lifesavor/preview1.webp",
+          "public/image/game/products/lifesavor/preview2.webp",
+          "public/image/game/products/lifesavor/preview3.webp",
+          "public/image/game/products/lifesavor/preview4.webp",
+          "public/image/game/products/lifesavor/preview5.webp",
+          "public/image/game/products/lifesavor/preview6.webp",
+          "public/image/game/products/lifesavor/preview7.webp",
+          "public/image/game/products/lifesavor/preview8.webp",
+          "public/image/game/products/lifesavor/preview9.webp",
+          "public/image/game/products/lifesavor/preview10.webp",
+          "public/image/game/products/lifesavor/preview11.webp",
+          "public/image/game/products/lifesavor/preview12.webp"
+        ],
+        "features": [
+          "⏱️ Total Duration: 23 Hours, 21 Minutes",
+          "▫️ Format: Real-time screen recording with shortcut display",
+          "▫️ Audio: Unnarrated (Smooth Background Music)",
+          "▫️ Skill Level: Upper-Intermediate (Prerequisite: Basic software knowledge)",
+          "🎮 Software/Add-ons: Blender 4.2 (Loop Tools) | Substance Painter 12.1 | Marmoset Toolbag 5"
+        ],
+        "specifications": [
+          "▫️ Topology: Clean, Quad-Based Mesh",
+          "🖼️ Textures: 4K Resolution, JPG (8-bit)",
+          "🗺️ UVs: Fully Unwrapped workflow",
+          "📊 Vertices: 450,685 | Edges: 892,256",
+          "📊 Faces: 441,986 | Triangles: 883,972"
+        ],
+        "overview": [
+          {
+            "type": "paragraph",
+            "content": "Ready to level up your 3D skills? This 23.5-hour, step-by-step tutorial guides you through building a high-detail hard-surface robot from scratch. Whether you want to refine your modeling workflow or master 4K texturing, this course gives you a practical, production-ready blueprint."
+          },
+          {
+            "type": "warning",
+            "content": "⚠️ IMPORTANT NOTE: This is a purely visual, real-time walkthrough. There is no voice narration or subtitles. You get full screen recordings in real time (no speed-ups) with an on-screen shortcut viewer showing every keypress."
+          },
+          {
+            "type": "heading",
+            "content": "🚀 Why Choose This Tutorial?"
+          },
+          {
+            "type": "paragraph",
+            "content": "1️⃣ <strong>Complete Transparency (100% Real-Time):</strong> Watch the entire process uninterrupted. You will see every click, edge split, and topology fix as it happens.<br>2️⃣ <strong>Master Complex Industrial Geometry:</strong> Learn how to merge smooth curves with sharp mechanical parts—skills you can apply to industrial gear, tech products, or automotive designs.<br>3️⃣ <strong>Seamless Industry Pipeline:</strong> Learn how to move smoothly between apps: Blender (Modeling) → RizomUV (Unwrapping) → Substance Painter (Texturing) → Blender & Marmoset Toolbag 5 (Rendering).<br>4️⃣ <strong>Production-Ready Technical Standards:</strong> Build clean quad topology and optimize your UVs for maximum texel density, matching the quality expected in real studio environments.<br>5️⃣ <strong>Portfolio-Grade Results:</strong> By the end, you’ll have a realistic, high-detail asset ready to showcase in your portfolio."
+          },
+          {
+            "type": "heading",
+            "content": "📂 What You Will Learn:"
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>1. Modeling (Blender 4.2) | 66 Parts | ~18 Hours</strong><br>Start from basic shapes and build up complex mechanical details layer by layer. Master boolean cleanup, surface curvature, and clean quad workflows."
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>2. UV Unwrapping (RizomUV) | 6 Parts | ~2 Hours</strong><br>Learn smart unwrapping for dense meshes. Use RizomUV and material linking to optimize texel density, set up UDIMs, and avoid blurry textures."
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>3. Texturing (Substance Painter 12.1) | 7 Parts | ~2 Hours</strong><br>Bring the robot to life with realistic wear, custom decals (included), and clean detail work for a photorealistic finish."
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>4. Lighting & Rendering (Blender & Marmoset Toolbag 5) | 3 Parts | ~45 Minutes</strong><br>Export 4K textures and Set up professional studio lighting and cameras to highlight mechanical details and create clean renders."
+          },
+          {
+            "type": "paragraph",
+            "content": "Elevate your hard-surface workflow today. We look forward to seeing how you apply these professional mindsets to your own digital design portfolio!"
+          }
+        ]
+      }
+    },
+    {
       "id": "1",
       "title": "LEICA Q3",
       "category": "gameart",
