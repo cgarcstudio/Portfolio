@@ -761,7 +761,8 @@
           "public/image/arch/products/decoration/ds54/preview3.webp",
           "public/image/arch/products/decoration/ds54/preview4.webp",
           "public/image/arch/products/decoration/ds54/preview5.webp",
-          "public/image/arch/products/decoration/ds54/preview6.webp"
+          "public/image/arch/products/decoration/ds54/preview6.webp",
+          "public/image/arch/products/decoration/ds54/preview7.webp"
         ],
         "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 159 MB\nPolygons: 372K\nStyle: Modern\nMaterials: Wood, Stone\nPolys: 372975\nVerts: 371915\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
       }
