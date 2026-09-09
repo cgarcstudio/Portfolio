@@ -2006,6 +2006,48 @@
       }
     },
     {
+      "id": "kah_18",
+      "title": "SAMSUNG-Undercabinet Hood 76cm",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/hood/h18/preview1.webp",
+      "details": {
+        "page_title": "SAMSUNG-Undercabinet Hood 76cm",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/samsung-undercabinet-hood-76cm",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/hood/h18/preview1.webp",
+          "public/image/arch/products/kitchen_app/hood/h18/preview2.webp",
+          "public/image/arch/products/kitchen_app/hood/h18/preview3.webp",
+          "public/image/arch/products/kitchen_app/hood/h18/preview4.webp",
+          "public/image/arch/products/kitchen_app/hood/h18/preview5.webp",
+          "public/image/arch/products/kitchen_app/hood/h18/preview6.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 5 MB\nPolygons: 29K\nStyle: Modern\nMaterials: Metal\nPolys: 29876\nVerts: 32102\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kah_17",
+      "title": "SAMSUNG-Chimney Hood 76cm",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/hood/h17/preview1.webp",
+      "details": {
+        "page_title": "SAMSUNG-Chimney Hood 76cm",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/samsung-chimney-hood-76cm",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/hood/h17/preview1.webp",
+          "public/image/arch/products/kitchen_app/hood/h17/preview2.webp",
+          "public/image/arch/products/kitchen_app/hood/h17/preview3.webp",
+          "public/image/arch/products/kitchen_app/hood/h17/preview4.webp",
+          "public/image/arch/products/kitchen_app/hood/h17/preview5.webp",
+          "public/image/arch/products/kitchen_app/hood/h17/preview6.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 15 MB\nPolygons: 94K\nStyle: Modern\nMaterials: Metal\nPolys: 94250\nVerts: 102744\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "kaset_1",
       "title": "Bosch Appliance Collection 01",
       "category": "kitchenappliance",
