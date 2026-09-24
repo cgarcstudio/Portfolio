@@ -1683,6 +1683,28 @@
       }
     },
     {
+      "id": "k_16",
+      "title": "Kitchen 16",
+      "category": "kitchen",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen/k16/preview1.webp",
+      "details": {
+        "page_title": "Kitchen 16",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/the-modular-kitchen-01-1",
+        "gallery": [
+          "public/image/arch/products/kitchen/k16/preview1.webp",
+          "public/image/arch/products/kitchen/k16/preview2.webp",
+          "public/image/arch/products/kitchen/k16/preview3.webp",
+          "public/image/arch/products/kitchen/k16/preview4.webp",
+          "public/image/arch/products/kitchen/k16/preview5.webp",
+          "public/image/arch/products/kitchen/k16/preview6.webp",
+          "public/image/arch/products/kitchen/k16/preview7.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 66 MB\nPolygons: 184K\nStyle: Modern\nMaterials: Metal, Wood\nPolys: 184102\nVerts: 192612\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nExperience ultimate flexibility with our fully modular kitchens.\nEach cabinet is crafted in multiple sizes and modular components, designed specifically for seamless scalability.\nThis makes it incredibly easy to expand and adapt your kitchen to match your exact space requirements.I hope you enjoy"
+      }
+    },
+    {
       "id": "k_1",
       "title": "Kitchen 01",
       "category": "kitchen",
