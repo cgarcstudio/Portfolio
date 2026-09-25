@@ -245,7 +245,7 @@ body.arch-page .modal-close-btn { color: var(--accent-arch); }
 }
 body.arch-page .modal-title { color: var(--accent-arch); border-bottom-color: rgba(0, 180, 216, 0.2); }
 
-.modal-text-content { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9); direction: ltr; text-align: left; display: flex; flex-direction: column; gap: 20px; }
+.modal-text-content { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9); direction: ltr; text-align: justify; display: flex; flex-direction: column; gap: 20px; }
 .modal-subtitle { color: var(--accent-game); font-family: var(--font-main); font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px; }
 body.arch-page .modal-subtitle { color: var(--accent-arch); }
 .modal-text-content h4 { font-family: var(--font-main); color: #ffffff; font-size: 1.15rem; letter-spacing: 1px; margin-top: 15px; text-transform: uppercase; }
