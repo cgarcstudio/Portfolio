@@ -45,7 +45,7 @@
   "projects": [
     {
       "id": "8",
-      "title": "AeroPod Vehicle Concept-Full Tutorial",
+      "title": "AeroPod Vehicle Concept",
       "category": "gameart",
       "type": "FULL TUTORIAL",
       "image": "public/image/game/covers/aeropod_cover.webp",
@@ -54,7 +54,7 @@
         "page_title": "AeroPod Vehicle Concept-Full Tutorial",
         "page_subtitle": "Hard-Surface - Blender Tutorial",
         "buy_link": "https://superhivemarket.com/products/aeropod-vehicle-concept-full-tutorial",
-        "video_link": "https://youtu.be/t-iuvJx-OwA",
+        "video_link": "https://www.youtube.com/embed/t-iuvJx-OwA",
         "button_text": "BUY TUTORIAL",
         "gallery": [
           "public/image/game/products/aeropod/preview01.webp",
