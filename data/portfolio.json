@@ -44,6 +44,89 @@
 
   "projects": [
     {
+      "id": "8",
+      "title": "AeroPod Vehicle Concept-Full Tutorial",
+      "category": "gameart",
+      "type": "FULL TUTORIAL",
+      "image": "public/image/game/covers/aeropod_cover.webp",
+      "url": "product.html?id=7",
+      "details": {
+        "page_title": "AeroPod Vehicle Concept-Full Tutorial",
+        "page_subtitle": "Hard-Surface - Blender Tutorial",
+        "buy_link": "https://superhivemarket.com/products/aeropod-vehicle-concept-full-tutorial",
+        "video_link": "https://youtu.be/t-iuvJx-OwA",
+        "button_text": "BUY TUTORIAL",
+        "gallery": [
+          "public/image/game/products/aeropod/preview01.webp",
+          "public/image/game/products/aeropod/preview02.webp",
+          "public/image/game/products/aeropod/preview03.webp",
+          "public/image/game/products/aeropod/preview04.webp",
+          "public/image/game/products/aeropod/preview05.webp",
+          "public/image/game/products/aeropod/preview06.webp",
+          "public/image/game/products/aeropod/preview07.webp",
+          "public/image/game/products/aeropod/preview08.webp",
+          "public/image/game/products/aeropod/preview09.webp",
+          "public/image/game/products/aeropod/preview10.webp"
+        ],
+        "features": [
+          "⏱️ Total Duration: 12 Hours, 47 Minutes",
+          "▫️ Format: Real-time screen recording with shortcut display",
+          "▫️ Audio: Unnarrated (Smooth Background Music)",
+          "▫️ Skill Level: Upper-Intermediate (Prerequisite: Basic software knowledge)",
+          "🎮 Software/Add-ons: Blender only (Blender 5.2, no third-party add-ons)/ photopea.com"
+        ],
+        "specifications": [
+          "▫️ Topology: Clean, Quad-Based Mesh",
+          "🖼️ Textures: 4K/2K Resolution, JPG (8-bit)",
+          "🗺️ UVs: Fully Unwrapped workflow",
+          "📊 Vertices: 217,341 | Edges: 431,100",
+          "📊 Faces: 213,892 | Triangles: 427,072"
+        ],
+        "overview": [
+          {
+            "type": "paragraph",
+            "content": "Ready to level up your 3D automotive and hard-surface skills? This 12.75-hour, step-by-step tutorial guides you through building the AeroPod concept vehicle from scratch using Blender only—with zero external third-party software and zero paid or extra add-ons. Whether you want to refine your hard-surface workflow or see how an entire end-to-end vehicle pipeline is handled natively inside Blender, this course gives you a clear, practical blueprint."
+          },
+          {
+            "type": "warning",
+            "content": "⚠️ IMPORTANT NOTE: This is a purely visual, real-time walkthrough. There is no voice narration or subtitles. You get full screen recordings in real time (no speed-ups) with an on-screen shortcut viewer showing every keypress."
+          },
+          {
+            "type": "heading",
+            "content": "🚀 Why Choose This Tutorial?"
+          },
+          {
+            "type": "paragraph",
+            "content": "1️⃣ <strong>100% Pure Blender & Zero Extra Add-ons:</strong> The entire workflow—from modeling and UV unwrapping to shading/texturing and rendering—is done natively inside Blender without relying on external apps or third-party add-ons.<br>2️⃣ <strong>100% Real-Time & Transparent:</strong> Watch the entire process uninterrupted. You will see every click, edge split, loop flow, and topology adjustment as it happens.<br>3️⃣ <strong>Sleek Automotive & Aerodynamic Forms:</strong> Learn how to construct flowing vehicle bodywork, aerodynamic intakes, cockpit glazing, wheels, and mechanical details with clean surface continuity.<br>4️⃣ <strong>Complete End-to-End Pipeline:</strong> Follow a cohesive workflow inside a single software environment: Modeling → UV Unwrapping → Materials & Texturing → Rendering.<br>5️⃣ <strong>Production-Ready Standards:</strong> Build clean, well-structured topology and organized UVs suited for portfolio showcases and further look-dev.<br>6️⃣ <strong>Portfolio-Ready Output:</strong> By the end, you’ll have a detailed futuristic vehicle asset ready to feature in your portfolio."
+          },
+          {
+            "type": "heading",
+            "content": "📂 What You Will Learn:"
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>1. Modeling (Blender 4.2) | 66 Parts | ~18 Hours</strong><br>Start from basic shapes and build up complex mechanical details layer by layer. Master boolean cleanup, surface curvature, and clean quad workflows."
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>2. UV Unwrapping (RizomUV) | 6 Parts | ~2 Hours</strong><br>Learn smart unwrapping for dense meshes. Use RizomUV and material linking to optimize texel density, set up UDIMs, and avoid blurry textures."
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>3. Texturing (Substance Painter 12.1) | 7 Parts | ~2 Hours</strong><br>Bring the robot to life with realistic wear, custom decals (included), and clean detail work for a photorealistic finish."
+          },
+          {
+            "type": "paragraph",
+            "content": "<strong>4. Lighting & Rendering (Blender & Marmoset Toolbag 5) | 3 Parts | ~45 Minutes</strong><br>Export 4K textures and Set up professional studio lighting and cameras to highlight mechanical details and create clean renders."
+          },
+          {
+            "type": "paragraph",
+            "content": "Elevate your hard-surface workflow today. We look forward to seeing how you apply these professional mindsets to your own digital design portfolio!"
+          }
+        ]
+      }
+    },
+    {
       "id": "7",
       "title": "The Life Saver A.R.E.S-Viii Robot",
       "category": "gameart",
