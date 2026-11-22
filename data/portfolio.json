@@ -101,23 +101,23 @@
           },
           {
             "type": "heading",
-            "content": "📂 What You Will Learn:"
+            "content": "📂 Course Breakdown:"
           },
           {
             "type": "paragraph",
-            "content": "<strong>1. Modeling (Blender 4.2) | 66 Parts | ~18 Hours</strong><br>Start from basic shapes and build up complex mechanical details layer by layer. Master boolean cleanup, surface curvature, and clean quad workflows."
+            "content": "<strong>1. Modeling (Blender) | 31 Lessons | ~10 Hours:</strong><br>Build the AeroPod step by step from foundational forms to refined exterior bodywork, interior/cockpit elements, wheels, and clean topology."
           },
           {
             "type": "paragraph",
-            "content": "<strong>2. UV Unwrapping (RizomUV) | 6 Parts | ~2 Hours</strong><br>Learn smart unwrapping for dense meshes. Use RizomUV and material linking to optimize texel density, set up UDIMs, and avoid blurry textures."
+            "content": "<strong>2. UV Unwrapping (Blender) | 4 Lessons | ~1 Hour 20 Minutes:</strong><br> Unwrap and organize the vehicle parts cleanly inside Blender for consistent texturing and shading."
           },
           {
             "type": "paragraph",
-            "content": "<strong>3. Texturing (Substance Painter 12.1) | 7 Parts | ~2 Hours</strong><br>Bring the robot to life with realistic wear, custom decals (included), and clean detail work for a photorealistic finish."
+            "content": "<strong>3. Materials & Texturing (Blender) | 4 Lessons | ~1 Hour:</strong><br> Set up car paints, carbon-fiber/metallic surfaces, glass, lighting accents, and procedural/image materials natively in Blender."
           },
           {
             "type": "paragraph",
-            "content": "<strong>4. Lighting & Rendering (Blender & Marmoset Toolbag 5) | 3 Parts | ~45 Minutes</strong><br>Export 4K textures and Set up professional studio lighting and cameras to highlight mechanical details and create clean renders."
+            "content": "<strong>4. Rendering (Blender) | 1 Lesson | ~18 Minutes:</strong><br> Configure lighting, cameras, and render settings to present the vehicle cleanly."
           },
           {
             "type": "paragraph",
