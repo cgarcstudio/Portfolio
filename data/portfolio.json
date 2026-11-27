@@ -2194,6 +2194,47 @@
       }
     },
     {
+      "id": "kaset_12",
+      "title": "SAMSUNG Appliance Collection 02",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/set/set12/preview1.webp",
+      "details": {
+        "page_title": "SAMSUNG Appliance Collection 02",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/samsung-appliance-collection-02",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/set/set12/preview1.webp",
+          "public/image/arch/products/kitchen_app/set/set12/preview2.webp",
+          "public/image/arch/products/kitchen_app/set/set12/preview3.webp",
+          "public/image/arch/products/kitchen_app/set/set12/preview4.webp",
+          "public/image/arch/products/kitchen_app/set/set12/preview5.webp",
+          "public/image/arch/products/kitchen_app/set/set12/preview6.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 35 MB\nPolygons: 117K\nStyle: Modern\nMaterials: Metal, Glass\nPolys: 117800\nVerts: 124077\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
+      "id": "kaset_11",
+      "title": "SAMSUNG Appliance Collection 01",
+      "category": "kitchenappliance",
+      "type": "3D Asset - Pack",
+      "image": "public/image/arch/products/kitchen_app/set/set11/preview1.webp",
+      "details": {
+        "page_title": "SAMSUNG Appliance Collection 01",
+        "page_subtitle": "Premium high-poly asset for high-end interior staging",
+        "buy_link": "https://3dsky.org/3dmodels/show/samsung-appliance-collection-01",
+        "gallery": [
+          "public/image/arch/products/kitchen_app/set/set11/preview1.webp",
+          "public/image/arch/products/kitchen_app/set/set11/preview2.webp",
+          "public/image/arch/products/kitchen_app/set/set11/preview3.webp",
+          "public/image/arch/products/kitchen_app/set/set11/preview4.webp",
+          "public/image/arch/products/kitchen_app/set/set11/preview5.webp"
+        ],
+        "description": "Platform: 3dsMax 2017 + obj\nRender: V-Ray/Corona\nSize: 56 MB\nPolygons: 128K\nStyle: Modern\nMaterials: Metal, Plastic\nPolys: 128320\nVerts: 135708\nhigh quality texture : yes\nmaterial: yes\nUnwrapping: yes\nCorrect naming: yes\nCorrect mesh: quad\nI hope you enjoy"
+      }
+    },
+    {
       "id": "kaset_1",
       "title": "Bosch Appliance Collection 01",
       "category": "kitchenappliance",
